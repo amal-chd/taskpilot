@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/200"
+      "destination": "/200.html"
     }
   ],
   "headers": [
@@ -53,6 +53,5 @@
       ]
     }
   ],
-  "cleanUrls": true,
   "trailingSlash": false
 }
