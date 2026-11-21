@@ -34,7 +34,7 @@ export const FEATURES: FeatureItem[] = [
     desc: 'Tamper-proof mobile check-in and check-out validated against the exact site perimeter, eliminating proxy attendance and buddy punching.',
     fullDesc: 'Field supervisors and engineers check in via the mobile app with location coordinates locked at the exact moment of punch-in. Unlike battery-draining continuous trackers, Task Pilot captures point-in-time coordinates and matches them to your configured site radius.',
     category: 'field',
-    keyBenefits: ['Perimeter radius validation with spoof detection', 'Live dashboard showing who is on each site right now', '8-hour standard workday tracking with automatic overtime hours', 'One-click payroll Excel export'],
+    keyBenefits: ['Perimeter radius validation with fake-GPS blocking on Android', 'Live dashboard showing who is on each site right now', '8-hour standard workday tracking with automatic overtime hours', 'One-click payroll Excel export'],
     userRoles: ['Site Engineer', 'Foreman', 'Labour', 'Admin'],
   },
   {
@@ -251,7 +251,7 @@ export const INDUSTRIES: IndustryData[] = [
     summary: 'General contracting involves coordinating hundreds of skilled trades, managing tight pouring schedules, monitoring material drops, and maintaining rigorous safety records across multiple projects. Task Pilot connects your field supervisors with the head office in real time.',
     pains: [
       'Site progress updates buried in unsearchable WhatsApp group chats',
-      'No tamper-proof record of contractor headcounts or daily attendance',
+      'No location-verified record of contractor headcounts or daily attendance',
       'Subcontractor cost overruns discovered only at the monthly bill review',
       'Structural inspections missed because checklists were kept on paper',
     ],
@@ -518,7 +518,7 @@ export const COMPARISON: { row: string; tp: string | boolean; global: string | b
   { row: 'Pre-pour checklists, inspections & punch lists', tp: true, global: true, generic: false, manual: false },
   { row: 'Interactive Gantt timeline & milestone dependencies', tp: true, global: true, generic: 'Partial', manual: false },
   { row: 'Petty cash expenses, leave & salary slips', tp: true, global: false, generic: false, manual: 'Spreadsheets' },
-  { row: 'Pricing in INR with GST input tax invoices', tp: true, global: false, generic: 'Partial', manual: true },
+  { row: 'Global multi-currency billing (USD, EUR, GBP, AED, INR) with tax receipts', tp: true, global: 'USD only', generic: 'Partial', manual: true },
   { row: 'Flat predictable team pricing (not per-seat)', tp: true, global: false, generic: false, manual: true },
   { row: 'Self-serve setup in under 10 minutes', tp: true, global: false, generic: true, manual: true },
   { row: 'Full 14-day free trial without credit card', tp: true, global: false, generic: true, manual: true },
@@ -530,8 +530,8 @@ export const FAQS = [
     a: 'No credit card or payment information is required. You get full access to all modules in your selected plan tier immediately upon signing up so you can test Task Pilot on your live project sites.',
   },
   {
-    q: 'How does billing and invoicing work?',
-    a: 'Subscriptions are billed monthly or annually in INR through Razorpay. We support UPI AutoPay, credit/debit cards, and netbanking e-mandates. All prices include 18% GST, and tax invoices are automatically generated with your company GSTIN for full input tax credit.',
+    q: 'How does global billing, multi-currency, and invoicing work?',
+    a: 'Subscriptions are billed monthly or annually in your preferred currency (USD, EUR, GBP, AED, CAD, AUD, or INR). We accept all major international credit and debit cards, SEPA, UPI AutoPay, and corporate wire transfers. Automated tax invoices compliant with GST, VAT, and international corporate expense regulations are delivered to your billing contacts.',
   },
   {
     q: 'Why do you charge flat team pricing instead of per-user seats?',
@@ -551,7 +551,7 @@ export const FAQS = [
   },
   {
     q: 'Is our project data, drawings, and rates kept secure and private?',
-    a: 'Absolutely. Every company workspace operates inside a strictly isolated, tenant-partitioned database environment. Drawings, tenders, contractor rates, and financial reports are protected by 256-bit AES encryption at rest and in transit.',
+    a: 'Yes. Each company gets its own workspace: every record is tagged to your organisation and database access rules only return your company\'s data. Data is encrypted in transit (HTTPS) and at rest by our hosting providers, every key action is logged in an audit trail, and owners can export or delete their workspace data at any time.',
   },
   {
     q: 'What happens if we decide to change plans or cancel?',
@@ -559,4 +559,4 @@ export const FAQS = [
   },
 ];
 
-export const PRICING_NOTE = 'Prices in INR, inclusive of 18% GST. Billed securely via Razorpay with tax invoices.';
+export const PRICING_NOTE = 'Billed securely in your selected currency. Includes automated tax invoices (GST, VAT, Sales Tax compliant). 14-day full free trial on all plans.';

@@ -14,7 +14,6 @@ const PrivacyPolicyPage = React.lazy(() => import('./pages/landing/PrivacyPolicy
 const TermsOfUsePage = React.lazy(() => import('./pages/landing/TermsOfUsePage'));
 const DashboardPage = React.lazy(() => import('./pages/dashboard/DashboardPage'));
 const LoginPage = React.lazy(() => import('./pages/auth/LoginPage'));
-const SetupPage = React.lazy(() => import('./pages/auth/SetupPage'));
 const TasksPage = React.lazy(() => import('./pages/tasks/TasksPage'));
 const TaskDetailPage = React.lazy(() => import('./pages/tasks/TaskDetailPage'));
 const CreateTaskPage = React.lazy(() => import('./pages/tasks/CreateTaskPage'));
@@ -48,7 +47,15 @@ const FieldManualPage = React.lazy(() => import('./pages/manual/FieldManualPage'
 const ProductHomePage = React.lazy(() => import('./pages/saas/marketing/ProductHomePage'));
 const PricingPage = React.lazy(() => import('./pages/saas/marketing/PricingPage'));
 const FeaturesPage = React.lazy(() => import('./pages/saas/marketing/FeaturesPage').then((m) => ({ default: m.FeaturesPage })));
+const FeatureDetailPage = React.lazy(() => import('./pages/saas/marketing/features/FeatureDetailPage'));
 const IndustryPage = React.lazy(() => import('./pages/saas/marketing/FeaturesPage').then((m) => ({ default: m.IndustryPage })));
+const HowItWorksPage = React.lazy(() => import('./pages/saas/marketing/HowItWorksPage'));
+const FaqPage = React.lazy(() => import('./pages/saas/marketing/FaqPage'));
+const ComparisonHubPage = React.lazy(() => import('./pages/saas/marketing/compare/ComparisonHubPage'));
+const ComparisonDetailPage = React.lazy(() => import('./pages/saas/marketing/compare/ComparisonDetailPage'));
+const BestConstructionSoftwarePage = React.lazy(() => import('./pages/saas/marketing/compare/BestConstructionSoftwarePage'));
+const BlogHubPage = React.lazy(() => import('./pages/saas/marketing/resources/BlogHubPage'));
+const BlogPostPage = React.lazy(() => import('./pages/saas/marketing/resources/BlogPostPage'));
 const ContactSalesPage = React.lazy(() => import('./pages/saas/marketing/ContactSalesPage'));
 const RegisterPage = React.lazy(() => import('./pages/saas/RegisterPage'));
 const InvitePage = React.lazy(() => import('./pages/saas/InvitePage'));
@@ -62,6 +69,8 @@ const LabourPage = React.lazy(() => import('./pages/construction/LabourPage'));
 const InspectionsPage = React.lazy(() => import('./pages/construction/InspectionsPage'));
 const TimelinePage = React.lazy(() => import('./pages/construction/TimelinePage'));
 const NotFoundPage = React.lazy(() => import('./pages/misc/NotFoundPage'));
+const StatusPage = React.lazy(() => import('./pages/misc/StatusPage'));
+const SecurityPage = React.lazy(() => import('./pages/saas/marketing/SecurityPage'));
 const PlatformConsole = React.lazy(() => import('./pages/platform/PlatformConsole'));
 
 import Spinner from './components/ui/Spinner';
@@ -164,15 +173,25 @@ function App() {
           <Routes>
             {/* Marketing & Landing */}
             <Route path="/" element={<ProductHomePage />} />
-            <Route path="/company" element={<LandingPage />} />
+            <Route path="/company" element={<Navigate to="/about" replace />} />
             <Route path="/about" element={<LandingPage />} />
 
             {/* SaaS marketing & onboarding */}
-            <Route path="/product" element={<ProductHomePage />} />
+            <Route path="/product" element={<Navigate to="/" replace />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/features/:slug" element={<FeatureDetailPage />} />
+            <Route path="/how-it-works" element={<HowItWorksPage />} />
+            <Route path="/faq" element={<FaqPage />} />
             <Route path="/industries/:slug" element={<IndustryPage />} />
+            <Route path="/compare" element={<ComparisonHubPage />} />
+            <Route path="/compare/best-construction-management-software" element={<BestConstructionSoftwarePage />} />
+            <Route path="/compare/:slug" element={<ComparisonDetailPage />} />
+            <Route path="/resources" element={<Navigate to="/blog" replace />} />
+            <Route path="/blog" element={<BlogHubPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact-sales" element={<ContactSalesPage />} />
+            <Route path="/contact" element={<Navigate to="/contact-sales" replace />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/signup" element={<Navigate to="/register" replace />} />
             <Route path="/onboarding" element={<OnboardingRoute />} />
@@ -181,7 +200,9 @@ function App() {
 
             {/* Public Auth */}
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/setup" element={<SetupPage />} />
+            <Route path="/setup" element={<Navigate to="/register" replace />} />
+            <Route path="/status" element={<StatusPage />} />
+            <Route path="/security" element={<SecurityPage />} />
             <Route path="/policy" element={<PrivacyPolicyPage />} />
             <Route path="/privacy-policy" element={<Navigate to="/policy" replace />} />
             <Route path="/terms" element={<TermsOfUsePage />} />

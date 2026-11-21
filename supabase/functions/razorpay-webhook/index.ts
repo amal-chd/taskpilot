@@ -12,7 +12,17 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "npm:@supabase/supabase-js@2.45.4";
 
 const sb = createClient(Deno.env.get("SUPABASE_URL") ?? "", Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "", { auth: { persistSession: false } });
-const SECRET = Deno.env.get("RAZORPAY_WEBHOOK_SECRET") ?? "";
+
+async function getWebhookSecret(): Promise<string> {
+  let secret = Deno.env.get("RAZORPAY_WEBHOOK_SECRET") ?? "";
+  if (!secret) {
+    try {
+      const row = await sb.from("platform_settings").select("value").eq("key", "razorpay").maybeSingle();
+      if (row.data?.value?.webhook_secret) secret = String(row.data.value.webhook_secret).trim();
+    } catch (_) { /* ignore */ }
+  }
+  return secret;
+}
 
 async function hmacHex(secret: string, message: string) {
   const key = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
@@ -31,8 +41,9 @@ serve(async (req) => {
   if (req.method !== "POST") return new Response("Method not allowed", { status: 405 });
   const raw = await req.text();
   const signature = req.headers.get("x-razorpay-signature") ?? "";
-  if (!SECRET) return new Response("Webhook secret not configured", { status: 500 });
-  const expected = await hmacHex(SECRET, raw);
+  const secret = await getWebhookSecret();
+  if (!secret) return new Response("Webhook secret not configured", { status: 500 });
+  const expected = await hmacHex(secret, raw);
   let diff = signature.length ^ expected.length;
   for (let i = 0; i < Math.min(signature.length, expected.length); i++) diff |= signature.charCodeAt(i) ^ expected.charCodeAt(i);
   if (diff !== 0) {

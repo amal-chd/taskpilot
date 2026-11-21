@@ -84,7 +84,7 @@ const AssetDetailPage: React.FC = () => {
       {/* Valuation */}
       <div className="bg-white rounded-2xl border border-slate-200 p-5 mb-4">
         <h3 className="font-extrabold text-slate-900 mb-3">Valuation</h3>
-        <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className="grid grid-cols-1 xs:grid-cols-3 gap-3 mb-4">
           <Stat label="Purchase" value={money(asset.purchaseCost || 0)} />
           <Stat label="Book value" value={money(bookValue(asset))} accent />
           <Stat label="Salvage" value={money(asset.salvageValue || 0)} />

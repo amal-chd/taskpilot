@@ -8,7 +8,30 @@ import { useAuthStore } from '../../store/authStore';
 import { saasApi } from '../../lib/saasApi';
 import { useTenantStore } from '../../lib/tenant';
 import { INDUSTRIES } from './marketing/content';
-import { usePlans } from './marketing/PricingPage';
+import { usePlans, CURRENCY_OPTIONS } from './marketing/PricingPage';
+
+const COUNTRIES = [
+  { code: 'US', name: 'United States', currency: 'USD' },
+  { code: 'GB', name: 'United Kingdom', currency: 'GBP' },
+  { code: 'AE', name: 'United Arab Emirates', currency: 'AED' },
+  { code: 'SA', name: 'Saudi Arabia', currency: 'USD' },
+  { code: 'CA', name: 'Canada', currency: 'CAD' },
+  { code: 'AU', name: 'Australia', currency: 'AUD' },
+  { code: 'IN', name: 'India', currency: 'INR' },
+  { code: 'SG', name: 'Singapore', currency: 'USD' },
+  { code: 'QA', name: 'Qatar', currency: 'USD' },
+  { code: 'DE', name: 'Germany', currency: 'EUR' },
+  { code: 'FR', name: 'France', currency: 'EUR' },
+  { code: 'NL', name: 'Netherlands', currency: 'EUR' },
+  { code: 'IE', name: 'Ireland', currency: 'EUR' },
+  { code: 'ZA', name: 'South Africa', currency: 'USD' },
+  { code: 'NZ', name: 'New Zealand', currency: 'AUD' },
+  { code: 'MY', name: 'Malaysia', currency: 'USD' },
+  { code: 'PH', name: 'Philippines', currency: 'USD' },
+  { code: 'KE', name: 'Kenya', currency: 'USD' },
+  { code: 'NG', name: 'Nigeria', currency: 'USD' },
+  { code: 'OTHER', name: 'Other International', currency: 'USD' },
+];
 
 const input = 'w-full h-11 px-3 rounded-lg border border-slate-300 bg-white focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 outline-none text-sm';
 
@@ -29,21 +52,37 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
   const navigate = useNavigate();
   const { firebaseUser, appUser, initialized } = useAuthStore();
   const platformRole = useTenantStore((s) => s.platformRole);
-  const isPlatformAdmin = Boolean(
-    platformRole ||
-    firebaseUser?.email === 'admin@taskpilot.app' ||
-    firebaseUser?.email === 'thekadaapp@gmail.com'
-  );
+  // Platform access is decided server-side (verified email in platform_admins).
+  const isPlatformAdmin = Boolean(platformRole);
   const { plans } = usePlans();
 
   const [step, setStep] = useState<'account' | 'company'>(firebaseUser ? 'company' : 'account');
   const [mode, setMode] = useState<'signup' | 'signin'>('signup');
   const [busy, setBusy] = useState(false);
   const [acct, setAcct] = useState({ name: '', email: '', password: '' });
+  const detectedTz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  const defaultCountryCode = detectedTz.includes('Calcutta') || detectedTz.includes('Kolkata') || detectedTz.includes('India') ? 'IN' : 'US';
+
   const [co, setCo] = useState({
-    orgName: '', industry: 'construction', companySize: '11-50', phone: '', country: 'IN',
-    planId: params.get('plan') || 'professional', billingCycle: (params.get('cycle') as 'monthly' | 'yearly') || 'monthly',
+    orgName: '',
+    industry: 'construction',
+    companySize: '11-50',
+    phone: '',
+    country: defaultCountryCode,
+    currency: params.get('currency') || (defaultCountryCode === 'IN' ? 'INR' : 'USD'),
+    timezone: detectedTz,
+    planId: params.get('plan') || 'professional',
+    billingCycle: (params.get('cycle') as 'monthly' | 'yearly') || 'monthly',
   });
+
+  const onCountryChange = (cCode: string) => {
+    const match = COUNTRIES.find((c) => c.code === cCode);
+    setCo((prev) => ({
+      ...prev,
+      country: cCode,
+      currency: prev.currency || match?.currency || 'USD',
+    }));
+  };
 
   useEffect(() => { if (firebaseUser) setStep('company'); }, [firebaseUser]);
   // Already in a workspace → straight to the app.
@@ -89,7 +128,11 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       <header className="h-16 px-4 sm:px-6 flex items-center justify-between max-w-6xl w-full mx-auto">
-        <Link to="/" className="flex items-center gap-2 font-bold"><img src="/logo.png" alt="" className="w-8 h-8 rounded-lg" />Task Pilot</Link>
+        <Link to="/" className="flex items-center gap-2 font-bold">
+          <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded-lg" />
+          <span>Task Pilot</span>
+          <span className="text-xs text-slate-400 font-normal hidden sm:inline">· by Thekada Digital Ventures Pvt Ltd</span>
+        </Link>
         {!firebaseUser && <Link to="/login" className="text-sm font-medium text-slate-600 hover:text-slate-900">Sign in</Link>}
       </header>
       <main className="flex-1 flex items-start justify-center px-4 pb-16 pt-6">
@@ -143,6 +186,16 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
                 )}
                 <label className="block text-sm font-medium">Company name<input required minLength={2} value={co.orgName} onChange={(e) => setCo({ ...co, orgName: e.target.value })} className={`${input} mt-1`} autoComplete="organization" /></label>
                 <div className="grid sm:grid-cols-2 gap-4">
+                  <label className="block text-sm font-medium">Country / Region
+                    <select value={co.country} onChange={(e) => onCountryChange(e.target.value)} className={`${input} mt-1`}>
+                      {COUNTRIES.map((c) => <option key={c.code} value={c.code}>{c.name}</option>)}
+                    </select>
+                  </label>
+                  <label className="block text-sm font-medium">Currency
+                    <select value={co.currency} onChange={(e) => setCo({ ...co, currency: e.target.value })} className={`${input} mt-1`}>
+                      {CURRENCY_OPTIONS.map((c) => <option key={c.code} value={c.code}>{c.label}</option>)}
+                    </select>
+                  </label>
                   <label className="block text-sm font-medium">Industry
                     <select value={co.industry} onChange={(e) => setCo({ ...co, industry: e.target.value })} className={`${input} mt-1`}>
                       {INDUSTRIES.map((i) => <option key={i.slug} value={i.slug}>{i.name}</option>)}
@@ -154,7 +207,7 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
                       {['1-10', '11-50', '51-200', '200+'].map((x) => <option key={x}>{x}</option>)}
                     </select>
                   </label>
-                  <label className="block text-sm font-medium">Phone<input value={co.phone} onChange={(e) => setCo({ ...co, phone: e.target.value })} className={`${input} mt-1`} autoComplete="tel" /></label>
+                  <label className="block text-sm font-medium">Work Phone / WhatsApp<input value={co.phone} onChange={(e) => setCo({ ...co, phone: e.target.value })} placeholder="+1 / +44 / +971 / +91 ..." className={`${input} mt-1`} autoComplete="tel" /></label>
                   <label className="block text-sm font-medium">Plan to trial
                     <select value={co.planId} onChange={(e) => setCo({ ...co, planId: e.target.value })} className={`${input} mt-1`}>
                       {(plans ?? []).filter((p) => !p.is_custom_pricing).map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
@@ -171,6 +224,9 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
                 <p className="text-xs text-slate-500 text-center">Were you invited by your company? Open the invitation link your admin shared instead.</p>
               </form>
             )}
+            <p className="text-center text-slate-400 text-xs mt-6">
+              © {new Date().getFullYear()} Task Pilot · A product by Thekada Digital Ventures Pvt Ltd
+            </p>
           </div>
         </div>
       </main>

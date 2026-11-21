@@ -102,8 +102,8 @@ const ContactSalesPage: React.FC = () => {
               <div className="flex items-center gap-3 text-sm text-slate-700">
                 <Mail className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>Direct Email:{' '}
-                  <a href="mailto:sales@taskpilot.app" className="font-semibold text-slate-900 hover:text-amber-600 underline">
-                    sales@taskpilot.app
+                  <a href="mailto:info@thekada.in" className="font-semibold text-slate-900 hover:text-amber-600 underline">
+                    info@thekada.in
                   </a>
                 </span>
               </div>

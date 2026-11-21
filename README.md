@@ -2,6 +2,7 @@
 
 Construction Task Management & Field Operations Operating System — a web
 dashboard and a Flutter mobile app (iOS + Android) sharing one backend.
+**A product by Thekada Digital Ventures Pvt. Ltd.**
 
 - **Web** — React + Vite + TypeScript (`/src`)
 - **Mobile** — Flutter (`/mobile_app`, its own git repo)

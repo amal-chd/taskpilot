@@ -38,7 +38,7 @@ const TOPICS: ManualTopic[] = [
     blocks: [
       {
         type: 'paragraph',
-        text: 'Task Pilot is the unified project management and field operations platform for construction and field teams. Your account can be provisioned by your company administrator, or teams can start a self-serve workspace at taskpilot.app.'
+        text: 'Task Pilot is the unified project management and field operations platform for construction and field teams. Your account can be provisioned by your company administrator, or teams can start a self-serve workspace at taskpilot.thekada.in.'
       },
       {
         type: 'steps',
@@ -46,7 +46,7 @@ const TOPICS: ManualTopic[] = [
           '**Sign In**: Log in using your assigned corporate email and initial password provided by the administrator.',
           '**Grant Permissions**: On mobile, approve **Location** (necessary for site geofenced attendance) and **Notifications** (for task assignments and chat alerts).',
           '**Biometric Unlock**: On personal smartphones, enable Face ID or Fingerprint unlock in your Profile page for seamless 1-tap access without retyping passwords.',
-          '**Web Dashboard**: Access the full desktop management portal anytime at **https://taskpilot.app**.'
+          '**Web Dashboard**: Access the full desktop management portal anytime at **https://taskpilot.thekada.in**.'
         ]
       },
       {
@@ -345,7 +345,7 @@ const TOPICS: ManualTopic[] = [
         type: 'bullets',
         items: [
           '**On-Site Civil / Project Inquiries**: Contact your assigned **Project Manager** directly via the project chat channel.',
-          '**Password & Access Adjustments**: Request your department manager or email **support@taskpilot.app**.',
+          '**Password & Access Adjustments**: Request your department manager or email **info@thekada.in**.',
           '**Payroll & Expense Reconciliations**: Post questions to the **Accounts** team in the corporate chat.',
           '**Emergency Site Safety**: Call the safety officer or project director immediately.'
         ]
@@ -759,7 +759,8 @@ export default function FieldManualPage() {
         <footer className="bg-[#0f2143] py-10 border-t border-white/10 text-white/70 text-xs">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <div>
-              <p className="font-semibold text-white">Task Pilot Technologies</p>
+              <p className="font-semibold text-white">Task Pilot</p>
+              <p className="text-blue-100/70 text-[11px] font-medium">A product by Thekada Digital Ventures Pvt. Ltd.</p>
               <p className="text-blue-100/50 text-[11px] mt-0.5">Field Operations Guide & Standard Operating Procedures</p>
             </div>
             <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 text-blue-100/70">

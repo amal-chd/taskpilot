@@ -1,0 +1,23 @@
+{
+  "name": "Task Pilot — Construction & Field Operations OS",
+  "short_name": "Task Pilot",
+  "description": "Production-grade construction management and field operations operating system by Thekada Digital Ventures Pvt. Ltd.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

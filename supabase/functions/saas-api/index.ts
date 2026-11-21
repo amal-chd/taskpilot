@@ -11,7 +11,7 @@
 //
 //  Secrets (supabase secrets set …):
 //    FIREBASE_SERVICE_ACCOUNT, RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET,
-//    APP_URL (e.g. https://taskpilot.app)
+//    APP_URL (e.g. https://taskpilot.thekada.in)
 //  SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY are injected automatically.
 // ═══════════════════════════════════════════════════════════════════════════
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
@@ -30,8 +30,26 @@ const sb = createClient(
   { auth: { persistSession: false } },
 );
 
-const RZP_KEY_ID = Deno.env.get("RAZORPAY_KEY_ID") ?? "";
-const RZP_KEY_SECRET = Deno.env.get("RAZORPAY_KEY_SECRET") ?? "";
+// Razorpay configuration: resolves from Deno environment secrets, falling back
+// to platform_settings (key = 'razorpay') so platform administrators can also
+// configure keys directly via the Platform Console or SQL.
+async function getRazorpayConfig(): Promise<{ keyId: string; keySecret: string; webhookSecret: string }> {
+  let keyId = Deno.env.get("RAZORPAY_KEY_ID") ?? "";
+  let keySecret = Deno.env.get("RAZORPAY_KEY_SECRET") ?? "";
+  let webhookSecret = Deno.env.get("RAZORPAY_WEBHOOK_SECRET") ?? "";
+  if (!keyId || !keySecret) {
+    try {
+      const row = await sb.from("platform_settings").select("value").eq("key", "razorpay").maybeSingle();
+      if (row.data?.value) {
+        if (!keyId && row.data.value.key_id) keyId = String(row.data.value.key_id).trim();
+        if (!keySecret && row.data.value.key_secret) keySecret = String(row.data.value.key_secret).trim();
+        if (!webhookSecret && row.data.value.webhook_secret) webhookSecret = String(row.data.value.webhook_secret).trim();
+      }
+    } catch (_) { /* ignore */ }
+  }
+  return { keyId, keySecret, webhookSecret };
+}
+
 // Base URL for links we hand out (invitations). APP_URL wins when set;
 // otherwise use the https origin the admin is working on, so links always
 // point at the domain the product is actually served from.
@@ -97,12 +115,13 @@ function safeEqual(a: string, b: string) {
 }
 
 async function razorpay(path: string, method = "GET", body?: unknown) {
-  if (!RZP_KEY_ID || !RZP_KEY_SECRET) {
-    throw new HttpError(503, "Online payments are not configured yet. Please contact support to activate your plan.", "PAYMENTS_NOT_CONFIGURED");
+  const cfg = await getRazorpayConfig();
+  if (!cfg.keyId || !cfg.keySecret) {
+    throw new HttpError(503, "Online payments are not configured yet. Please configure Razorpay keys in Platform Console or test in sandbox mode.", "PAYMENTS_NOT_CONFIGURED");
   }
   const res = await fetch(`https://api.razorpay.com/v1${path}`, {
     method,
-    headers: { Authorization: "Basic " + btoa(`${RZP_KEY_ID}:${RZP_KEY_SECRET}`), "Content-Type": "application/json" },
+    headers: { Authorization: "Basic " + btoa(`${cfg.keyId}:${cfg.keySecret}`), "Content-Type": "application/json" },
     body: body ? JSON.stringify(body) : undefined,
   });
   const data = await res.json().catch(() => ({}));
@@ -161,9 +180,10 @@ async function platformRole(c: Caller): Promise<string | null> {
   if (!c.email) return null;
   const row = await q(sb.from("platform_admins").select("role, uid").eq("email", c.email).maybeSingle());
   if (!row) return null;
-  // Email must be proven (verified address, Google sign-in, or designated platform admin)
-  const isBootstrapAdmin = c.email === "admin@taskpilot.app" || c.email === "thekadaapp@gmail.com";
-  if (!isBootstrapAdmin && !c.emailVerified && c.signInProvider !== "google.com") return null;
+  // Email must be proven (verified address or Google sign-in) for EVERY
+  // platform admin — Firebase password sign-up does not prove ownership of an
+  // address, so an unverified account must never receive platform access.
+  if (!c.emailVerified && c.signInProvider !== "google.com") return null;
   if (!row.uid) await sb.from("platform_admins").update({ uid: c.uid }).eq("email", c.email);
   else if (row.uid !== c.uid) return null; // address re-registered by someone else
   return row.role;
@@ -186,8 +206,17 @@ async function membership(c: Caller, orgId?: string): Promise<Membership | null>
   const legacyOrg = u.orgId ?? "main";
   if (orgId && orgId !== legacyOrg) return null;
   if (u.isActive === false) return null;
-  await sb.from("org_members").upsert({ org_id: legacyOrg, user_uid: c.uid, email: c.email, name: u.name ?? null, role_id: u.roleId ?? null, status: "active" }, { onConflict: "org_id,user_uid" });
-  return { org_id: legacyOrg, role_id: u.roleId ?? null, is_owner: false, status: "active" };
+  const isOwner = u.roleId === "director" || u.roleId === "owner" || (typeof u.roleId === "string" && (u.roleId.endsWith("_owner") || u.roleId.toLowerCase().includes("owner")));
+  await sb.from("org_members").upsert({
+    org_id: legacyOrg,
+    user_uid: c.uid,
+    email: c.email,
+    name: u.name ?? null,
+    role_id: u.roleId ?? null,
+    status: "active",
+    is_owner: isOwner,
+  }, { onConflict: "org_id,user_uid" });
+  return { org_id: legacyOrg, role_id: u.roleId ?? null, is_owner: isOwner, status: "active" };
 }
 async function requireMember(c: Caller, orgId?: string) {
   const m = await membership(c, orgId);
@@ -196,10 +225,35 @@ async function requireMember(c: Caller, orgId?: string) {
 }
 async function rolePerms(roleId: string | null): Promise<{ level: number; perms: Record<string, boolean> }> {
   if (!roleId) return { level: 0, perms: {} };
+  // Check Supabase roles table first
   const r = await q(sb.from("roles").select("level, permissions").eq("id", roleId).maybeSingle());
-  return { level: r?.level ?? 0, perms: r?.permissions ?? {} };
+  if (r) return { level: r.level ?? 0, perms: r.permissions ?? {} };
+
+  // Fallback for legacy Firestore roles (e.g. 'director', custom IDs)
+  try {
+    const snap = await firebase().firestore().collection("roles").doc(roleId).get();
+    if (snap.exists) {
+      const data = snap.data() ?? {};
+      return { level: data.level ?? 0, perms: data.permissions ?? {} };
+    }
+  } catch (_) { /* ignore */ }
+
+  if (roleId === "director" || roleId === "owner" || roleId.endsWith("_owner")) {
+    return { level: 100, perms: ALL(PERMS_FULL) };
+  }
+  if (roleId === "admin" || roleId.endsWith("_admin")) {
+    return { level: 90, perms: { ...ALL(PERMS_FULL), projects_delete: false, chat_announce: false } };
+  }
+  return { level: 0, perms: {} };
 }
 async function requireOrgAdmin(c: Caller, orgId?: string, perm: "settings_manage" | "team_manage" = "settings_manage") {
+  // Platform admins always have administrator access over workspaces
+  const pRole = await platformRole(c);
+  if (pRole === "owner" || pRole === "admin") {
+    const m = await membership(c, orgId);
+    if (m) return m;
+    return { org_id: orgId ?? "main", role_id: "owner", is_owner: true, status: "active" };
+  }
   const m = await requireMember(c, orgId);
   if (m.is_owner) return m;
   const { level, perms } = await rolePerms(m.role_id);
@@ -228,6 +282,7 @@ async function orgContext(orgId: string) {
   }
   const lim = (k: string, planVal: number | null) =>
     org.limit_overrides?.[k] !== undefined ? Number(org.limit_overrides[k]) : planVal;
+  const rzpCfg = await getRazorpayConfig();
   return {
     org,
     plan,
@@ -239,7 +294,8 @@ async function orgContext(orgId: string) {
       max_storage_mb: org.is_legacy ? null : lim("max_storage_mb", plan?.max_storage_mb ?? null),
     },
     usage: { users: users ?? 0, projects: projects ?? 0, pending_invites: pendingInvites ?? 0 },
-    razorpayKeyId: RZP_KEY_ID || null,
+    razorpayKeyId: rzpCfg.keyId || null,
+    hasRazorpayKeys: !!(rzpCfg.keyId && rzpCfg.keySecret),
   };
 }
 
@@ -315,7 +371,8 @@ const actions: Record<string, Handler> = {
   async health() {
     const t0 = Date.now();
     const { error } = await sb.from("plans").select("id").limit(1);
-    return { ok: !error, db: error ? error.message : "ok", latencyMs: Date.now() - t0, time: new Date().toISOString(), payments: !!(RZP_KEY_ID && RZP_KEY_SECRET) };
+    const rzp = await getRazorpayConfig();
+    return { ok: !error, db: error ? error.message : "ok", latencyMs: Date.now() - t0, time: new Date().toISOString(), payments: !!(rzp.keyId && rzp.keySecret) };
   },
 
   // ── Session ──
@@ -406,9 +463,9 @@ const actions: Record<string, Handler> = {
       name, slug,
       industry: str(p.industry, 40) || "construction",
       company_size: str(p.companySize, 20) || null,
-      country: str(p.country, 2) || "IN",
-      currency: "INR",
-      timezone: str(p.timezone, 60) || "Asia/Kolkata",
+      country: str(p.country, 2)?.toUpperCase() || "US",
+      currency: str(p.currency, 3)?.toUpperCase() || (str(p.country, 2) === "IN" ? "INR" : "USD"),
+      timezone: str(p.timezone, 60) || (str(p.country, 2) === "IN" ? "Asia/Kolkata" : "UTC"),
       phone: str(p.phone, 30) || null,
       email: caller.email,
       owner_uid: caller.uid, owner_email: caller.email,
@@ -517,18 +574,57 @@ const actions: Record<string, Handler> = {
     const plan = await q(sb.from("plans").select("*").eq("id", str(p.planId, 40)).eq("is_active", true).maybeSingle());
     if (!plan || plan.is_custom_pricing) throw new HttpError(400, "This plan isn't available for online checkout");
     const ctx = await orgContext(m.org_id);
-    if (ctx.org.is_legacy) throw new HttpError(400, "This workspace is on a custom agreement.");
+    if (ctx.org.is_legacy && !p.allowLegacy) throw new HttpError(400, "This workspace is on a custom agreement.");
     if (plan.max_users !== null && ctx.usage.users > plan.max_users) {
       throw new HttpError(400, `You have ${ctx.usage.users} active users; ${plan.name} allows ${plan.max_users}. Remove users or pick a larger plan.`);
     }
     if (plan.max_projects !== null && ctx.usage.projects > plan.max_projects) {
       throw new HttpError(400, `You have ${ctx.usage.projects} projects; ${plan.name} allows ${plan.max_projects}.`);
     }
+
+    const rzpCfg = await getRazorpayConfig();
+    const amount = cycle === "yearly" ? plan.price_yearly : plan.price_monthly;
+
+    // If Razorpay keys are not configured yet, or explicit simulation requested:
+    if (!rzpCfg.keyId || !rzpCfg.keySecret || p.simulate) {
+      const periodDays = cycle === "yearly" ? 365 : 30;
+      const periodEnd = new Date(Date.now() + periodDays * 86400_000).toISOString();
+      const fakeSubId = `sub_test_${crypto.randomUUID().replace(/-/g, "").slice(0, 14)}`;
+
+      const sub = await q(sb.from("subscriptions").insert({
+        org_id: m.org_id, plan_id: plan.id, billing_cycle: cycle, status: "active",
+        provider: "razorpay_simulated", provider_subscription_id: fakeSubId,
+        current_period_start: new Date().toISOString(), current_period_end: periodEnd,
+        cancel_at_period_end: false, created_by: c!.uid,
+      }).select("*").single());
+
+      await sb.from("organizations").update({
+        status: "active", plan_id: plan.id, billing_cycle: cycle,
+        current_period_end: periodEnd, updated_at: new Date().toISOString(),
+      }).eq("id", m.org_id);
+
+      const tax = (await q(sb.from("platform_settings").select("value").eq("key", "tax").maybeSingle()))?.value ?? {};
+      const gst = Number(tax.gst_percent ?? 18);
+      const taxAmount = tax.prices_include_tax === false ? Math.round(amount * gst / 100) : Math.round(amount - amount / (1 + gst / 100));
+
+      await sb.from("payments").insert({
+        org_id: m.org_id, subscription_id: sub.id, provider: "razorpay_simulated",
+        provider_payment_id: `pay_sim_${crypto.randomUUID().replace(/-/g, "").slice(0, 14)}`,
+        amount, tax_amount: taxAmount, currency: plan.currency, status: "paid",
+        plan_id: plan.id, description: `Task Pilot ${plan.name} (${cycle}) — Test/Sandbox`,
+        period_start: new Date().toISOString(), period_end: periodEnd,
+        paid_at: new Date().toISOString(),
+        billing_details: { name: ctx.org.name, address: ctx.org.address, tax_id: ctx.org.tax_id, email: c!.email, method: "test_mandate" },
+      });
+
+      await audit(c, "subscription.simulated", "subscription", sub.id, m.org_id, { plan: plan.id, cycle, simulated: true });
+      return { changed: true, simulated: true, effective: "now", planName: plan.name };
+    }
+
     // Lazily create the Razorpay plan once per (plan, cycle).
     const col = cycle === "yearly" ? "razorpay_plan_yearly" : "razorpay_plan_monthly";
     let rzpPlanId: string | null = plan[col];
     if (!rzpPlanId) {
-      const amount = cycle === "yearly" ? plan.price_yearly : plan.price_monthly;
       const created = await razorpay("/plans", "POST", {
         period: cycle === "yearly" ? "yearly" : "monthly", interval: 1,
         item: { name: `Task Pilot ${plan.name} (${cycle})`, amount, currency: plan.currency, description: plan.tagline ?? plan.name },
@@ -544,7 +640,7 @@ const actions: Record<string, Handler> = {
       await razorpay(`/subscriptions/${ctx.subscription.provider_subscription_id}`, "PATCH", {
         plan_id: rzpPlanId, schedule_change_at: upgrade ? "now" : "cycle_end", customer_notify: 1,
       });
-      await sb.from("subscriptions").update({ plan_id: plan.id, billing_cycle: cycle, updated_at: new Date().toISOString() }).eq("id", ctx.subscription.id);
+      await sb.from("subscriptions").update({ plan_id: plan.id, billing_cycle: cycle, cancel_at_period_end: false, updated_at: new Date().toISOString() }).eq("id", ctx.subscription.id);
       if (upgrade) await sb.from("organizations").update({ plan_id: plan.id, billing_cycle: cycle, updated_at: new Date().toISOString() }).eq("id", m.org_id);
       await audit(c, upgrade ? "subscription.upgraded" : "subscription.downgrade_scheduled", "subscription", ctx.subscription.id, m.org_id, { plan: plan.id, cycle });
       return { changed: true, effective: upgrade ? "now" : "cycle_end" };
@@ -562,15 +658,121 @@ const actions: Record<string, Handler> = {
     }).select("*").single());
     await audit(c, "subscription.created", "subscription", sub.id, m.org_id, { plan: plan.id, cycle });
     return {
-      subscriptionId: rzSub.id, keyId: RZP_KEY_ID, orgName: ctx.org.name, email: c!.email,
+      subscriptionId: rzSub.id, keyId: rzpCfg.keyId, orgName: ctx.org.name, email: c!.email,
       planName: plan.name, amount: cycle === "yearly" ? plan.price_yearly : plan.price_monthly, currency: plan.currency,
     };
+  },
+
+  // Direct one-time payment collection (Razorpay Orders) for 1 month or 1 year
+  // Ideal for UPI (GPay, PhonePe, Paytm, QR) or Debit/Corporate cards without e-mandates
+  async create_payment_order(p, c) {
+    const m = await requireOrgAdmin(c!);
+    const cycle = p.billingCycle === "yearly" ? "yearly" : "monthly";
+    const plan = await q(sb.from("plans").select("*").eq("id", str(p.planId, 40)).eq("is_active", true).maybeSingle());
+    if (!plan || plan.is_custom_pricing) throw new HttpError(400, "This plan isn't available for online checkout");
+    const ctx = await orgContext(m.org_id);
+    if (ctx.org.is_legacy && !p.allowLegacy) throw new HttpError(400, "This workspace is on a custom agreement.");
+    if (plan.max_users !== null && ctx.usage.users > plan.max_users) {
+      throw new HttpError(400, `You have ${ctx.usage.users} active users; ${plan.name} allows ${plan.max_users}. Remove users or pick a larger plan.`);
+    }
+    if (plan.max_projects !== null && ctx.usage.projects > plan.max_projects) {
+      throw new HttpError(400, `You have ${ctx.usage.projects} projects; ${plan.name} allows ${plan.max_projects}.`);
+    }
+
+    const rzpCfg = await getRazorpayConfig();
+    const amount = cycle === "yearly" ? plan.price_yearly : plan.price_monthly;
+
+    if (!rzpCfg.keyId || !rzpCfg.keySecret || p.simulate) {
+      const periodDays = cycle === "yearly" ? 365 : 30;
+      const periodEnd = new Date(Date.now() + periodDays * 86400_000).toISOString();
+      await sb.from("organizations").update({
+        status: "active", plan_id: plan.id, billing_cycle: cycle,
+        current_period_end: periodEnd, updated_at: new Date().toISOString(),
+      }).eq("id", m.org_id);
+
+      const tax = (await q(sb.from("platform_settings").select("value").eq("key", "tax").maybeSingle()))?.value ?? {};
+      const gst = Number(tax.gst_percent ?? 18);
+      const taxAmount = tax.prices_include_tax === false ? Math.round(amount * gst / 100) : Math.round(amount - amount / (1 + gst / 100));
+
+      await sb.from("payments").insert({
+        org_id: m.org_id, provider: "razorpay_simulated",
+        provider_payment_id: `pay_order_sim_${crypto.randomUUID().replace(/-/g, "").slice(0, 14)}`,
+        amount, tax_amount: taxAmount, currency: plan.currency, status: "paid",
+        plan_id: plan.id, description: `Task Pilot ${plan.name} (${cycle}) — Direct Payment (Test)`,
+        period_start: new Date().toISOString(), period_end: periodEnd,
+        paid_at: new Date().toISOString(),
+        billing_details: { name: ctx.org.name, address: ctx.org.address, tax_id: ctx.org.tax_id, email: c!.email, method: "test_upi" },
+      });
+
+      await audit(c, "payment.order_simulated", "order", null, m.org_id, { plan: plan.id, cycle, amount, simulated: true });
+      return { simulated: true, effective: "now", planName: plan.name };
+    }
+
+    const receipt = `rcpt_${m.org_id.slice(0, 8)}_${Date.now().toString().slice(-6)}`;
+    const rzOrder = await razorpay("/orders", "POST", {
+      amount,
+      currency: plan.currency || "INR",
+      receipt,
+      notes: { org_id: m.org_id, plan_id: plan.id, cycle, user_email: c!.email },
+    });
+
+    return {
+      orderId: rzOrder.id,
+      keyId: rzpCfg.keyId,
+      amount,
+      currency: plan.currency || "INR",
+      planName: plan.name,
+      orgName: ctx.org.name,
+      email: c!.email,
+    };
+  },
+
+  async verify_order_payment(p, c) {
+    const m = await requireOrgAdmin(c!);
+    const paymentId = str(p.razorpay_payment_id, 60);
+    const orderId = str(p.razorpay_order_id, 60);
+    const sig = str(p.razorpay_signature, 200);
+    const planId = str(p.planId, 40);
+    const cycle = p.billingCycle === "yearly" ? "yearly" : "monthly";
+
+    const rzpCfg = await getRazorpayConfig();
+    const expected = await hmacHex(rzpCfg.keySecret, `${orderId}|${paymentId}`);
+    if (!sig || !safeEqual(expected, sig)) throw new HttpError(400, "Payment signature could not be verified");
+
+    const plan = await q(sb.from("plans").select("*").eq("id", planId).single());
+    const periodDays = cycle === "yearly" ? 365 : 30;
+    const periodEnd = new Date(Date.now() + periodDays * 86400_000).toISOString();
+
+    await sb.from("organizations").update({
+      status: "active", plan_id: plan.id, billing_cycle: cycle,
+      current_period_end: periodEnd, updated_at: new Date().toISOString(),
+    }).eq("id", m.org_id);
+
+    const pay = await razorpay(`/payments/${paymentId}`);
+    const tax = (await q(sb.from("platform_settings").select("value").eq("key", "tax").maybeSingle()))?.value ?? {};
+    const gst = Number(tax.gst_percent ?? 18);
+    const taxAmount = tax.prices_include_tax === false ? Math.round(pay.amount * gst / 100) : Math.round(pay.amount - pay.amount / (1 + gst / 100));
+    const org = await q(sb.from("organizations").select("name, address, tax_id, owner_email").eq("id", m.org_id).single());
+
+    await sb.from("payments").insert({
+      org_id: m.org_id, provider: "razorpay", provider_payment_id: paymentId,
+      provider_invoice_id: pay.invoice_id ?? null, amount: pay.amount, tax_amount: taxAmount,
+      currency: pay.currency, status: "paid", plan_id: plan.id,
+      description: `Task Pilot ${plan.name} (${cycle})`,
+      period_start: new Date().toISOString(), period_end: periodEnd,
+      paid_at: new Date((pay.created_at ?? Date.now() / 1000) * 1000).toISOString(),
+      billing_details: { name: org.name, address: org.address, tax_id: org.tax_id, email: org.owner_email, method: pay.method },
+    });
+
+    await audit(c, "order.payment_verified", "payment", paymentId, m.org_id, { plan: plan.id, cycle, amount: pay.amount });
+    return { ok: true, context: await orgContext(m.org_id) };
   },
 
   async verify_payment(p, c) {
     const m = await requireOrgAdmin(c!);
     const paymentId = str(p.razorpay_payment_id, 60), subId = str(p.razorpay_subscription_id, 60), sig = str(p.razorpay_signature, 200);
-    const expected = await hmacHex(RZP_KEY_SECRET, `${paymentId}|${subId}`);
+    const rzpCfg = await getRazorpayConfig();
+    const expected = await hmacHex(rzpCfg.keySecret, `${paymentId}|${subId}`);
     if (!sig || !safeEqual(expected, sig)) throw new HttpError(400, "Payment signature could not be verified");
     const sub = await q(sb.from("subscriptions").select("*").eq("provider_subscription_id", subId).eq("org_id", m.org_id).maybeSingle());
     if (!sub) throw new HttpError(404, "Subscription not found");
@@ -585,11 +787,73 @@ const actions: Record<string, Handler> = {
     const sub = ctx.subscription;
     if (!sub?.provider_subscription_id) throw new HttpError(400, "There is no active subscription");
     const atEnd = p.immediately !== true;
-    await razorpay(`/subscriptions/${sub.provider_subscription_id}/cancel`, "POST", { cancel_at_cycle_end: atEnd ? 1 : 0 });
+    if (sub.provider === "razorpay") {
+      const rzpCfg = await getRazorpayConfig();
+      if (rzpCfg.keyId && rzpCfg.keySecret) {
+        try {
+          await razorpay(`/subscriptions/${sub.provider_subscription_id}/cancel`, "POST", { cancel_at_cycle_end: atEnd ? 1 : 0 });
+        } catch (_) { /* continue local cancellation */ }
+      }
+    }
     await sb.from("subscriptions").update({ cancel_at_period_end: atEnd, ...(atEnd ? {} : { status: "cancelled", cancelled_at: new Date().toISOString() }), updated_at: new Date().toISOString() }).eq("id", sub.id);
     if (!atEnd) await sb.from("organizations").update({ status: "cancelled", updated_at: new Date().toISOString() }).eq("id", m.org_id);
     await audit(c, "subscription.cancelled", "subscription", sub.id, m.org_id, { atPeriodEnd: atEnd, reason: str(p.reason, 500) });
-    return { ok: true };
+    return { ok: true, context: await orgContext(m.org_id) };
+  },
+
+  async resume_subscription(_p, c) {
+    const m = await requireOrgAdmin(c!);
+    const ctx = await orgContext(m.org_id);
+    const sub = ctx.subscription;
+    if (!sub) throw new HttpError(400, "No active subscription found");
+    if (!sub.cancel_at_period_end) throw new HttpError(400, "Subscription is already set to auto-renew");
+
+    if (sub.provider_subscription_id && sub.provider === "razorpay") {
+      const rzpCfg = await getRazorpayConfig();
+      if (rzpCfg.keyId && rzpCfg.keySecret) {
+        try {
+          await razorpay(`/subscriptions/${sub.provider_subscription_id}`, "PATCH", {
+            cancel_at_cycle_end: 0,
+          });
+        } catch (_) { /* ignore if already active */ }
+      }
+    }
+
+    await sb.from("subscriptions").update({ cancel_at_period_end: false, updated_at: new Date().toISOString() }).eq("id", sub.id);
+    await audit(c, "subscription.resumed", "subscription", sub.id, m.org_id);
+    return { ok: true, context: await orgContext(m.org_id) };
+  },
+
+  async update_billing_details(p, c) {
+    const m = await requireOrgAdmin(c!);
+    const legalName = str(p.legalName || p.name, 120);
+    const taxId = str(p.taxId || p.gstin, 30).toUpperCase();
+    const address = str(p.address, 500);
+    const billingEmail = str(p.billingEmail || p.email, 160);
+    const phone = str(p.phone, 30);
+
+    const org = await q(sb.from("organizations").select("name, settings").eq("id", m.org_id).single());
+    const patch: Record<string, unknown> = { updated_at: new Date().toISOString() };
+    if (legalName) patch.name = legalName;
+    if (taxId !== undefined) patch.tax_id = taxId;
+    if (address !== undefined) patch.address = address;
+    if (phone !== undefined) patch.phone = phone;
+
+    const currentSettings = org?.settings ?? {};
+    patch.settings = {
+      ...currentSettings,
+      billing: {
+        legal_name: legalName || org?.name,
+        tax_id: taxId,
+        address,
+        billing_email: billingEmail || c!.email,
+        phone,
+      },
+    };
+
+    await q(sb.from("organizations").update(patch).eq("id", m.org_id));
+    await audit(c, "org.billing_details_updated", "organization", m.org_id, m.org_id, { taxId, legalName });
+    return { ok: true, context: await orgContext(m.org_id) };
   },
 
   async list_payments(_p, c) {
@@ -823,14 +1087,39 @@ const actions: Record<string, Handler> = {
     await requirePlatform(c!);
     const rows = await q(sb.from("platform_settings").select("*"));
     const admins = await q(sb.from("platform_admins").select("email, role, uid, created_at").order("created_at"));
-    return { settings: Object.fromEntries(rows.map((r: any) => [r.key, r.value])), admins, payments: { razorpayConfigured: !!(RZP_KEY_ID && RZP_KEY_SECRET), mode: RZP_KEY_ID.startsWith("rzp_live") ? "live" : RZP_KEY_ID ? "test" : "none" } };
+    const rzpCfg = await getRazorpayConfig();
+    return {
+      settings: Object.fromEntries(rows.map((r: any) => [r.key, r.value])),
+      admins,
+      payments: {
+        razorpayConfigured: !!(rzpCfg.keyId && rzpCfg.keySecret),
+        keyId: rzpCfg.keyId,
+        hasKeySecret: !!rzpCfg.keySecret,
+        hasWebhookSecret: !!rzpCfg.webhookSecret,
+        mode: rzpCfg.keyId.startsWith("rzp_live") ? "live" : rzpCfg.keyId ? "test" : "sandbox",
+      },
+    };
   },
   async admin_update_settings(p, c) {
     await requirePlatform(c!, ["owner", "admin"]);
     const key = str(p.key, 40);
-    if (!["general", "tax", "maintenance"].includes(key) || typeof p.value !== "object") throw new HttpError(400, "Invalid setting");
-    await q(sb.from("platform_settings").upsert({ key, value: p.value, updated_by: c!.email, updated_at: new Date().toISOString() }));
-    await audit(c, "platform.settings_updated", "platform_settings", key, null, p.value);
+    if (!["general", "tax", "maintenance", "razorpay"].includes(key) || typeof p.value !== "object") throw new HttpError(400, "Invalid setting");
+    
+    // For razorpay credentials, protect against blanking out existing secrets if masked
+    let finalValue = p.value;
+    if (key === "razorpay") {
+      const existing = (await sb.from("platform_settings").select("value").eq("key", "razorpay").maybeSingle()).data?.value ?? {};
+      const key_secret = (p.value.key_secret && !p.value.key_secret.includes("••")) ? str(p.value.key_secret) : existing.key_secret || "";
+      const webhook_secret = (p.value.webhook_secret && !p.value.webhook_secret.includes("••")) ? str(p.value.webhook_secret) : existing.webhook_secret || "";
+      finalValue = {
+        key_id: str(p.value.key_id, 80),
+        key_secret,
+        webhook_secret,
+      };
+    }
+
+    await q(sb.from("platform_settings").upsert({ key, value: finalValue, updated_by: c!.email, updated_at: new Date().toISOString() }));
+    await audit(c, "platform.settings_updated", "platform_settings", key, null, key === "razorpay" ? { key_id: finalValue.key_id, hasSecret: !!finalValue.key_secret } : p.value);
     return { ok: true };
   },
   async admin_set_admin(p, c) {

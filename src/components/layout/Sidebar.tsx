@@ -79,7 +79,7 @@ const NAV_GROUPS = [
         ] as const,
       },
       { to: '/app/organization', label: 'Organization', icon: Building, minLevel: 100, anyPerm: ['settings_manage', 'team_manage'] as const },
-      { to: '/app/billing', label: 'Plan & Billing', icon: CreditCard, minLevel: 100, anyPerm: ['settings_manage'] as const, saasOnly: true },
+      { to: '/app/billing', label: 'Plan & Billing', icon: CreditCard, minLevel: 100, anyPerm: ['settings_manage'] as const },
       { to: '/app/support', label: 'Help & Support', icon: LifeBuoy, always: true },
     ],
   },
@@ -92,11 +92,8 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
   const { channels } = useChannels();
   const tenant = useTenantStore((st) => st.context);
   const platformRole = useTenantStore((st) => st.platformRole);
-  const isPlatformAdmin = Boolean(
-    platformRole ||
-    firebaseUser?.email === 'admin@taskpilot.app' ||
-    firebaseUser?.email === 'thekadaapp@gmail.com'
-  );
+  // Platform access is decided server-side (verified email in platform_admins).
+  const isPlatformAdmin = Boolean(platformRole);
   const displayOrgName = tenant?.org?.name || 'Task Pilot';
 
   const totalUnread = channels.reduce((sum, ch) => {

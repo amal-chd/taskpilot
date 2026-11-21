@@ -396,8 +396,8 @@ const OvertimeReport: React.FC<{ month: string; users: any[] }> = ({ month, user
       </div>
 
       {/* Staff overtime table */}
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
-        <table className="w-full">
+      <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto">
+        <table className="w-full min-w-[560px]">
           <thead>
             <tr className="bg-gray-50 border-b border-gray-200">
               <th className="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase">Staff Member</th>

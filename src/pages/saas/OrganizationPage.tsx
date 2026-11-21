@@ -95,7 +95,7 @@ const OrganizationPage: React.FC = () => {
     <div className="p-4 sm:p-6 space-y-6 max-w-5xl">
       <form onSubmit={save} className="rounded-2xl border border-slate-200 bg-white p-6 space-y-5">
         <div className="flex items-center gap-3">
-          {form.logo_url ? <img src={form.logo_url} alt="" className="w-12 h-12 rounded-xl object-cover border" /> : <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center"><Building className="w-6 h-6 text-slate-400" /></div>}
+          {form.logo_url ? <img decoding="async" src={form.logo_url} alt="" className="w-12 h-12 rounded-xl object-cover border" /> : <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center"><Building className="w-6 h-6 text-slate-400" /></div>}
           <div><h2 className="text-lg font-bold">Company profile</h2><p className="text-sm text-slate-500">Shown on invoices, invitations and the app header.</p></div>
         </div>
         <div className="grid sm:grid-cols-2 gap-4">

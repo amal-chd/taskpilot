@@ -78,7 +78,7 @@ const InvitePage: React.FC = () => {
         ) : (
           <form onSubmit={submit} className="space-y-4">
             <div className="text-center">
-              {info.orgLogo ? <img src={info.orgLogo} alt="" className="w-14 h-14 rounded-xl mx-auto object-cover" /> : <MailCheck className="w-10 h-10 mx-auto text-amber-600" />}
+              {info.orgLogo ? <img decoding="async" src={info.orgLogo} alt="" className="w-14 h-14 rounded-xl mx-auto object-cover" /> : <MailCheck className="w-10 h-10 mx-auto text-amber-600" />}
               <h1 className="mt-3 text-xl font-bold">Join {info.orgName} on Task Pilot</h1>
               <p className="text-sm text-slate-500 mt-1">Invited as <strong>{info.roleName ?? 'team member'}</strong> · {info.email}</p>
             </div>

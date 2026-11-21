@@ -266,7 +266,7 @@ const AuditLogPage: React.FC = () => {
       <div className="flex flex-wrap items-center gap-3">
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Activity Log</h2>
-          <p className="text-sm text-slate-500 mt-0.5">A complete, tamper-proof trail of everything that happens across your workspace</p>
+          <p className="text-sm text-slate-500 mt-0.5">A complete, location-verified trail of everything that happens across your workspace</p>
         </div>
         <button
           onClick={() => fetchLogs(true)}

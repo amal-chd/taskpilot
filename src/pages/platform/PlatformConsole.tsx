@@ -401,12 +401,22 @@ const Broadcast: React.FC = () => {
 const PlatformSettings: React.FC = () => {
   const { data, error, reload } = useApi<any>('admin_get_settings');
   const rawRole = useTenantStore((s) => s.platformRole);
-  const currentEmail = auth.currentUser?.email?.toLowerCase();
-  const isDesignatedOwner = currentEmail === 'admin@taskpilot.app' || currentEmail === 'thekadaapp@gmail.com';
-  const role = rawRole || (isDesignatedOwner ? 'owner' : null);
+  const role = rawRole;
   const [draft, setDraft] = useState<any>(null);
   const [admin, setAdmin] = useState({ email: '', role: 'support' });
-  useEffect(() => { if (data) setDraft(data.settings); }, [data]);
+  useEffect(() => {
+    if (data) {
+      const s = { ...data.settings };
+      if (!s.razorpay) {
+        s.razorpay = {
+          key_id: data.payments.keyId || '',
+          key_secret: data.payments.hasKeySecret ? '••••••••' : '',
+          webhook_secret: data.payments.hasWebhookSecret ? '••••••••' : '',
+        };
+      }
+      setDraft(s);
+    }
+  }, [data]);
   if (error) return <Err msg={error} />;
   if (!data || !draft) return <Loading />;
   const saveKey = async (key: string) => {
@@ -418,14 +428,54 @@ const PlatformSettings: React.FC = () => {
   const Field = (key: string, k: string, label: string, type = 'text') => (
     <label className="text-sm font-medium">{label}
       {type === 'checkbox'
-        ? <input type="checkbox" className="ml-2" checked={!!draft[key][k]} onChange={(e) => setDraft({ ...draft, [key]: { ...draft[key], [k]: e.target.checked } })} />
-        : <input type={type} value={draft[key][k] ?? ''} onChange={(e) => setDraft({ ...draft, [key]: { ...draft[key], [k]: type === 'number' ? Number(e.target.value) : e.target.value } })} className={`${input} w-full mt-1`} />}
+        ? <input type="checkbox" className="ml-2" checked={!!draft[key]?.[k]} onChange={(e) => setDraft({ ...draft, [key]: { ...draft[key], [k]: e.target.checked } })} />
+        : <input type={type} value={draft[key]?.[k] ?? ''} onChange={(e) => setDraft({ ...draft, [key]: { ...draft[key], [k]: type === 'number' ? Number(e.target.value) : e.target.value } })} className={`${input} w-full mt-1`} />}
     </label>
   );
   return (
     <div className="space-y-5">
-      <Card title="Payments gateway">
-        <p className="p-5 text-sm">Razorpay: <strong>{data.payments.razorpayConfigured ? `configured (${data.payments.mode} mode)` : 'not configured'}</strong>. Keys are stored as Supabase function secrets (RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET, RAZORPAY_WEBHOOK_SECRET) — never in the database or browser.</p>
+      <Card title="Razorpay Payment Gateway">
+        <div className="p-5 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+            <div>
+              <p className="text-sm font-bold text-slate-900">
+                Gateway Status:{' '}
+                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold ${
+                  data.payments.mode === 'live' ? 'bg-emerald-100 text-emerald-800' :
+                  data.payments.mode === 'test' ? 'bg-blue-100 text-blue-800' :
+                  'bg-amber-100 text-amber-800'
+                }`}>
+                  {data.payments.mode === 'live' ? 'Live Mode' :
+                   data.payments.mode === 'test' ? 'Test Mode' :
+                   'Sandbox / Simulation (Keys Pending)'}
+                </span>
+              </p>
+              <p className="text-xs text-slate-500 mt-1">
+                Keys configured here are saved securely in the platform settings and used by edge functions for Razorpay Subscriptions & Orders.
+              </p>
+            </div>
+            <div className="text-xs text-slate-500 font-mono">
+              Key ID: {data.payments.keyId || 'Not set'}
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Field('razorpay', 'key_id', 'Razorpay Key ID (rzp_test_... or rzp_live_...)')}
+            {Field('razorpay', 'key_secret', 'Razorpay Key Secret', 'password')}
+            {Field('razorpay', 'webhook_secret', 'Razorpay Webhook Secret', 'password')}
+          </div>
+
+          <div className="p-3 bg-indigo-50 border border-indigo-100 rounded-xl text-xs text-indigo-900 space-y-1">
+            <p className="font-semibold">Razorpay Dashboard Setup Instructions:</p>
+            <p>1. Go to Razorpay Dashboard &rarr; Settings &rarr; API Keys to generate your Key ID and Secret.</p>
+            <p>2. Go to Settings &rarr; Webhooks &rarr; Add New Webhook with URL: <code className="bg-white px-1.5 py-0.5 rounded font-mono select-all">https://ximaqbhnykyxxgiqbwoh.supabase.co/functions/v1/razorpay-webhook</code></p>
+            <p>3. Select events: <code className="bg-white px-1 py-0.5 rounded font-mono">subscription.*</code>, <code className="bg-white px-1 py-0.5 rounded font-mono">payment.failed</code>, <code className="bg-white px-1 py-0.5 rounded font-mono">invoice.paid</code>, <code className="bg-white px-1 py-0.5 rounded font-mono">order.paid</code>.</p>
+          </div>
+
+          <button onClick={() => saveKey('razorpay')} className="h-9 px-4 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800">
+            Save Razorpay Credentials
+          </button>
+        </div>
       </Card>
       <Card title="General">
         <div className="p-5 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -490,19 +540,15 @@ const PlatformConsole: React.FC = () => {
   const navigate = useNavigate();
   const [verifySent, setVerifySent] = useState(false);
 
-  const isDesignatedAdmin = Boolean(
-    firebaseUser?.email &&
-    (firebaseUser.email.toLowerCase() === 'admin@taskpilot.app' ||
-     firebaseUser.email.toLowerCase() === 'thekadaapp@gmail.com')
-  );
-  const effectiveRole = platformRole || (isDesignatedAdmin ? 'owner' : null);
+  // Server-decided only: requires a verified email listed in platform_admins.
+  const effectiveRole = platformRole;
 
   const needsVerify = useMemo(
-    () => !isDesignatedAdmin && firebaseUser && !firebaseUser.emailVerified && firebaseUser.providerData.every((p) => p.providerId !== 'google.com'),
-    [firebaseUser, isDesignatedAdmin]
+    () => firebaseUser && !firebaseUser.emailVerified && firebaseUser.providerData.every((p) => p.providerId !== 'google.com'),
+    [firebaseUser]
   );
 
-  if (!initialized || (firebaseUser && !loaded && !isDesignatedAdmin)) return <Loading />;
+  if (!initialized || (firebaseUser && !loaded)) return <Loading />;
   if (!firebaseUser) return <Navigate to="/login?next=/platform" replace />;
   if (!effectiveRole) {
     return (

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#020617"/></linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.3" r="0.55"><stop offset="0" stop-color="#F59E0B" stop-opacity="0.22"/><stop offset="1" stop-color="#F59E0B" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <rect y="285" width="1200" height="630" fill="url(#glow)"/>
+  <g font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <rect x="80" y="355" width="64" height="64" rx="16" fill="#F59E0B"/>
+    <path d="M98 389 l10 10 l20 -24" stroke="#0F172A" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="164" y="400" font-size="38" font-weight="700" fill="#FFFFFF">Task Pilot</text>
+    <text x="80" y="540" font-size="76" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Run every construction site</text>
+    <text x="80" y="630" font-size="76" font-weight="800" fill="#F59E0B" letter-spacing="-2">from one workspace.</text>
+    <text x="80" y="705" font-size="30" fill="#CBD5E1">Tasks &amp; approvals · Site diaries · GPS attendance · BOQ &amp; cost control</text>
+    <rect x="80" y="768" width="300" height="64" rx="32" fill="#F59E0B"/>
+    <text x="230" y="809" font-size="26" font-weight="700" fill="#0F172A" text-anchor="middle">Start free trial</text>
+    <text x="410" y="809" font-size="26" fill="#94A3B8">Web · iOS · Android</text>
+  </g>
+</svg>

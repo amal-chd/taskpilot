@@ -10,9 +10,9 @@ import { useSeo } from '../../lib/seo';
 
 export const LandingPage: React.FC = () => {
   useSeo({
-    title: 'About Task Pilot — Construction Management Operating System',
+    title: 'About Task Pilot — Construction Management Software',
     description: 'Learn about Task Pilot, our mission to bring radical operational clarity to jobsites, and our technology engineered for boots on the ground.',
-    path: '/company',
+    path: '/about',
   });
 
   return (
@@ -27,7 +27,7 @@ export const LandingPage: React.FC = () => {
             <span className="text-amber-600">Engineered for the jobsite.</span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            We built Task Pilot to solve a fundamental construction reality:
+            Task Pilot is a flagship enterprise product built and operated by <strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong> We engineered Task Pilot to solve a fundamental construction reality:
             projects don't fail from lack of ambition — they bleed time and budget from broken communication between the physical jobsite and the head office.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -62,7 +62,7 @@ export const LandingPage: React.FC = () => {
                 In the Indian construction industry, brilliant site engineers spend hours every evening transcribing measurements from dusty notebooks into Excel sheets, while critical drawing revisions and pour clearances disappear into noisy WhatsApp group chats.
               </p>
               <p>
-                At the same time, managing directors and developers have had no tamper-proof visibility into who is actually on site, whether daily progress matches the project schedule, or when material costs are starting to deviate from the Bill of Quantities (BOQ).
+                At the same time, managing directors and developers have had no location-verified visibility into who is actually on site, whether daily progress matches the project schedule, or when material costs are starting to deviate from the Bill of Quantities (BOQ).
               </p>
               <p>
                 Task Pilot bridges that divide with a single, uncompromising platform: simple enough for a supervisor in safety boots to log DPRs and check in via GPS in seconds, yet powerful enough to give executives real-time Earned Value cost control across 20 simultaneous sites.
@@ -96,7 +96,8 @@ export const LandingPage: React.FC = () => {
             </div>
 
             <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed">
-              <strong className="text-slate-900">Task Pilot Technologies</strong><br />
+              <strong className="text-slate-900 text-sm">Thekada Digital Ventures Pvt. Ltd.</strong><br />
+              <span className="text-amber-700 font-semibold">Product: Task Pilot</span><br />
               Cloud Construction Operations & Project Management Platform<br />
               Engineered for builders, general contractors, and EPC infrastructure firms.
             </div>
@@ -204,8 +205,8 @@ export const LandingPage: React.FC = () => {
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
                 <Mail className="w-5 h-5 text-amber-600 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">General Inquiries</p>
-                <a href="mailto:hello@taskpilot.app" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
-                  hello@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                  info@thekada.in
                 </a>
                 <p className="text-[11px] text-slate-500 mt-1">Partnerships, queries, and technical specifications</p>
               </div>
@@ -213,8 +214,8 @@ export const LandingPage: React.FC = () => {
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
                 <Users className="w-5 h-5 text-amber-600 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">Sales & Onboarding</p>
-                <a href="mailto:sales@taskpilot.app" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
-                  sales@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                  info@thekada.in
                 </a>
                 <p className="text-[11px] text-slate-500 mt-1">Product walkthroughs and data migration assistance</p>
               </div>
@@ -222,8 +223,8 @@ export const LandingPage: React.FC = () => {
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
                 <ShieldCheck className="w-5 h-5 text-amber-600 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">Customer Support</p>
-                <a href="mailto:support@taskpilot.app" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
-                  support@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                  info@thekada.in
                 </a>
                 <p className="text-[11px] text-slate-500 mt-1">Account help and rapid technical assistance</p>
               </div>

@@ -1,11 +1,77 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Minus, ChevronDown, ShieldCheck, Database, Headphones, ArrowRight, FileCheck } from 'lucide-react';
+import { Check, Minus, ChevronDown, ShieldCheck, Database, Headphones, ArrowRight, FileCheck, Globe } from 'lucide-react';
 import { MarketingLayout, Section, Eyebrow } from './MarketingLayout';
 import { COMPARISON, FAQS, PRICING_NOTE } from './content';
 import { saasApi } from '../../../lib/saasApi';
 import { Plan, MODULES, formatMoney } from '../../../lib/tenant';
 import { useSeo } from '../../../lib/seo';
+
+export const CURRENCY_OPTIONS = [
+  { code: 'USD', symbol: '$', label: 'USD ($)' },
+  { code: 'INR', symbol: '₹', label: 'INR (₹)' },
+  { code: 'EUR', symbol: '€', label: 'EUR (€)' },
+  { code: 'GBP', symbol: '£', label: 'GBP (£)' },
+  { code: 'AED', symbol: 'AED', label: 'AED (د.إ)' },
+  { code: 'CAD', symbol: 'C$', label: 'CAD (C$)' },
+  { code: 'AUD', symbol: 'A$', label: 'AUD (A$)' },
+] as const;
+
+export const PLAN_PRICES: Record<string, Record<string, { monthly: number; yearly: number }>> = {
+  starter: {
+    USD: { monthly: 1900, yearly: 19000 },
+    INR: { monthly: 149900, yearly: 1499000 },
+    EUR: { monthly: 1800, yearly: 18000 },
+    GBP: { monthly: 1500, yearly: 15000 },
+    AED: { monthly: 6900, yearly: 69000 },
+    CAD: { monthly: 2500, yearly: 25000 },
+    AUD: { monthly: 2900, yearly: 29000 },
+  },
+  professional: {
+    USD: { monthly: 4900, yearly: 49000 },
+    INR: { monthly: 399900, yearly: 3999000 },
+    EUR: { monthly: 4500, yearly: 45000 },
+    GBP: { monthly: 3900, yearly: 39000 },
+    AED: { monthly: 17900, yearly: 179000 },
+    CAD: { monthly: 6500, yearly: 65000 },
+    AUD: { monthly: 7500, yearly: 75000 },
+  },
+  business: {
+    USD: { monthly: 9900, yearly: 99000 },
+    INR: { monthly: 899900, yearly: 8999000 },
+    EUR: { monthly: 9200, yearly: 92000 },
+    GBP: { monthly: 7900, yearly: 79000 },
+    AED: { monthly: 36500, yearly: 365000 },
+    CAD: { monthly: 13500, yearly: 135000 },
+    AUD: { monthly: 14900, yearly: 149000 },
+  },
+  enterprise: {
+    USD: { monthly: 0, yearly: 0 },
+    INR: { monthly: 0, yearly: 0 },
+    EUR: { monthly: 0, yearly: 0 },
+    GBP: { monthly: 0, yearly: 0 },
+    AED: { monthly: 0, yearly: 0 },
+    CAD: { monthly: 0, yearly: 0 },
+    AUD: { monthly: 0, yearly: 0 },
+  },
+};
+
+export const detectLocalCurrency = (): string => {
+  try {
+    const saved = localStorage.getItem('taskpilot_currency');
+    if (saved && CURRENCY_OPTIONS.some((c) => c.code === saved)) return saved;
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (tz.includes('Kolkata') || tz.includes('Calcutta') || tz.includes('India')) return 'INR';
+    if (tz.includes('Europe') || tz.includes('Paris') || tz.includes('Berlin') || tz.includes('Madrid') || tz.includes('Rome') || tz.includes('Amsterdam')) return 'EUR';
+    if (tz.includes('London')) return 'GBP';
+    if (tz.includes('Dubai') || tz.includes('Muscat')) return 'AED';
+    if (tz.includes('Toronto') || tz.includes('Vancouver') || tz.includes('Montreal')) return 'CAD';
+    if (tz.includes('Sydney') || tz.includes('Melbourne') || tz.includes('Brisbane')) return 'AUD';
+    return 'USD';
+  } catch {
+    return 'USD';
+  }
+};
 
 const DEFAULT_PLANS: Plan[] = [
   {
@@ -16,8 +82,8 @@ const DEFAULT_PLANS: Plan[] = [
     price_monthly: 149900,
     price_yearly: 1499000,
     max_users: 10,
-    max_projects: 3,
-    max_storage_mb: 5120,
+    max_projects: 5,
+    max_storage_mb: 10240,
     features: ['tasks', 'projects', 'attendance', 'site_diary', 'documents', 'chat', 'mobile', 'notifications'],
     trial_days: 14,
     highlight: false,
@@ -31,9 +97,9 @@ const DEFAULT_PLANS: Plan[] = [
     currency: 'INR',
     price_monthly: 399900,
     price_yearly: 3999000,
-    max_users: 30,
-    max_projects: 10,
-    max_storage_mb: 25600,
+    max_users: 40,
+    max_projects: 25,
+    max_storage_mb: 102400,
     features: ['tasks', 'projects', 'attendance', 'site_diary', 'documents', 'chat', 'mobile', 'notifications', 'boq', 'materials', 'labour', 'inspections', 'timeline', 'expenses'],
     trial_days: 14,
     highlight: true,
@@ -45,11 +111,11 @@ const DEFAULT_PLANS: Plan[] = [
     name: 'Business',
     tagline: 'For established developers needing deep cost control and HR automation.',
     currency: 'INR',
-    price_monthly: 799900,
-    price_yearly: 7999000,
-    max_users: 100,
-    max_projects: 30,
-    max_storage_mb: 102400,
+    price_monthly: 899900,
+    price_yearly: 8999000,
+    max_users: 150,
+    max_projects: null,
+    max_storage_mb: 512000,
     features: ['tasks', 'projects', 'attendance', 'site_diary', 'documents', 'chat', 'mobile', 'notifications', 'boq', 'materials', 'labour', 'inspections', 'timeline', 'expenses', 'assets', 'leave', 'salary', 'reports', 'performance', 'roles'],
     trial_days: 14,
     highlight: false,
@@ -97,6 +163,12 @@ const storageLabel = (mb: number | null) => (mb === null ? 'Unlimited storage' :
 export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' | 'yearly') => void; currentPlanId?: string | null; busyPlanId?: string | null }> = ({ onSelect, currentPlanId, busyPlanId }) => {
   const { plans, error, reload } = usePlans();
   const [cycle, setCycle] = useState<'monthly' | 'yearly'>('yearly');
+  const [currency, setCurrency] = useState<string>(detectLocalCurrency);
+
+  const handleCurrencyChange = (newCur: string) => {
+    setCurrency(newCur);
+    try { localStorage.setItem('taskpilot_currency', newCur); } catch {}
+  };
 
   if (error) {
     return (
@@ -113,7 +185,7 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
 
   return (
     <div>
-      <div className="flex justify-center mb-8">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
         <div role="radiogroup" aria-label="Billing cycle" className="inline-flex p-1 rounded-xl bg-slate-200/70">
           {(['monthly', 'yearly'] as const).map((c) => (
             <button key={c} role="radio" aria-checked={cycle === c} onClick={() => setCycle(c)}
@@ -122,13 +194,39 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
             </button>
           ))}
         </div>
+
+        <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200/70">
+          <Globe className="w-3.5 h-3.5 text-slate-500" />
+          <span className="text-xs font-semibold text-slate-600">Currency:</span>
+          <select
+            value={currency}
+            onChange={(e) => handleCurrencyChange(e.target.value)}
+            className="h-7 px-2 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-800 outline-none cursor-pointer hover:border-slate-400"
+            aria-label="Select pricing currency"
+          >
+            {CURRENCY_OPTIONS.map((c) => (
+              <option key={c.code} value={c.code}>{c.label}</option>
+            ))}
+          </select>
+        </div>
       </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
         {plans.map((p, i) => {
           const prev = plans[i - 1];
           const inherited = prev && !p.is_custom_pricing ? p.features.filter((f) => !prev.features.includes(f)) : p.features;
-          const price = cycle === 'yearly' ? p.price_yearly / 12 : p.price_monthly;
+          
+          // INR always comes from the live plan (what checkout actually charges,
+          // editable in Platform Console → Plans). Other currencies use the
+          // regional list-price table.
+          const planPricing = currency === 'INR' || !PLAN_PRICES[p.id]?.[currency]
+            ? { monthly: p.price_monthly, yearly: p.price_yearly }
+            : PLAN_PRICES[p.id][currency];
+          const planMonthly = planPricing.monthly;
+          const planYearly = planPricing.yearly;
+          const price = cycle === 'yearly' ? planYearly / 12 : planMonthly;
           const isCurrent = currentPlanId === p.id;
+
           return (
             <div key={p.id} className={`relative rounded-2xl p-6 flex flex-col bg-white border ${p.highlight ? 'border-slate-900 ring-1 ring-slate-900 shadow-xl' : 'border-slate-200'}`}>
               {p.highlight && <span className="absolute -top-3 left-6 text-xs font-bold bg-amber-500 text-slate-950 px-2.5 py-1 rounded-full">Most popular</span>}
@@ -139,8 +237,8 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
                   <p className="text-3xl font-extrabold tracking-tight">Custom</p>
                 ) : (
                   <>
-                    <p className="text-3xl font-extrabold tracking-tight">{formatMoney(Math.round(price / 100) * 100, p.currency)}<span className="text-base font-medium text-slate-500">/mo</span></p>
-                    <p className="text-xs text-slate-500 mt-1">{cycle === 'yearly' ? `${formatMoney(p.price_yearly, p.currency)} billed yearly` : 'Billed monthly'}</p>
+                    <p className="text-3xl font-extrabold tracking-tight">{formatMoney(Math.round(price / 100) * 100, currency)}<span className="text-base font-medium text-slate-500">/mo</span></p>
+                    <p className="text-xs text-slate-500 mt-1">{cycle === 'yearly' ? `${formatMoney(planYearly, currency)} billed yearly` : 'Billed monthly'}</p>
                   </>
                 )}
               </div>
@@ -157,12 +255,12 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
                 {p.is_custom_pricing ? (
                   <Link to="/contact-sales" className="w-full h-11 inline-flex items-center justify-center rounded-xl border border-slate-300 font-semibold hover:bg-slate-50">Talk to sales</Link>
                 ) : onSelect ? (
-                  <button disabled={isCurrent || busyPlanId === p.id} onClick={() => onSelect(p, cycle)}
+                  <button disabled={isCurrent || busyPlanId === p.id} onClick={() => onSelect({ ...p, currency, price_monthly: planMonthly, price_yearly: planYearly }, cycle)}
                     className={`w-full h-11 rounded-xl font-semibold disabled:opacity-60 ${p.highlight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'border border-slate-300 hover:bg-slate-50'}`}>
                     {isCurrent ? 'Current plan' : busyPlanId === p.id ? 'Opening checkout…' : `Choose ${p.name}`}
                   </button>
                 ) : (
-                  <Link to={`/register?plan=${p.id}&cycle=${cycle}`} className={`w-full h-11 inline-flex items-center justify-center rounded-xl font-semibold ${p.highlight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'border border-slate-300 hover:bg-slate-50'}`}>
+                  <Link to={`/register?plan=${p.id}&cycle=${cycle}&currency=${currency}`} className={`w-full h-11 inline-flex items-center justify-center rounded-xl font-semibold ${p.highlight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'border border-slate-300 hover:bg-slate-50'}`}>
                     Start {p.trial_days}-day free trial
                   </Link>
                 )}
@@ -171,7 +269,20 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
           );
         })}
       </div>
-      <p className="text-center text-xs text-slate-500 mt-6">{PRICING_NOTE}</p>
+
+      {currency !== 'INR' && (
+        <p role="note" className="mt-6 mx-auto max-w-2xl text-center text-xs text-slate-600 bg-slate-100 rounded-xl px-4 py-3">
+          Prices in {currency} are our regional list prices. Self-serve online checkout currently bills in Indian Rupees (INR)
+          through Razorpay, and your card issuer converts the amount. To be invoiced in {currency}, <Link to="/contact-sales" className="underline font-medium">contact sales</Link>.
+        </p>
+      )}
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
+        <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-emerald-600" /> Each company's data isolated in its own workspace</span>
+        <span className="flex items-center gap-1.5"><Globe className="w-4 h-4 text-blue-600" /> Regional pricing in 7 currencies</span>
+        <span className="flex items-center gap-1.5"><FileCheck className="w-4 h-4 text-amber-600" /> Automated GST / VAT / Sales Tax Receipts</span>
+      </div>
+
+      <p className="text-center text-xs text-slate-500 mt-4">{PRICING_NOTE}</p>
     </div>
   );
 };
@@ -221,10 +332,62 @@ const MODULE_MATRIX = [
   { name: 'Dedicated Account Manager & SLA', starter: false, pro: false, biz: false, ent: true },
 ];
 
+/** Compares Task Pilot's flat team price with a typical per-seat field app (USD list prices). */
+const PER_SEAT_USD = 39; // Fieldwire Business list price per user / month (vendor pricing page, 2026)
+export const SavingsCalculator: React.FC = () => {
+  const [team, setTeam] = useState(25);
+  const tiers = [
+    { id: 'starter', name: 'Starter', max: 10 },
+    { id: 'professional', name: 'Professional', max: 40 },
+    { id: 'business', name: 'Business', max: 150 },
+  ];
+  const tier = tiers.find((t) => team <= t.max);
+  const ours = tier ? PLAN_PRICES[tier.id].USD.yearly / 100 / 12 : null;
+  const theirs = team * PER_SEAT_USD;
+  const yearly = ours !== null ? (theirs - ours) * 12 : null;
+  const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+  return (
+    <div className="max-w-3xl mx-auto rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
+      <h2 className="text-2xl font-bold tracking-tight text-slate-900">How much would your team save?</h2>
+      <p className="text-sm text-slate-600 mt-1">
+        Flat team pricing compared with a per-seat field app at {fmt(PER_SEAT_USD)} per user per month.
+      </p>
+      <label className="block mt-6 text-sm font-medium text-slate-700" htmlFor="team-size">
+        Team size: <strong>{team}</strong> people
+      </label>
+      <input
+        id="team-size" type="range" min={3} max={150} value={team}
+        onChange={(e) => setTeam(Number(e.target.value))}
+        className="w-full mt-2 accent-amber-500"
+      />
+      <div className="mt-6 grid sm:grid-cols-3 gap-3 text-center">
+        <div className="rounded-xl bg-slate-50 p-4">
+          <p className="text-xs text-slate-500">Per-seat app</p>
+          <p className="text-xl font-bold tabular-nums">{fmt(theirs)}/mo</p>
+        </div>
+        <div className="rounded-xl bg-amber-50 p-4">
+          <p className="text-xs text-slate-500">Task Pilot {tier?.name ?? 'Enterprise'}</p>
+          <p className="text-xl font-bold tabular-nums">{ours !== null ? `${fmt(ours)}/mo` : 'Custom'}</p>
+        </div>
+        <div className="rounded-xl bg-emerald-50 p-4">
+          <p className="text-xs text-slate-500">You save per year</p>
+          <p className="text-xl font-bold text-emerald-700 tabular-nums">{yearly !== null ? fmt(Math.max(0, yearly)) : 'Talk to sales'}</p>
+        </div>
+      </div>
+      <p className="mt-4 text-[11px] text-slate-500">
+        Task Pilot prices assume yearly billing. The competitor figure is a public list price and may change, so compare current quotes before deciding.
+      </p>
+      <Link to="/register" className="mt-5 inline-flex h-11 px-6 items-center rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800">
+        Start free trial
+      </Link>
+    </div>
+  );
+};
+
 const PricingPage: React.FC = () => {
   useSeo({
-    title: 'Pricing — Simple Flat Rates for Construction Teams',
-    description: 'Flat team pricing in INR with GST input tax invoices — not per seat. Starter, Professional, Business and Enterprise plans with a 14-day free trial, no credit card required.',
+    title: 'Pricing — Global Flat Rates for Construction Teams',
+    description: 'Predictable flat team pricing in USD, EUR, GBP, AED, and INR with automated tax receipts — never per seat. Full 14-day free trial on all plans.',
     path: '/pricing',
   });
 
@@ -242,6 +405,10 @@ const PricingPage: React.FC = () => {
 
       <Section className="pb-20">
         <PricingCards />
+      </Section>
+
+      <Section className="pb-20">
+        <SavingsCalculator />
       </Section>
 
       {/* ─── Detailed Module Matrix by Plan ─── */}

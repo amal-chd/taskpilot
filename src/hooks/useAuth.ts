@@ -163,12 +163,6 @@ const DEFAULT_ROLES = [
 
 // Role assigned by email when no admin has manually set a role yet
 const EMAIL_ROLE_MAP: Record<string, string> = {
-  'director@taskpilot.app': 'director',
-  'admin@taskpilot.app':    'admin',
-  'pm@taskpilot.app':       'project_manager',
-  'engineer@taskpilot.app': 'site_engineer',
-  'foreman@taskpilot.app':  'foreman',
-  'accounts@taskpilot.app': 'accounts',
   'thomas@kurickaldevelopers.com': 'director',
   'meena@kurickaldevelopers.com':  'admin',
   'ravi@kurickaldevelopers.com':   'project_manager',
@@ -241,11 +235,10 @@ async function ensureUserDoc(uid: string, email: string, displayName: string | n
 export async function loadTenantContext(): Promise<void> {
   const t = useTenantStore.getState();
   const currentEmail = auth.currentUser?.email?.toLowerCase();
-  const isDesignatedAdmin = currentEmail === 'admin@taskpilot.app' || currentEmail === 'thekadaapp@gmail.com';
 
   try {
     const me = await saasApi<any>('me');
-    const pRole = me.platformRole ?? (isDesignatedAdmin ? 'owner' : null);
+    const pRole = me.platformRole ?? null;
     t.setPlatformRole(pRole);
     t.setMaintenance(me.maintenance ?? null);
     if (me.context) {
@@ -257,13 +250,7 @@ export async function loadTenantContext(): Promise<void> {
     }
   } catch (err) {
     console.warn('[tenant] context unavailable (non-fatal):', err);
-    if (isDesignatedAdmin) {
-      t.setPlatformRole('owner');
-    }
   } finally {
-    if (isDesignatedAdmin && !t.platformRole) {
-      t.setPlatformRole('owner');
-    }
     t.setLoaded(true);
   }
 }

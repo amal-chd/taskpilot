@@ -3,11 +3,25 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import {
   ArrowRight, X, Check, ShieldCheck, Smartphone, Database, Lock,
   CheckCircle2, FileText, IndianRupee, MapPin,
-  ClipboardCheck, Clock
+  ClipboardCheck, Clock, Eye
 } from 'lucide-react';
 import { MarketingLayout, Section, Eyebrow } from './MarketingLayout';
 import { FEATURES, INDUSTRIES, FeatureItem } from './content';
 import { useSeo } from '../../../lib/seo';
+import { ScreenshotLightbox } from '../../../components/common/ScreenshotLightbox';
+
+const SLUG_MAP: Record<string, string> = {
+  tasks: 'task-management',
+  attendance: 'gps-attendance',
+  site_diary: 'daily-site-diary',
+  boq: 'boq-cost-control',
+  materials: 'materials-inventory',
+  inspections: 'inspections-punch-lists',
+  timeline: 'gantt-timeline',
+  documents: 'document-control',
+  chat: 'site-chat',
+  assets: 'equipment-tracking',
+};
 
 const CATEGORIES = [
   { id: 'all', label: 'All Modules (21)' },
@@ -19,13 +33,30 @@ const CATEGORIES = [
 
 export const FeaturesPage: React.FC = () => {
   useSeo({
-    title: 'Task Pilot Features — Complete Construction Operating System',
+    title: 'Features — Construction Project Management Software',
     description: 'Every module construction teams need: tasks & sign-offs, GPS attendance, daily site diary (DPR), BOQ & cost control, materials, labour, inspections, Gantt timeline, drawings and chat.',
     path: '/features',
   });
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedFeature, setSelectedFeature] = useState<FeatureItem | null>(null);
+  const [lightbox, setLightbox] = useState<{
+    isOpen: boolean;
+    src: string;
+    title: string;
+    caption?: string;
+    badge?: string;
+  }>({
+    isOpen: false,
+    src: '',
+    title: '',
+    caption: '',
+    badge: '',
+  });
+
+  const openScreenshot = (src: string, title: string, caption?: string, badge?: string) => {
+    setLightbox({ isOpen: true, src, title, caption, badge });
+  };
 
   const filteredFeatures = activeCategory === 'all'
     ? FEATURES
@@ -60,93 +91,337 @@ export const FeaturesPage: React.FC = () => {
               </button>
             ))}
           </div>
+
+          {/* Top Hero Preview Banner */}
+          <div
+            className="mt-10 cursor-pointer group rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-2xl max-w-4xl mx-auto"
+            onClick={() => openScreenshot(
+              '/images/screenshots/web-dashboard-command-center.webp',
+              'Task Pilot Multi-Site Command Center',
+              'High-level operational overview tracking active sites, task completion velocity, daily headcount, and CPI cost efficiency.',
+              'Multi-Site Command'
+            )}
+          >
+            <div className="bg-slate-950 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-left">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+              </div>
+            </div>
+            <div className="relative overflow-hidden bg-slate-950">
+              <img width={1600} height={1000}
+                src="/images/screenshots/web-dashboard-command-center.webp"
+                alt="Task Pilot Multi-Site Command Center"
+                className="w-full h-auto object-cover max-h-[380px] transition-transform duration-300 group-hover:scale-[1.01]"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
         </Section>
       </div>
 
-      {/* ─── 4 Flagship Deep-Dives ─── */}
+      {/* ─── 4 Flagship Deep-Dives with Live App Screenshots ─── */}
       <Section className="py-16">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-14">
           <Eyebrow>Core Capabilities</Eyebrow>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
-            The foundation of modern site management
+          <h2 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
+            Field-Proven Modules Engineered for Ground Reality
           </h2>
+          <p className="mt-3 text-slate-600 text-sm sm:text-base">
+            Click any interface preview to inspect verified 2x retina production screenshots from active projects.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-amber-500/5 via-white to-white p-8 relative overflow-hidden shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-amber-500 text-slate-950 flex items-center justify-center mb-5 font-bold shadow-md">
-              <MapPin className="w-6 h-6" />
+        <div className="space-y-12">
+          {/* Flagship 1: Location-Verified GPS Attendance (Mobile Focus) */}
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden grid lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-3 py-1 rounded-full">
+                  Mobile Field Core
+                </span>
+                <span className="text-xs font-semibold text-slate-500">Android & iOS Native</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Location-Verified GPS Attendance
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Eliminate ghost muster, buddy punching, and proxy check-ins. Field workers tap Check In on the native mobile app; Task Pilot validates satellite GPS coordinates against your project centroid within your configured site radius, and blocks fake-GPS apps on Android.
+              </p>
+              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Geofence check against your site radius, with fake-GPS blocking on Android</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Point-in-time check-in preserving phone battery (under 1% daily usage)</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Instant live muster counter synced directly to the head office console</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <Link
+                  to="/features/gps-attendance"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  Explore GPS Attendance Architecture <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/60 px-2.5 py-1 rounded-full">
-              Field Core
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 mt-2">Tamper-Proof GPS Attendance</h2>
-            <p className="text-slate-600 text-sm mt-2 leading-relaxed">
-              Eliminate buddy punching and proxy check-ins. Site engineers, supervisors, and labor check in directly through the mobile app.
-              Coordinates are validated within a customizable geofence radius around your project site.
-            </p>
-            <ul className="mt-4 space-y-2 text-xs font-medium text-slate-700">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Geofence perimeter lock with spoof prevention</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Live attendance counter on head office dashboard</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> 1-click Excel export formatted for payroll</li>
-            </ul>
+
+            <div
+              className="lg:col-span-6 flex justify-center cursor-pointer group"
+              onClick={() => openScreenshot(
+                '/images/screenshots/mobile-app-attendance-geofence.webp',
+                'Mobile GPS Attendance — Geofenced Check-In',
+                'Mobile attendance with geofence check, fake-GPS blocking on Android and a shift timer.',
+                'Native Mobile App'
+              )}
+            >
+              <div className="relative max-w-[280px] sm:max-w-[310px] w-full rounded-[40px] p-2 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-[1.02]">
+                <div className="rounded-[32px] overflow-hidden bg-black relative">
+                  <img width={780} height={1688}
+                    src="/images/screenshots/mobile-app-attendance-geofence.webp"
+                    alt="Location-Verified GPS Attendance Mobile App"
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold border border-slate-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to Zoom
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-500/5 via-white to-white p-8 relative overflow-hidden shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center mb-5 font-bold shadow-md">
-              <FileText className="w-6 h-6" />
+          {/* Flagship 2: Daily Site Diary (DPR) */}
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden grid lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+            <div className="lg:col-span-6 space-y-4 lg:order-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100/70 px-3 py-1 rounded-full">
+                  Reporting Core
+                </span>
+                <span className="text-xs font-semibold text-slate-500">FIDIC & Contract Defense</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Daily Site Diary (DPR)
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Compile contemporaneous Daily Progress Reports in under 3 minutes before leaving the site. Log trade-wise manpower headcounts (masons, carpenters, bar benders), rainfall and wind stoppages, heavy machinery running hours, and timestamped progress photos.
+              </p>
+              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Subcontractor muster breakdown across all active working fronts</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Automatic GPS, date, and project watermarks embedded on all photos</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>1-click client-ready branded PDF progress packs exported instantly</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <Link
+                  to="/features/daily-site-diary"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  Explore Daily Site Diary Guide <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-100/60 px-2.5 py-1 rounded-full">
-              Reporting Core
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 mt-2">Daily Site Diary (DPR)</h2>
-            <p className="text-slate-600 text-sm mt-2 leading-relaxed">
-              Standardize daily progress reporting across every contractor. Log weather, trade-wise manpower counts, equipment active/idle hours,
-              work executed by zone, and timestamped progress photos.
-            </p>
-            <ul className="mt-4 space-y-2 text-xs font-medium text-slate-700">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Completed in under 3 minutes on mobile</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Automatic time, date, and GPS watermarks on photos</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Client-ready PDF reports generated instantly</li>
-            </ul>
+
+            <div
+              className="lg:col-span-6 lg:order-1 cursor-pointer group"
+              onClick={() => openScreenshot(
+                '/images/screenshots/web-site-diary-dpr.webp',
+                'Daily Progress Report #142 — Labour Muster & Weather',
+                'Web executive DPR viewer with trade headcounts, weather stoppages, plant hours, and photo gallery.',
+                'Web Command Center'
+              )}
+            >
+              <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:border-slate-700">
+                <div className="bg-slate-950 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                </div>
+                <div className="relative overflow-hidden bg-slate-950">
+                  <img width={1600} height={1000}
+                    src="/images/screenshots/web-site-diary-dpr.webp"
+                    alt="Daily Site Diary Web Console"
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold border border-slate-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to Inspect Fullscreen
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-emerald-500/5 via-white to-white p-8 relative overflow-hidden shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-5 font-bold shadow-md">
-              <IndianRupee className="w-6 h-6" />
+          {/* Flagship 3: BOQ & Earned Value Cost Control */}
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden grid lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+            <div className="lg:col-span-6 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full">
+                  Financial Core
+                </span>
+                <span className="text-xs font-semibold text-slate-500">Commercial Intelligence</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                BOQ & Earned Value Cost Control
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Connect tender budgets directly to physical site execution. Import Excel BOQ work packages with unit rates and quantities. As site teams verify completed work, Task Pilot updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) in real time.
+              </p>
+              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Real-time Cost Performance Index (CPI) and Schedule Variance (SV)</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Early-warning margin protection before budget overruns occur</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Role-gated commercial rates: hidden from site crews, visible to Directors</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <Link
+                  to="/features/boq-cost-control"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  Explore Commercial Cost Control Guide <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/60 px-2.5 py-1 rounded-full">
-              Financial Core
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 mt-2">BOQ & Earned Value Cost Control</h2>
-            <p className="text-slate-600 text-sm mt-2 leading-relaxed">
-              Import your Bill of Quantities directly from Excel. As site engineers log completed quantities, Task Pilot recalculates
-              Planned Value (PV), Earned Value (EV), and Actual Cost (AC) from real material receipts and labor wage slips.
-            </p>
-            <ul className="mt-4 space-y-2 text-xs font-medium text-slate-700">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Real-time Cost Performance Index (CPI) tracking</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Early warning alerts before budget overruns occur</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Subcontractor payment certification support</li>
-            </ul>
+
+            <div
+              className="lg:col-span-6 cursor-pointer group"
+              onClick={() => openScreenshot(
+                '/images/screenshots/web-boq-cost-control.webp',
+                'BOQ & EVM Ledger — CPI 1.05 & Package Margins',
+                'Master commercial ledger linking tender BOQ items to live material issuances, wage slips, and EVM variance.',
+                'Commercial Console'
+              )}
+            >
+              <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:border-slate-700">
+                <div className="bg-slate-950 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                </div>
+                <div className="relative overflow-hidden bg-slate-950">
+                  <img width={1600} height={1000}
+                    src="/images/screenshots/web-boq-cost-control.webp"
+                    alt="BOQ & Cost Control Console"
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold border border-slate-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to Inspect Fullscreen
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-purple-500/5 via-white to-white p-8 relative overflow-hidden shadow-sm">
-            <div className="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center mb-5 font-bold shadow-md">
-              <ClipboardCheck className="w-6 h-6" />
+          {/* Flagship 4: Enforced Task Sign-Offs & Quality Gates */}
+          <div className="rounded-3xl border border-slate-200 bg-white shadow-xl overflow-hidden grid lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
+            <div className="lg:col-span-6 space-y-4 lg:order-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100/70 px-3 py-1 rounded-full">
+                  Execution Core
+                </span>
+                <span className="text-xs font-semibold text-slate-500">Zero-Defect QA/QC</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Enforced Task Sign-Offs & Quality Gates
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                No task closes without verified photo evidence and authorized engineer approval. Configure pre-pour structural hold points, cover block checks, and MEP rough-in verification gates before concrete can be cast.
+              </p>
+              <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-slate-700">
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>3-Stage verification: In Progress → Under Review → Done</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Subtask inspection checklists with mandatory pass/fail criteria</span>
+                </li>
+                <li className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Permanent chronological audit trail preventing contractor blame games</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <Link
+                  to="/features/task-management"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors"
+                >
+                  Explore Task Verification Guide <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider text-purple-700 bg-purple-100/60 px-2.5 py-1 rounded-full">
-              Execution Core
-            </span>
-            <h2 className="text-2xl font-bold text-slate-900 mt-2">Enforced Task Sign-Offs & Quality Gates</h2>
-            <p className="text-slate-600 text-sm mt-2 leading-relaxed">
-              No task is considered complete until verified. Set rules requiring site engineers or quality inspectors to digitally inspect
-              and sign off with photo evidence before rebar is covered or concrete is poured.
-            </p>
-            <ul className="mt-4 space-y-2 text-xs font-medium text-slate-700">
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Strict role-based approval permissions</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Subtask inspection checklists with pass/fail gates</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Complete chronological audit trail for every change</li>
-            </ul>
+
+            <div
+              className="lg:col-span-6 lg:order-1 cursor-pointer group"
+              onClick={() => openScreenshot(
+                '/images/screenshots/web-tasks-kanban-verification.webp',
+                'Task Management Kanban & Verification Drawer',
+                'Active QA Hold Point #TK-402 with photographic proof, acceptance criteria, and digital sign-off button.',
+                'QA Hold Point'
+              )}
+            >
+              <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-xl transition-all duration-300 group-hover:shadow-2xl group-hover:border-slate-700">
+                <div className="bg-slate-950 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                </div>
+                <div className="relative overflow-hidden bg-slate-950">
+                  <img width={1600} height={1000}
+                    src="/images/screenshots/web-tasks-kanban-verification.webp"
+                    alt="Task Management Kanban Verification"
+                    className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold border border-slate-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to Inspect Fullscreen
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
@@ -202,6 +477,17 @@ export const FeaturesPage: React.FC = () => {
                     {feat.userRoles.slice(0, 3).join(', ')}
                   </span>
                 </div>
+
+                {SLUG_MAP[feat.key] && (
+                  <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-end">
+                    <Link
+                      to={`/features/${SLUG_MAP[feat.key]}`}
+                      className="text-xs font-bold text-slate-900 hover:text-amber-600 inline-flex items-center gap-1 transition-colors"
+                    >
+                      Deep-dive guide <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -241,7 +527,7 @@ export const FeaturesPage: React.FC = () => {
               {
                 icon: ShieldCheck,
                 title: 'Encrypted Cloud Storage',
-                desc: 'All PDFs, structural blueprints, and documents are stored with 256-bit AES encryption at rest and in transit.',
+                desc: 'PDFs, blueprints and documents are stored in cloud storage that is encrypted at rest, and always served over HTTPS.',
               },
             ].map((sec) => (
               <div key={sec.title} className="rounded-2xl bg-white/5 border border-white/10 p-6">
@@ -277,6 +563,16 @@ export const FeaturesPage: React.FC = () => {
           </div>
         </div>
       </Section>
+
+      {/* Screenshot Lightbox Modal */}
+      <ScreenshotLightbox
+        isOpen={lightbox.isOpen}
+        onClose={() => setLightbox(prev => ({ ...prev, isOpen: false }))}
+        src={lightbox.src}
+        title={lightbox.title}
+        caption={lightbox.caption}
+        badge={lightbox.badge}
+      />
     </MarketingLayout>
   );
 };
@@ -300,7 +596,7 @@ export const IndustryPage: React.FC = () => {
         <Section>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-4">
             <Icon className="w-4 h-4" />
-            <span>Sector Operating System: {ind.name}</span>
+            <span>Built for {ind.name}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight max-w-3xl leading-tight">
             {ind.headline}

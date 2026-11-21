@@ -53,9 +53,17 @@ describe('billing helpers', () => {
     expect(formatMoney(149900)).toMatch(/1,499/);
     expect(formatMoney(149950)).toMatch(/1,499\.50/);
   });
+  it('formats international currencies properly', () => {
+    expect(formatMoney(4900, 'USD')).toMatch(/49/);
+    expect(formatMoney(4500, 'EUR')).toMatch(/45/);
+  });
   it('flags read-only statuses', () => {
     expect(isReadOnlyStatus('expired')).toBe(true);
+    expect(isReadOnlyStatus('cancelled')).toBe(true);
+    expect(isReadOnlyStatus('suspended')).toBe(true);
     expect(isReadOnlyStatus('past_due')).toBe(false);
+    expect(isReadOnlyStatus('active')).toBe(false);
+    expect(isReadOnlyStatus('trialing')).toBe(false);
   });
   it('computes trial days left, never negative', () => {
     expect(trialDaysLeft({ trial_ends_at: new Date(Date.now() + 2.5 * 86400000).toISOString() } as any)).toBe(3);

@@ -35,7 +35,7 @@ export default function TermsOfUsePage() {
           {/* Intro Notice */}
           <section className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800">
             <p className="text-xs sm:text-sm leading-relaxed">
-              Welcome to <strong>Task Pilot</strong>, operated by <strong>Task Pilot Technologies</strong> ("Company," "we," "us," or "our").
+              Welcome to <strong>Task Pilot</strong>, a software product developed, owned, and operated by <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Company," "we," "us," or "our").
               These Terms of Use ("Terms") govern your access to and use of our web portal, mobile applications (Android and iOS),
               and related cloud services (collectively, the "Services"). By registering a workspace, starting a trial, or using the Services,
               you agree to be bound by these Terms on behalf of your organization.
@@ -53,7 +53,7 @@ export default function TermsOfUsePage() {
                 <strong>14-Day Free Trial:</strong> All paid plans include an unrestricted 14-day free trial. No credit card or upfront payment is required to start. During your trial, you have full access to the features included in your chosen plan tier.
               </p>
               <p>
-                <strong>Billing in INR:</strong> Subscriptions are billed in Indian Rupees (INR) on a monthly or yearly cycle through our secure payment gateway partner (Razorpay). Prices include applicable GST, and automated tax invoices are delivered to your billing email.
+                <strong>Multi-Currency Global Billing & Taxes:</strong> Subscriptions are billed on a monthly or yearly cycle in your selected currency (USD, EUR, GBP, AED, CAD, AUD, or INR) via secure payment processing partners. Automated tax invoices are issued for every transaction. Customers are responsible for applicable local taxes, VAT, sales tax, or GST. For international cross-border B2B supplies, reverse charge mechanisms apply where legally designated.
               </p>
               <p>
                 <strong>Cancellation:</strong> You may cancel or downgrade your subscription at any time from Settings → Billing. Access continues until the conclusion of your current prepaid billing cycle without penalty.
@@ -72,7 +72,7 @@ export default function TermsOfUsePage() {
                 <strong>Your Data Remains Yours:</strong> Your organization retains 100% ownership, title, and all intellectual property rights to all drawings, Bill of Quantities (BOQ), rate cards, photos, task histories, and personal records entered into your workspace.
               </p>
               <p>
-                <strong>Platform IP:</strong> Task Pilot Technologies retains all rights, title, and interest in the Task Pilot software, application code, mobile apps, user interfaces, documentation, logos, and trademarks.
+                <strong>Platform IP:</strong> Thekada Digital Ventures Pvt. Ltd. retains all rights, title, and interest in the Task Pilot software, application code, mobile apps, user interfaces, documentation, logos, and trademarks.
               </p>
             </div>
           </section>
@@ -130,49 +130,59 @@ export default function TermsOfUsePage() {
               Limitation of Liability
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, TASK PILOT TECHNOLOGIES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, THEKADA DIGITAL VENTURES PVT. LTD. (DEVELOPER AND OPERATOR OF TASK PILOT) SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
               CONSEQUENTIAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, PROJECT DELAYS,
               WORK STOPPAGES, OR LOSS OF BUSINESS DATA ARISING OUT OF OR IN CONNECTION WITH THE USE OF OUR SERVICES.
               OUR TOTAL AGGREGATE LIABILITY UNDER THESE TERMS SHALL NOT EXCEED THE TOTAL FEES PAID BY YOUR ORGANIZATION
-              TO TASK PILOT DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
+              FOR TASK PILOT SERVICES DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
             </p>
           </section>
 
-          {/* 7. Governing Law */}
+          {/* 7. Export Controls & Compliance */}
           <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">7</span>
-              Governing Law & Jurisdiction
+              International Trade & Export Compliance
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600">
-              These Terms shall be governed by and construed in accordance with the laws of India.
-              Any disputes arising under or related to these Terms shall be subject to the exclusive jurisdiction of the courts of Kerala, India.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              You agree to comply with all applicable domestic and international export control laws, trade sanctions, and embargo regulations. You certify that your organization and authorized users are not located in an embargoed destination or identified on any international restricted parties lists.
             </p>
           </section>
 
-          {/* 8. Contact */}
-          <section className="pt-6 border-t border-slate-200">
+          {/* 8. Governing Law & Dispute Resolution */}
+          <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">8</span>
+              Governing Law & Dispute Resolution
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles. Any legal suit, action, or proceeding arising out of or related to these Terms shall be instituted exclusively in the courts of Kerala, India, or resolved through mutual binding commercial arbitration.
+            </p>
+          </section>
+
+          {/* 9. Contact */}
+          <section className="pt-6 border-t border-slate-200">
+            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">9</span>
               Contact Us
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mb-4">
-              If you have any questions regarding these Terms or enterprise agreements, please contact:
+              If you have any questions regarding these Terms or international enterprise agreements, please contact:
             </p>
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-1.5">
-              <p><strong className="text-slate-900">Task Pilot Technologies</strong></p>
-              <p>Legal & Corporate Compliance</p>
+              <p><strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong></p>
+              <p className="text-slate-600 font-medium">Task Pilot Legal & Corporate Compliance</p>
               <p>Email:{' '}
-                <a href="mailto:legal@taskpilot.app" className="text-amber-700 font-semibold hover:underline">
-                  legal@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
+                  info@thekada.in
                 </a>
               </p>
               <p>Customer Support:{' '}
-                <a href="mailto:support@taskpilot.app" className="text-amber-700 font-semibold hover:underline">
-                  support@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
+                  info@thekada.in
                 </a>
               </p>
-              <p className="text-slate-500 pt-1">India Operations: Kochi & Bangalore</p>
+              <p className="text-slate-500 pt-1">Corporate Headquarters: India (Kochi & Bangalore) · Global Service Coverage</p>
             </div>
           </section>
 

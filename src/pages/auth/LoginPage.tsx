@@ -44,11 +44,7 @@ const LoginPage: React.FC = () => {
     if (firebaseUser) {
       const emailLower = (firebaseUser.email || '').toLowerCase();
       const pRole = useTenantStore.getState().platformRole;
-      const isPlatformAdmin = Boolean(
-        pRole ||
-        emailLower === 'admin@taskpilot.app' ||
-        emailLower === 'thekadaapp@gmail.com'
-      );
+      const isPlatformAdmin = Boolean(pRole);
       const target = explicitNext || (isPlatformAdmin ? '/platform' : '/app/dashboard');
       navigate(target, { replace: true });
     }
@@ -82,11 +78,7 @@ const LoginPage: React.FC = () => {
         // non-fatal
       }
       const pRole = useTenantStore.getState().platformRole;
-      const isPlatformAdmin = Boolean(
-        pRole ||
-        cleanEmail === 'admin@taskpilot.app' ||
-        cleanEmail === 'thekadaapp@gmail.com'
-      );
+      const isPlatformAdmin = Boolean(pRole);
       const target = explicitNext || (isPlatformAdmin ? '/platform' : '/app/dashboard');
       navigate(target, { replace: true });
     } catch (err: unknown) {
@@ -128,7 +120,7 @@ const LoginPage: React.FC = () => {
             <img src="/logo.png" alt="Task Pilot" className="w-11 h-11 rounded-2xl object-cover shadow-lg" />
             <div>
               <p className="text-white font-bold text-base">Task Pilot</p>
-              <p className="text-white/40 text-xs">Task Management System</p>
+              <p className="text-amber-400 text-xs font-medium">A product by Thekada Digital Ventures Pvt Ltd</p>
             </div>
           </div>
           <h2 className="text-3xl font-black text-white leading-tight mb-4">
@@ -159,7 +151,7 @@ const LoginPage: React.FC = () => {
           <div className="flex flex-col items-center mb-8 lg:hidden">
             <img src="/logo.png" alt="Task Pilot" className="w-14 h-14 rounded-2xl object-cover shadow-xl mb-3" />
             <h1 className="text-2xl font-bold text-slate-900">Task Pilot</h1>
-            <p className="text-slate-500 text-sm">Construction Task Management</p>
+            <p className="text-amber-600 text-xs font-semibold">A product by Thekada Digital Ventures Pvt Ltd</p>
           </div>
 
           <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/60 border border-slate-100 p-8">
@@ -220,7 +212,7 @@ const LoginPage: React.FC = () => {
           </div>
 
           <p className="text-center text-slate-400 text-xs mt-6">
-            © {new Date().getFullYear()} Task Pilot. All rights reserved
+            © {new Date().getFullYear()} Task Pilot · A product by Thekada Digital Ventures Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </div>

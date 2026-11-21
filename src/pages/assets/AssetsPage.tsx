@@ -216,7 +216,7 @@ export const AssetFormModal: React.FC<{
             <Field label="Serial number"><input className={inp} value={f.serialNumber || ''} onChange={(e) => up('serialNumber', e.target.value)} /></Field>
             <Field label="Location"><input className={inp} value={f.location || ''} onChange={(e) => up('location', e.target.value)} /></Field>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <Field label="Cost (₹)"><input type="number" className={inp} value={f.purchaseCost ?? ''} onChange={(e) => up('purchaseCost', +e.target.value)} /></Field>
             <Field label="Salvage (₹)"><input type="number" className={inp} value={f.salvageValue ?? ''} onChange={(e) => up('salvageValue', +e.target.value)} /></Field>
             <Field label="Life (yrs)"><input type="number" className={inp} value={f.usefulLifeYears ?? ''} onChange={(e) => up('usefulLifeYears', +e.target.value)} /></Field>

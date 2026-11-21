@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
               Our Core Privacy Commitment
             </h2>
             <p className="text-xs sm:text-sm leading-relaxed text-slate-700">
-              <strong>Task Pilot Technologies</strong> ("Task Pilot", "we", "us", or "our") provides project management,
+              <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Thekada", "Company", "we", "us", or "our"), through its enterprise software product <strong>Task Pilot</strong> ("Task Pilot", the "Platform"), provides project management,
               field operations, attendance, and commercial control software for the construction and built-environment sectors.
               We believe your drawings, BOQs, contractor wage rates, and jobsite data are strictly confidential property of your organization.
               We do not sell, rent, or monetize your customer data.
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-3">
               <p>
-                Task Pilot offers tamper-proof GPS attendance verification for field personnel. Here is our strict location policy:
+                Task Pilot offers location-verified GPS attendance verification for field personnel. Here is our strict location policy:
               </p>
               <ul className="list-disc ml-6 space-y-2 text-xs sm:text-sm text-slate-600">
                 <li>
@@ -126,10 +126,11 @@ export default function PrivacyPolicyPage() {
               We implement industry-standard administrative, physical, and technical safeguards:
             </p>
             <ul className="mt-3 list-disc ml-6 space-y-1.5 text-xs sm:text-sm text-slate-600">
-              <li>All web and mobile communication is encrypted in transit using TLS 1.3.</li>
-              <li>Databases, documents, and backups are encrypted at rest using AES-256 encryption.</li>
-              <li>Role-based authorization checks guard every administrative action, user modification, and financial export.</li>
-              <li>Continuous automated backups and disaster recovery protocols.</li>
+              <li>All web and mobile communication is encrypted in transit (HTTPS/TLS), with HSTS enforced on our web domain.</li>
+              <li>Databases and stored files are encrypted at rest by our infrastructure providers (AES-256).</li>
+              <li>Each company's records are tagged to its organisation, and database access rules return only that organisation's data.</li>
+              <li>Role-based authorization checks guard administrative actions, user changes and financial exports, and key actions are recorded in an audit trail.</li>
+              <li>Workspace owners can export all of their data, or request permanent deletion, at any time.</li>
             </ul>
           </section>
 
@@ -145,7 +146,7 @@ export default function PrivacyPolicyPage() {
             <div className="grid sm:grid-cols-2 gap-3 text-xs">
               <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
                 <p className="font-bold text-slate-900">Cloud Hosting & Database</p>
-                <p className="text-slate-500 mt-0.5">Google Cloud Platform & Supabase (Encrypted PostgreSQL & Realtime)</p>
+                <p className="text-slate-500 mt-0.5">Supabase (PostgreSQL database, file storage and server functions, hosted in the AWS Asia Pacific – Tokyo region), Google Firebase (sign-in and push notifications) and Vercel (website hosting)</p>
               </div>
               <div className="p-3 rounded-lg bg-slate-50 border border-slate-100">
                 <p className="font-bold text-slate-900">Payment Processing</p>
@@ -170,29 +171,71 @@ export default function PrivacyPolicyPage() {
             </ul>
           </section>
 
-          {/* Section 7 - Contact */}
-          <section className="pt-6 border-t border-slate-200">
+          {/* Section 6 - International Rights */}
+          <section>
+            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">6</span>
+              Global Data Rights (GDPR, CCPA/CPRA & DPDP Act)
+            </h2>
+            <div className="space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p>
+                As a global SaaS provider, Thekada Digital Ventures Pvt. Ltd. complies with major international data privacy frameworks:
+              </p>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                <p className="font-bold text-slate-900">European Union & UK Data Subjects (GDPR / UK GDPR):</p>
+                <p>
+                  You are entitled to fundamental rights regarding your personal information, including the Right of Access (Art. 15), Right to Rectification (Art. 16), Right to Erasure / "Right to be Forgotten" (Art. 17), Right to Restriction of Processing (Art. 18), and Right to Data Portability (Art. 20). Cross-border data transfers rely on approved Standard Contractual Clauses (SCCs).
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                <p className="font-bold text-slate-900">California Residents (CCPA / CPRA):</p>
+                <p>
+                  You have the right to know what personal categories we collect, request deletion, and request correction. <strong>We do not sell or share personal information</strong> with data brokers or third-party ad networks.
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                <p className="font-bold text-slate-900">India Digital Personal Data Protection (DPDP) Act 2023:</p>
+                <p>
+                  Data is processed strictly for specified, lawful organizational purposes under explicit enterprise consent or employment management verifications.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 7 - Cookies & Telemetry */}
+          <section>
             <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">7</span>
-              Contact Our Privacy Office
+              Cookies & Telemetry Policy
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              We use strictly necessary session cookies and authenticated local storage tokens to keep you logged in and preserve your workspace settings. We do not use intrusive cross-site behavioral tracking cookies. Performance telemetry (e.g. error monitoring) is pseudonymized to guarantee platform stability.
+            </p>
+          </section>
+
+          {/* Section 8 - Contact */}
+          <section className="pt-6 border-t border-slate-200">
+            <h2 className="text-xl font-bold text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-6 h-6 rounded-full bg-slate-900 text-white text-xs flex items-center justify-center font-bold">8</span>
+              Contact Our Data Protection Officer (DPO)
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mb-4">
-              If you have any questions, compliance requests, or concerns regarding this Privacy Policy, please reach out to our dedicated privacy officer:
+              If you have any questions, compliance requests, or wish to exercise your GDPR/CCPA data rights, please contact our global privacy team:
             </p>
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-1.5">
-              <p><strong className="text-slate-900">Task Pilot Technologies</strong></p>
-              <p>Privacy & Data Protection Team</p>
+              <p><strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong></p>
+              <p className="text-slate-600 font-medium">Task Pilot Privacy & Data Protection Office</p>
               <p>Email:{' '}
-                <a href="mailto:privacy@taskpilot.app" className="text-amber-700 font-semibold hover:underline">
-                  privacy@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
+                  info@thekada.in
                 </a>
               </p>
               <p>General Legal Inquiries:{' '}
-                <a href="mailto:legal@taskpilot.app" className="text-amber-700 font-semibold hover:underline">
-                  legal@taskpilot.app
+                <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
+                  info@thekada.in
                 </a>
               </p>
-              <p className="text-slate-500 pt-1">India Operations: Kochi & Bangalore</p>
+              <p className="text-slate-500 pt-1">Corporate Headquarters: India (Kochi & Bangalore) · Global Service Coverage</p>
             </div>
           </section>
 

@@ -103,6 +103,7 @@ export interface OrgContext {
   limits: { max_users: number | null; max_projects: number | null; max_storage_mb: number | null };
   usage: { users: number; projects: number; pending_invites: number };
   razorpayKeyId: string | null;
+  hasRazorpayKeys?: boolean;
 }
 
 interface TenantState {
@@ -152,10 +153,31 @@ export function useFeature(key: ModuleKey | string): boolean {
 
 export const isReadOnlyStatus = (s?: string) => s === 'suspended' || s === 'cancelled' || s === 'expired';
 
-export const formatMoney = (minor: number, currency = 'INR') =>
-  new Intl.NumberFormat(currency === 'INR' ? 'en-IN' : 'en-US', {
-    style: 'currency', currency, maximumFractionDigits: minor % 100 === 0 ? 0 : 2,
-  }).format(minor / 100);
+export const CURRENCY_LOCALES: Record<string, string> = {
+  USD: 'en-US',
+  EUR: 'de-DE',
+  GBP: 'en-GB',
+  AED: 'en-AE',
+  INR: 'en-IN',
+  CAD: 'en-CA',
+  AUD: 'en-AU',
+  SGD: 'en-SG',
+  SAR: 'en-SA',
+};
+
+export const formatMoney = (minor: number, currency = 'USD') => {
+  const normalized = (currency || 'USD').toUpperCase();
+  const locale = CURRENCY_LOCALES[normalized] || 'en-US';
+  try {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: normalized,
+      maximumFractionDigits: minor % 100 === 0 ? 0 : 2,
+    }).format(minor / 100);
+  } catch {
+    return `${normalized} ${(minor / 100).toFixed(2)}`;
+  }
+};
 
 export const trialDaysLeft = (org?: Organization | null) => {
   if (!org?.trial_ends_at) return null;

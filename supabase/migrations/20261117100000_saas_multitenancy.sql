@@ -238,7 +238,7 @@ create table if not exists public.platform_settings (
 );
 insert into public.platform_settings (key, value) values
   ('general', '{"product_name":"Task Pilot","support_email":"support@taskpilot.app","default_trial_days":14,"default_plan":"professional","grace_period_days":7,"signups_enabled":true}'),
-  ('tax', '{"gst_percent":18,"prices_include_tax":true,"seller_name":"Task Pilot","seller_gstin":""}'),
+  ('tax', '{"gst_percent":18,"prices_include_tax":true,"seller_name":"Thekada Digital Ventures Pvt Ltd","seller_gstin":""}'),
   ('maintenance', '{"enabled":false,"message":""}')
 on conflict (key) do nothing;
 
