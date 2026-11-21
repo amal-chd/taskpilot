@@ -153,7 +153,7 @@ export const LandingPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               icon: HardHat,

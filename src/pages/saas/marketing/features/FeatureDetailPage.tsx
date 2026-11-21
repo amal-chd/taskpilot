@@ -210,7 +210,7 @@ export const FeatureDetailPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.painPoints.map((p, i) => (
             <div key={i} className="rounded-2xl border border-rose-100 bg-rose-50/40 p-6 flex flex-col justify-between">
               <div>
@@ -238,7 +238,7 @@ export const FeatureDetailPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.solutions.map((s, i) => (
               <div key={i} className="rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col justify-between hover:bg-white/[0.08] transition-colors">
                 <div>
@@ -266,7 +266,7 @@ export const FeatureDetailPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {data.workflowSteps.map((w) => (
             <div key={w.step} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex flex-col justify-between">
               <div>
@@ -292,7 +292,7 @@ export const FeatureDetailPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {data.roleBenefits.map((r, i) => (
               <div key={i} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                 <span className="px-2.5 py-1 rounded bg-slate-100 text-slate-800 font-bold text-xs uppercase tracking-wider block w-fit mb-3">

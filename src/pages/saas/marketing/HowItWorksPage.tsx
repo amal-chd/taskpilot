@@ -236,7 +236,7 @@ export const HowItWorksPage: React.FC = () => {
           </div>
 
           {/* Role Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+          <div className="m-scroll-row flex flex-wrap items-center justify-center gap-2 mb-8">
             {[
               { id: 'director', label: 'Managing Director' },
               { id: 'pm', label: 'Project Manager' },

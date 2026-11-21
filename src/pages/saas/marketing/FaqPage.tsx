@@ -161,7 +161,7 @@ export const FaqPage: React.FC = () => {
           </div>
 
           {/* Categories */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+          <div className="m-scroll-row mt-6 flex flex-wrap items-center justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}

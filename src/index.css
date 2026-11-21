@@ -128,3 +128,43 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Mobile horizontal scrolling ─────────────────────────────────────────
+   Below 768px these turn wrapping rows / stacked grids into a single
+   swipeable row (scroll-snap, no visible scrollbar). Desktop/tablet layout
+   is untouched. */
+@media (max-width: 767px) {
+  /* Button / tab groups */
+  .m-scroll-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+  .m-scroll-row::-webkit-scrollbar { display: none; }
+  .m-scroll-row > * { flex: 0 0 auto; scroll-snap-align: start; white-space: nowrap; }
+
+  /* Card grids → swipeable carousel; next card peeks to signal scrolling */
+  .m-carousel {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.875rem !important;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0.25rem 1rem 0.75rem;
+    scroll-padding-left: 1rem;
+  }
+  .m-carousel::-webkit-scrollbar { display: none; }
+  .m-carousel > * { flex: 0 0 82%; max-width: 82%; scroll-snap-align: start; }
+  .m-carousel.m-carousel-narrow > * { flex-basis: 62%; max-width: 62%; }
+}

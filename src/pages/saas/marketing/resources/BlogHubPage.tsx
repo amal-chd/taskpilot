@@ -75,7 +75,7 @@ export const BlogHubPage: React.FC = () => {
           </div>
 
           {/* Category Tabs */}
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+          <div className="m-scroll-row mt-6 flex flex-wrap items-center justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -134,7 +134,7 @@ export const BlogHubPage: React.FC = () => {
             <p className="text-xs text-slate-500 mt-1">Try another search keyword or select All Categories.</p>
           </div>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <article
                 key={post.slug}

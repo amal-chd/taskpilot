@@ -42,7 +42,7 @@ export const ComparisonHubPage: React.FC = () => {
 
       {/* ─── Comparison Cards Grid ─── */}
       <Section className="py-20">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {comparisons.map((c) => (
             <div
               key={c.slug}

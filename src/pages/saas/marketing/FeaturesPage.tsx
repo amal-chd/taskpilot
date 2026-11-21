@@ -76,7 +76,7 @@ export const FeaturesPage: React.FC = () => {
             Every tool is included in our transparent, predictable flat team tiers.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <div className="m-scroll-row mt-8 flex flex-wrap items-center justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat.id}
@@ -437,7 +437,7 @@ export const FeaturesPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredFeatures.map((feat) => {
             const Icon = feat.icon;
             return (
@@ -507,7 +507,7 @@ export const FeaturesPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 icon: Database,
@@ -683,7 +683,7 @@ export const IndustryPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="m-carousel grid md:grid-cols-3 gap-6">
             {ind.keyWorkflows.map((wf, idx) => (
               <div key={idx} className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
                 <div>
@@ -742,7 +742,7 @@ export const IndustryPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {ind.standardChecklists.map((chk, idx) => (
               <div key={idx} className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />

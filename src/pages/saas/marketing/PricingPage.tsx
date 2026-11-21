@@ -211,7 +211,7 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+      <div className="m-carousel grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
         {plans.map((p, i) => {
           const prev = plans[i - 1];
           const inherited = prev && !p.is_custom_pricing ? p.features.filter((f) => !prev.features.includes(f)) : p.features;

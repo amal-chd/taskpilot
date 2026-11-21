@@ -209,13 +209,15 @@ export const ProductHomePage: React.FC = () => {
                   Task Pilot OS · Production Construction Hub
                 </span>
               </div>
-              <div className="flex flex-wrap items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800">
+              <div role="tablist" aria-label="Product areas" className="m-scroll-row w-full sm:w-auto flex flex-wrap items-center gap-1 bg-slate-900/90 p-1 rounded-xl border border-slate-800">
                 {SHOWCASE_TABS.map((t) => {
                   const TIcon = t.icon;
                   const active = activeShowcaseTab === t.id;
                   return (
                     <button
                       key={t.id}
+                      role="tab"
+                      aria-selected={active}
                       onClick={() => setActiveShowcaseTab(t.id as any)}
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                         active
@@ -299,7 +301,7 @@ export const ProductHomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="m-carousel grid md:grid-cols-3 gap-6">
             <div className="rounded-2xl bg-white/5 border border-white/10 p-6 flex flex-col justify-between hover:bg-white/[0.08] transition-all">
               <div>
                 <div className="flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-wider mb-2">
@@ -368,7 +370,7 @@ export const ProductHomePage: React.FC = () => {
             Switch effortlessly between visual Kanban boards, structured lists, Gantt schedules, and mobile field apps.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <div className="m-scroll-row mt-8 flex flex-wrap items-center justify-center gap-2">
             {[
               { id: 'kanban', label: 'Kanban Board' },
               { id: 'list', label: 'Structured List' },
@@ -542,7 +544,7 @@ export const ProductHomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="m-carousel m-carousel-narrow grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Phone 1 */}
             <div
               className="rounded-3xl bg-slate-900/80 border border-slate-800 p-5 flex flex-col justify-between hover:border-amber-500/50 hover:bg-slate-900 transition-all duration-300 group cursor-pointer shadow-xl"
@@ -791,7 +793,7 @@ export const ProductHomePage: React.FC = () => {
           </Link>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.slice(0, 9).map(({ icon: Icon, title, desc, key }) => (
             <div
               key={title}
@@ -831,7 +833,7 @@ export const ProductHomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="m-carousel grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {INDUSTRIES.map(({ slug, icon: Icon, name, headline }) => (
               <Link
                 key={slug}
@@ -883,7 +885,7 @@ export const ProductHomePage: React.FC = () => {
             <p className="mt-3 text-slate-600 text-sm">Three common scenarios and the Task Pilot workflow that handles each one.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="m-carousel grid md:grid-cols-3 gap-6">
             {[
               {
                 tag: 'Civil infrastructure', title: 'Settle muster and overtime disputes',
