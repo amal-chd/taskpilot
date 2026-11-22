@@ -137,68 +137,107 @@ export const ProductHomePage: React.FC = () => {
   return (
     <MarketingLayout>
       {/* ─── 1. HERO SECTION ─── */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60 pt-10 pb-20 md:pt-16 md:pb-28 border-b border-slate-100">
+      <div className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60 pt-8 pb-12 sm:pt-12 sm:pb-20 md:pt-16 md:pb-28 border-b border-slate-100">
         <div aria-hidden className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-amber-200/25 blur-3xl pointer-events-none" />
         <div aria-hidden className="absolute top-1/2 -left-40 w-[500px] h-[500px] rounded-full bg-blue-100/30 blur-3xl pointer-events-none" />
 
         <Section className="relative">
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-900 text-xs font-semibold mb-6 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Construction management software · Web, iOS &amp; Android</span>
+          <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-900 text-[11px] sm:text-xs font-semibold mb-5 sm:mb-6 shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden />
+              <span className="sm:hidden">Construction management · Web &amp; mobile</span>
+              <span className="hidden sm:inline">Construction management software · Web, iOS &amp; Android</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
+            <h1 className="text-[2.15rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 sm:leading-[1.08]">
               Every site, task and crew —{' '}
-              <span className="text-amber-600 underline decoration-amber-300/60 decoration-wavy decoration-2">
+              <span className="text-amber-600 underline decoration-amber-300/60 decoration-wavy decoration-2 underline-offset-4">
                 under verified control.
               </span>
             </h1>
 
-            <p className="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto">
-              Task Pilot replaces chaotic WhatsApp groups and paper registers with one unified workspace for task sign-offs,
-              location-verified GPS attendance, daily site diaries (DPR), BOQ cost tracking, and equipment allocation — on desktop and on every smartphone.
+            <p className="mt-4 sm:mt-6 text-base sm:text-xl text-slate-600 leading-relaxed font-normal max-w-3xl mx-auto">
+              <span className="sm:hidden">
+                Replace WhatsApp groups and paper registers with one app for tasks, GPS attendance, site diaries and cost control.
+              </span>
+              <span className="hidden sm:inline">
+                Task Pilot replaces chaotic WhatsApp groups and paper registers with one unified workspace for task sign-offs,
+                location-verified GPS attendance, daily site diaries (DPR), BOQ cost tracking, and equipment allocation — on desktop and on every smartphone.
+              </span>
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
               <Link
                 to="/register"
                 onClick={() => trackCtaClick('hero', 'Start 14-day free trial', '/register')}
-                className="w-full sm:w-auto h-13 px-8 inline-flex items-center justify-center gap-2.5 rounded-xl bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 transition-all hover:-translate-y-0.5"
+                className="w-full sm:w-auto h-12 sm:h-[52px] px-8 inline-flex items-center justify-center gap-2.5 rounded-xl bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 transition-all sm:hover:-translate-y-0.5"
               >
-                Start 14-day free trial <ArrowRight className="w-4 h-4" />
+                Start 14-day free trial <ArrowRight className="w-4 h-4" aria-hidden />
               </Link>
               <Link
                 to="/contact-sales"
                 onClick={() => trackCtaClick('hero', 'Book a live demo', '/contact-sales')}
-                className="w-full sm:w-auto h-13 px-7 inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-base hover:bg-slate-50 transition-all"
+                className="w-full sm:w-auto h-12 sm:h-[52px] px-7 inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-base hover:bg-slate-50 transition-all"
               >
                 Book a live demo
               </Link>
             </div>
 
-            <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-slate-500">
-              <li className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                No credit card required
-              </li>
-              <li className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Live in 10 minutes
-              </li>
-              <li className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Native Android & iOS apps
-              </li>
-              <li className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                Predictable flat team tiers
-              </li>
+            <ul className="mt-5 sm:mt-6 grid grid-cols-2 gap-x-3 gap-y-2 text-left max-w-xs mx-auto sm:max-w-none sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-6 text-xs sm:text-sm text-slate-500">
+              {['No credit card needed', 'Live in 10 minutes', 'Android & iOS apps', 'Flat team pricing'].map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" aria-hidden />
+                  {t}
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* ── Interactive Hero Showcase (Real App Screenshots & UI Inspect) ── */}
-          <div className="mt-10 rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/40 overflow-hidden max-w-6xl mx-auto text-left">
+          {/* ── Mobile-only showcase: swipeable real phone screens + web dashboard card ── */}
+          <div className="sm:hidden">
+            <div className="m-carousel m-carousel-narrow" aria-label="Task Pilot mobile app screens">
+              {[
+                { img: '/images/screenshots/mobile-app-attendance-geofence.webp', title: 'GPS attendance', sub: 'Geofenced check-in from site' },
+                { img: '/images/screenshots/mobile-app-task-inspection.webp', title: 'Task sign-offs', sub: 'Photo proof before approval' },
+                { img: '/images/screenshots/mobile-app-site-diary.webp', title: 'Daily site diary', sub: 'Report done in minutes' },
+                { img: '/images/screenshots/mobile-app-blueprints.webp', title: 'Drawings on site', sub: 'Latest revision, always' },
+              ].map((s, i) => (
+                <figure key={s.title} className="rounded-[1.75rem] bg-slate-900 p-2 shadow-xl shadow-slate-900/20">
+                  <button
+                    type="button"
+                    onClick={() => openScreenshot(s.img, s.title, s.sub, 'Mobile app')}
+                    className="block w-full rounded-[1.35rem] overflow-hidden bg-slate-950"
+                    aria-label={`Enlarge screenshot: ${s.title}`}
+                  >
+                    <img src={s.img} alt={`${s.title} screen in the Task Pilot mobile app`} width={780} height={1688}
+                      loading={i === 0 ? 'eager' : 'lazy'} decoding="async" className="w-full h-auto" />
+                  </button>
+                  <figcaption className="px-2 pt-2.5 pb-1.5 text-left">
+                    <p className="text-sm font-semibold text-white">{s.title}</p>
+                    <p className="text-xs text-slate-400">{s.sub}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mt-1 text-center text-[11px] text-slate-400">Swipe to see more screens →</p>
+
+            <button
+              type="button"
+              onClick={() => openScreenshot('/images/screenshots/web-dashboard-command-center.webp', 'Web dashboard for the office', 'Every site, task and crew at a glance', 'Web app')}
+              className="mt-5 w-full flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 text-left shadow-sm"
+            >
+              <img src="/images/screenshots/web-dashboard-command-center.webp" alt="" width={1600} height={1000} loading="lazy" decoding="async"
+                className="w-24 h-16 object-cover object-left-top rounded-lg border border-slate-200 shrink-0" />
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-slate-900">Plus a full web dashboard</span>
+                <span className="block text-xs text-slate-500">Projects, BOQ costs and reports for the office. Tap to preview.</span>
+              </span>
+              <ArrowRight className="w-4 h-4 text-slate-400 shrink-0 ml-auto" aria-hidden />
+            </button>
+          </div>
+
+          {/* ── Interactive Hero Showcase (tablet & desktop) ── */}
+          <div className="hidden sm:block mt-10 rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl shadow-slate-950/40 overflow-hidden max-w-6xl mx-auto text-left">
             {/* Window Topbar */}
             <div className="bg-slate-950 text-white px-4 py-3 flex flex-wrap items-center justify-between border-b border-slate-800 gap-2">
               <div className="flex items-center gap-2">
@@ -265,7 +304,7 @@ export const ProductHomePage: React.FC = () => {
         <Section>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-amber-400">21</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-amber-400">20</p>
               <p className="text-xs sm:text-sm text-slate-300 mt-1 font-semibold">Specialized Modules</p>
               <p className="text-[11px] text-slate-400 mt-0.5">GPS attendance to BOQ spend</p>
             </div>
@@ -275,9 +314,9 @@ export const ProductHomePage: React.FC = () => {
               <p className="text-[11px] text-slate-400 mt-0.5">Directors down to Site Labour</p>
             </div>
             <div>
-              <p className="text-3xl sm:text-4xl font-extrabold text-amber-400">100%</p>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1 font-semibold">Tenant Data Isolation</p>
-              <p className="text-[11px] text-slate-400 mt-0.5">Encrypted private workspace</p>
+              <p className="text-3xl sm:text-4xl font-extrabold text-amber-400">Separate</p>
+              <p className="text-xs sm:text-sm text-slate-300 mt-1 font-semibold">Workspace per Company</p>
+              <p className="text-[11px] text-slate-400 mt-0.5">Your data stays in your workspace</p>
             </div>
             <div>
               <p className="text-3xl sm:text-4xl font-extrabold text-amber-400">$0 / ₹0</p>
@@ -969,7 +1008,7 @@ export const ProductHomePage: React.FC = () => {
 
       {/* ─── 11. FINAL HIGH-IMPACT CONVERSION CTA ─── */}
       <Section className="pb-20">
-        <div className="rounded-3xl bg-slate-900 text-white p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl">
+        <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-2xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Ready to bring order to your jobsites?</h2>
             <p className="mt-2 text-slate-300 text-sm">Start your 14-day free trial now. Full features, no credit card required.</p>

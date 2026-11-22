@@ -220,7 +220,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
 
       {/* ─── Bottom CTA ─── */}
       <Section className="py-20">
-        <div className="rounded-3xl bg-slate-900 text-white p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xl">
+        <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Test the #1 rated value platform today</h2>
             <p className="mt-2 text-slate-300 text-sm">Experience Task Pilot on your live job sites. 14 days free, no credit card required.</p>
