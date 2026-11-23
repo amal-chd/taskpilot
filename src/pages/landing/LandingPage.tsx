@@ -24,7 +24,7 @@ export const LandingPage: React.FC = () => {
           <Eyebrow>About Task Pilot</Eyebrow>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
             Built by builders. <br className="hidden sm:inline" />
-            <span className="text-amber-600">Engineered for the jobsite.</span>
+            <span className="text-amber-700">Engineered for the jobsite.</span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Task Pilot is a flagship enterprise product built and operated by <strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong> We engineered Task Pilot to solve a fundamental construction reality:
@@ -51,7 +51,7 @@ export const LandingPage: React.FC = () => {
       <Section className="py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-full">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 border border-amber-200/80 px-2.5 py-1 rounded-full">
               Our Purpose
             </span>
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-3">
@@ -74,24 +74,24 @@ export const LandingPage: React.FC = () => {
             <h3 className="font-bold text-slate-900 text-lg">Platform Architecture & Capabilities</h3>
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-2xl bg-white border border-slate-200">
-                <p className="text-2xl font-extrabold text-amber-600">21</p>
+                <p className="text-2xl font-extrabold text-amber-700">21</p>
                 <p className="text-xs text-slate-700 font-bold mt-0.5">Integrated Modules</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Tasks, BOQ, DPR, Stock & more</p>
+                <p className="text-[11px] text-slate-600 mt-0.5">Tasks, BOQ, DPR, Stock & more</p>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200">
                 <p className="text-2xl font-extrabold text-slate-900">8 Tiers</p>
                 <p className="text-xs text-slate-700 font-bold mt-0.5">Role-Based Access</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Director to Site Labour</p>
+                <p className="text-[11px] text-slate-600 mt-0.5">Director to Site Labour</p>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200">
                 <p className="text-2xl font-extrabold text-emerald-600">100%</p>
                 <p className="text-xs text-slate-700 font-bold mt-0.5">Tenant Data Isolation</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Encrypted private workspace</p>
+                <p className="text-[11px] text-slate-600 mt-0.5">Encrypted private workspace</p>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-slate-200">
                 <p className="text-2xl font-extrabold text-blue-600">₹0</p>
                 <p className="text-xs text-slate-700 font-bold mt-0.5">Per-Seat Surcharge</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Flat predictable team tiers</p>
+                <p className="text-[11px] text-slate-600 mt-0.5">Flat predictable team tiers</p>
               </div>
             </div>
 
@@ -203,30 +203,30 @@ export const LandingPage: React.FC = () => {
 
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                <Mail className="w-5 h-5 text-amber-600 mb-2" />
+                <Mail className="w-5 h-5 text-amber-700 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">General Inquiries</p>
-                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-800 font-semibold hover:underline mt-1 block">
                   info@thekada.in
                 </a>
-                <p className="text-[11px] text-slate-500 mt-1">Partnerships, queries, and technical specifications</p>
+                <p className="text-[11px] text-slate-600 mt-1">Partnerships, queries, and technical specifications</p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                <Users className="w-5 h-5 text-amber-600 mb-2" />
+                <Users className="w-5 h-5 text-amber-700 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">Sales & Onboarding</p>
-                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-800 font-semibold hover:underline mt-1 block">
                   info@thekada.in
                 </a>
-                <p className="text-[11px] text-slate-500 mt-1">Product walkthroughs and data migration assistance</p>
+                <p className="text-[11px] text-slate-600 mt-1">Product walkthroughs and data migration assistance</p>
               </div>
 
               <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100">
-                <ShieldCheck className="w-5 h-5 text-amber-600 mb-2" />
+                <ShieldCheck className="w-5 h-5 text-amber-700 mb-2" />
                 <p className="font-bold text-slate-900 text-sm">Customer Support</p>
-                <a href="mailto:info@thekada.in" className="text-xs text-amber-700 font-semibold hover:underline mt-1 block">
+                <a href="mailto:info@thekada.in" className="text-xs text-amber-800 font-semibold hover:underline mt-1 block">
                   info@thekada.in
                 </a>
-                <p className="text-[11px] text-slate-500 mt-1">Account help and rapid technical assistance</p>
+                <p className="text-[11px] text-slate-600 mt-1">Account help and rapid technical assistance</p>
               </div>
             </div>
           </div>
@@ -238,7 +238,7 @@ export const LandingPage: React.FC = () => {
         <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Ready to streamline your sites?</h2>
-            <p className="mt-2 text-slate-300 text-sm">Experience the difference with a 14-day free trial on your active projects.</p>
+            <p className="mt-2 text-slate-200 text-sm">Experience the difference with a 14-day free trial on your active projects.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link

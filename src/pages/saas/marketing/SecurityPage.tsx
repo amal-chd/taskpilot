@@ -27,41 +27,41 @@ const SecurityPage: React.FC = () => {
     <MarketingLayout>
       <Section className="pt-16 pb-10 text-center max-w-3xl mx-auto">
         <Eyebrow>Security</Eyebrow>
-        <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-slate-900">Your project data, protected</h1>
-        <p className="mt-4 text-slate-600">Drawings, contractor rates and payroll are sensitive. Here is exactly how Task Pilot keeps them safe — no marketing badges, just what is in place today.</p>
+        <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink-900">Your project data, protected</h1>
+        <p className="mt-4 text-ink-600">Drawings, contractor rates and payroll are sensitive. Here is exactly how Task Pilot keeps them safe — no marketing badges, just what is in place today.</p>
       </Section>
 
       <Section className="pb-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {PILLARS.map(({ icon: I, title, body }) => (
-          <div key={title} className="rounded-2xl border border-slate-200 bg-white p-6">
+          <div key={title} className="rounded-2xl border border-ink-200 bg-white p-6">
             <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center"><I className="w-5 h-5" aria-hidden /></div>
-            <h2 className="mt-4 font-semibold text-slate-900">{title}</h2>
-            <p className="mt-1.5 text-sm text-slate-600 leading-relaxed">{body}</p>
+            <h2 className="mt-4 font-semibold text-ink-900">{title}</h2>
+            <p className="mt-1.5 text-sm text-ink-600 leading-relaxed">{body}</p>
           </div>
         ))}
       </Section>
 
-      <div className="bg-slate-50 border-y border-slate-200 py-14">
+      <div className="bg-ink-50 border-y border-ink-200 py-14">
         <Section className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
-          <div className="rounded-2xl bg-white border border-slate-200 p-6">
-            <ShieldCheck className="w-6 h-6 text-slate-700" aria-hidden />
-            <h2 className="mt-3 font-semibold">Privacy &amp; legal</h2>
-            <p className="mt-1.5 text-sm text-slate-600">How we collect, use and protect personal data, and your rights over it.</p>
-            <div className="mt-4 flex gap-4 text-sm font-medium"><Link to="/policy" className="underline">Privacy policy</Link><Link to="/terms" className="underline">Terms of use</Link><Link to="/status" className="underline">System status</Link></div>
+          <div className="rounded-2xl bg-white border border-ink-200 p-6">
+            <ShieldCheck className="w-6 h-6 text-ink-700" aria-hidden />
+            <h2 className="mt-3 font-semibold text-ink-900">Privacy &amp; legal</h2>
+            <p className="mt-1.5 text-sm text-ink-600">How we collect, use and protect personal data, and your rights over it.</p>
+            <div className="mt-4 flex gap-4 text-sm font-medium text-ink-900"><Link to="/policy" className="underline hover:text-brand-600">Privacy policy</Link><Link to="/terms" className="underline hover:text-brand-600">Terms of use</Link><Link to="/status" className="underline hover:text-brand-600">System status</Link></div>
           </div>
-          <div className="rounded-2xl bg-white border border-slate-200 p-6">
-            <Mail className="w-6 h-6 text-slate-700" aria-hidden />
-            <h2 className="mt-3 font-semibold">Report a vulnerability</h2>
-            <p className="mt-1.5 text-sm text-slate-600">Found a security issue? Tell us privately and we will respond quickly. Please don't access other customers' data while testing.</p>
-            <Link to="/contact-sales" className="mt-4 inline-block text-sm font-medium underline">Contact the security team</Link>
+          <div className="rounded-2xl bg-white border border-ink-200 p-6">
+            <Mail className="w-6 h-6 text-ink-700" aria-hidden />
+            <h2 className="mt-3 font-semibold text-ink-900">Report a vulnerability</h2>
+            <p className="mt-1.5 text-sm text-ink-600">Found a security issue? Tell us privately and we will respond quickly. Please don't access other customers' data while testing.</p>
+            <Link to="/contact-sales" className="mt-4 inline-block text-sm font-medium text-ink-900 underline hover:text-brand-600">Contact the security team</Link>
           </div>
         </Section>
       </div>
 
       <Section className="py-14 text-center">
-        <h2 className="text-2xl font-bold tracking-tight">Questions from your IT or procurement team?</h2>
-        <p className="mt-2 text-slate-600">We're happy to walk through our setup on a call.</p>
-        <Link to="/contact-sales" className="mt-6 inline-flex h-11 px-6 items-center rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800">Talk to us</Link>
+        <h2 className="text-2xl font-bold tracking-tight text-ink-900">Questions from your IT or procurement team?</h2>
+        <p className="mt-2 text-ink-600">We're happy to walk through our setup on a call.</p>
+        <Link to="/contact-sales" className="mt-6 inline-flex h-11 px-6 items-center rounded-full bg-ink-900 text-white font-semibold hover:bg-ink-800">Talk to us</Link>
       </Section>
     </MarketingLayout>
   );

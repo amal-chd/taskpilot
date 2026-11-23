@@ -5,7 +5,7 @@ import { MarketingLayout, Section, Eyebrow } from './MarketingLayout';
 import { saasApi } from '../../../lib/saasApi';
 import { useSeo } from '../../../lib/seo';
 
-const field = 'w-full h-11 px-3.5 rounded-xl border border-slate-300 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 outline-none text-sm transition-all';
+const field = 'w-full h-11 px-3.5 rounded-xl border border-ink-300 focus:border-ink-900 focus:ring-2 focus:ring-ink-900/10 outline-none text-sm text-ink-900 bg-white transition-all';
 
 const ContactSalesPage: React.FC = () => {
   const [f, setF] = useState({ name: '', email: '', phone: '', company: '', teamSize: '11-50', interest: 'Demo', message: '' });
@@ -54,14 +54,14 @@ const ContactSalesPage: React.FC = () => {
 
   return (
     <MarketingLayout>
-      <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50/50 py-16 sm:py-20 border-b border-slate-100">
+      <div className="bg-gradient-to-b from-ink-50 via-white to-ink-50/50 py-16 sm:py-20 border-b border-ink-100">
         <Section className="grid lg:grid-cols-2 gap-12 items-start">
           <div>
             <Eyebrow>Direct Solutions Advisory</Eyebrow>
-            <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+            <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
               See Task Pilot on your own construction sites
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed">
               Book a 30-minute tailored walkthrough. We’ll show you how to structure your sites, roles, and daily reporting
               to eliminate WhatsApp confusion and keep projects on budget.
             </p>
@@ -72,8 +72,8 @@ const ContactSalesPage: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Live walkthrough of your workflows</p>
-                  <p className="text-xs text-slate-500">We simulate your actual trades, subcontract structure, and site hierarchy.</p>
+                  <p className="font-bold text-ink-900 text-sm">Live walkthrough of your workflows</p>
+                  <p className="text-xs text-ink-600">We simulate your actual trades, subcontract structure, and site hierarchy.</p>
                 </div>
               </div>
 
@@ -82,8 +82,8 @@ const ContactSalesPage: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Complimentary data onboarding</p>
-                  <p className="text-xs text-slate-500">We help import your open tasks, BOQ master sheets, and staff directory in 48 hours.</p>
+                  <p className="font-bold text-ink-900 text-sm">Complimentary data onboarding</p>
+                  <p className="text-xs text-ink-600">We help import your open tasks, BOQ master sheets, and staff directory in 48 hours.</p>
                 </div>
               </div>
 
@@ -92,45 +92,45 @@ const ContactSalesPage: React.FC = () => {
                   <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-900 text-sm">Custom Enterprise SLA & GST invoicing</p>
-                  <p className="text-xs text-slate-500">Direct GST corporate invoicing, dedicated account manager, and on-site engineer training.</p>
+                  <p className="font-bold text-ink-900 text-sm">Custom Enterprise SLA & GST invoicing</p>
+                  <p className="text-xs text-ink-600">Direct GST corporate invoicing, dedicated account manager, and on-site engineer training.</p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="flex items-center gap-3 text-sm text-slate-700">
-                <Mail className="w-4 h-4 text-amber-600 shrink-0" />
+            <div className="mt-10 p-6 rounded-2xl bg-white border border-ink-200 shadow-sm space-y-3">
+              <div className="flex items-center gap-3 text-sm text-ink-700">
+                <Mail className="w-4 h-4 text-brand-600 shrink-0" />
                 <span>Direct Email:{' '}
-                  <a href="mailto:info@thekada.in" className="font-semibold text-slate-900 hover:text-amber-600 underline">
+                  <a href="mailto:info@thekada.in" className="font-semibold text-ink-900 hover:text-brand-600 underline">
                     info@thekada.in
                   </a>
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-slate-700">
-                <Clock className="w-4 h-4 text-amber-600 shrink-0" />
-                <span>Response Time: <strong className="text-slate-900">Within 2 hours</strong> (Mon–Sat, 9am–7pm IST)</span>
+              <div className="flex items-center gap-3 text-sm text-ink-700">
+                <Clock className="w-4 h-4 text-brand-600 shrink-0" />
+                <span>Response Time: <strong className="text-ink-900">Within 2 hours</strong> (Mon–Sat, 9am–7pm IST)</span>
               </div>
-              <div className="flex items-center gap-3 text-sm text-slate-700">
-                <MapPin className="w-4 h-4 text-amber-600 shrink-0" />
+              <div className="flex items-center gap-3 text-sm text-ink-700">
+                <MapPin className="w-4 h-4 text-brand-600 shrink-0" />
                 <span>Product Engineering & Support: India</span>
               </div>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-7 sm:p-9 shadow-xl shadow-slate-900/5">
+          <div className="rounded-3xl border border-ink-200 bg-white p-7 sm:p-9 shadow-xl shadow-ink-900/5">
             {done ? (
               <div className="text-center py-12 animate-in fade-in duration-300">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-900">Demo Request Confirmed</h2>
-                <p className="mt-2 text-slate-600 text-sm max-w-sm mx-auto leading-relaxed">
+                <h2 className="text-2xl font-bold text-ink-900">Demo Request Confirmed</h2>
+                <p className="mt-2 text-ink-600 text-sm max-w-sm mx-auto leading-relaxed">
                   Thank you! Our solutions engineering team has received your details and will reach out shortly to schedule your walkthrough.
                 </p>
                 <button
                   onClick={() => setDone(false)}
-                  className="mt-6 text-sm font-semibold text-amber-700 hover:underline"
+                  className="mt-6 text-sm font-semibold text-brand-700 hover:underline"
                 >
                   Send another request
                 </button>
@@ -138,12 +138,12 @@ const ContactSalesPage: React.FC = () => {
             ) : (
               <form onSubmit={submit} className="space-y-4">
                 <div className="mb-2">
-                  <h3 className="text-xl font-bold text-slate-900">Request a Personalized Walkthrough</h3>
-                  <p className="text-xs text-slate-500 mt-1">Fill out the form below and our team will contact you within 2 hours.</p>
+                  <h3 className="text-xl font-bold text-ink-900">Request a Personalized Walkthrough</h3>
+                  <p className="text-xs text-ink-600 mt-1">Fill out the form below and our team will contact you within 2 hours.</p>
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Your Name *
                     <input
                       required
@@ -155,7 +155,7 @@ const ContactSalesPage: React.FC = () => {
                       autoComplete="name"
                     />
                   </label>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Work Email *
                     <input
                       required
@@ -168,7 +168,7 @@ const ContactSalesPage: React.FC = () => {
                       autoComplete="email"
                     />
                   </label>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Phone / WhatsApp *
                     <input
                       required
@@ -180,7 +180,7 @@ const ContactSalesPage: React.FC = () => {
                       autoComplete="tel"
                     />
                   </label>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Company Name *
                     <input
                       required
@@ -195,7 +195,7 @@ const ContactSalesPage: React.FC = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Active Team Size
                     <select name="teamSize" value={f.teamSize} onChange={on} className={`${field} mt-1 bg-white`}>
                       <option value="1-10">1 - 10 people</option>
@@ -204,7 +204,7 @@ const ContactSalesPage: React.FC = () => {
                       <option value="200+">200+ people</option>
                     </select>
                   </label>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                     Primary Interest
                     <select name="interest" value={f.interest} onChange={on} className={`${field} mt-1 bg-white`}>
                       <option value="Demo">General Product Walkthrough</option>
@@ -215,14 +215,14 @@ const ContactSalesPage: React.FC = () => {
                   </label>
                 </div>
 
-                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
+                <label className="block text-xs font-bold uppercase tracking-wider text-ink-700">
                   Project Details / Specific Questions
                   <textarea
                     rows={3}
                     name="message"
                     value={f.message}
                     onChange={on}
-                    className="w-full mt-1 p-3 rounded-xl border border-slate-300 focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 outline-none text-sm transition-all"
+                    className="w-full mt-1 p-3 rounded-xl border border-ink-300 focus:border-ink-900 focus:ring-2 focus:ring-ink-900/10 outline-none text-sm text-ink-900 bg-white transition-all"
                     placeholder="Tell us about your active sites, current tools, or specific requirements..."
                   />
                 </label>
@@ -230,7 +230,7 @@ const ContactSalesPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={busy}
-                  className="w-full h-12 rounded-xl bg-slate-900 text-white font-bold text-sm hover:bg-slate-800 disabled:opacity-50 transition-all shadow-md"
+                  className="w-full h-12 rounded-xl bg-ink-900 text-white font-bold text-sm hover:bg-ink-800 disabled:opacity-50 transition-all shadow-md"
                 >
                   {busy ? 'Sending request…' : 'Schedule 30-Minute Walkthrough'}
                 </button>
@@ -244,41 +244,41 @@ const ContactSalesPage: React.FC = () => {
       <Section className="py-20">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <Eyebrow>The Walkthrough Process</Eyebrow>
-          <h2 className="mt-3 text-3xl font-bold text-slate-900">
+          <h2 className="mt-3 text-3xl font-bold text-ink-900">
             What to expect on your 30-minute call
           </h2>
-          <p className="mt-2 text-slate-600 text-sm">
+          <p className="mt-2 text-ink-600 text-sm">
             No generic sales pitches. We dive straight into your actual site execution and project structure.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <span className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-800 font-extrabold text-sm flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm">
+            <span className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 font-extrabold text-sm flex items-center justify-center mb-4">
               01
             </span>
-            <h3 className="font-bold text-base text-slate-900 mb-1">Discovery & Site Structure</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <h3 className="font-bold text-base text-ink-900 mb-1">Discovery & Site Structure</h3>
+            <p className="text-xs sm:text-sm text-ink-600 leading-relaxed">
               We understand your active projects, trades, subcontractor arrangements, and where your current reporting bottlenecks occur.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <span className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-800 font-extrabold text-sm flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm">
+            <span className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 font-extrabold text-sm flex items-center justify-center mb-4">
               02
             </span>
-            <h3 className="font-bold text-base text-slate-900 mb-1">Tailored Live Simulation</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <h3 className="font-bold text-base text-ink-900 mb-1">Tailored Live Simulation</h3>
+            <p className="text-xs sm:text-sm text-ink-600 leading-relaxed">
               We demonstrate how a supervisor records attendance and DPR photos on mobile, and how that syncs in real time with the head office BOQ tracker.
             </p>
           </div>
 
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <span className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-800 font-extrabold text-sm flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm">
+            <span className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 font-extrabold text-sm flex items-center justify-center mb-4">
               03
             </span>
-            <h3 className="font-bold text-base text-slate-900 mb-1">Complimentary Pilot Setup</h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <h3 className="font-bold text-base text-ink-900 mb-1">Complimentary Pilot Setup</h3>
+            <p className="text-xs sm:text-sm text-ink-600 leading-relaxed">
               If Task Pilot is a fit, we set up your 14-day free trial workspace immediately and help import your active projects and user roles.
             </p>
           </div>
@@ -286,28 +286,28 @@ const ContactSalesPage: React.FC = () => {
       </Section>
 
       {/* ─── Pre-Sales FAQs ─── */}
-      <div className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="bg-ink-50 py-20 border-t border-ink-200">
         <Section className="max-w-3xl">
           <div className="text-center mb-10">
             <Eyebrow>Common Inquiries</Eyebrow>
-            <h2 className="mt-2 text-2xl font-bold text-slate-900">
+            <h2 className="mt-2 text-2xl font-bold text-ink-900">
               Questions builders ask before booking
             </h2>
           </div>
 
-          <div className="divide-y divide-slate-200 border-y border-slate-200 bg-white rounded-2xl p-6 shadow-sm">
+          <div className="divide-y divide-ink-200 border-y border-ink-200 bg-white rounded-2xl p-6 shadow-sm">
             {salesFaqs.map((faq, idx) => (
               <div key={idx} className="py-4 first:pt-0 last:pb-0">
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full flex items-center justify-between text-left font-semibold text-slate-900 gap-4"
+                  className="w-full flex items-center justify-between text-left font-semibold text-ink-900 gap-4"
                 >
                   <span className="text-sm sm:text-base">{faq.q}</span>
-                  <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`w-4 h-4 text-ink-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`} />
                 </button>
                 {openFaq === idx && (
-                  <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-2 text-xs sm:text-sm text-ink-600 leading-relaxed">
                     {faq.a}
                   </p>
                 )}

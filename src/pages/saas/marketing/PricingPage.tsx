@@ -173,35 +173,35 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
   if (error) {
     return (
       <div className="text-center py-10">
-        <p className="text-slate-600">Couldn't load plans: {error}</p>
+        <p className="text-ink-600">Couldn't load plans: {error}</p>
         <button onClick={reload} className="mt-3 text-sm font-semibold underline">Try again</button>
       </div>
     );
   }
   if (!plans) {
-    return <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">{[0, 1, 2, 3].map((i) => <div key={i} className="h-96 rounded-2xl bg-slate-100 animate-pulse" />)}</div>;
+    return <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">{[0, 1, 2, 3].map((i) => <div key={i} className="h-96 rounded-2xl bg-ink-100 animate-pulse" />)}</div>;
   }
   const featureLabel = (k: string) => MODULES.find((m) => m.key === k)?.label ?? k;
 
   return (
     <div>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-        <div role="radiogroup" aria-label="Billing cycle" className="inline-flex p-1 rounded-xl bg-slate-200/70">
+        <div role="radiogroup" aria-label="Billing cycle" className="inline-flex p-1 rounded-xl bg-ink-200/70">
           {(['monthly', 'yearly'] as const).map((c) => (
             <button key={c} role="radio" aria-checked={cycle === c} onClick={() => setCycle(c)}
-              className={`px-4 h-9 rounded-lg text-sm font-semibold transition ${cycle === c ? 'bg-white shadow text-slate-900' : 'text-slate-600'}`}>
+              className={`px-4 h-9 rounded-full text-sm font-semibold transition ${cycle === c ? 'bg-white shadow text-ink-900' : 'text-ink-600'}`}>
               {c === 'monthly' ? 'Monthly' : 'Yearly'} {c === 'yearly' && <span className="ml-1 text-emerald-600 font-bold">2 months free</span>}
             </button>
           ))}
         </div>
 
-        <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-xl border border-slate-200/70">
-          <Globe className="w-3.5 h-3.5 text-slate-500" />
-          <span className="text-xs font-semibold text-slate-600">Currency:</span>
+        <div className="flex items-center gap-2 bg-ink-100 px-3 py-1.5 rounded-xl border border-ink-200/70">
+          <Globe className="w-3.5 h-3.5 text-ink-500" />
+          <span className="text-xs font-semibold text-ink-600">Currency:</span>
           <select
             value={currency}
             onChange={(e) => handleCurrencyChange(e.target.value)}
-            className="h-7 px-2 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-800 outline-none cursor-pointer hover:border-slate-400"
+            className="h-7 px-2 rounded-full bg-white border border-ink-300 text-xs font-bold text-ink-800 outline-none cursor-pointer hover:border-ink-400"
             aria-label="Select pricing currency"
           >
             {CURRENCY_OPTIONS.map((c) => (
@@ -228,17 +228,17 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
           const isCurrent = currentPlanId === p.id;
 
           return (
-            <div key={p.id} className={`relative rounded-2xl p-6 flex flex-col bg-white border ${p.highlight ? 'border-slate-900 ring-1 ring-slate-900 shadow-xl' : 'border-slate-200'}`}>
-              {p.highlight && <span className="absolute -top-3 left-6 text-xs font-bold bg-amber-500 text-slate-950 px-2.5 py-1 rounded-full">Most popular</span>}
+            <div key={p.id} className={`relative rounded-2xl p-6 flex flex-col bg-white border ${p.highlight ? 'border-ink-900 ring-1 ring-ink-900 shadow-xl' : 'border-ink-200'}`}>
+              {p.highlight && <span className="absolute -top-3 left-6 text-xs font-bold bg-brand-500 text-white px-2.5 py-1 rounded-full">Most popular</span>}
               <p className="font-bold text-lg">{p.name}</p>
-              <p className="text-sm text-slate-500 mt-1 min-h-[40px]">{p.tagline}</p>
+              <p className="text-sm text-ink-700 mt-1 min-h-[40px]">{p.tagline}</p>
               <div className="mt-5 min-h-[64px]">
                 {p.is_custom_pricing ? (
                   <p className="text-3xl font-extrabold tracking-tight">Custom</p>
                 ) : (
                   <>
-                    <p className="text-3xl font-extrabold tracking-tight">{formatMoney(Math.round(price / 100) * 100, currency)}<span className="text-base font-medium text-slate-500">/mo</span></p>
-                    <p className="text-xs text-slate-500 mt-1">{cycle === 'yearly' ? `${formatMoney(planYearly, currency)} billed yearly` : 'Billed monthly'}</p>
+                    <p className="text-3xl font-extrabold tracking-tight">{formatMoney(Math.round(price / 100) * 100, currency)}<span className="text-base font-medium text-ink-700">/mo</span></p>
+                    <p className="text-xs text-ink-700 mt-1">{cycle === 'yearly' ? `${formatMoney(planYearly, currency)} billed yearly` : 'Billed monthly'}</p>
                   </>
                 )}
               </div>
@@ -246,21 +246,21 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
                 <li className="flex gap-2"><Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />{limitLabel(p.max_users, 'team members')}</li>
                 <li className="flex gap-2"><Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />{limitLabel(p.max_projects, 'projects')}</li>
                 <li className="flex gap-2"><Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />{storageLabel(p.max_storage_mb)}</li>
-                {prev && !p.is_custom_pricing && <li className="pt-1 text-xs font-semibold text-slate-500">Everything in {prev.name}, plus:</li>}
+                {prev && !p.is_custom_pricing && <li className="pt-1 text-xs font-semibold text-ink-700">Everything in {prev.name}, plus:</li>}
                 {(p.is_custom_pricing ? ['Dedicated onboarding & data migration', 'SLA & priority support', 'Custom ERP & API integration'] : inherited.map(featureLabel)).map((f) => (
                   <li key={f} className="flex gap-2"><Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />{f}</li>
                 ))}
               </ul>
               <div className="mt-auto pt-6">
                 {p.is_custom_pricing ? (
-                  <Link to="/contact-sales" className="w-full h-11 inline-flex items-center justify-center rounded-xl border border-slate-300 font-semibold hover:bg-slate-50">Talk to sales</Link>
+                  <Link to="/contact-sales" className="w-full h-11 inline-flex items-center justify-center rounded-xl border border-ink-300 font-semibold text-ink-900 hover:bg-ink-50">Talk to sales</Link>
                 ) : onSelect ? (
                   <button disabled={isCurrent || busyPlanId === p.id} onClick={() => onSelect({ ...p, currency, price_monthly: planMonthly, price_yearly: planYearly }, cycle)}
-                    className={`w-full h-11 rounded-xl font-semibold disabled:opacity-60 ${p.highlight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'border border-slate-300 hover:bg-slate-50'}`}>
+                    className={`w-full h-11 rounded-xl font-semibold disabled:opacity-60 ${p.highlight ? 'bg-ink-900 text-white hover:bg-ink-800' : 'border border-ink-300 text-ink-900 hover:bg-ink-50'}`}>
                     {isCurrent ? 'Current plan' : busyPlanId === p.id ? 'Opening checkout…' : `Choose ${p.name}`}
                   </button>
                 ) : (
-                  <Link to={`/register?plan=${p.id}&cycle=${cycle}&currency=${currency}`} className={`w-full h-11 inline-flex items-center justify-center rounded-xl font-semibold ${p.highlight ? 'bg-slate-900 text-white hover:bg-slate-800' : 'border border-slate-300 hover:bg-slate-50'}`}>
+                  <Link to={`/register?plan=${p.id}&cycle=${cycle}&currency=${currency}`} className={`w-full h-11 inline-flex items-center justify-center rounded-xl font-semibold ${p.highlight ? 'bg-ink-900 text-white hover:bg-ink-800' : 'border border-ink-300 text-ink-900 hover:bg-ink-50'}`}>
                     Start {p.trial_days}-day free trial
                   </Link>
                 )}
@@ -271,37 +271,37 @@ export const PricingCards: React.FC<{ onSelect?: (plan: Plan, cycle: 'monthly' |
       </div>
 
       {currency !== 'INR' && (
-        <p role="note" className="mt-6 mx-auto max-w-2xl text-center text-xs text-slate-600 bg-slate-100 rounded-xl px-4 py-3">
+        <p role="note" className="mt-6 mx-auto max-w-2xl text-center text-xs text-ink-600 bg-ink-100 rounded-xl px-4 py-3">
           Prices in {currency} are our regional list prices. Self-serve online checkout currently bills in Indian Rupees (INR)
           through Razorpay, and your card issuer converts the amount. To be invoiced in {currency}, <Link to="/contact-sales" className="underline font-medium">contact sales</Link>.
         </p>
       )}
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-ink-700">
         <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-emerald-600" /> Each company's data isolated in its own workspace</span>
         <span className="flex items-center gap-1.5"><Globe className="w-4 h-4 text-blue-600" /> Regional pricing in 7 currencies</span>
-        <span className="flex items-center gap-1.5"><FileCheck className="w-4 h-4 text-amber-600" /> Automated GST / VAT / Sales Tax Receipts</span>
+        <span className="flex items-center gap-1.5"><FileCheck className="w-4 h-4 text-brand-600" /> Automated GST / VAT / Sales Tax Receipts</span>
       </div>
 
-      <p className="text-center text-xs text-slate-500 mt-4">{PRICING_NOTE}</p>
+      <p className="text-center text-xs text-ink-700 mt-4">{PRICING_NOTE}</p>
     </div>
   );
 };
 
 const Cell: React.FC<{ v: string | boolean }> = ({ v }) =>
   v === true ? <Check className="w-5 h-5 text-emerald-600 mx-auto" aria-label="Yes" /> :
-  v === false ? <Minus className="w-5 h-5 text-slate-300 mx-auto" aria-label="No" /> :
-  <span className="text-xs text-slate-600">{v}</span>;
+  v === false ? <Minus className="w-5 h-5 text-ink-300 mx-auto" aria-label="No" /> :
+  <span className="text-xs text-ink-600">{v}</span>;
 
 export const Faq: React.FC = () => {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="divide-y divide-slate-200 border-y border-slate-200">
+    <div className="divide-y divide-ink-200 border-y border-ink-200">
       {FAQS.map((f, i) => (
         <div key={f.q}>
-          <button className="w-full flex items-center justify-between gap-4 py-4 text-left font-semibold text-slate-900" aria-expanded={open === i} onClick={() => setOpen(open === i ? null : i)}>
+          <button className="w-full flex items-center justify-between gap-4 py-4 text-left font-semibold text-ink-900" aria-expanded={open === i} onClick={() => setOpen(open === i ? null : i)}>
             {f.q}<ChevronDown className={`w-4 h-4 shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`} />
           </button>
-          {open === i && <p className="pb-4 text-slate-600 text-sm leading-relaxed">{f.a}</p>}
+          {open === i && <p className="pb-4 text-ink-600 text-sm leading-relaxed">{f.a}</p>}
         </div>
       ))}
     </div>
@@ -347,37 +347,37 @@ export const SavingsCalculator: React.FC = () => {
   const yearly = ours !== null ? (theirs - ours) * 12 : null;
   const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
   return (
-    <div className="max-w-3xl mx-auto rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-sm">
-      <h2 className="text-2xl font-bold tracking-tight text-slate-900">How much would your team save?</h2>
-      <p className="text-sm text-slate-600 mt-1">
+    <div className="max-w-3xl mx-auto rounded-3xl border border-ink-200 bg-white p-6 sm:p-8 shadow-sm">
+      <h2 className="text-2xl font-bold tracking-tight text-ink-900">How much would your team save?</h2>
+      <p className="text-sm text-ink-600 mt-1">
         Flat team pricing compared with a per-seat field app at {fmt(PER_SEAT_USD)} per user per month.
       </p>
-      <label className="block mt-6 text-sm font-medium text-slate-700" htmlFor="team-size">
+      <label className="block mt-6 text-sm font-medium text-ink-700" htmlFor="team-size">
         Team size: <strong>{team}</strong> people
       </label>
       <input
         id="team-size" type="range" min={3} max={150} value={team}
         onChange={(e) => setTeam(Number(e.target.value))}
-        className="w-full mt-2 accent-amber-500"
+        className="w-full mt-2 accent-brand-500"
       />
       <div className="mt-6 grid sm:grid-cols-3 gap-3 text-center">
-        <div className="rounded-xl bg-slate-50 p-4">
-          <p className="text-xs text-slate-500">Per-seat app</p>
-          <p className="text-xl font-bold tabular-nums">{fmt(theirs)}/mo</p>
+        <div className="rounded-xl bg-ink-50 p-4">
+          <p className="text-xs text-ink-700">Per-seat app</p>
+          <p className="text-xl font-bold text-ink-900 tabular-nums">{fmt(theirs)}/mo</p>
         </div>
-        <div className="rounded-xl bg-amber-50 p-4">
-          <p className="text-xs text-slate-500">Task Pilot {tier?.name ?? 'Enterprise'}</p>
-          <p className="text-xl font-bold tabular-nums">{ours !== null ? `${fmt(ours)}/mo` : 'Custom'}</p>
+        <div className="rounded-xl bg-brand-50 p-4">
+          <p className="text-xs text-ink-700">Task Pilot {tier?.name ?? 'Enterprise'}</p>
+          <p className="text-xl font-bold text-ink-900 tabular-nums">{ours !== null ? `${fmt(ours)}/mo` : 'Custom'}</p>
         </div>
         <div className="rounded-xl bg-emerald-50 p-4">
-          <p className="text-xs text-slate-500">You save per year</p>
+          <p className="text-xs text-ink-700">You save per year</p>
           <p className="text-xl font-bold text-emerald-700 tabular-nums">{yearly !== null ? fmt(Math.max(0, yearly)) : 'Talk to sales'}</p>
         </div>
       </div>
-      <p className="mt-4 text-[11px] text-slate-500">
+      <p className="mt-4 text-[11px] text-ink-600">
         Task Pilot prices assume yearly billing. The competitor figure is a public list price and may change, so compare current quotes before deciding.
       </p>
-      <Link to="/register" className="mt-5 inline-flex h-11 px-6 items-center rounded-xl bg-slate-900 text-white font-semibold hover:bg-slate-800">
+      <Link to="/register" className="mt-5 inline-flex h-11 px-6 items-center rounded-full bg-ink-900 text-white font-semibold hover:bg-ink-800">
         Start free trial
       </Link>
     </div>
@@ -395,10 +395,10 @@ const PricingPage: React.FC = () => {
     <MarketingLayout>
       <Section className="pt-16 pb-10 text-center">
         <Eyebrow>Transparent Pricing</Eyebrow>
-        <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+        <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900">
           Predictable flat team rates — not per seat
         </h1>
-        <p className="mt-3 text-slate-600 max-w-xl mx-auto text-base">
+        <p className="mt-3 text-ink-600 max-w-xl mx-auto text-base">
           Never hesitate to add another site engineer or supervisor. Every plan starts with a full 14-day free trial, no card required.
         </p>
       </Section>
@@ -412,42 +412,42 @@ const PricingPage: React.FC = () => {
       </Section>
 
       {/* ─── Detailed Module Matrix by Plan ─── */}
-      <div className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="bg-ink-50 py-20 border-t border-ink-200">
         <Section>
           <div className="text-center max-w-2xl mx-auto mb-12">
             <Eyebrow>Plan Breakdown</Eyebrow>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink-900 mt-2">
               Compare features across tiers
             </h2>
-            <p className="text-slate-600 text-sm mt-1">
+            <p className="text-ink-600 text-sm mt-1">
               Select the right tier based on your active sites, crew size, and required commercial controls.
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-x-auto rounded-2xl border border-ink-200 bg-white shadow-sm">
             <table className="w-full min-w-[700px] text-sm">
               <thead>
-                <tr className="bg-slate-50 text-slate-700 border-b border-slate-200">
+                <tr className="bg-ink-50 text-ink-700 border-b border-ink-200">
                   <th scope="col" className="text-left font-bold p-4">Operational Module</th>
                   <th scope="col" className="p-4 font-bold text-center">Starter</th>
-                  <th scope="col" className="p-4 font-bold text-center bg-amber-500/10 text-amber-900">Professional</th>
+                  <th scope="col" className="p-4 font-bold text-center bg-brand-500/10 text-brand-900">Professional</th>
                   <th scope="col" className="p-4 font-bold text-center">Business</th>
                   <th scope="col" className="p-4 font-bold text-center">Enterprise</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
-                <tr className="bg-slate-50/50 text-xs font-semibold text-slate-500 uppercase tracking-wider">
+              <tbody className="divide-y divide-ink-100">
+                <tr className="bg-ink-50/50 text-xs font-semibold text-ink-700 uppercase tracking-wider">
                   <td className="p-3 pl-4">Included Scope</td>
                   <td className="p-3 text-center">10 users · 3 sites</td>
-                  <td className="p-3 text-center bg-amber-500/5 font-bold text-slate-800">30 users · 10 sites</td>
+                  <td className="p-3 text-center bg-brand-500/5 font-bold text-ink-800">30 users · 10 sites</td>
                   <td className="p-3 text-center">100 users · 30 sites</td>
                   <td className="p-3 text-center">Custom · Unlimited</td>
                 </tr>
                 {MODULE_MATRIX.map((m) => (
-                  <tr key={m.name} className="hover:bg-slate-50/80 transition-colors">
-                    <td className="p-3.5 pl-4 font-medium text-slate-900">{m.name}</td>
+                  <tr key={m.name} className="hover:bg-ink-50/80 transition-colors">
+                    <td className="p-3.5 pl-4 font-medium text-ink-900">{m.name}</td>
                     <td className="p-3.5 text-center"><Cell v={m.starter} /></td>
-                    <td className="p-3.5 text-center bg-amber-500/5"><Cell v={m.pro} /></td>
+                    <td className="p-3.5 text-center bg-brand-500/5"><Cell v={m.pro} /></td>
                     <td className="p-3.5 text-center"><Cell v={m.biz} /></td>
                     <td className="p-3.5 text-center"><Cell v={m.ent} /></td>
                   </tr>
@@ -461,37 +461,37 @@ const PricingPage: React.FC = () => {
       {/* ─── Concierge Onboarding & GST Guarantees ─── */}
       <Section className="py-20">
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-800 flex items-center justify-center mb-4">
                 <FileCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">GST Input Tax Ready</h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-bold text-base text-ink-900">GST Input Tax Ready</h3>
+              <p className="mt-2 text-xs sm:text-sm text-ink-600 leading-relaxed">
                 All prices include 18% GST. Automated tax invoices are generated upon payment with your firm's GSTIN and SAC code 997331 for full input tax credit claim.
               </p>
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-800 flex items-center justify-center mb-4">
                 <Headphones className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">Complimentary Data Onboarding</h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-bold text-base text-ink-900">Complimentary Data Onboarding</h3>
+              <p className="mt-2 text-xs sm:text-sm text-ink-600 leading-relaxed">
                 On Business and Enterprise tiers, our engineering team helps import your ongoing projects, Excel BOQs, open task lists, and user directory in under 48 hours.
               </p>
             </div>
           </div>
 
-          <div className="p-6 rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col justify-between">
+          <div className="p-6 rounded-2xl border border-ink-200 bg-white shadow-sm flex flex-col justify-between">
             <div>
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-800 flex items-center justify-center mb-4">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-base text-slate-900">Cancel or Change Anytime</h3>
-              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <h3 className="font-bold text-base text-ink-900">Cancel or Change Anytime</h3>
+              <p className="mt-2 text-xs sm:text-sm text-ink-600 leading-relaxed">
                 No long-term contracts. Upgrades apply immediately; if cancelled, your workspace stays active until the end of your billing cycle with full read-only export access.
               </p>
             </div>
@@ -500,21 +500,21 @@ const PricingPage: React.FC = () => {
       </Section>
 
       {/* ─── Comparison Table ─── */}
-      <div className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="bg-ink-50 py-20 border-t border-ink-200">
         <Section>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <Eyebrow>Market Comparison</Eyebrow>
-            <h2 className="text-2xl font-bold tracking-tight text-center text-slate-900 mt-2">
+            <h2 className="text-2xl font-bold tracking-tight text-center text-ink-900 mt-2">
               How Task Pilot compares to alternatives
             </h2>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <div className="overflow-x-auto rounded-2xl border border-ink-200 bg-white shadow-sm">
             <table className="w-full min-w-[640px] text-sm">
               <thead>
-                <tr className="bg-slate-50 text-slate-600 border-b border-slate-200">
+                <tr className="bg-ink-50 text-ink-800 border-b border-ink-200">
                   <th scope="col" className="text-left font-semibold p-4">Capability</th>
-                  <th scope="col" className="p-4 font-bold text-slate-900 text-center bg-amber-500/10">Task Pilot</th>
+                  <th scope="col" className="p-4 font-bold text-ink-900 text-center bg-brand-500/10">Task Pilot</th>
                   <th scope="col" className="p-4 font-semibold text-center">Global enterprise suites</th>
                   <th scope="col" className="p-4 font-semibold text-center">Generic task apps</th>
                   <th scope="col" className="p-4 font-semibold text-center">WhatsApp + Excel</th>
@@ -522,9 +522,9 @@ const PricingPage: React.FC = () => {
               </thead>
               <tbody>
                 {COMPARISON.map((r) => (
-                  <tr key={r.row} className="border-t border-slate-100 hover:bg-slate-50/50">
-                    <th scope="row" className="text-left font-medium p-4 text-slate-800">{r.row}</th>
-                    <td className="p-4 text-center bg-amber-500/5 font-semibold text-slate-900"><Cell v={r.tp} /></td>
+                  <tr key={r.row} className="border-t border-ink-100 hover:bg-ink-50/50">
+                    <th scope="row" className="text-left font-medium p-4 text-ink-800">{r.row}</th>
+                    <td className="p-4 text-center bg-brand-500/5 font-semibold text-ink-900"><Cell v={r.tp} /></td>
                     <td className="p-4 text-center"><Cell v={r.global} /></td>
                     <td className="p-4 text-center"><Cell v={r.generic} /></td>
                     <td className="p-4 text-center"><Cell v={r.manual} /></td>
@@ -537,7 +537,7 @@ const PricingPage: React.FC = () => {
       </div>
 
       <Section className="py-20 max-w-3xl">
-        <h2 className="text-2xl font-bold tracking-tight mb-6 text-slate-900">Frequently Asked Questions</h2>
+        <h2 className="text-2xl font-bold tracking-tight mb-6 text-ink-900">Frequently Asked Questions</h2>
         <Faq />
       </Section>
     </MarketingLayout>

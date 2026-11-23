@@ -138,25 +138,25 @@ export const FaqPage: React.FC = () => {
   return (
     <MarketingLayout>
       {/* ─── Hero ─── */}
-      <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-16 pb-16 border-b border-slate-100">
+      <div className="bg-gradient-to-b from-ink-50 via-white to-ink-50/50 pt-16 pb-16 border-b border-ink-100">
         <Section className="text-center max-w-4xl mx-auto">
           <Eyebrow>Help & Knowledge Base</Eyebrow>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
             Frequently Asked Questions
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-2xl mx-auto">
             Everything you need to know about Task Pilot's features, pricing, GPS geofencing, security, and jobsite deployment.
           </p>
 
           {/* Search */}
           <div className="mt-8 max-w-md mx-auto relative">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-ink-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search questions (e.g. GPS, pricing, BOQ, offline)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full h-11 pl-10 pr-4 rounded-xl border border-slate-200 bg-white text-sm focus:border-slate-900 focus:ring-2 focus:ring-slate-900/10 outline-none shadow-xs transition-all"
+              className="w-full h-11 pl-10 pr-4 rounded-xl border border-ink-200 bg-white text-sm text-ink-900 focus:border-ink-900 focus:ring-2 focus:ring-ink-900/10 outline-none shadow-xs transition-all"
             />
           </div>
 
@@ -168,8 +168,8 @@ export const FaqPage: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                   activeCategory === cat
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900'
+                    ? 'bg-ink-900 text-white shadow-sm'
+                    : 'bg-white border border-ink-200 text-ink-600 hover:text-ink-900'
                 }`}
               >
                 {cat}
@@ -183,12 +183,12 @@ export const FaqPage: React.FC = () => {
       <Section className="py-16 max-w-3xl mx-auto">
         {filteredFaqs.length === 0 ? (
           <div className="py-16 text-center">
-            <HelpCircle className="w-10 h-10 text-slate-300 mx-auto mb-3" />
-            <p className="text-base font-bold text-slate-900">No questions found</p>
-            <p className="text-xs text-slate-500 mt-1">Try another search keyword or contact our support team.</p>
+            <HelpCircle className="w-10 h-10 text-ink-300 mx-auto mb-3" />
+            <p className="text-base font-bold text-ink-900">No questions found</p>
+            <p className="text-xs text-ink-500 mt-1">Try another search keyword or contact our support team.</p>
           </div>
         ) : (
-          <div className="divide-y divide-slate-200 border-y border-slate-200">
+          <div className="divide-y divide-ink-200 border-y border-ink-200">
             {filteredFaqs.map((f, i) => {
               const isOpen = openIndex === i;
               return (
@@ -200,16 +200,16 @@ export const FaqPage: React.FC = () => {
                       setOpenIndex(next);
                       if (next !== null) trackFaqExpand(f.q);
                     }}
-                    className="w-full flex items-center justify-between text-left font-semibold text-slate-900 hover:text-amber-600 transition-colors focus:outline-none"
+                    className="w-full flex items-center justify-between text-left font-semibold text-ink-900 hover:text-brand-600 transition-colors focus:outline-none"
                     aria-expanded={isOpen}
                   >
                     <span className="text-base sm:text-lg pr-4">{f.q}</span>
-                    <span className={`text-slate-400 transition-transform shrink-0 ${isOpen ? 'rotate-180 text-amber-600' : ''}`}>▾</span>
+                    <span className={`text-ink-400 transition-transform shrink-0 ${isOpen ? 'rotate-180 text-brand-600' : ''}`}>▾</span>
                   </button>
                   {isOpen && (
-                    <div className="mt-3 text-slate-600 text-sm leading-relaxed animate-in fade-in duration-200">
+                    <div className="mt-3 text-ink-600 text-sm leading-relaxed animate-in fade-in duration-200">
                       <p>{f.a}</p>
-                      <span className="inline-block mt-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 bg-slate-100 px-2 py-0.5 rounded">
+                      <span className="inline-block mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-700 bg-ink-100 border border-ink-200 px-2 py-0.5 rounded">
                         Category: {f.category}
                       </span>
                     </div>
@@ -223,22 +223,22 @@ export const FaqPage: React.FC = () => {
 
       {/* ─── Still Have Questions? ─── */}
       <Section className="pb-20">
-        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-12 text-center max-w-2xl mx-auto shadow-xs">
-          <HelpCircle className="w-10 h-10 text-amber-600 mx-auto mb-3" />
-          <h2 className="text-2xl font-bold text-slate-900">Still have questions?</h2>
-          <p className="mt-2 text-slate-600 text-sm">
+        <div className="rounded-3xl border border-ink-200 bg-ink-50 p-8 sm:p-12 text-center max-w-2xl mx-auto shadow-xs">
+          <HelpCircle className="w-10 h-10 text-brand-600 mx-auto mb-3" />
+          <h2 className="text-2xl font-bold text-ink-900">Still have questions?</h2>
+          <p className="mt-2 text-ink-600 text-sm">
             Our construction solutions engineering team is available for a 30-minute tailored walkthrough of your sites.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/contact-sales"
-              className="h-11 px-6 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition-all shadow-sm"
+              className="h-11 px-6 rounded-full bg-ink-900 text-white font-semibold text-sm hover:bg-ink-800 transition-all shadow-sm"
             >
               Talk to our team
             </Link>
             <Link
               to="/manual"
-              className="h-11 px-6 rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-sm hover:bg-slate-50 transition-all"
+              className="h-11 px-6 rounded-full border border-ink-300 bg-white text-ink-800 font-semibold text-sm hover:bg-ink-50 transition-all"
             >
               Read Staff Field Manual
             </Link>

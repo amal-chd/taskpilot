@@ -90,24 +90,24 @@ export const BestConstructionSoftwarePage: React.FC = () => {
   return (
     <MarketingLayout>
       {/* ─── Breadcrumb ─── */}
-      <div className="bg-slate-50 border-b border-slate-200/60 py-2.5 text-xs text-slate-500">
+      <div className="bg-ink-50 border-b border-ink-200/60 py-2.5 text-xs text-ink-600">
         <Section className="flex items-center gap-2">
-          <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link to="/compare" className="hover:text-slate-900 transition-colors">Compare</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-semibold truncate">Best Construction Management Software (2026)</span>
+          <Link to="/" className="hover:text-ink-900 transition-colors">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
+          <Link to="/compare" className="hover:text-ink-900 transition-colors">Compare</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
+          <span className="text-ink-900 font-semibold truncate">Best Construction Management Software (2026)</span>
         </Section>
       </div>
 
       {/* ─── Hero ─── */}
-      <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-16 pb-20 border-b border-slate-100">
+      <div className="bg-gradient-to-b from-ink-50 via-white to-ink-50/50 pt-16 pb-20 border-b border-ink-100">
         <Section className="text-center max-w-4xl mx-auto">
           <Eyebrow>2026 Industry Report</Eyebrow>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
             Best Construction Management Software in 2026
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-3xl mx-auto">
             An independent, side-by-side evaluation of leading platforms. How they compare on field functionality,
             ease of adoption, pricing structures, and suitability for different company sizes.
           </p>
@@ -122,33 +122,33 @@ export const BestConstructionSoftwarePage: React.FC = () => {
               key={t.name}
               className={`rounded-3xl border p-8 shadow-sm transition-all ${
                 t.highlight
-                  ? 'border-slate-900 bg-white ring-2 ring-amber-500/30'
-                  : 'border-slate-200 bg-white hover:border-slate-300'
+                  ? 'border-ink-900 bg-white ring-2 ring-brand-500/30'
+                  : 'border-ink-200 bg-white hover:border-ink-300'
               }`}
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-ink-100 gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h2 className="text-2xl font-bold text-slate-900">{t.name}</h2>
+                    <h2 className="text-2xl font-bold text-ink-900">{t.name}</h2>
                     {t.highlight && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950 font-bold text-[11px] uppercase tracking-wider">
+                      <span className="px-2.5 py-0.5 rounded-full bg-brand-500 text-white font-bold text-[11px] uppercase tracking-wider">
                         Top Value Choice
                       </span>
                     )}
                   </div>
-                  <p className="text-xs font-semibold text-slate-500 mt-1 uppercase tracking-wider">{t.category}</p>
+                  <p className="text-xs font-semibold text-ink-700 mt-1 uppercase tracking-wider">{t.category}</p>
                 </div>
                 <div className="text-left sm:text-right">
-                  <span className="text-sm font-bold text-slate-900">{t.pricing}</span>
+                  <span className="text-sm font-bold text-ink-900">{t.pricing}</span>
                 </div>
               </div>
 
-              <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">{t.summary}</p>
+              <p className="mt-4 text-sm sm:text-base text-ink-600 leading-relaxed">{t.summary}</p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-6">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 mb-2">Strengths</p>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-600">
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-ink-600">
                     {t.strengths.map((s, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -160,7 +160,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
 
                 <div>
                   <p className="text-xs font-bold uppercase tracking-wider text-rose-700 mb-2">Limitations</p>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-600">
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-ink-600">
                     {t.limitations.map((l, i) => (
                       <li key={i} className="flex items-start gap-2">
                         <X className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
@@ -171,16 +171,16 @@ export const BestConstructionSoftwarePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <p className="text-xs text-slate-500">
-                  <strong className="text-slate-800">Best For:</strong> {t.idealFor}
+              <div className="mt-6 pt-4 border-t border-ink-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <p className="text-xs text-ink-700">
+                  <strong className="text-ink-900">Best For:</strong> {t.idealFor}
                 </p>
                 <Link
                   to={t.link}
                   className={`h-10 px-5 inline-flex items-center justify-center gap-1.5 rounded-xl font-semibold text-xs sm:text-sm shrink-0 transition-all ${
                     t.highlight
-                      ? 'bg-slate-900 text-white hover:bg-slate-800 shadow-md'
-                      : 'border border-slate-200 text-slate-800 hover:bg-slate-50'
+                      ? 'bg-ink-900 text-white hover:bg-ink-800 shadow-md'
+                      : 'border border-ink-200 text-ink-800 hover:bg-ink-50'
                   }`}
                 >
                   {t.highlight ? 'Try Task Pilot Free (14 Days)' : `Read Task Pilot vs ${t.name}`} <ArrowRight className="w-4 h-4" />
@@ -192,11 +192,11 @@ export const BestConstructionSoftwarePage: React.FC = () => {
       </Section>
 
       {/* ─── Buyer's Evaluation Checklist ─── */}
-      <div className="bg-slate-50 py-20 border-t border-slate-200">
+      <div className="bg-ink-50 py-20 border-t border-ink-200">
         <Section className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <Eyebrow>Selection Framework</Eyebrow>
-            <h3 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+            <h3 className="mt-3 text-3xl font-bold tracking-tight text-ink-900">
               5 Questions Every Contractor Must Ask Before Buying
             </h3>
           </div>
@@ -209,9 +209,9 @@ export const BestConstructionSoftwarePage: React.FC = () => {
               { q: '4. Does the platform connect physical progress to BOQ costs?', desc: 'Tracking tasks without knowing whether they are on budget means discovering cost overruns only at month-end.' },
               { q: '5. How long does implementation take before you see value?', desc: 'Avoid multi-month enterprise consulting engagements when modern SaaS platforms can be live in 10 minutes.' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-slate-200 p-6">
-                <h4 className="font-bold text-base text-slate-900 mb-1">{item.q}</h4>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+              <div key={i} className="bg-white rounded-2xl border border-ink-200 p-6">
+                <h4 className="font-bold text-base text-ink-900 mb-1">{item.q}</h4>
+                <p className="text-sm text-ink-600 leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -220,21 +220,21 @@ export const BestConstructionSoftwarePage: React.FC = () => {
 
       {/* ─── Bottom CTA ─── */}
       <Section className="py-20">
-        <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
+        <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Test the #1 rated value platform today</h2>
-            <p className="mt-2 text-slate-300 text-sm">Experience Task Pilot on your live job sites. 14 days free, no credit card required.</p>
+            <p className="mt-2 text-ink-200 text-sm">Experience Task Pilot on your live job sites. 14 days free, no credit card required.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               to="/register"
-              className="h-12 px-7 inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 shrink-0 shadow-lg"
+              className="h-12 px-7 inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 text-white font-bold hover:bg-brand-400 shrink-0 shadow-lg"
             >
               Start free trial <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact-sales"
-              className="h-12 px-6 inline-flex items-center justify-center rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 shrink-0"
+              className="h-12 px-6 inline-flex items-center justify-center rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 shrink-0"
             >
               Book a live demo
             </Link>

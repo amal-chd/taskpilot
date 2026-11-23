@@ -94,13 +94,13 @@ export const HowItWorksPage: React.FC = () => {
   return (
     <MarketingLayout>
       {/* ─── Hero ─── */}
-      <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50/50 pt-16 pb-20 border-b border-slate-100">
+      <div className="bg-gradient-to-b from-ink-50 via-white to-ink-50/50 pt-16 pb-20 border-b border-ink-100">
         <Section className="text-center max-w-4xl mx-auto">
           <Eyebrow>End-To-End Architecture</Eyebrow>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
+          <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
             How Task Pilot Coordinates Every Site
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-2xl mx-auto">
             From the morning gate muster to real-time BOQ cost control, see how Task Pilot replaces WhatsApp groups
             with verified operational discipline.
           </p>
@@ -109,14 +109,14 @@ export const HowItWorksPage: React.FC = () => {
             <Link
               to="/register"
               onClick={() => trackCtaClick('how_it_works_hero', 'Start 14-day free trial', '/register')}
-              className="w-full sm:w-auto h-13 px-8 inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 text-white font-semibold text-base hover:bg-slate-800 shadow-xl shadow-slate-900/10 transition-all hover:-translate-y-0.5"
+              className="w-full sm:w-auto h-13 px-8 inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 text-white font-semibold text-base hover:bg-ink-800 shadow-xl shadow-ink-900/10 transition-all hover:-translate-y-0.5"
             >
               Start 14-day free trial <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact-sales"
               onClick={() => trackCtaClick('how_it_works_hero', 'Book a live demo', '/contact-sales')}
-              className="w-full sm:w-auto h-13 px-7 inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-800 font-semibold text-base hover:bg-slate-50 transition-all"
+              className="w-full sm:w-auto h-13 px-7 inline-flex items-center justify-center rounded-full border border-ink-300 bg-white text-ink-800 font-semibold text-base hover:bg-ink-50 transition-all"
             >
               Book a live demo
             </Link>
@@ -175,13 +175,13 @@ export const HowItWorksPage: React.FC = () => {
               >
                 <div className={idx % 2 === 1 ? 'md:col-start-2' : ''}>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-3xl font-black text-amber-500">{s.step}</span>
-                    <span className="w-8 h-px bg-amber-200" />
+                    <span className="text-3xl font-black text-brand-600">{s.step}</span>
+                    <span className="w-8 h-px bg-brand-200" />
                   </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">{s.title}</h2>
-                  <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">{s.desc}</p>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 tracking-tight">{s.title}</h2>
+                  <p className="mt-3 text-ink-600 text-sm sm:text-base leading-relaxed">{s.desc}</p>
 
-                  <ul className="mt-5 space-y-2 text-xs sm:text-sm font-semibold text-slate-800">
+                  <ul className="mt-5 space-y-2 text-xs sm:text-sm font-semibold text-ink-800">
                     {s.highlights.map((h, i) => (
                       <li key={i} className="flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -192,19 +192,19 @@ export const HowItWorksPage: React.FC = () => {
                 </div>
 
                 <div
-                  className={`rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-xl group cursor-pointer transition-all hover:shadow-2xl ${
+                  className={`rounded-2xl overflow-hidden border border-ink-200 bg-white shadow-xl group cursor-pointer transition-all hover:shadow-2xl ${
                     idx % 2 === 1 ? 'md:col-start-1' : ''
                   }`}
                   onClick={() => openScreenshot(s.image, s.title, s.desc, s.badge)}
                 >
-                  <div className="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
+                  <div className="bg-ink-900 px-4 py-2.5 border-b border-ink-800 flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-brand-500/80" />
                       <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                     </div>
                   </div>
-                  <div className="relative overflow-hidden bg-slate-950">
+                  <div className="relative overflow-hidden bg-ink-950">
                     <img width={s.image.includes('mobile-app') ? 780 : 1600} height={s.image.includes('mobile-app') ? 1688 : 1000}
                       src={s.image}
                       alt={s.title}
@@ -212,9 +212,9 @@ export const HowItWorksPage: React.FC = () => {
                       loading={idx === 0 ? "eager" : "lazy"}
                       decoding="async"
                     />
-                    <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="px-3.5 py-1.5 rounded-xl bg-slate-900/90 text-white text-xs font-bold border border-slate-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
-                        <Eye className="w-3.5 h-3.5 text-amber-400" /> Click to Inspect Fullscreen
+                    <div className="absolute inset-0 bg-ink-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="px-3.5 py-1.5 rounded-full bg-ink-900/90 text-white text-xs font-bold border border-ink-700 backdrop-blur-md shadow-xl flex items-center gap-1.5">
+                        <Eye className="w-3.5 h-3.5 text-brand-300" /> Click to Inspect Fullscreen
                       </span>
                     </div>
                   </div>
@@ -226,11 +226,11 @@ export const HowItWorksPage: React.FC = () => {
       </Section>
 
       {/* ─── Role-Based Walkthrough Selector ─── */}
-      <div className="bg-slate-50 py-20 border-y border-slate-200">
+      <div className="bg-ink-50 py-20 border-y border-ink-200">
         <Section className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <Eyebrow>Role Experiences</Eyebrow>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900">
               How Task Pilot works for your specific role
             </h2>
           </div>
@@ -248,8 +248,8 @@ export const HowItWorksPage: React.FC = () => {
                 onClick={() => setActiveRole(r.id as any)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                   activeRole === r.id
-                    ? 'bg-slate-900 text-white shadow-md'
-                    : 'bg-white border border-slate-200 text-slate-600 hover:text-slate-900'
+                    ? 'bg-ink-900 text-white shadow-md'
+                    : 'bg-white border border-ink-200 text-ink-600 hover:text-ink-900'
                 }`}
               >
                 {r.label}
@@ -257,17 +257,17 @@ export const HowItWorksPage: React.FC = () => {
             ))}
           </div>
 
-          <div className="bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm">
-            <h3 className="text-xl font-bold text-slate-900 mb-2">{roleWorkflows[activeRole].title}</h3>
-            <p className="text-slate-600 text-sm mb-6 leading-relaxed">{roleWorkflows[activeRole].summary}</p>
+          <div className="bg-white rounded-3xl border border-ink-200 p-8 sm:p-10 shadow-sm">
+            <h3 className="text-xl font-bold text-ink-900 mb-2">{roleWorkflows[activeRole].title}</h3>
+            <p className="text-ink-600 text-sm mb-6 leading-relaxed">{roleWorkflows[activeRole].summary}</p>
 
             <div className="space-y-3">
               {roleWorkflows[activeRole].steps.map((st, i) => (
-                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm">
-                  <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">
+                <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-ink-50 border border-ink-100 text-xs sm:text-sm">
+                  <span className="w-6 h-6 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center shrink-0 text-xs mt-0.5">
                     {i + 1}
                   </span>
-                  <span className="text-slate-700 font-medium leading-relaxed">{st}</span>
+                  <span className="text-ink-700 font-medium leading-relaxed">{st}</span>
                 </div>
               ))}
             </div>
@@ -277,21 +277,21 @@ export const HowItWorksPage: React.FC = () => {
 
       {/* ─── Bottom CTA ─── */}
       <Section className="py-20">
-        <div className="rounded-3xl bg-slate-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
+        <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Ready to streamline your jobsites?</h2>
-            <p className="mt-2 text-slate-300 text-sm">Create your workspace and start your 14-day free trial in under 10 minutes.</p>
+            <p className="mt-2 text-ink-200 text-sm">Create your workspace and start your 14-day free trial in under 10 minutes.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               to="/register"
-              className="h-12 px-7 inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 text-slate-950 font-bold hover:bg-amber-400 shrink-0 shadow-lg"
+              className="h-12 px-7 inline-flex items-center justify-center gap-2 rounded-full bg-brand-500 text-white font-bold hover:bg-brand-400 shrink-0 shadow-lg"
             >
               Start free trial <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact-sales"
-              className="h-12 px-6 inline-flex items-center justify-center rounded-xl border border-white/20 text-white font-semibold hover:bg-white/10 shrink-0"
+              className="h-12 px-6 inline-flex items-center justify-center rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 shrink-0"
             >
               Book a live demo
             </Link>

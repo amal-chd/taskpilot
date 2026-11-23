@@ -77,7 +77,7 @@ export const StatusPage: React.FC = () => {
       <Section className="pb-20 max-w-3xl mx-auto space-y-6">
         <div role="status" aria-live="polite" className={`rounded-3xl border p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${overall === 'down' ? 'border-red-200 bg-red-50/60' : overall === 'degraded' ? 'border-amber-200 bg-amber-50/60' : 'border-emerald-200 bg-emerald-50/60'}`}>
           <p className="font-bold text-slate-900 text-lg">{headline}</p>
-          <button onClick={run} disabled={busy} className="inline-flex items-center gap-2 h-9 px-4 rounded-lg border border-slate-300 bg-white text-sm font-medium disabled:opacity-60">
+          <button onClick={run} disabled={busy} className="inline-flex items-center gap-2 h-9 px-4 rounded-lg border border-slate-300 bg-white text-sm font-medium text-slate-800 hover:text-slate-900 disabled:opacity-60">
             <RefreshCw className={`w-4 h-4 ${busy ? 'animate-spin' : ''}`} aria-hidden />Check again
           </button>
         </div>

@@ -87,23 +87,23 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans selection:bg-amber-500/20 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-ink-900 flex flex-col font-sans selection:bg-brand-500/20 selection:text-ink-900">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-slate-900 text-white px-4 py-2 rounded-lg font-semibold shadow-xl"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] bg-ink-900 text-white px-4 py-2 rounded-full font-semibold shadow-xl"
       >
         Skip to main content
       </a>
 
       {/* ─── Top Global Navigation ─── */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-ink-200/80">
         <div ref={dropdownRef} className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo & Brand */}
           <Link to={SAAS_HOME} className="flex items-center gap-2.5 group" aria-label="Task Pilot Home">
             <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded-lg shadow-xs group-hover:scale-105 transition-transform" />
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-lg text-slate-900 leading-tight">Task Pilot</span>
-              <span className="text-[10px] text-slate-500 font-medium tracking-normal leading-none hidden sm:inline">
+              <span className="font-extrabold tracking-tight text-lg text-ink-900 leading-tight">Task Pilot</span>
+              <span className="text-[10px] text-ink-700 font-medium tracking-normal leading-none hidden sm:inline">
                 by Thekada Digital Ventures Pvt Ltd
               </span>
             </div>
@@ -117,7 +117,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
                 type="button"
                 onClick={() => toggleDropdown('features')}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 ${
-                  activeDropdown === 'features' ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  activeDropdown === 'features' ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`}
                 aria-expanded={activeDropdown === 'features'}
               >
@@ -125,28 +125,28 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               </button>
 
               {activeDropdown === 'features' && (
-                <div className="absolute top-full left-0 mt-2 w-[520px] rounded-2xl bg-white border border-slate-200 shadow-2xl p-4 grid grid-cols-2 gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-[520px] rounded-2xl bg-white border border-ink-200 shadow-2xl p-4 grid grid-cols-2 gap-2 animate-in fade-in slide-in-from-top-2 duration-200">
                   {FEATURE_LINKS.map((item) => {
                     const FIcon = item.icon;
                     return (
                       <Link
                         key={item.to}
                         to={item.to}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-start gap-2.5 group"
+                        className="p-2.5 rounded-xl hover:bg-ink-50 transition-colors flex items-start gap-2.5 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-700 group-hover:bg-slate-900 group-hover:text-amber-400 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-brand-500/10 text-brand-700 group-hover:bg-ink-900 group-hover:text-brand-400 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
                           <FIcon className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition-colors">{item.label}</p>
-                          <p className="text-[11px] text-slate-500 line-clamp-1">{item.desc}</p>
+                          <p className="text-xs font-bold text-ink-900 group-hover:text-brand-600 transition-colors">{item.label}</p>
+                          <p className="text-[11px] text-ink-600 line-clamp-1">{item.desc}</p>
                         </div>
                       </Link>
                     );
                   })}
-                  <div className="col-span-2 pt-2 border-t border-slate-100 flex items-center justify-between text-xs px-2">
-                    <span className="text-slate-500 font-medium">All 21 modules included in every plan</span>
-                    <Link to="/features" className="font-bold text-slate-900 hover:text-amber-600 transition-colors">
+                  <div className="col-span-2 pt-2 border-t border-ink-100 flex items-center justify-between text-xs px-2">
+                    <span className="text-ink-700 font-medium">All 21 modules included in every plan</span>
+                    <Link to="/features" className="font-bold text-ink-900 hover:text-brand-600 transition-colors">
                       View all modules →
                     </Link>
                   </div>
@@ -160,7 +160,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
                 type="button"
                 onClick={() => toggleDropdown('solutions')}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 ${
-                  activeDropdown === 'solutions' ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  activeDropdown === 'solutions' ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`}
                 aria-expanded={activeDropdown === 'solutions'}
               >
@@ -168,21 +168,21 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               </button>
 
               {activeDropdown === 'solutions' && (
-                <div className="absolute top-full left-0 mt-2 w-[480px] rounded-2xl bg-white border border-slate-200 shadow-2xl p-4 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-[480px] rounded-2xl bg-white border border-ink-200 shadow-2xl p-4 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
                   {SECTOR_LINKS.map((item) => {
                     const SIcon = item.icon;
                     return (
                       <Link
                         key={item.to}
                         to={item.to}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-start gap-3 group"
+                        className="p-2.5 rounded-xl hover:bg-ink-50 transition-colors flex items-start gap-3 group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 group-hover:bg-amber-500/10 group-hover:text-amber-700 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-ink-100 text-ink-700 group-hover:bg-brand-500/10 group-hover:text-brand-700 flex items-center justify-center shrink-0 mt-0.5 transition-colors">
                           <SIcon className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition-colors">{item.label}</p>
-                          <p className="text-[11px] text-slate-500">{item.desc}</p>
+                          <p className="text-xs font-bold text-ink-900 group-hover:text-brand-600 transition-colors">{item.label}</p>
+                          <p className="text-[11px] text-ink-600">{item.desc}</p>
                         </div>
                       </Link>
                     );
@@ -197,7 +197,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
                 type="button"
                 onClick={() => toggleDropdown('compare')}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 ${
-                  activeDropdown === 'compare' ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  activeDropdown === 'compare' ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`}
                 aria-expanded={activeDropdown === 'compare'}
               >
@@ -205,19 +205,19 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               </button>
 
               {activeDropdown === 'compare' && (
-                <div className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-ink-200 shadow-2xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
                   {COMPARE_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="p-2 rounded-xl hover:bg-slate-50 transition-colors block group"
+                      className="p-2 rounded-xl hover:bg-ink-50 transition-colors block group"
                     >
-                      <p className="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition-colors">{item.label}</p>
-                      <p className="text-[11px] text-slate-500">{item.desc}</p>
+                      <p className="text-xs font-bold text-ink-900 group-hover:text-brand-600 transition-colors">{item.label}</p>
+                      <p className="text-[11px] text-ink-600">{item.desc}</p>
                     </Link>
                   ))}
-                  <div className="pt-2 border-t border-slate-100 px-2">
-                    <Link to="/compare" className="text-xs font-bold text-slate-900 hover:text-amber-600 transition-colors block">
+                  <div className="pt-2 border-t border-ink-100 px-2">
+                    <Link to="/compare" className="text-xs font-bold text-ink-900 hover:text-brand-600 transition-colors block">
                       All competitor comparisons →
                     </Link>
                   </div>
@@ -231,7 +231,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
                 type="button"
                 onClick={() => toggleDropdown('resources')}
                 className={`px-3 py-2 rounded-lg text-sm font-semibold transition-colors flex items-center gap-1 ${
-                  activeDropdown === 'resources' ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  activeDropdown === 'resources' ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`}
                 aria-expanded={activeDropdown === 'resources'}
               >
@@ -239,15 +239,15 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               </button>
 
               {activeDropdown === 'resources' && (
-                <div className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-ink-200 shadow-2xl p-3 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
                   {RESOURCE_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="p-2 rounded-xl hover:bg-slate-50 transition-colors block group"
+                      className="p-2 rounded-xl hover:bg-ink-50 transition-colors block group"
                     >
-                      <p className="text-xs font-bold text-slate-900 group-hover:text-amber-600 transition-colors">{item.label}</p>
-                      <p className="text-[11px] text-slate-500">{item.desc}</p>
+                      <p className="text-xs font-bold text-ink-900 group-hover:text-brand-600 transition-colors">{item.label}</p>
+                      <p className="text-[11px] text-ink-600">{item.desc}</p>
                     </Link>
                   ))}
                 </div>
@@ -259,7 +259,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               to="/pricing"
               className={({ isActive }) =>
                 `px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
-                  isActive ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  isActive ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`
               }
             >
@@ -270,7 +270,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               to="/about"
               className={({ isActive }) =>
                 `px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${
-                  isActive ? 'text-slate-950 bg-slate-100' : 'text-slate-600 hover:text-slate-950 hover:bg-slate-50'
+                  isActive ? 'text-ink-950 bg-ink-100' : 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
                 }`
               }
             >
@@ -282,21 +282,21 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact-sales"
-              className="text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+              className="text-xs font-semibold text-ink-600 hover:text-ink-900 transition-colors"
             >
               Book a demo
             </Link>
-            <span className="w-px h-4 bg-slate-200" />
+            <span className="w-px h-4 bg-ink-200" />
             <Link
               to="/login"
-              className="px-3 py-2 text-sm font-semibold text-slate-700 hover:text-slate-950 transition-colors"
+              className="px-3 py-2 text-sm font-semibold text-ink-700 hover:text-ink-950 transition-colors"
             >
               Sign in
             </Link>
             <Link
               to="/register"
               onClick={() => trackCtaClick('top_nav', 'Start free trial', '/register')}
-              className="h-9 px-4 inline-flex items-center rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 shadow-sm transition-all"
+              className="h-9 px-4 inline-flex items-center rounded-full bg-ink-900 text-white text-sm font-semibold hover:bg-ink-800 shadow-sm transition-all"
             >
               Start free trial
             </Link>
@@ -304,7 +304,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
 
           {/* Mobile Menu Hamburger */}
           <button
-            className="lg:hidden p-2 -mr-2 text-slate-700 hover:text-slate-900"
+            className="lg:hidden p-2 -mr-2 text-ink-700 hover:text-ink-900"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -315,29 +315,29 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
 
         {/* ─── Mobile Accordion Drawer ─── */}
         {mobileOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-2 shadow-2xl max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden border-t border-ink-200 bg-white px-4 py-4 space-y-2 shadow-2xl max-h-[85vh] overflow-y-auto">
             {/* Features Accordion */}
             <div>
               <button
                 type="button"
                 onClick={() => toggleMobileAccordion('features')}
-                className="w-full flex items-center justify-between py-2 text-sm font-bold text-slate-900"
+                className="w-full flex items-center justify-between py-2 text-sm font-bold text-ink-900"
               >
                 <span>Features & Modules</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === 'features' ? 'rotate-180' : ''}`} />
               </button>
               {mobileExpanded === 'features' && (
-                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-slate-100 ml-1">
+                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-ink-100 ml-1">
                   {FEATURE_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block py-1 text-xs text-slate-600 hover:text-slate-900 font-medium"
+                      className="block py-1 text-xs text-ink-600 hover:text-ink-900 font-medium"
                     >
                       {item.label}
                     </Link>
                   ))}
-                  <Link to="/features" className="block py-1 text-xs font-bold text-amber-700">
+                  <Link to="/features" className="block py-1 text-xs font-bold text-brand-700">
                     View all 21 modules →
                   </Link>
                 </div>
@@ -349,18 +349,18 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <button
                 type="button"
                 onClick={() => toggleMobileAccordion('solutions')}
-                className="w-full flex items-center justify-between py-2 text-sm font-bold text-slate-900"
+                className="w-full flex items-center justify-between py-2 text-sm font-bold text-ink-900"
               >
                 <span>Industry Solutions</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === 'solutions' ? 'rotate-180' : ''}`} />
               </button>
               {mobileExpanded === 'solutions' && (
-                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-slate-100 ml-1">
+                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-ink-100 ml-1">
                   {SECTOR_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block py-1 text-xs text-slate-600 hover:text-slate-900 font-medium"
+                      className="block py-1 text-xs text-ink-600 hover:text-ink-900 font-medium"
                     >
                       {item.label}
                     </Link>
@@ -374,18 +374,18 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <button
                 type="button"
                 onClick={() => toggleMobileAccordion('compare')}
-                className="w-full flex items-center justify-between py-2 text-sm font-bold text-slate-900"
+                className="w-full flex items-center justify-between py-2 text-sm font-bold text-ink-900"
               >
                 <span>Competitor Comparisons</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === 'compare' ? 'rotate-180' : ''}`} />
               </button>
               {mobileExpanded === 'compare' && (
-                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-slate-100 ml-1">
+                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-ink-100 ml-1">
                   {COMPARE_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block py-1 text-xs text-slate-600 hover:text-slate-900 font-medium"
+                      className="block py-1 text-xs text-ink-600 hover:text-ink-900 font-medium"
                     >
                       {item.label}
                     </Link>
@@ -399,18 +399,18 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <button
                 type="button"
                 onClick={() => toggleMobileAccordion('resources')}
-                className="w-full flex items-center justify-between py-2 text-sm font-bold text-slate-900"
+                className="w-full flex items-center justify-between py-2 text-sm font-bold text-ink-900"
               >
                 <span>Resources & Knowledge</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === 'resources' ? 'rotate-180' : ''}`} />
               </button>
               {mobileExpanded === 'resources' && (
-                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-slate-100 ml-1">
+                <div className="pl-2 py-1 space-y-1.5 border-l-2 border-ink-100 ml-1">
                   {RESOURCE_LINKS.map((item) => (
                     <Link
                       key={item.to}
                       to={item.to}
-                      className="block py-1 text-xs text-slate-600 hover:text-slate-900 font-medium"
+                      className="block py-1 text-xs text-ink-600 hover:text-ink-900 font-medium"
                     >
                       {item.label}
                     </Link>
@@ -420,30 +420,30 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
             </div>
 
             {/* Direct Links */}
-            <Link to="/pricing" className="block py-2 text-sm font-bold text-slate-900">
+            <Link to="/pricing" className="block py-2 text-sm font-bold text-ink-900">
               Pricing & Plans
             </Link>
-            <Link to="/about" className="block py-2 text-sm font-bold text-slate-900">
+            <Link to="/about" className="block py-2 text-sm font-bold text-ink-900">
               About Task Pilot
             </Link>
 
-            <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
+            <div className="pt-3 border-t border-ink-200 flex flex-col gap-2">
               <Link
                 to="/register"
-                className="h-11 rounded-xl bg-slate-900 text-white font-semibold text-sm flex items-center justify-center shadow-sm"
+                className="h-11 rounded-xl bg-ink-900 text-white font-semibold text-sm flex items-center justify-center shadow-sm"
               >
                 Start 14-day free trial
               </Link>
               <div className="flex gap-2">
                 <Link
                   to="/login"
-                  className="flex-1 h-10 rounded-xl border border-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center hover:bg-slate-50"
+                  className="flex-1 h-10 rounded-xl border border-ink-200 text-ink-800 font-semibold text-xs flex items-center justify-center hover:bg-ink-50"
                 >
                   Sign in
                 </Link>
                 <Link
                   to="/contact-sales"
-                  className="flex-1 h-10 rounded-xl border border-slate-200 text-slate-800 font-semibold text-xs flex items-center justify-center hover:bg-slate-50"
+                  className="flex-1 h-10 rounded-xl border border-ink-200 text-ink-800 font-semibold text-xs flex items-center justify-center hover:bg-ink-50"
                 >
                   Book a demo
                 </Link>
@@ -457,7 +457,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
       <main id="main" className="flex-1">{children}</main>
 
       {/* ─── Comprehensive Global Footer ─── */}
-      <footer className="bg-slate-950 text-slate-400 text-sm border-t border-slate-900 pb-20 md:pb-0">
+      <footer className="bg-ink-950 text-ink-300 text-sm border-t border-ink-900 pb-20 md:pb-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand Info */}
           <div className="col-span-2">
@@ -465,20 +465,20 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded" />
               <span>Task Pilot</span>
             </div>
-            <p className="mt-1 text-xs text-amber-500 font-semibold tracking-wide">
+            <p className="mt-1 text-xs text-brand-300 font-semibold tracking-wide">
               A product by Thekada Digital Ventures Pvt. Ltd.
             </p>
-            <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="mt-3 text-xs sm:text-sm text-ink-300 leading-relaxed max-w-sm">
               Construction management software for builders and field teams. Task sign-offs, location-verified GPS attendance, Daily Progress Reports (DPR), and BOQ cost control across every site.
             </p>
             <Link
               to="/status"
-              className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-850 border border-slate-800 text-slate-300 text-xs transition-colors group"
+              className="mt-5 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ink-900 hover:bg-ink-850 border border-ink-800 text-ink-200 text-xs transition-colors group"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
               <span className="group-hover:text-white">System status</span>
             </Link>
-            <div className="mt-4 flex items-center gap-3 text-xs text-slate-500">
+            <div className="mt-4 flex items-center gap-3 text-xs text-ink-300">
               <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-emerald-500" /> Isolated company workspaces</span>
               <span>•</span>
               <span>Regional pricing in 7 currencies</span>
@@ -499,7 +499,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <li><Link to="/features/document-control" className="hover:text-white transition-colors">Blueprints & Drawings</Link></li>
               <li><Link to="/features/site-chat" className="hover:text-white transition-colors">Site Channels Chat</Link></li>
               <li><Link to="/features/equipment-tracking" className="hover:text-white transition-colors">Plant & Equipment</Link></li>
-              <li><Link to="/pricing" className="hover:text-white transition-colors font-semibold text-amber-400">Pricing & Plans</Link></li>
+              <li><Link to="/pricing" className="hover:text-white transition-colors font-semibold text-brand-300">Pricing & Plans</Link></li>
             </ul>
           </div>
 
@@ -513,7 +513,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <li><Link to="/industries/infrastructure" className="hover:text-white transition-colors">Infrastructure & EPC</Link></li>
               <li><Link to="/industries/facility-management" className="hover:text-white transition-colors">Facility Management</Link></li>
               <li><Link to="/industries/project-management" className="hover:text-white transition-colors">PMC Consultancies</Link></li>
-              <li className="pt-2 text-slate-500 font-semibold uppercase text-[10px]">Comparisons</li>
+              <li className="pt-2 text-ink-300 font-semibold uppercase text-[10px]">Comparisons</li>
               <li><Link to="/compare/taskpilot-vs-procore" className="hover:text-white transition-colors">vs Procore</Link></li>
               <li><Link to="/compare/taskpilot-vs-fieldwire" className="hover:text-white transition-colors">vs Fieldwire</Link></li>
               <li><Link to="/compare/taskpilot-vs-asana" className="hover:text-white transition-colors">vs Asana</Link></li>
@@ -539,15 +539,15 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <li><Link to="/policy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li><Link to="/login" className="hover:text-white transition-colors">Account Sign In</Link></li>
-              <li><Link to="/register" className="hover:text-white transition-colors text-amber-400 font-semibold">Start 14-Day Free Trial</Link></li>
+              <li><Link to="/register" className="hover:text-white transition-colors text-brand-300 font-semibold">Start 14-Day Free Trial</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 py-6 text-center text-xs text-slate-500">
+        <div className="border-t border-white/10 py-6 text-center text-xs text-ink-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p>© {new Date().getFullYear()} Thekada Digital Ventures Pvt. Ltd. All rights reserved.</p>
-            <p className="text-slate-400">Task Pilot · Construction management software</p>
+            <p className="text-ink-300">Task Pilot · Construction management software</p>
           </div>
         </div>
       </footer>
@@ -573,14 +573,14 @@ const MobileStickyCta: React.FC<{ pathname: string }> = ({ pathname }) => {
   if (['/register', '/contact-sales', '/login'].includes(pathname)) return null;
   return (
     <div
-      className={`md:hidden fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 backdrop-blur px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-2 transition-transform duration-300 ${visible ? 'translate-y-0' : 'translate-y-full'}`}
+      className={`md:hidden fixed inset-x-0 bottom-0 z-40 border-t border-ink-200 bg-white/95 backdrop-blur px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] flex gap-2 transition-transform duration-300 ${visible ? 'translate-y-0' : 'translate-y-full'}`}
       aria-hidden={!visible}
     >
       <Link
         to="/register"
         tabIndex={visible ? 0 : -1}
         onClick={() => trackCtaClick('mobile_sticky', 'Start free trial', '/register')}
-        className="flex-1 h-11 inline-flex items-center justify-center rounded-xl bg-slate-900 text-white text-sm font-semibold"
+        className="flex-1 h-11 inline-flex items-center justify-center rounded-xl bg-ink-900 text-white text-sm font-semibold"
       >
         Start free trial
       </Link>
@@ -588,7 +588,7 @@ const MobileStickyCta: React.FC<{ pathname: string }> = ({ pathname }) => {
         to="/contact-sales"
         tabIndex={visible ? 0 : -1}
         onClick={() => trackCtaClick('mobile_sticky', 'Book a demo', '/contact-sales')}
-        className="h-11 px-4 inline-flex items-center justify-center rounded-xl border border-slate-300 text-sm font-semibold text-slate-800"
+        className="h-11 px-4 inline-flex items-center justify-center rounded-xl border border-ink-300 text-sm font-semibold text-ink-800"
       >
         Book a demo
       </Link>
@@ -601,5 +601,5 @@ export const Section: React.FC<{ children: React.ReactNode; className?: string; 
 );
 
 export const Eyebrow: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-600">{children}</p>
+  <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-600">{children}</p>
 );

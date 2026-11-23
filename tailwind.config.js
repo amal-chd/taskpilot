@@ -21,6 +21,38 @@ export default {
     },
     extend: {
       colors: {
+        // Marketing site ("Sellix" design language): blue accent, deep navy ink.
+        // Used only by src/pages/saas/marketing — the app keeps slate/amber.
+        brand: {
+          50: '#eef5ff',
+          100: '#d9e8ff',
+          200: '#bcd7ff',
+          300: '#8ebcff',
+          400: '#5b9bfb',
+          500: '#2d7ef7',
+          600: '#1f6ae0',
+          700: '#1859bf',
+          800: '#184a94',
+          900: '#102c55',
+        },
+        ink: {
+          50: '#f5f8fd',
+          100: '#eaf0fa',
+          200: '#d5e0f0',
+          300: '#aebdd3',
+          400: '#7d8ea8',
+          500: '#5b6d8a',
+          600: '#475a77',
+          700: '#34455f',
+          800: '#1f2d44',
+          900: '#15233b',
+          950: '#0b1b33',
+        },
+        sun: {
+          DEFAULT: '#ffd149',
+          400: '#ffd149',
+          500: '#ffc21a',
+        },
         // Brand — refined modern slate/navy
         primary: {
           DEFAULT: '#0F172A',
@@ -77,6 +109,7 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         '2xs': ['0.6875rem', { lineHeight: '1rem' }],

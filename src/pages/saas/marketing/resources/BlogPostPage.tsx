@@ -75,21 +75,21 @@ export const BlogPostPage: React.FC = () => {
   return (
     <MarketingLayout>
       {/* ─── Breadcrumb ─── */}
-      <div className="bg-slate-50 border-b border-slate-200/60 py-2.5 text-xs text-slate-500">
+      <div className="bg-ink-50 border-b border-ink-200/60 py-2.5 text-xs text-ink-600">
         <Section className="flex items-center gap-2">
-          <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <Link to="/blog" className="hover:text-slate-900 transition-colors">Resources</Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-slate-900 font-semibold truncate">{post.title}</span>
+          <Link to="/" className="hover:text-ink-900 transition-colors">Home</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
+          <Link to="/blog" className="hover:text-ink-900 transition-colors">Resources</Link>
+          <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
+          <span className="text-ink-900 font-semibold truncate">{post.title}</span>
         </Section>
       </div>
 
       {/* ─── Article Header ─── */}
-      <div className="bg-white pt-12 pb-10 border-b border-slate-100">
+      <div className="bg-white pt-12 pb-10 border-b border-ink-100">
         <Section className="max-w-3xl mx-auto">
-          <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
-            <span className="px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 font-bold uppercase tracking-wider">
+          <div className="flex items-center justify-between text-xs text-ink-600 mb-4">
+            <span className="px-3 py-1 rounded-full bg-brand-500/10 text-brand-800 font-bold uppercase tracking-wider">
               {post.category}
             </span>
             <div className="flex items-center gap-3">
@@ -99,28 +99,28 @@ export const BlogPostPage: React.FC = () => {
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink-900 leading-[1.15]">
             {post.title}
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+          <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed font-normal">
             {post.headline}
           </p>
 
-          <div className="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
+          <div className="mt-6 pt-6 border-t border-ink-100 flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-slate-900 text-amber-400 flex items-center justify-center font-bold text-sm">
+              <div className="w-10 h-10 rounded-full bg-ink-900 text-brand-300 flex items-center justify-center font-bold text-sm">
                 {post.author.name.charAt(0)}
               </div>
               <div>
-                <p className="text-sm font-bold text-slate-900">{post.author.name}</p>
-                <p className="text-xs text-slate-500">{post.author.role}</p>
+                <p className="text-sm font-bold text-ink-900">{post.author.name}</p>
+                <p className="text-xs text-ink-600">{post.author.role}</p>
               </div>
             </div>
 
             <button
               onClick={handleShare}
-              className="h-9 px-3.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-50 transition-colors inline-flex items-center gap-1.5"
+              className="h-9 px-3.5 rounded-full border border-ink-200 text-xs font-semibold text-ink-700 hover:bg-ink-50 transition-colors inline-flex items-center gap-1.5"
             >
               <Share2 className="w-3.5 h-3.5" /> Share
             </button>
@@ -129,33 +129,33 @@ export const BlogPostPage: React.FC = () => {
       </div>
 
       {/* ─── Article Body ─── */}
-      <article className="py-14 bg-slate-50/50">
-        <Section className="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-3xl border border-slate-200 shadow-xs space-y-8 text-slate-700 leading-relaxed text-base">
+      <article className="py-14 bg-ink-50/50">
+        <Section className="max-w-3xl mx-auto bg-white p-8 sm:p-12 rounded-3xl border border-ink-200 shadow-xs space-y-8 text-ink-700 leading-relaxed text-base">
           {/* Introduction */}
-          <p className="text-lg text-slate-800 leading-relaxed font-medium">
+          <p className="text-lg text-ink-800 leading-relaxed font-medium">
             {post.content.intro}
           </p>
 
           {/* Sections */}
           {post.content.sections.map((section, idx) => (
-            <div key={idx} className="space-y-4 pt-6 border-t border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">
+            <div key={idx} className="space-y-4 pt-6 border-t border-ink-100">
+              <h2 className="text-2xl font-bold text-ink-900 tracking-tight">
                 {section.heading}
               </h2>
 
               {section.paragraphs.map((p, pIdx) => (
-                <p key={pIdx} className="text-slate-600 leading-relaxed">
+                <p key={pIdx} className="text-ink-600 leading-relaxed">
                   {p}
                 </p>
               ))}
 
               {section.keyTakeaways && (
-                <div className="my-6 p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80">
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-900 mb-2">Key Takeaways</p>
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-amber-950">
+                <div className="my-6 p-5 rounded-2xl bg-brand-50/70 border border-brand-200/80">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-900 mb-2">Key Takeaways</p>
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-brand-950">
                     {section.keyTakeaways.map((item, tIdx) => (
                       <li key={tIdx} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                        <Check className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -164,9 +164,9 @@ export const BlogPostPage: React.FC = () => {
               )}
 
               {section.checklist && (
-                <div className="my-6 p-6 rounded-2xl bg-slate-900 text-white">
-                  <p className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">Field Engineering Checklist</p>
-                  <ul className="space-y-2 text-xs sm:text-sm text-slate-200">
+                <div className="my-6 p-6 rounded-2xl bg-ink-900 text-white">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-300 mb-3">Field Engineering Checklist</p>
+                  <ul className="space-y-2 text-xs sm:text-sm text-ink-200">
                     {section.checklist.map((c, cIdx) => (
                       <li key={cIdx} className="flex items-start gap-2.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
@@ -187,16 +187,16 @@ export const BlogPostPage: React.FC = () => {
           ))}
 
           {/* In-Article Conversion Callout */}
-          <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 text-white text-center">
+          <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-ink-900 to-ink-950 text-white text-center">
             <h3 className="text-2xl font-bold">Put these standards to work with Task Pilot</h3>
-            <p className="mt-2 text-slate-300 text-sm max-w-lg mx-auto">
+            <p className="mt-2 text-ink-200 text-sm max-w-lg mx-auto">
               Automate your daily progress reports, GPS attendance, and BOQ cost tracking in one unified platform.
             </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
               <Link
                 to="/register"
                 onClick={() => trackCtaClick('blog_inline', 'Start 14-day free trial', '/register')}
-                className="h-11 px-6 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm hover:bg-amber-400 transition-all shadow-md inline-flex items-center gap-1.5"
+                className="h-11 px-6 rounded-full bg-brand-500 text-white font-bold text-sm hover:bg-brand-400 transition-all shadow-md inline-flex items-center gap-1.5"
               >
                 Start 14-day free trial <ArrowRight className="w-4 h-4" />
               </Link>
@@ -204,9 +204,9 @@ export const BlogPostPage: React.FC = () => {
           </div>
 
           {/* Conclusion */}
-          <div className="pt-6 border-t border-slate-100">
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Conclusion</h3>
-            <p className="text-slate-600 leading-relaxed">
+          <div className="pt-6 border-t border-ink-100">
+            <h3 className="text-xl font-bold text-ink-900 mb-2">Conclusion</h3>
+            <p className="text-ink-600 leading-relaxed">
               {post.content.conclusion}
             </p>
           </div>
@@ -214,11 +214,11 @@ export const BlogPostPage: React.FC = () => {
       </article>
 
       {/* ─── Related Articles ─── */}
-      <div className="bg-slate-50 py-16 border-t border-slate-200">
+      <div className="bg-ink-50 py-16 border-t border-ink-200">
         <Section className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xl font-bold text-slate-900">Related Field Guides</h3>
-            <Link to="/blog" className="text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors">
+            <h3 className="text-xl font-bold text-ink-900">Related Field Guides</h3>
+            <Link to="/blog" className="text-sm font-bold text-ink-900 hover:text-brand-600 transition-colors">
               View all resources →
             </Link>
           </div>
@@ -229,15 +229,15 @@ export const BlogPostPage: React.FC = () => {
                 key={r.slug}
                 to={`/blog/${r.slug}`}
                 onClick={() => trackArticleRead(r.slug, r.title)}
-                className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-slate-900 hover:shadow-md transition-all group"
+                className="bg-white p-5 rounded-2xl border border-ink-200 hover:border-ink-900 hover:shadow-md transition-all group"
               >
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-ink-500 block mb-1">
                   {r.category}
                 </span>
-                <h4 className="font-bold text-slate-900 text-sm group-hover:text-amber-600 transition-colors line-clamp-2">
+                <h4 className="font-bold text-ink-900 text-sm group-hover:text-brand-600 transition-colors line-clamp-2">
                   {r.title}
                 </h4>
-                <p className="text-xs text-slate-500 mt-2 line-clamp-2">
+                <p className="text-xs text-ink-600 mt-2 line-clamp-2">
                   {r.summary}
                 </p>
               </Link>
