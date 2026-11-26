@@ -324,7 +324,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                               ),
                             ),
                             subtitle: const Text(
-                              'How to use Task Pilot — tasks, attendance, chat & more',
+                              'How to use SiteCommons — tasks, attendance, chat & more',
                               style: TextStyle(fontSize: 12, color: AppTheme.textMuted),
                             ),
                             trailing: const Icon(Icons.chevron_right_rounded, color: AppTheme.textMuted),

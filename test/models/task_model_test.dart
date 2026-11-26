@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:task_pilot/core/enums/task_status.dart';
-import 'package:task_pilot/core/enums/task_priority.dart';
+import 'package:sitecommons/core/enums/task_status.dart';
+import 'package:sitecommons/core/enums/task_priority.dart';
 
 void main() {
   group('TaskStatus', () {

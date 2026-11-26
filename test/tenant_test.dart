@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:task_pilot/core/tenant/tenant.dart';
+import 'package:sitecommons/core/tenant/tenant.dart';
 
 void main() {
   group('TenantContext.fromMe', () {

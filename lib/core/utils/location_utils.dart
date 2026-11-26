@@ -15,7 +15,7 @@ class LocationUtils {
           .get(
             uri,
             headers: {
-              'User-Agent': 'TaskPilot/1.0',
+              'User-Agent': 'SiteCommons/1.0',
               'Accept': 'application/json',
             },
           )

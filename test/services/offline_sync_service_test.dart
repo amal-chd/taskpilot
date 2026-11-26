@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:task_pilot/data/services/offline_sync_service.dart';
+import 'package:sitecommons/data/services/offline_sync_service.dart';
 
 void main() {
   group('OfflineSyncService — queue operations', () {

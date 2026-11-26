@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  // Brand Palette — Task Pilot slate + amber (matched to the web dashboard's
+  // Brand Palette — SiteCommons slate + amber (matched to the web dashboard's
   // tailwind.config.js for cross-platform brand consistency).
   static const Color brand = Color(0xFF0F172A); // Brand Slate
   static const Color brandDark = Color(0xFF020617);

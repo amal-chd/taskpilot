@@ -13,7 +13,7 @@ class FcmService {
   final _localNotifications = FlutterLocalNotificationsPlugin();
 
   static const _channelId = 'task_pilot_channel';
-  static const _channelName = 'Task Pilot';
+  static const _channelName = 'SiteCommons';
 
   GlobalKey<NavigatorState>? navigatorKey;
 

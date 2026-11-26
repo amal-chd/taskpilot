@@ -1,157 +1,117 @@
-"""
-Generates Kurickal TMS app icons for iOS and Android.
-Logo: K-house mark in #4472C4 on white (#FFFFFF) background.
-Run: python3 scripts/generate_icons.py
-"""
+"""Generate the SiteCommons app icons and optional product website/store assets."""
 
-import math
-import os
-from PIL import Image, ImageDraw
+import argparse
+from pathlib import Path
 
-# ── Brand colors ──────────────────────────────────────────────────────────────
-LOGO_BLUE   = (68, 114, 196)   # #4472C4
-WHITE       = (255, 255, 255)
-TRANSPARENT = (0, 0, 0, 0)
+from PIL import Image, ImageDraw, ImageFont
 
-# ── Draw the K-house logo onto a canvas of given size ─────────────────────────
-
-def draw_logo(canvas_size: int, padding_ratio: float = 0.12) -> Image.Image:
-    """
-    Returns an RGBA image of the K-house logo with transparent background.
-    The logo fills (1 - 2*padding_ratio) of the canvas.
-    """
-    img = Image.new("RGBA", (canvas_size, canvas_size), TRANSPARENT)
-    draw = ImageDraw.Draw(img)
-
-    pad  = int(canvas_size * padding_ratio)
-    size = canvas_size - 2 * pad   # drawable area
-
-    # Helper: map normalised [0,100] coords → pixel
-    def px(v):  return pad + int(v / 100 * size)
-    def py(v):  return pad + int(v / 100 * size)
-    def p(x, y): return (px(x), py(y))
-
-    blue = LOGO_BLUE + (255,)   # with alpha
-
-    # ── 1. Left vertical bar ─────────────────────────────────────────────────
-    bar = [p(14, 12), p(30, 12), p(30, 88), p(14, 88)]
-    draw.polygon(bar, fill=blue)
-
-    # ── 2. Upper diagonal arm (roof slope) ───────────────────────────────────
-    upper = [p(30, 12), p(96, 12), p(66, 52), p(30, 52)]
-    draw.polygon(upper, fill=blue)
-
-    # ── 3. Lower diagonal arm ────────────────────────────────────────────────
-    # Starts at the roof peak (right of bar, mid-height) and goes lower-right.
-    # The left edge slopes outward, leaving white space for the window.
-    lower = [p(30, 52), p(66, 52), p(96, 88), p(58, 88)]
-    draw.polygon(lower, fill=blue)
-
-    # ── 4. 2×2 window grid ───────────────────────────────────────────────────
-    # Positioned in the white negative space between the bar's right edge
-    # and the lower arm's diagonal left edge.
-    sq_size = size * 0.095   # each square
-    gap     = size * 0.028   # gap between squares
-    # Anchor just right of the bar at y ≈ 63–83
-    wx = pad + size * 0.315
-    wy = pad + size * 0.635
-
-    for row in range(2):
-        for col in range(2):
-            x0 = wx + col * (sq_size + gap)
-            y0 = wy + row * (sq_size + gap)
-            draw.rectangle(
-                [x0, y0, x0 + sq_size, y0 + sq_size],
-                fill=blue,
-            )
-
-    return img
+MOBILE = Path(__file__).resolve().parents[1]
+INK = "#101C2B"
+GOLD = "#FFC460"
+PAPER = "#F4F7FA"
+MARK = (
+    (PAPER, ((18, 22), (44, 22), (44, 35), (31, 35), (31, 48), (18, 48))),
+    (PAPER, ((56, 22), (82, 22), (82, 48), (69, 48), (69, 35), (56, 35))),
+    (PAPER, ((18, 52), (31, 52), (31, 65), (44, 65), (44, 78), (18, 78))),
+    (PAPER, ((69, 52), (82, 52), (82, 78), (56, 78), (56, 65), (69, 65))),
+    (GOLD, ((50, 37), (63, 50), (50, 63), (37, 50))),
+)
+DENSITIES = {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}
 
 
-def make_icon(size: int, bg_color=WHITE, padding_ratio=0.12) -> Image.Image:
-    """Square icon: solid background + centred logo."""
-    bg  = Image.new("RGBA", (size, size), bg_color + (255,))
-    logo = draw_logo(size, padding_ratio=padding_ratio)
-    bg.paste(logo, (0, 0), logo)
-    return bg.convert("RGB")
+def mark(size: int, background: str | None = INK) -> Image.Image:
+    scale = 3
+    canvas = Image.new("RGBA", (size * scale, size * scale), background or (0, 0, 0, 0))
+    draw = ImageDraw.Draw(canvas)
+    for color, points in MARK:
+        draw.polygon([(round(x * size * scale / 100), round(y * size * scale / 100))
+                      for x, y in points], fill=color)
+    result = canvas.resize((size, size), Image.Resampling.LANCZOS)
+    return result.convert("RGB") if background else result
 
 
-def make_icon_rounded(size: int, corner_radius_ratio=0.22) -> Image.Image:
-    """Rounded-rect version for Android adaptive background."""
-    img = make_icon(size)
-    # Apply rounded corners via mask
-    r = int(size * corner_radius_ratio)
-    mask = Image.new("L", (size, size), 0)
-    md   = ImageDraw.Draw(mask)
-    md.rounded_rectangle([0, 0, size - 1, size - 1], radius=r, fill=255)
-    result = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    result.paste(img, mask=mask)
-    return result
+def write_mobile() -> None:
+    images = MOBILE / "assets" / "images"
+    mark(1024).save(images / "logo.png")
+    mark(1024).save(images / "app_icon.png")
+    mark(1024, None).save(images / "adaptive_icon_foreground.png")
+
+    ios_assets = MOBILE / "ios" / "Runner" / "Assets.xcassets"
+    for path in (ios_assets / "AppIcon.appiconset").glob("*.png"):
+        with Image.open(path) as existing:
+            size = existing.width
+        mark(size).save(path)
+    for path in (ios_assets / "LaunchImage.imageset").glob("LaunchImage*.png"):
+        with Image.open(path) as existing:
+            width, height = existing.size
+        canvas = Image.new("RGBA", (width, height))
+        size = round(min(width, height) * 0.72)
+        canvas.paste(mark(size), ((width - size) // 2, (height - size) // 2))
+        canvas.save(path)
+
+    res = MOBILE / "android" / "app" / "src" / "main" / "res"
+    for density, size in DENSITIES.items():
+        mark(size).save(res / f"mipmap-{density}" / "ic_launcher.png")
+        foreground = res / f"drawable-{density}" / "ic_launcher_foreground.png"
+        with Image.open(foreground) as existing:
+            foreground_size = existing.width
+        mark(foreground_size, None).save(foreground)
+
+    mark(64).save(MOBILE / "web" / "favicon.png")
+    for size in (192, 512):
+        mark(size).save(MOBILE / "web" / "icons" / f"Icon-{size}.png")
+        canvas = Image.new("RGB", (size, size), INK)
+        inner = round(size * 0.72)
+        canvas.paste(mark(inner), ((size - inner) // 2, (size - inner) // 2))
+        canvas.save(MOBILE / "web" / "icons" / f"Icon-maskable-{size}.png")
 
 
-# ── Output paths ──────────────────────────────────────────────────────────────
+def write_web(root: Path) -> None:
+    public = root / "public"
+    brand = root / "docs" / "brand"
+    mark(512).save(public / "logo.png")
+    paths = [
+        f'<polygon points="{" ".join(f"{x},{y}" for x, y in points)}" fill="{color}"/>'
+        for color, points in MARK
+    ]
+    svg = "\n".join([
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">',
+        f'<rect width="100" height="100" rx="20" fill="{INK}"/>',
+        *paths,
+        '</svg>',
+        '',
+    ])
+    (public / "favicon.svg").write_text(svg)
+    mark(512).convert("RGBA").save(brand / "play-store-icon.png")
 
-BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-IOS_ICONS = [
-    ("20x20@1x",    20,    "Icon-App-20x20@1x.png"),
-    ("20x20@2x",    40,    "Icon-App-20x20@2x.png"),
-    ("20x20@3x",    60,    "Icon-App-20x20@3x.png"),
-    ("29x29@1x",    29,    "Icon-App-29x29@1x.png"),
-    ("29x29@2x",    58,    "Icon-App-29x29@2x.png"),
-    ("29x29@3x",    87,    "Icon-App-29x29@3x.png"),
-    ("40x40@1x",    40,    "Icon-App-40x40@1x.png"),
-    ("40x40@2x",    80,    "Icon-App-40x40@2x.png"),
-    ("40x40@3x",    120,   "Icon-App-40x40@3x.png"),
-    ("60x60@2x",    120,   "Icon-App-60x60@2x.png"),
-    ("60x60@3x",    180,   "Icon-App-60x60@3x.png"),
-    ("76x76@1x",    76,    "Icon-App-76x76@1x.png"),
-    ("76x76@2x",    152,   "Icon-App-76x76@2x.png"),
-    ("83.5x83.5@2x",167,   "Icon-App-83.5x83.5@2x.png"),
-    ("1024x1024",   1024,  "Icon-App-1024x1024@1x.png"),
-]
-
-ANDROID_DENSITIES = [
-    ("mipmap-mdpi",    48),
-    ("mipmap-hdpi",    72),
-    ("mipmap-xhdpi",   96),
-    ("mipmap-xxhdpi",  144),
-    ("mipmap-xxxhdpi", 192),
-]
-
-def main():
-    # iOS icons
-    ios_dir = os.path.join(BASE, "ios", "Runner", "Assets.xcassets",
-                           "AppIcon.appiconset")
-    print(f"Writing iOS icons → {ios_dir}")
-    for _, px_size, filename in IOS_ICONS:
-        icon = make_icon(px_size)
-        icon.save(os.path.join(ios_dir, filename))
-        print(f"  ✓ {filename}  ({px_size}×{px_size})")
-
-    # Android icons
-    android_res = os.path.join(BASE, "android", "app", "src", "main", "res")
-    print(f"\nWriting Android icons → {android_res}")
-    for density, px_size in ANDROID_DENSITIES:
-        out_dir = os.path.join(android_res, density)
-        os.makedirs(out_dir, exist_ok=True)
-        # Standard launcher icon
-        icon = make_icon(px_size)
-        icon.save(os.path.join(out_dir, "ic_launcher.png"))
-        # Round icon (Android 8+)
-        rounded = make_icon_rounded(px_size)
-        rounded.save(os.path.join(out_dir, "ic_launcher_round.png"))
-        print(f"  ✓ {density}/ic_launcher.png  ({px_size}×{px_size})")
-
-    # Flutter asset (hi-res for in-app use)
-    asset_dir = os.path.join(BASE, "assets", "images")
-    os.makedirs(asset_dir, exist_ok=True)
-    logo_img  = draw_logo(1024, padding_ratio=0.0)  # full-bleed, no padding
-    logo_img.save(os.path.join(asset_dir, "logo.png"))
-    print(f"\n✓ assets/images/logo.png  (1024×1024, transparent BG)")
-
-    print("\n✅  All icons generated successfully.")
+    for width, height, output in (
+        (1200, 630, public / "og-image.jpg"),
+        (1024, 500, brand / "play-feature-graphic.png"),
+    ):
+        canvas = Image.new("RGB", (width, height), INK)
+        draw = ImageDraw.Draw(canvas)
+        x, y = round(width * 0.08), round(height * 0.17)
+        for inset in (0, 66, 132):
+            draw.line([(width - 310 + inset, height), (width + inset, height - 310)],
+                      fill="#304054", width=2)
+        draw.rounded_rectangle((x, y, x + 86, y + 86), radius=17, fill="#243447")
+        logo = mark(70, None)
+        canvas.paste(logo, (x + 8, y + 8), logo)
+        draw.text((x + 105, y + 8), "SiteCommons", fill=PAPER,
+                  font=ImageFont.load_default(size=57), stroke_width=1)
+        draw.text((x, y + 135), "Every project.", fill=PAPER,
+                  font=ImageFont.load_default(size=round(width * 0.057)), stroke_width=1)
+        draw.text((x, y + 211), "One workspace.", fill=GOLD,
+                  font=ImageFont.load_default(size=round(width * 0.057)), stroke_width=1)
+        draw.text((x, y + 310), "Daily logs  /  Site photos  /  Task ownership", fill="#B6C3D1",
+                  font=ImageFont.load_default(size=round(width * 0.024)))
+        canvas.save(output, quality=92)
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--web-root", type=Path, help="Website repository root")
+    arguments = parser.parse_args()
+    write_mobile()
+    if arguments.web_root:
+        write_web(arguments.web_root)

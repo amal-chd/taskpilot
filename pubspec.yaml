@@ -1,7 +1,7 @@
-name: task_pilot
-description: "Task Pilot - Construction Task Management System for Kurickal Developers LLP"
+name: sitecommons
+description: "SiteCommons — Construction site management and field operations"
 publish_to: 'none'
-version: 1.0.37+55
+version: 1.0.0+1
 
 environment:
   sdk: ^3.9.2
@@ -87,13 +87,12 @@ flutter_launcher_icons:
   ios: true
   image_path: "assets/images/logo.png"
   remove_alpha_ios: true
-  adaptive_icon_background: "#0d2b5c"
-  adaptive_icon_foreground: "assets/images/logo.png"
+  adaptive_icon_background: "#101C2B"
+  adaptive_icon_foreground: "assets/images/adaptive_icon_foreground.png"
 
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/animations/
     - google_fonts/

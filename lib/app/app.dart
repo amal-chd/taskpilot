@@ -5,15 +5,15 @@ import 'theme.dart';
 import 'routes.dart';
 import '../presentation/shared/widgets/error_widget.dart';
 
-class KurickalApp extends ConsumerWidget {
-  const KurickalApp({super.key});
+class SiteCommonsApp extends ConsumerWidget {
+  const SiteCommonsApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
 
     return MaterialApp.router(
-      title: 'Task Pilot',
+      title: 'SiteCommons',
       theme: AppTheme.lightTheme,
       routerConfig: router,
       debugShowCheckedModeBanner: false,

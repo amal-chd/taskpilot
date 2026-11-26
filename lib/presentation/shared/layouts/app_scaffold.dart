@@ -729,7 +729,7 @@ class _WideLayout extends ConsumerWidget {
                       ),
                       const SizedBox(width: 10),
                       const Text(
-                        'Task Pilot',
+                        'SiteCommons',
                         style: TextStyle(
                           fontFamily: 'Plus Jakarta Sans',
                           fontSize: 15,

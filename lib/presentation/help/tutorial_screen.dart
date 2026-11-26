@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../app/theme.dart';
 
-/// In-app staff tutorial — a mobile-native "how to use Task Pilot" guide.
+/// In-app staff tutorial — a mobile-native "how to use SiteCommons" guide.
 /// Content mirrors the staff field manual, condensed for on-site reading.
 class TutorialScreen extends StatelessWidget {
   const TutorialScreen({super.key});
@@ -51,7 +51,7 @@ class TutorialScreen extends StatelessWidget {
                     const SizedBox(width: 12),
                     const Expanded(
                       child: Text(
-                        'How to use Task Pilot',
+                        'How to use SiteCommons',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -83,7 +83,7 @@ class TutorialScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Center(
             child: Text(
-              'Task Pilot · Kurickal Developers',
+              'SiteCommons · Field operations',
               style: TextStyle(
                 fontSize: 11.5,
                 color: AppTheme.textLight,
@@ -586,7 +586,7 @@ const List<_Topic> _topics = [
             'with a count and the latest on top.',
         'Opening the item marks it read; you can also mark all as read.',
       ]),
-      _Tip('Not getting alerts? Allow notifications for Task Pilot in your phone '
+      _Tip('Not getting alerts? Allow notifications for SiteCommons in your phone '
           'settings, and check your in-app preferences under Profile. On a shared '
           'device, sign back in to re-register it.',
           kind: _TipKind.important),
@@ -600,7 +600,7 @@ const List<_Topic> _topics = [
     blocks: [
       _P('Every person has one **role** that decides which menus you see and which '
           'actions you can take. Field roles focus on their own tasks and '
-          'attendance; managers oversee the full board; admins manage users and '
+          'attendance; managers sitecommons the full board; admins manage users and '
           'roles.'),
       _Tip('Missing access you need for your job — or seeing something you should not? '
           'Tell an administrator; they can adjust your role in seconds.',

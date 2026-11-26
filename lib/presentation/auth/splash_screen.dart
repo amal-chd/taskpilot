@@ -82,7 +82,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
       final localAuth = LocalAuthentication();
       try {
         final authenticated = await localAuth.authenticate(
-          localizedReason: 'Authenticate to access Task Pilot',
+          localizedReason: 'Authenticate to access SiteCommons',
         );
         if (!mounted) return;
         if (authenticated) {
@@ -227,7 +227,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                     ),
                     const SizedBox(height: 28),
                     const Text(
-                      'Task Pilot',
+                      'SiteCommons',
                       style: TextStyle(
                         fontFamily: 'Plus Jakarta Sans',
                         color: Colors.white,
@@ -271,7 +271,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
             child: FadeTransition(
               opacity: _fade,
               child: Text(
-                'Kurickal Developers LLP',
+                'Thekada Digital Ventures',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white.withValues(alpha: 0.31),

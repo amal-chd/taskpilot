@@ -1,6 +1,6 @@
 class AppStrings {
   // App
-  static const String appName = 'Task Pilot';
+  static const String appName = 'SiteCommons';
 
   // Auth
   static const String signIn = 'Sign In';

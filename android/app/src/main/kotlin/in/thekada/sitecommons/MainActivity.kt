@@ -1,4 +1,4 @@
-package com.kurickal.taskpilot
+package `in`.thekada.sitecommons
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -19,7 +19,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.kurickal.taskpilot"
+    namespace = "in.thekada.sitecommons"
     compileSdk = 36
     buildToolsVersion = "36.0.0"
     ndkVersion = flutter.ndkVersion
@@ -36,7 +36,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.kurickal.taskpilot"
+        applicationId = "in.thekada.sitecommons"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -56,15 +56,8 @@ android {
 
     buildTypes {
         release {
-            // Use the real upload keystore when key.properties is present
-            // (production releases). Fall back to debug signing when it's
-            // absent so CI / local release builds still succeed instead of
-            // failing on a null keystore.
-            signingConfig = if (keystorePropertiesFile.exists()) {
-                signingConfigs.getByName("release")
-            } else {
-                signingConfigs.getByName("debug")
-            }
+            // A Play release must never be signed with the debug certificate.
+            signingConfig = signingConfigs.getByName("release")
 
             // Don't block the release build on a network upload to Firebase.
             // The Crashlytics mapping upload runs during bundleRelease and can

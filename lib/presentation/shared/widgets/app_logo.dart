@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Renders the Task Pilot app logo from assets.
+/// Renders the SiteCommons app logo from assets.
 class AppLogo extends StatelessWidget {
   /// Side length of the square canvas.
   final double size;
@@ -45,7 +45,7 @@ class AppLogoLockup extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Task Pilot',
+              'SiteCommons',
               style: TextStyle(
                 fontFamily: 'Plus Jakarta Sans',
                 fontSize: iconSize * 0.56,
@@ -56,7 +56,7 @@ class AppLogoLockup extends StatelessWidget {
               ),
             ),
             Text(
-              'Task Management',
+              'Field operations',
               style: TextStyle(
                 fontFamily: 'Plus Jakarta Sans',
                 fontSize: iconSize * 0.34,

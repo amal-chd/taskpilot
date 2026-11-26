@@ -99,6 +99,6 @@ void main() async {
   // (e.g. the iOS simulator), leaving text unstyled / the screen blank.
   GoogleFonts.config.allowRuntimeFetching = false;
 
-  runApp(const ProviderScope(child: KurickalApp()));
+  runApp(const ProviderScope(child: SiteCommonsApp()));
 }
 
