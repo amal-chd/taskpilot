@@ -1,3 +1,4 @@
+import { ProductScreenshot } from '../../../components/common/ProductScreenshot';
 import React, { useState } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import {
@@ -97,7 +98,7 @@ export const FeaturesPage: React.FC = () => {
             className="mt-10 cursor-pointer group rounded-2xl overflow-hidden border border-ink-800 bg-ink-900 shadow-2xl max-w-4xl mx-auto"
             onClick={() => openScreenshot(
               '/images/screenshots/web-dashboard-command-center.webp',
-              'Task Pilot Multi-Site Command Center',
+              'SiteCommons Multi-Site Command Center',
               'High-level operational overview tracking active sites, task completion velocity, daily headcount, and CPI cost efficiency.',
               'Multi-Site Command'
             )}
@@ -110,9 +111,9 @@ export const FeaturesPage: React.FC = () => {
               </div>
             </div>
             <div className="relative overflow-hidden bg-ink-950">
-              <img width={1600} height={1000}
+              <ProductScreenshot width={1600} height={1000}
                 src="/images/screenshots/web-dashboard-command-center.webp"
-                alt="Task Pilot Multi-Site Command Center"
+                alt="SiteCommons Multi-Site Command Center"
                 className="w-full h-auto object-cover max-h-[380px] transition-transform duration-300 group-hover:scale-[1.01]"
                 loading="lazy"
                 decoding="async"
@@ -148,7 +149,7 @@ export const FeaturesPage: React.FC = () => {
                 Location-Verified GPS Attendance
               </h3>
               <p className="text-ink-600 text-sm leading-relaxed">
-                Eliminate ghost muster, buddy punching, and proxy check-ins. Field workers tap Check In on the native mobile app; Task Pilot validates satellite GPS coordinates against your project centroid within your configured site radius, and blocks fake-GPS apps on Android.
+                Eliminate ghost muster, buddy punching, and proxy check-ins. Field workers tap Check In on the native mobile app; SiteCommons validates satellite GPS coordinates against your project centroid within your configured site radius, and blocks fake-GPS apps on Android.
               </p>
               <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-ink-700">
                 <li className="flex items-center gap-2.5">
@@ -185,7 +186,7 @@ export const FeaturesPage: React.FC = () => {
             >
               <div className="relative max-w-[280px] sm:max-w-[310px] w-full rounded-[40px] p-2 bg-gradient-to-b from-ink-700 via-ink-800 to-ink-900 shadow-2xl ring-1 ring-white/10 transition-transform duration-300 group-hover:scale-[1.02]">
                 <div className="rounded-[32px] overflow-hidden bg-black relative">
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-attendance-geofence.webp"
                     alt="Location-Verified GPS Attendance Mobile App"
                     className="w-full h-auto object-cover"
@@ -259,7 +260,7 @@ export const FeaturesPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="relative overflow-hidden bg-ink-950">
-                  <img width={1600} height={1000}
+                  <ProductScreenshot width={1600} height={1000}
                     src="/images/screenshots/web-site-diary-dpr.webp"
                     alt="Daily Site Diary Web Console"
                     className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
@@ -289,7 +290,7 @@ export const FeaturesPage: React.FC = () => {
                 BOQ & Earned Value Cost Control
               </h3>
               <p className="text-ink-600 text-sm leading-relaxed">
-                Connect tender budgets directly to physical site execution. Import Excel BOQ work packages with unit rates and quantities. As site teams verify completed work, Task Pilot updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) in real time.
+                Connect tender budgets directly to physical site execution. Import Excel BOQ work packages with unit rates and quantities. As site teams verify completed work, SiteCommons updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) in real time.
               </p>
               <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-ink-700">
                 <li className="flex items-center gap-2.5">
@@ -333,7 +334,7 @@ export const FeaturesPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="relative overflow-hidden bg-ink-950">
-                  <img width={1600} height={1000}
+                  <ProductScreenshot width={1600} height={1000}
                     src="/images/screenshots/web-boq-cost-control.webp"
                     alt="BOQ & Cost Control Console"
                     className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
@@ -407,7 +408,7 @@ export const FeaturesPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="relative overflow-hidden bg-ink-950">
-                  <img width={1600} height={1000}
+                  <ProductScreenshot width={1600} height={1000}
                     src="/images/screenshots/web-tasks-kanban-verification.webp"
                     alt="Task Management Kanban Verification"
                     className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-[1.01]"
@@ -503,7 +504,7 @@ export const FeaturesPage: React.FC = () => {
               Data isolation and security you can trust
             </h2>
             <p className="mt-3 text-ink-200 text-sm">
-              Your drawings, tender bids, employee data, and contractor rates are confidential. Here is how Task Pilot safeguards them.
+              Your drawings, tender bids, employee data, and contractor rates are confidential. Here is how SiteCommons safeguards them.
             </p>
           </div>
 
@@ -581,8 +582,8 @@ export const IndustryPage: React.FC = () => {
   const { slug } = useParams();
   const ind = INDUSTRIES.find((i) => i.slug === slug);
   useSeo({
-    title: ind ? `${ind.name} Management Software — Task Pilot` : 'Industries',
-    description: ind ? `${ind.headline}. ${ind.summary}` : 'Task Pilot for construction and field teams.',
+    title: ind ? `${ind.name} Management Software — SiteCommons` : 'Industries',
+    description: ind ? `${ind.headline}. ${ind.summary}` : 'SiteCommons for construction and field teams.',
     path: `/industries/${slug}`,
   });
 
@@ -626,7 +627,7 @@ export const IndustryPage: React.FC = () => {
         <div className="text-center max-w-2xl mx-auto mb-14">
           <Eyebrow>The Operational Shift</Eyebrow>
           <h2 className="mt-3 text-3xl font-bold text-ink-900">
-            How Task Pilot transforms your daily execution
+            How SiteCommons transforms your daily execution
           </h2>
           <p className="text-ink-600 text-sm mt-2">
             Moving away from disconnected spreadsheets and unsearchable messaging apps into a single verified system of record.
@@ -638,7 +639,7 @@ export const IndustryPage: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 text-rose-700 font-bold text-sm uppercase tracking-wider mb-5">
                 <X className="w-5 h-5 text-rose-600" />
-                The Current Reality (Without Task Pilot)
+                The Current Reality (Without SiteCommons)
               </div>
               <ul className="space-y-4 text-ink-700 text-sm">
                 {ind.pains.map((p, idx) => (
@@ -655,7 +656,7 @@ export const IndustryPage: React.FC = () => {
             <div>
               <div className="flex items-center gap-2 text-emerald-800 font-bold text-sm uppercase tracking-wider mb-5">
                 <Check className="w-5 h-5 text-emerald-600" />
-                The Task Pilot Standard (With Task Pilot)
+                The SiteCommons Standard (With SiteCommons)
               </div>
               <ul className="space-y-4 text-ink-700 text-sm">
                 {ind.gains.map((g, idx) => (
@@ -705,7 +706,7 @@ export const IndustryPage: React.FC = () => {
           <div className="text-center mb-12">
             <Eyebrow>Daily Rhythm</Eyebrow>
             <h2 className="mt-3 text-3xl font-bold text-ink-900">
-              A Day in the Life on Task Pilot
+              A Day in the Life on SiteCommons
             </h2>
             <p className="mt-2 text-ink-600 text-sm">
               How field supervisors and project managers coordinate throughout a typical shift.

@@ -1,6 +1,8 @@
 // Single source of truth for public URLs and contact addresses.
 // Override the URL per deployment with VITE_SITE_URL.
-export const SITE_URL = ((import.meta.env.VITE_SITE_URL as string | undefined) || 'https://taskpilot.thekada.in').replace(/\/$/, '');
+export const BRAND_NAME = 'SiteCommons';
+export const DEFAULT_SITE_URL = 'https://sitecommons.thekada.in';
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '');
 
 // Single public mailbox (Hostinger, thekada.in) for sales, support, legal and security.
 export const CONTACT = {

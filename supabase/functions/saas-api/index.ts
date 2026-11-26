@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
-//  saas-api — Task Pilot multi-tenant control plane
+//  saas-api — SiteCommons multi-tenant control plane
 //
 //  Every call: POST { action, ...params } with `Authorization: Bearer <Firebase
 //  ID token>` (except the few PUBLIC_ACTIONS). The token is verified with the
@@ -11,7 +11,7 @@
 //
 //  Secrets (supabase secrets set …):
 //    FIREBASE_SERVICE_ACCOUNT, RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET,
-//    APP_URL (e.g. https://taskpilot.thekada.in)
+//    APP_URL (e.g. https://sitecommons.thekada.in)
 //  SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY are injected automatically.
 // ═══════════════════════════════════════════════════════════════════════════
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
@@ -611,7 +611,7 @@ const actions: Record<string, Handler> = {
         org_id: m.org_id, subscription_id: sub.id, provider: "razorpay_simulated",
         provider_payment_id: `pay_sim_${crypto.randomUUID().replace(/-/g, "").slice(0, 14)}`,
         amount, tax_amount: taxAmount, currency: plan.currency, status: "paid",
-        plan_id: plan.id, description: `Task Pilot ${plan.name} (${cycle}) — Test/Sandbox`,
+        plan_id: plan.id, description: `SiteCommons ${plan.name} (${cycle}) — Test/Sandbox`,
         period_start: new Date().toISOString(), period_end: periodEnd,
         paid_at: new Date().toISOString(),
         billing_details: { name: ctx.org.name, address: ctx.org.address, tax_id: ctx.org.tax_id, email: c!.email, method: "test_mandate" },
@@ -627,7 +627,7 @@ const actions: Record<string, Handler> = {
     if (!rzpPlanId) {
       const created = await razorpay("/plans", "POST", {
         period: cycle === "yearly" ? "yearly" : "monthly", interval: 1,
-        item: { name: `Task Pilot ${plan.name} (${cycle})`, amount, currency: plan.currency, description: plan.tagline ?? plan.name },
+        item: { name: `SiteCommons ${plan.name} (${cycle})`, amount, currency: plan.currency, description: plan.tagline ?? plan.name },
         notes: { taskpilot_plan: plan.id, cycle },
       });
       rzpPlanId = created.id;
@@ -698,7 +698,7 @@ const actions: Record<string, Handler> = {
         org_id: m.org_id, provider: "razorpay_simulated",
         provider_payment_id: `pay_order_sim_${crypto.randomUUID().replace(/-/g, "").slice(0, 14)}`,
         amount, tax_amount: taxAmount, currency: plan.currency, status: "paid",
-        plan_id: plan.id, description: `Task Pilot ${plan.name} (${cycle}) — Direct Payment (Test)`,
+        plan_id: plan.id, description: `SiteCommons ${plan.name} (${cycle}) — Direct Payment (Test)`,
         period_start: new Date().toISOString(), period_end: periodEnd,
         paid_at: new Date().toISOString(),
         billing_details: { name: ctx.org.name, address: ctx.org.address, tax_id: ctx.org.tax_id, email: c!.email, method: "test_upi" },
@@ -758,7 +758,7 @@ const actions: Record<string, Handler> = {
       org_id: m.org_id, provider: "razorpay", provider_payment_id: paymentId,
       provider_invoice_id: pay.invoice_id ?? null, amount: pay.amount, tax_amount: taxAmount,
       currency: pay.currency, status: "paid", plan_id: plan.id,
-      description: `Task Pilot ${plan.name} (${cycle})`,
+      description: `SiteCommons ${plan.name} (${cycle})`,
       period_start: new Date().toISOString(), period_end: periodEnd,
       paid_at: new Date((pay.created_at ?? Date.now() / 1000) * 1000).toISOString(),
       billing_details: { name: org.name, address: org.address, tax_id: org.tax_id, email: org.owner_email, method: pay.method },
@@ -1067,7 +1067,7 @@ const actions: Record<string, Handler> = {
     const t = await q(sb.from("support_tickets").select("id, org_id, created_by_uid, subject, ticket_number").eq("id", id).maybeSingle());
     if (!t) throw new HttpError(404, "Ticket not found");
     if (body) {
-      await q(sb.from("support_ticket_messages").insert({ ticket_id: id, author_uid: c!.uid, author_name: "Task Pilot Support", author_type: "staff", body }));
+      await q(sb.from("support_ticket_messages").insert({ ticket_id: id, author_uid: c!.uid, author_name: "SiteCommons Support", author_type: "staff", body }));
       if (t.created_by_uid) {
         await sb.from("app_notifications").insert({
           id: crypto.randomUUID(), org_id: t.org_id, user_id: t.created_by_uid, type: "support",
@@ -1196,7 +1196,7 @@ async function recordPayment(paymentId: string, sub: any) {
   await sb.from("payments").insert({
     org_id: sub.org_id, subscription_id: sub.id, provider: "razorpay", provider_payment_id: paymentId,
     provider_invoice_id: pay.invoice_id ?? null, amount: pay.amount, tax_amount: taxAmount, currency: pay.currency,
-    status: "paid", plan_id: sub.plan_id, description: `Task Pilot ${sub.plan_id} (${sub.billing_cycle})`,
+    status: "paid", plan_id: sub.plan_id, description: `SiteCommons ${sub.plan_id} (${sub.billing_cycle})`,
     period_start: sub.current_period_start, period_end: sub.current_period_end, paid_at: new Date((pay.created_at ?? Date.now() / 1000) * 1000).toISOString(),
     billing_details: { name: org.name, address: org.address, tax_id: org.tax_id, email: org.owner_email, method: pay.method },
   });

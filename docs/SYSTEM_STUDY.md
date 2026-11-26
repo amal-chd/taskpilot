@@ -1,4 +1,4 @@
-# Task Pilot — System Study (roles, features & data flow)
+# SiteCommons — System Study (roles, features & data flow)
 
 > Snapshot of how every subsystem works as of 2026-07, grounded in the current
 > code (web `kurickal_tms_web`, mobile `kurickal_tms`, `firestore.rules`,

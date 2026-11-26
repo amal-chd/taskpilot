@@ -130,7 +130,7 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
       <header className="h-16 px-4 sm:px-6 flex items-center justify-between max-w-6xl w-full mx-auto">
         <Link to="/" className="flex items-center gap-2 font-bold">
           <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded-lg" />
-          <span>Task Pilot</span>
+          <span>SiteCommons</span>
           <span className="text-xs text-slate-400 font-normal hidden sm:inline">· by Thekada Digital Ventures Pvt Ltd</span>
         </Link>
         {!firebaseUser && <Link to="/login" className="text-sm font-medium text-slate-600 hover:text-slate-900">Sign in</Link>}
@@ -167,7 +167,7 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
                   {busy && <Loader2 className="w-4 h-4 animate-spin" />}{mode === 'signup' ? 'Create account' : 'Sign in'}
                 </button>
                 <p className="text-sm text-center text-slate-500">
-                  {mode === 'signup' ? 'Already have an account? ' : 'New to Task Pilot? '}
+                  {mode === 'signup' ? 'Already have an account? ' : 'New to SiteCommons? '}
                   <button type="button" className="font-semibold text-slate-900 underline" onClick={() => setMode(mode === 'signup' ? 'signin' : 'signup')}>{mode === 'signup' ? 'Sign in' : 'Create one'}</button>
                 </p>
                 <p className="text-xs text-slate-400 text-center">By continuing you agree to the <Link to="/terms" className="underline">Terms</Link> and <Link to="/policy" className="underline">Privacy Policy</Link>.</p>
@@ -225,7 +225,7 @@ const RegisterPage: React.FC<{ onboardingOnly?: boolean }> = ({ onboardingOnly }
               </form>
             )}
             <p className="text-center text-slate-400 text-xs mt-6">
-              © {new Date().getFullYear()} Task Pilot · A product by Thekada Digital Ventures Pvt Ltd
+              © {new Date().getFullYear()} SiteCommons · A product by Thekada Digital Ventures Pvt Ltd
             </p>
           </div>
         </div>

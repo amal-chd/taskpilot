@@ -10,16 +10,16 @@ import { useSeo } from '../../../lib/seo';
 const PILLARS = [
   { icon: Building2, title: 'Separate workspace per company', body: 'Every project, task, document and attendance record is tagged to your organisation. Database access rules return only your company\'s data, and people can only join your workspace through an invitation you send.' },
   { icon: KeyRound, title: 'Roles & permissions', body: 'Directors, project managers, engineers, supervisors, workers and clients each get only the access their role allows. Admins can create custom roles with granular permissions.' },
-  { icon: Lock, title: 'Encryption', body: 'All traffic between your devices and Task Pilot is encrypted with HTTPS, and our web domain enforces HSTS. Databases and stored files are encrypted at rest by our infrastructure providers.' },
+  { icon: Lock, title: 'Encryption', body: 'All traffic between your devices and SiteCommons is encrypted with HTTPS, and our web domain enforces HSTS. Databases and stored files are encrypted at rest by our infrastructure providers.' },
   { icon: ScrollText, title: 'Audit trail', body: 'Key actions — sign-offs, user changes, billing events and data exports — are recorded with who did what and when, so you can answer questions later.' },
   { icon: Download, title: 'Your data stays yours', body: 'Workspace owners can export everything to Excel or JSON at any time, and request permanent deletion of the workspace and all of its data.' },
-  { icon: Server, title: 'Trusted infrastructure', body: 'Task Pilot runs on Supabase (PostgreSQL, hosted on AWS in the Asia Pacific – Tokyo region), Google Firebase for sign-in and notifications, Vercel for the website and Razorpay for payments.' },
+  { icon: Server, title: 'Trusted infrastructure', body: 'SiteCommons runs on Supabase (PostgreSQL, hosted on AWS in the Asia Pacific – Tokyo region), Google Firebase for sign-in and notifications, Vercel for the website and Razorpay for payments.' },
 ];
 
 const SecurityPage: React.FC = () => {
   useSeo({
     title: 'Security & Data Protection',
-    description: 'How Task Pilot protects your company data: separate workspaces per company, role-based access, encryption, audit trails, data export and deletion.',
+    description: 'How SiteCommons protects your company data: separate workspaces per company, role-based access, encryption, audit trails, data export and deletion.',
     path: '/security',
   });
 
@@ -28,7 +28,7 @@ const SecurityPage: React.FC = () => {
       <Section className="pt-16 pb-10 text-center max-w-3xl mx-auto">
         <Eyebrow>Security</Eyebrow>
         <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-ink-900">Your project data, protected</h1>
-        <p className="mt-4 text-ink-600">Drawings, contractor rates and payroll are sensitive. Here is exactly how Task Pilot keeps them safe — no marketing badges, just what is in place today.</p>
+        <p className="mt-4 text-ink-600">Drawings, contractor rates and payroll are sensitive. Here is exactly how SiteCommons keeps them safe — no marketing badges, just what is in place today.</p>
       </Section>
 
       <Section className="pb-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

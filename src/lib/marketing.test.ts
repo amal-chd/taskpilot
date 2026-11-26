@@ -5,7 +5,7 @@ import { COMPETITORS } from '../pages/saas/marketing/compare/comparisonData';
 import { BLOG_POSTS } from '../pages/saas/marketing/resources/blogData';
 import { detectLocalCurrency, PLAN_PRICES, CURRENCY_OPTIONS } from '../pages/saas/marketing/PricingPage';
 
-describe('Task Pilot Marketing & Acquisition Engine', () => {
+describe('SiteCommons Marketing & Acquisition Engine', () => {
   describe('Feature Detail Pages Configuration', () => {
     it('contains all 10 core feature landing pages with rich content', () => {
       const keys = Object.keys(FEATURE_DETAILS);
@@ -26,7 +26,7 @@ describe('Task Pilot Marketing & Acquisition Engine', () => {
       Object.values(FEATURE_DETAILS).forEach((feat) => {
         expect(feat.slug).toBeTruthy();
         expect(feat.title).toBeTruthy();
-        expect(feat.seoTitle).toContain('Task Pilot');
+        expect(feat.seoTitle).toContain('SiteCommons');
         expect(feat.seoDescription.length).toBeGreaterThan(30);
         expect(feat.painPoints.length).toBeGreaterThanOrEqual(3);
         expect(feat.solutions.length).toBeGreaterThanOrEqual(3);
@@ -51,12 +51,12 @@ describe('Task Pilot Marketing & Acquisition Engine', () => {
   describe('Competitor Intelligence & Comparison Pages', () => {
     it('contains verified comparisons against all target competitor segments', () => {
       const keys = Object.keys(COMPETITORS);
-      expect(keys).toContain('taskpilot-vs-procore');
-      expect(keys).toContain('taskpilot-vs-fieldwire');
-      expect(keys).toContain('taskpilot-vs-asana');
-      expect(keys).toContain('taskpilot-vs-monday');
-      expect(keys).toContain('taskpilot-vs-clickup');
-      expect(keys).toContain('taskpilot-vs-powerplay');
+      expect(keys).toContain('sitecommons-vs-procore');
+      expect(keys).toContain('sitecommons-vs-fieldwire');
+      expect(keys).toContain('sitecommons-vs-asana');
+      expect(keys).toContain('sitecommons-vs-monday');
+      expect(keys).toContain('sitecommons-vs-clickup');
+      expect(keys).toContain('sitecommons-vs-powerplay');
     });
 
     it('ensures each competitor comparison has balanced analysis and clear pricing contrast', () => {

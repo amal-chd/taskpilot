@@ -1,4 +1,4 @@
-# Task Pilot
+# SiteCommons
 
 Construction Task Management & Field Operations Operating System — a web
 dashboard and a Flutter mobile app (iOS + Android) sharing one backend.
@@ -12,7 +12,7 @@ dashboard and a Flutter mobile app (iOS + Android) sharing one backend.
 
 ## Architecture at a glance
 
-Task Pilot uses a **hybrid backend**. Auth and identity stay on Firebase; every
+SiteCommons uses a **hybrid backend**. Auth and identity stay on Firebase; every
 other domain object lives in Supabase Postgres.
 
 | Concern | Store | Notes |

@@ -1,15 +1,15 @@
-# TaskPilot: Comprehensive SEO Keyword Architecture & Intent Mapping
+# SiteCommons: Comprehensive SEO Keyword Architecture & Intent Mapping
 
 **Document Version:** 1.0.0  
 **Published:** November 2026  
 **Target Search Engine:** Google (Global, US, UK, Canada, Australia, India, UAE/Middle East)  
-**Author:** TaskPilot Technical SEO & Search Marketing Architecture Team  
+**Author:** SiteCommons Technical SEO & Search Marketing Architecture Team
 
 ---
 
 ## 1. Search Engine Optimization Strategy & Overview
 
-TaskPilot's SEO architecture is engineered to bypass high-cost, hyper-competitive broad head terms (e.g., *"project management software"* with Keyword Difficulty 95+ and $55 CPC) and dominate high-intent, bottom-of-the-funnel commercial keywords where buyers have urgent purchase intent.
+SiteCommons's SEO architecture is engineered to bypass high-cost, hyper-competitive broad head terms (e.g., *"project management software"* with Keyword Difficulty 95+ and $55 CPC) and dominate high-intent, bottom-of-the-funnel commercial keywords where buyers have urgent purchase intent.
 
 ### Strategic Keyword Segmentation:
 1. **Tier 1: Core Commercial & Category Keywords** — Contractors actively searching for operational and field software.
@@ -24,33 +24,33 @@ TaskPilot's SEO architecture is engineered to bypass high-cost, hyper-competitiv
 
 | Target URL | Primary Keyword | Search Intent | Est. Global Vol (mo) | KD (1-100) | Primary Title Tag | Primary H1 |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `/` | `construction management software` / `field operations platform` | Commercial / Transactional | 74,000 | 78 (Targeting long-tail variants) | TaskPilot — The Construction & Field Operations Operating System | Connect the Head Office to Every Jobsite |
-| `/features/task-management` | `construction task management software` | Commercial | 4,400 | 42 | Construction Task Management Software with 3-Step Verification \| TaskPilot | Enforce Jobsite Quality with 3-Step Verification Hold-Points |
-| `/features/gps-attendance` | `gps attendance app for construction sites` | Commercial / Transactional | 3,600 | 28 | GPS Attendance App for Construction Sites & Geofenced Time Clock \| TaskPilot | Point-in-Time GPS Geofenced Attendance for Construction Crews |
-| `/features/daily-reports` | `daily progress report software construction` | Commercial / Transactional | 5,200 | 34 | Construction Daily Progress Report (DPR) Software & Site Diary \| TaskPilot | Automated Daily Progress Reports (DPR) Generated in Under 3 Minutes |
-| `/features/boq-cost-control` | `boq cost control software` / `earned value management construction` | Commercial | 2,800 | 31 | BOQ Cost Control & Earned Value Management (EVM) Software \| TaskPilot | Real-Time BOQ Cost Control & Earned Value Management (EVM) |
-| `/features/material-management` | `construction material indent software` | Commercial | 1,900 | 25 | Construction Material Indent & Site Requisition Software \| TaskPilot | Eliminate Site Shortages with Digital Material Indents & Approvals |
-| `/features/equipment-tracking` | `construction plant and equipment tracking software` | Commercial | 2,100 | 29 | Construction Equipment & Plant Management Software \| TaskPilot | Maximize Fleet Utilization with Digital Plant & Equipment Tracking |
-| `/features/quality-inspections` | `digital construction inspection checklist app` | Commercial | 3,100 | 33 | Digital Construction Inspection & Quality Punch List App \| TaskPilot | Zero Defect Closeouts with Digital QA/QC Inspection Workflows |
-| `/features/gantt-scheduling` | `construction gantt chart software with dependencies` | Commercial | 4,800 | 46 | Construction Gantt Scheduling & Milestone Dependency Software \| TaskPilot | Keep Jobsites on Track with Interactive Gantt Milestone Scheduling |
-| `/features/team-collaboration` | `jobsite communication app for contractors` | Commercial | 2,400 | 27 | Jobsite Communication & Subcontractor Collaboration App \| TaskPilot | Real-Time Jobsite Communication Without WhatsApp Chaos |
-| `/features/payroll-slips` | `construction payroll software with muster roll` | Commercial | 1,800 | 24 | Construction Labor Payroll & Site Muster Roll Software \| TaskPilot | Automated Site Muster Rolls & Multi-Tier Construction Payroll |
-| `/solutions/general-contractors` | `construction management software for general contractors` | Commercial | 6,500 | 48 | Construction Management Software for General Contractors \| TaskPilot | Complete Operational Control for Mid-Tier General Contractors |
-| `/solutions/subcontractors` | `subcontractor management software` | Commercial | 3,900 | 32 | Subcontractor Management & Field Tracking Software \| TaskPilot | Protect Your Cashflow and Prove Work Completed on Every Site |
-| `/solutions/civil-infrastructure` | `civil construction project management software` | Commercial | 2,200 | 36 | Civil Engineering & Heavy Infrastructure Management Software \| TaskPilot | Master Linear Projects, Heavy Equipment, and Multi-Mile Jobsites |
-| `/solutions/commercial-builders` | `commercial construction management software` | Commercial | 4,100 | 44 | Commercial Building Project Management Software \| TaskPilot | Coordinate High-Density Multi-Storey Commercial Builds Flawlessly |
-| `/solutions/residential-developers` | `residential developer construction software` | Commercial | 3,700 | 39 | Residential Developer & Housing Project Management Software \| TaskPilot | Hand Over Homes on Time with Zero Defects and Total Cost Visibility |
-| `/solutions/mep-contractors` | `mep contractor project management software` | Commercial | 1,600 | 26 | MEP Contractor Management & Conduit Inspection Software \| TaskPilot | Prevent Clashes and Prove Conduit Hold-Points Before Drywall Closes |
-| `/compare/procore-alternative` | `procore alternative` / `procore alternatives for small business` | Transactional / Switcher | 8,900 | 41 | Best Procore Alternative for Mid-Market Contractors \| TaskPilot | The Affordable, Field-Native Alternative to Procore |
-| `/compare/fieldwire-alternative` | `fieldwire alternative` / `fieldwire competitors` | Transactional / Switcher | 3,200 | 29 | Fieldwire Alternative Without Per-User Seat Taxes \| TaskPilot | The High-Value Fieldwire Alternative for Field Crews |
-| `/compare/asana-for-construction` | `asana for construction` / `asana construction management alternative` | Transactional / Switcher | 2,700 | 31 | Why Construction Teams Need More Than Asana \| TaskPilot vs Asana | Why Construction Teams Are Leaving Asana for TaskPilot |
-| `/compare/monday-for-construction` | `monday com for construction` / `monday construction alternative` | Transactional / Switcher | 3,400 | 35 | Monday.com Construction Alternative \| TaskPilot Field Operations | Move Beyond Checkboxes: TaskPilot vs Monday.com for Construction |
-| `/compare/clickup-for-construction` | `clickup for construction` / `clickup construction alternative` | Transactional / Switcher | 2,100 | 28 | ClickUp Alternative for Construction Jobsites \| TaskPilot | Field-Native Simplicity: TaskPilot vs ClickUp for Contractors |
-| `/compare/powerplay-alternative` | `powerplay app alternative` / `powerplay construction alternative` | Transactional / Switcher | 1,400 | 19 | Powerplay Alternative with Enterprise BOQ Cost Control \| TaskPilot | Upgrade from Basic Chat to Enterprise Jobsite Operating Controls |
+| `/` | `construction management software` / `field operations platform` | Commercial / Transactional | 74,000 | 78 (Targeting long-tail variants) | SiteCommons — The Construction & Field Operations Operating System | Connect the Head Office to Every Jobsite |
+| `/features/task-management` | `construction task management software` | Commercial | 4,400 | 42 | Construction Task Management Software with 3-Step Verification \| SiteCommons | Enforce Jobsite Quality with 3-Step Verification Hold-Points |
+| `/features/gps-attendance` | `gps attendance app for construction sites` | Commercial / Transactional | 3,600 | 28 | GPS Attendance App for Construction Sites & Geofenced Time Clock \| SiteCommons | Point-in-Time GPS Geofenced Attendance for Construction Crews |
+| `/features/daily-reports` | `daily progress report software construction` | Commercial / Transactional | 5,200 | 34 | Construction Daily Progress Report (DPR) Software & Site Diary \| SiteCommons | Automated Daily Progress Reports (DPR) Generated in Under 3 Minutes |
+| `/features/boq-cost-control` | `boq cost control software` / `earned value management construction` | Commercial | 2,800 | 31 | BOQ Cost Control & Earned Value Management (EVM) Software \| SiteCommons | Real-Time BOQ Cost Control & Earned Value Management (EVM) |
+| `/features/material-management` | `construction material indent software` | Commercial | 1,900 | 25 | Construction Material Indent & Site Requisition Software \| SiteCommons | Eliminate Site Shortages with Digital Material Indents & Approvals |
+| `/features/equipment-tracking` | `construction plant and equipment tracking software` | Commercial | 2,100 | 29 | Construction Equipment & Plant Management Software \| SiteCommons | Maximize Fleet Utilization with Digital Plant & Equipment Tracking |
+| `/features/quality-inspections` | `digital construction inspection checklist app` | Commercial | 3,100 | 33 | Digital Construction Inspection & Quality Punch List App \| SiteCommons | Zero Defect Closeouts with Digital QA/QC Inspection Workflows |
+| `/features/gantt-scheduling` | `construction gantt chart software with dependencies` | Commercial | 4,800 | 46 | Construction Gantt Scheduling & Milestone Dependency Software \| SiteCommons | Keep Jobsites on Track with Interactive Gantt Milestone Scheduling |
+| `/features/team-collaboration` | `jobsite communication app for contractors` | Commercial | 2,400 | 27 | Jobsite Communication & Subcontractor Collaboration App \| SiteCommons | Real-Time Jobsite Communication Without WhatsApp Chaos |
+| `/features/payroll-slips` | `construction payroll software with muster roll` | Commercial | 1,800 | 24 | Construction Labor Payroll & Site Muster Roll Software \| SiteCommons | Automated Site Muster Rolls & Multi-Tier Construction Payroll |
+| `/solutions/general-contractors` | `construction management software for general contractors` | Commercial | 6,500 | 48 | Construction Management Software for General Contractors \| SiteCommons | Complete Operational Control for Mid-Tier General Contractors |
+| `/solutions/subcontractors` | `subcontractor management software` | Commercial | 3,900 | 32 | Subcontractor Management & Field Tracking Software \| SiteCommons | Protect Your Cashflow and Prove Work Completed on Every Site |
+| `/solutions/civil-infrastructure` | `civil construction project management software` | Commercial | 2,200 | 36 | Civil Engineering & Heavy Infrastructure Management Software \| SiteCommons | Master Linear Projects, Heavy Equipment, and Multi-Mile Jobsites |
+| `/solutions/commercial-builders` | `commercial construction management software` | Commercial | 4,100 | 44 | Commercial Building Project Management Software \| SiteCommons | Coordinate High-Density Multi-Storey Commercial Builds Flawlessly |
+| `/solutions/residential-developers` | `residential developer construction software` | Commercial | 3,700 | 39 | Residential Developer & Housing Project Management Software \| SiteCommons | Hand Over Homes on Time with Zero Defects and Total Cost Visibility |
+| `/solutions/mep-contractors` | `mep contractor project management software` | Commercial | 1,600 | 26 | MEP Contractor Management & Conduit Inspection Software \| SiteCommons | Prevent Clashes and Prove Conduit Hold-Points Before Drywall Closes |
+| `/compare/procore-alternative` | `procore alternative` / `procore alternatives for small business` | Transactional / Switcher | 8,900 | 41 | Best Procore Alternative for Mid-Market Contractors \| SiteCommons | The Affordable, Field-Native Alternative to Procore |
+| `/compare/fieldwire-alternative` | `fieldwire alternative` / `fieldwire competitors` | Transactional / Switcher | 3,200 | 29 | Fieldwire Alternative Without Per-User Seat Taxes \| SiteCommons | The High-Value Fieldwire Alternative for Field Crews |
+| `/compare/asana-for-construction` | `asana for construction` / `asana construction management alternative` | Transactional / Switcher | 2,700 | 31 | Why Construction Teams Need More Than Asana \| SiteCommons vs Asana | Why Construction Teams Are Leaving Asana for SiteCommons |
+| `/compare/monday-for-construction` | `monday com for construction` / `monday construction alternative` | Transactional / Switcher | 3,400 | 35 | Monday.com Construction Alternative \| SiteCommons Field Operations | Move Beyond Checkboxes: SiteCommons vs Monday.com for Construction |
+| `/compare/clickup-for-construction` | `clickup for construction` / `clickup construction alternative` | Transactional / Switcher | 2,100 | 28 | ClickUp Alternative for Construction Jobsites \| SiteCommons | Field-Native Simplicity: SiteCommons vs ClickUp for Contractors |
+| `/compare/powerplay-alternative` | `powerplay app alternative` / `powerplay construction alternative` | Transactional / Switcher | 1,400 | 19 | Powerplay Alternative with Enterprise BOQ Cost Control \| SiteCommons | Upgrade from Basic Chat to Enterprise Jobsite Operating Controls |
 | `/compare/best-construction-management-software` | `best construction management software` | Commercial / Buyer Guide | 12,200 | 54 | 7 Best Construction Management Software Platforms (2026 Comparison) | 7 Best Construction Management Software Platforms for 2026 |
-| `/pricing` | `construction software pricing` / `contractor app cost` | Transactional | 3,800 | 38 | Transparent Construction Software Pricing — Flat Team Tiers \| TaskPilot | Transparent, Flat-Rate Pricing. Zero Per-Seat Penalties. |
-| `/how-it-works` | `how construction management software works` | Informational / Evaluation | 1,700 | 22 | How TaskPilot Works — 4-Step Jobsite to Office Workflow \| TaskPilot | Connect Field Execution to Executive Financial Control in 4 Steps |
-| `/faq` | `construction project management software faq` | Informational | 1,200 | 18 | Construction Management Software FAQ — TaskPilot Help & Guides | Frequently Asked Questions About TaskPilot |
+| `/pricing` | `construction software pricing` / `contractor app cost` | Transactional | 3,800 | 38 | Transparent Construction Software Pricing — Flat Team Tiers \| SiteCommons | Transparent, Flat-Rate Pricing. Zero Per-Seat Penalties. |
+| `/how-it-works` | `how construction management software works` | Informational / Evaluation | 1,700 | 22 | How SiteCommons Works — 4-Step Jobsite to Office Workflow \| SiteCommons | Connect Field Execution to Executive Financial Control in 4 Steps |
+| `/faq` | `construction project management software faq` | Informational | 1,200 | 18 | Construction Management Software FAQ — SiteCommons Help & Guides | Frequently Asked Questions About SiteCommons |
 | `/blog/earned-value-management-construction-guide` | `earned value management in construction` / `evm cpi spi formulas` | Informational / Educational | 6,800 | 35 | The Complete Guide to Earned Value Management (EVM) in Construction | The Construction Contractor’s Complete Guide to Earned Value Management (EVM) |
 | `/blog/automated-daily-progress-reports-dpr-guide` | `daily progress report construction template` / `dpr civil engineering` | Informational / Educational | 5,400 | 28 | How to Automate Construction Daily Progress Reports (DPR) in 3 Minutes | How Top General Contractors Automate Daily Progress Reports in Under 3 Minutes |
 | `/blog/gps-geofencing-jobsite-attendance-compliance` | `gps geofencing construction attendance legal` | Informational / Educational | 2,900 | 23 | GPS Geofencing for Construction Attendance: Compliance & Privacy | GPS Geofencing for Construction Jobsites: The Definitive Compliance & Privacy Guide |
@@ -90,11 +90,11 @@ TaskPilot's SEO architecture is engineered to bypass high-cost, hyper-competitiv
 
 ## 4. Technical On-Page SEO Standard Operating Procedure (SOP)
 
-Every published URL across the TaskPilot marketing site adheres to strict programmatic SEO standards:
+Every published URL across the SiteCommons marketing site adheres to strict programmatic SEO standards:
 
-1. **Title Tag Structure:** `[Primary Keyword] — [Compelling Value Proposition / Differentiator] | TaskPilot` (Target: 50–60 characters).
-2. **Meta Description Structure:** `[Problem statement] + [TaskPilot specific solution with metric] + [CTA].` (Target: 145–158 characters).
-3. **Canonical URLs:** Hardcoded self-referencing absolute canonical URL (`https://taskpilot.app/...`).
+1. **Title Tag Structure:** `[Primary Keyword] — [Compelling Value Proposition / Differentiator] | SiteCommons` (Target: 50–60 characters).
+2. **Meta Description Structure:** `[Problem statement] + [SiteCommons specific solution with metric] + [CTA].` (Target: 145–158 characters).
+3. **Canonical URLs:** Hardcoded self-referencing absolute canonical URL (`https://sitecommons.thekada.in/...`).
 4. **Heading Hierarchy:**
    - Single `<h1>` containing primary target keyword and primary benefit.
    - Multiple `<h2>` tags structuring key features, use cases, FAQs, and comparison matrices.

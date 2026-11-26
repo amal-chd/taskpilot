@@ -24,7 +24,7 @@ const STYLE: Record<State, { label: string; cls: string; Icon: React.ElementType
 export const StatusPage: React.FC = () => {
   useSeo({
     title: 'System Status',
-    description: 'Live status of the Task Pilot web app, API, database and billing services, checked from your browser.',
+    description: 'Live status of the SiteCommons web app, API, database and billing services, checked from your browser.',
     path: '/status',
   });
 
@@ -70,7 +70,7 @@ export const StatusPage: React.FC = () => {
     <MarketingLayout>
       <Section className="pt-16 pb-6 text-center max-w-3xl mx-auto">
         <Eyebrow>System status</Eyebrow>
-        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Task Pilot status</h1>
+        <h1 className="mt-3 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">SiteCommons status</h1>
         <p className="mt-3 text-slate-500 text-sm">Live checks run from your browser when this page opens.</p>
       </Section>
 

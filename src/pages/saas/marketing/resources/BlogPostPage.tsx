@@ -30,27 +30,27 @@ export const BlogPostPage: React.FC = () => {
       publisher: {
         '@type': 'Organization',
         name: 'Thekada Digital Ventures Pvt. Ltd.',
-        url: 'https://taskpilot.thekada.in',
+        url: 'https://sitecommons.thekada.in',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://taskpilot.thekada.in/logo.png',
+          url: 'https://sitecommons.thekada.in/logo.png',
         },
       },
-      mainEntityOfPage: `https://taskpilot.thekada.in/blog/${post.slug}`,
+      mainEntityOfPage: `https://sitecommons.thekada.in/blog/${post.slug}`,
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taskpilot.thekada.in/' },
-        { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://taskpilot.thekada.in/resources' },
-        { '@type': 'ListItem', position: 3, name: post.title, item: `https://taskpilot.thekada.in/blog/${post.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sitecommons.thekada.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Resources', item: 'https://sitecommons.thekada.in/resources' },
+        { '@type': 'ListItem', position: 3, name: post.title, item: `https://sitecommons.thekada.in/blog/${post.slug}` },
       ],
     },
   ] : [];
 
   useSeo({
-    title: post ? `${post.title} | Task Pilot Guides` : 'Construction Management Blog — Task Pilot',
+    title: post ? `${post.title} | SiteCommons Guides` : 'Construction Management Blog — SiteCommons',
     description: post ? post.summary : 'Guides and insights on construction management and field operations.',
     path: post ? `/blog/${post.slug}` : '/blog',
     type: 'article',
@@ -188,7 +188,7 @@ export const BlogPostPage: React.FC = () => {
 
           {/* In-Article Conversion Callout */}
           <div className="my-10 p-8 rounded-3xl bg-gradient-to-br from-ink-900 to-ink-950 text-white text-center">
-            <h3 className="text-2xl font-bold">Put these standards to work with Task Pilot</h3>
+            <h3 className="text-2xl font-bold">Put these standards to work with SiteCommons</h3>
             <p className="mt-2 text-ink-200 text-sm max-w-lg mx-auto">
               Automate your daily progress reports, GPS attendance, and BOQ cost tracking in one unified platform.
             </p>

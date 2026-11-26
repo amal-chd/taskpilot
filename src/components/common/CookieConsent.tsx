@@ -52,7 +52,7 @@ export const CookieConsent: React.FC = () => {
         </div>
 
         <p className="text-xs text-slate-300 leading-relaxed">
-          Task Pilot by Thekada Digital Ventures Pvt. Ltd. uses strictly essential cookies and telemetry to secure workspaces and ensure high availability across global sites. We never sell your personal or project data.{' '}
+          SiteCommons by Thekada Digital Ventures Pvt. Ltd. uses strictly essential cookies and telemetry to secure workspaces and ensure high availability across global sites. We never sell your personal or project data.{' '}
           <Link to="/policy" className="text-amber-400 underline hover:text-amber-300">
             Learn more in our Privacy Policy
           </Link>

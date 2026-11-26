@@ -30,7 +30,7 @@ const OrganizationPage: React.FC = () => {
       const stamp = r.exportedAt.slice(0, 10);
       if (format === 'json') {
         const blob = new Blob([JSON.stringify(r, null, 2)], { type: 'application/json' });
-        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `taskpilot-export-${stamp}.json`; a.click(); URL.revokeObjectURL(a.href);
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `sitecommons-export-${stamp}.json`; a.click(); URL.revokeObjectURL(a.href);
       } else {
         const wb = XLSX.utils.book_new();
         for (const [table, rows] of Object.entries(r.data)) {
@@ -38,7 +38,7 @@ const OrganizationPage: React.FC = () => {
           const flat = rows.map((row) => Object.fromEntries(Object.entries(row).map(([k, v]) => [k, v !== null && typeof v === 'object' ? JSON.stringify(v) : v])));
           XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(flat), table.slice(0, 31));
         }
-        XLSX.writeFile(wb, `taskpilot-export-${stamp}.xlsx`);
+        XLSX.writeFile(wb, `sitecommons-export-${stamp}.xlsx`);
       }
       toast.success('Export ready');
     } catch (e: any) { toast.error(e.message); } finally { setExporting(false); }
@@ -151,7 +151,7 @@ const OrganizationPage: React.FC = () => {
               <div key={i.id} className="py-3 flex flex-wrap items-center gap-3">
                 <div className="flex-1 min-w-[180px]"><p className="text-sm font-medium">{i.name || i.email}</p><p className="text-xs text-slate-500">{i.email} · {roleName(i.role_id)} · expires {new Date(i.expires_at).toLocaleDateString()}</p></div>
                 <button onClick={() => { navigator.clipboard.writeText(i.link); toast.success('Link copied'); }} className="h-8 px-3 rounded-lg border text-xs font-medium inline-flex items-center gap-1.5"><Copy className="w-3.5 h-3.5" />Copy link</button>
-                <a href={`https://wa.me/?text=${encodeURIComponent(`You're invited to join ${ctx.org.name} on Task Pilot: ${i.link}`)}`} target="_blank" rel="noopener noreferrer" className="h-8 px-3 rounded-lg border text-xs font-medium inline-flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" />WhatsApp</a>
+                <a href={`https://wa.me/?text=${encodeURIComponent(`You're invited to join ${ctx.org.name} on SiteCommons: ${i.link}`)}`} target="_blank" rel="noopener noreferrer" className="h-8 px-3 rounded-lg border text-xs font-medium inline-flex items-center gap-1.5"><MessageCircle className="w-3.5 h-3.5" />WhatsApp</a>
                 <button onClick={() => revoke(i.id)} className="h-8 px-2 rounded-lg text-red-600 hover:bg-red-50" aria-label={`Revoke invitation for ${i.email}`}><Trash2 className="w-4 h-4" /></button>
               </div>
             ))}

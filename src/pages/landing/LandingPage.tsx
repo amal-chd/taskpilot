@@ -10,8 +10,8 @@ import { useSeo } from '../../lib/seo';
 
 export const LandingPage: React.FC = () => {
   useSeo({
-    title: 'About Task Pilot — Construction Management Software',
-    description: 'Learn about Task Pilot, our mission to bring radical operational clarity to jobsites, and our technology engineered for boots on the ground.',
+    title: 'About SiteCommons — Construction Management Software',
+    description: 'Learn about SiteCommons, our mission to bring radical operational clarity to jobsites, and our technology engineered for boots on the ground.',
     path: '/about',
   });
 
@@ -21,13 +21,13 @@ export const LandingPage: React.FC = () => {
       <div className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/60 pt-16 pb-20 border-b border-slate-100">
         <div aria-hidden className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-amber-200/20 blur-3xl pointer-events-none" />
         <Section className="text-center max-w-3xl mx-auto">
-          <Eyebrow>About Task Pilot</Eyebrow>
+          <Eyebrow>About SiteCommons</Eyebrow>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
             Built by builders. <br className="hidden sm:inline" />
             <span className="text-amber-700">Engineered for the jobsite.</span>
           </h1>
           <p className="mt-5 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Task Pilot is a flagship enterprise product built and operated by <strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong> We engineered Task Pilot to solve a fundamental construction reality:
+            SiteCommons is a flagship enterprise product built and operated by <strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong> We engineered SiteCommons to solve a fundamental construction reality:
             projects don't fail from lack of ambition — they bleed time and budget from broken communication between the physical jobsite and the head office.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -65,7 +65,7 @@ export const LandingPage: React.FC = () => {
                 At the same time, managing directors and developers have had no location-verified visibility into who is actually on site, whether daily progress matches the project schedule, or when material costs are starting to deviate from the Bill of Quantities (BOQ).
               </p>
               <p>
-                Task Pilot bridges that divide with a single, uncompromising platform: simple enough for a supervisor in safety boots to log DPRs and check in via GPS in seconds, yet powerful enough to give executives real-time Earned Value cost control across 20 simultaneous sites.
+                SiteCommons bridges that divide with a single, uncompromising platform: simple enough for a supervisor in safety boots to log DPRs and check in via GPS in seconds, yet powerful enough to give executives real-time Earned Value cost control across 20 simultaneous sites.
               </p>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const LandingPage: React.FC = () => {
 
             <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600 leading-relaxed">
               <strong className="text-slate-900 text-sm">Thekada Digital Ventures Pvt. Ltd.</strong><br />
-              <span className="text-amber-700 font-semibold">Product: Task Pilot</span><br />
+              <span className="text-amber-700 font-semibold">Product: SiteCommons</span><br />
               Cloud Construction Operations & Project Management Platform<br />
               Engineered for builders, general contractors, and EPC infrastructure firms.
             </div>
@@ -197,7 +197,7 @@ export const LandingPage: React.FC = () => {
                 We're here to help your teams build better
               </h2>
               <p className="text-slate-600 text-sm mt-1">
-                Have questions about deploying Task Pilot, migrating existing Excel registers, or volume enterprise pricing?
+                Have questions about deploying SiteCommons, migrating existing Excel registers, or volume enterprise pricing?
               </p>
             </div>
 

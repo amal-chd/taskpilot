@@ -21,7 +21,7 @@ if (firebaseConfig.apiKey) {
 
   messaging.onBackgroundMessage((payload) => {
     const n = payload.notification || {};
-    self.registration.showNotification(n.title || 'Task Pilot', {
+    self.registration.showNotification(n.title || 'SiteCommons', {
       body: n.body || '',
       icon: '/logo.png',
       badge: '/logo.png',

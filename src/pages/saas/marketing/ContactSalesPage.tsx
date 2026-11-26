@@ -10,8 +10,8 @@ const field = 'w-full h-11 px-3.5 rounded-xl border border-ink-300 focus:border-
 const ContactSalesPage: React.FC = () => {
   const [f, setF] = useState({ name: '', email: '', phone: '', company: '', teamSize: '11-50', interest: 'Demo', message: '' });
   useSeo({
-    title: 'Book a Demo & Contact Sales — Task Pilot',
-    description: 'See Task Pilot tailored to your construction sites. Book a 30-minute personalized walkthrough with our solutions engineering team.',
+    title: 'Book a Demo & Contact Sales — SiteCommons',
+    description: 'See SiteCommons tailored to your construction sites. Book a 30-minute personalized walkthrough with our solutions engineering team.',
     path: '/contact-sales',
   });
   const [busy, setBusy] = useState(false);
@@ -35,12 +35,12 @@ const ContactSalesPage: React.FC = () => {
 
   const salesFaqs = [
     {
-      q: 'Can we test Task Pilot on a single pilot project first?',
+      q: 'Can we test SiteCommons on a single pilot project first?',
       a: 'Yes, absolutely. We encourage prospective contractors and developers to start with a 14-day trial on a single active jobsite to experience the difference in daily DPR submission and GPS attendance before rolling out across their entire portfolio.',
     },
     {
       q: 'How long does it take for field supervisors and site engineers to learn the app?',
-      a: 'Most site engineers and supervisors learn Task Pilot in under 15 minutes. The mobile interface was designed specifically with large tap targets and straightforward workflows so field personnel can use it immediately without formal IT training.',
+      a: 'Most site engineers and supervisors learn SiteCommons in under 15 minutes. The mobile interface was designed specifically with large tap targets and straightforward workflows so field personnel can use it immediately without formal IT training.',
     },
     {
       q: 'Can we pay via annual bank transfer (NEFT/RTGS) with a GST invoice?',
@@ -48,7 +48,7 @@ const ContactSalesPage: React.FC = () => {
     },
     {
       q: 'What happens if a jobsite has spotty or intermittent 4G connectivity?',
-      a: 'Task Pilot is engineered with offline cache resilience. Site teams can record attendance, take DPR progress photos, and fill out checklists even in basements or remote work fronts. Data syncs automatically once connectivity is restored.',
+      a: 'SiteCommons is engineered with offline cache resilience. Site teams can record attendance, take DPR progress photos, and fill out checklists even in basements or remote work fronts. Data syncs automatically once connectivity is restored.',
     },
   ];
 
@@ -59,7 +59,7 @@ const ContactSalesPage: React.FC = () => {
           <div>
             <Eyebrow>Direct Solutions Advisory</Eyebrow>
             <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
-              See Task Pilot on your own construction sites
+              See SiteCommons on your own construction sites
             </h1>
             <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed">
               Book a 30-minute tailored walkthrough. We’ll show you how to structure your sites, roles, and daily reporting
@@ -279,7 +279,7 @@ const ContactSalesPage: React.FC = () => {
             </span>
             <h3 className="font-bold text-base text-ink-900 mb-1">Complimentary Pilot Setup</h3>
             <p className="text-xs sm:text-sm text-ink-600 leading-relaxed">
-              If Task Pilot is a fit, we set up your 14-day free trial workspace immediately and help import your active projects and user roles.
+              If SiteCommons is a fit, we set up your 14-day free trial workspace immediately and help import your active projects and user roles.
             </p>
           </div>
         </div>

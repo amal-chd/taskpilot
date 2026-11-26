@@ -1,3 +1,4 @@
+import { ProductScreenshot } from '../../../components/common/ProductScreenshot';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -73,7 +74,7 @@ const SHOWCASE_TABS = [
 
 export const ProductHomePage: React.FC = () => {
   useSeo({
-    title: 'Task Pilot — Construction Management Software for Builders & Field Teams',
+    title: 'SiteCommons — Construction Management Software for Builders & Field Teams',
     description: 'Construction management software that runs every site from one workspace: tasks and approvals, daily site reports, GPS attendance, BOQ and cost control, materials, labour and inspections. Web, iOS and Android. Free 14-day trial.',
     path: '/',
     jsonLd: {
@@ -81,21 +82,20 @@ export const ProductHomePage: React.FC = () => {
       '@graph': [
         {
           '@type': 'Organization',
-          '@id': 'https://taskpilot.thekada.in/#organization',
+          '@id': 'https://sitecommons.thekada.in/#organization',
           name: 'Thekada Digital Ventures Pvt. Ltd.',
-          url: 'https://taskpilot.thekada.in',
-          logo: 'https://taskpilot.thekada.in/logo.png',
-          sameAs: ['https://twitter.com/TaskPilotApp'],
+          url: 'https://sitecommons.thekada.in',
+          logo: 'https://sitecommons.thekada.in/logo.png',
         },
         {
           '@type': 'SoftwareApplication',
-          '@id': 'https://taskpilot.thekada.in/#software',
-          name: 'Task Pilot',
+          '@id': 'https://sitecommons.thekada.in/#software',
+          name: 'SiteCommons',
           applicationCategory: 'BusinessApplication',
           operatingSystem: 'Web, Android, iOS',
           description: 'Construction management software for builders, contractors and field teams, by Thekada Digital Ventures Pvt. Ltd.',
-          url: 'https://taskpilot.thekada.in',
-          publisher: { '@id': 'https://taskpilot.thekada.in/#organization' },
+          url: 'https://sitecommons.thekada.in',
+          publisher: { '@id': 'https://sitecommons.thekada.in/#organization' },
           offers: {
             '@type': 'AggregateOffer',
             priceCurrency: 'USD',
@@ -159,7 +159,7 @@ export const ProductHomePage: React.FC = () => {
                 Replace WhatsApp groups and paper registers with one app for tasks, GPS attendance, site diaries and cost control.
               </span>
               <span className="hidden sm:inline">
-                Task Pilot replaces chaotic WhatsApp groups and paper registers with one unified workspace for task sign-offs,
+                SiteCommons replaces chaotic WhatsApp groups and paper registers with one unified workspace for task sign-offs,
                 location-verified GPS attendance, daily site diaries (DPR), BOQ cost tracking, and equipment allocation — on desktop and on every smartphone.
               </span>
             </p>
@@ -196,7 +196,7 @@ export const ProductHomePage: React.FC = () => {
 
           {/* ── Mobile-only showcase: swipeable real phone screens + web dashboard card ── */}
           <div className="sm:hidden">
-            <div className="m-carousel m-carousel-narrow" aria-label="Task Pilot mobile app screens">
+            <div className="m-carousel m-carousel-narrow" aria-label="SiteCommons mobile app screens">
               {[
                 { img: '/images/screenshots/mobile-app-attendance-geofence.webp', title: 'GPS attendance', sub: 'Geofenced check-in from site' },
                 { img: '/images/screenshots/mobile-app-task-inspection.webp', title: 'Task sign-offs', sub: 'Photo proof before approval' },
@@ -210,7 +210,7 @@ export const ProductHomePage: React.FC = () => {
                     className="block w-full rounded-[1.35rem] overflow-hidden bg-ink-950"
                     aria-label={`Enlarge screenshot: ${s.title}`}
                   >
-                    <img src={s.img} alt={`${s.title} screen in the Task Pilot mobile app`} width={780} height={1688}
+                    <ProductScreenshot src={s.img} alt={`${s.title} screen in the SiteCommons mobile app`} width={780} height={1688}
                       loading={i === 0 ? 'eager' : 'lazy'} decoding="async" className="w-full h-auto" />
                   </button>
                   <figcaption className="px-2 pt-2.5 pb-1.5 text-left">
@@ -227,7 +227,7 @@ export const ProductHomePage: React.FC = () => {
               onClick={() => openScreenshot('/images/screenshots/web-dashboard-command-center.webp', 'Web dashboard for the office', 'Every site, task and crew at a glance', 'Web app')}
               className="mt-5 w-full flex items-center gap-3 rounded-2xl border border-ink-200 bg-white p-3 text-left shadow-sm"
             >
-              <img src="/images/screenshots/web-dashboard-command-center.webp" alt="" width={1600} height={1000} loading="lazy" decoding="async"
+              <ProductScreenshot src="/images/screenshots/web-dashboard-command-center.webp" alt="" width={1600} height={1000} loading="lazy" decoding="async"
                 className="w-24 h-16 object-cover object-left-top rounded-lg border border-ink-200 shrink-0" />
               <span className="min-w-0">
                 <span className="block text-sm font-semibold text-ink-900">Plus a full web dashboard</span>
@@ -246,7 +246,7 @@ export const ProductHomePage: React.FC = () => {
                 <div className="w-3 h-3 rounded-full bg-brand-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                 <span className="ml-2 text-xs font-semibold text-ink-300 hidden sm:inline">
-                  Task Pilot OS · Production Construction Hub
+                  SiteCommons OS · Production Construction Hub
                 </span>
               </div>
               <div role="tablist" aria-label="Product areas" className="m-scroll-row w-full sm:w-auto flex flex-wrap items-center gap-1 bg-ink-900/90 p-1 rounded-xl border border-ink-800">
@@ -281,7 +281,7 @@ export const ProductHomePage: React.FC = () => {
                   className="relative group rounded-xl overflow-hidden border border-ink-700/80 bg-ink-950 shadow-2xl cursor-pointer"
                   onClick={() => openScreenshot(currentTab.image, currentTab.title, currentTab.subtitle, currentTab.badge)}
                 >
-                  <img fetchPriority="high" width={1600} height={1000} decoding="async"
+                  <ProductScreenshot fetchPriority="high" width={1600} height={1000} decoding="async"
                     src={currentTab.image}
                     alt={currentTab.title}
                     className="w-full h-auto object-cover max-h-[580px] transition-transform duration-500 group-hover:scale-[1.01]"
@@ -337,7 +337,7 @@ export const ProductHomePage: React.FC = () => {
               Solving the 3 costliest breakdowns on jobsites
             </h2>
             <p className="mt-3 text-ink-200 text-sm sm:text-base">
-              See how Task Pilot replaces informal verbal chaos with verified digital standards.
+              See how SiteCommons replaces informal verbal chaos with verified digital standards.
             </p>
           </div>
 
@@ -353,7 +353,7 @@ export const ProductHomePage: React.FC = () => {
                 </p>
               </div>
               <div className="pt-4 border-t border-white/10">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The Task Pilot Solution</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The SiteCommons Solution</p>
                 <p className="text-xs text-ink-200">
                   Enforced 3-step verification gates (In Progress → Under Review → Done). No task closes without engineer digital sign-off and mandatory photo evidence.
                 </p>
@@ -371,7 +371,7 @@ export const ProductHomePage: React.FC = () => {
                 </p>
               </div>
               <div className="pt-4 border-t border-white/10">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The Task Pilot Solution</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The SiteCommons Solution</p>
                 <p className="text-xs text-ink-200">
                   Point-in-time GPS check-ins validated against the project perimeter radius. Overtime beyond 8 hours is auto-calculated with zero battery drain.
                 </p>
@@ -389,7 +389,7 @@ export const ProductHomePage: React.FC = () => {
                 </p>
               </div>
               <div className="pt-4 border-t border-white/10">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The Task Pilot Solution</p>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-emerald-400 mb-1">The SiteCommons Solution</p>
                 <p className="text-xs text-ink-200">
                   Live BOQ Earned Value Management updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) dynamically as site work progresses.
                 </p>
@@ -452,7 +452,7 @@ export const ProductHomePage: React.FC = () => {
                 className="relative rounded-2xl overflow-hidden border border-ink-200 shadow-md group cursor-pointer"
                 onClick={() => openScreenshot('/images/screenshots/web-tasks-kanban-verification.webp', 'Tasks 3-Step Verification Kanban', 'Enforced 3-step sign-off gate on Commercial Tower Block A')}
               >
-                <img width={1600} height={1000}
+                <ProductScreenshot width={1600} height={1000}
                   src="/images/screenshots/web-tasks-kanban-verification.webp"
                   alt="Tasks 3-Step Verification Kanban"
                   className="w-full h-auto object-cover max-h-[500px]"
@@ -481,7 +481,7 @@ export const ProductHomePage: React.FC = () => {
                 className="relative rounded-2xl overflow-hidden border border-ink-200 shadow-md group cursor-pointer"
                 onClick={() => openScreenshot('/images/screenshots/web-boq-cost-control.webp', 'BOQ & Earned Value Cost Management', 'Itemized civil package costs and Cost Performance Index')}
               >
-                <img width={1600} height={1000}
+                <ProductScreenshot width={1600} height={1000}
                   src="/images/screenshots/web-boq-cost-control.webp"
                   alt="BOQ & Cost Control View"
                   className="w-full h-auto object-cover max-h-[500px]"
@@ -510,7 +510,7 @@ export const ProductHomePage: React.FC = () => {
                 className="relative rounded-2xl overflow-hidden border border-ink-200 shadow-md group cursor-pointer"
                 onClick={() => openScreenshot('/images/screenshots/web-gantt-timeline.webp', 'Gantt Timeline Schedule', 'Critical path and milestone dependencies across 5 construction phases')}
               >
-                <img width={1600} height={1000}
+                <ProductScreenshot width={1600} height={1000}
                   src="/images/screenshots/web-gantt-timeline.webp"
                   alt="Gantt Timeline Schedule"
                   className="w-full h-auto object-cover max-h-[500px]"
@@ -540,7 +540,7 @@ export const ProductHomePage: React.FC = () => {
                   className="relative rounded-2xl overflow-hidden shadow-xl border border-ink-800 bg-ink-950 group cursor-pointer max-w-[260px] mx-auto hover:border-brand-500/50 transition-all"
                   onClick={() => openScreenshot('/images/screenshots/mobile-app-attendance-geofence.webp', 'GPS Geofenced Attendance', 'Point-in-time perimeter check-in with 0 battery drain')}
                 >
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-attendance-geofence.webp"
                     alt="Mobile GPS Attendance"
                     className="w-full h-auto"
@@ -552,7 +552,7 @@ export const ProductHomePage: React.FC = () => {
                   className="relative rounded-2xl overflow-hidden shadow-xl border border-ink-800 bg-ink-950 group cursor-pointer max-w-[260px] mx-auto hover:border-brand-500/50 transition-all"
                   onClick={() => openScreenshot('/images/screenshots/mobile-app-task-inspection.webp', 'Mobile 3-Step Verification', 'Photo proof with GPS watermark and manager sign-off')}
                 >
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-task-inspection.webp"
                     alt="Mobile Task Verification"
                     className="w-full h-auto"
@@ -579,7 +579,7 @@ export const ProductHomePage: React.FC = () => {
             </h2>
             <p className="mt-4 text-ink-200 text-sm sm:text-base leading-relaxed">
               Desktop software is useless if site crews cannot use it in muddy trenches and blazing heat.
-              Task Pilot runs natively on iOS and Android with big tap targets, 100% offline-first synchronization,
+              SiteCommons runs natively on iOS and Android with big tap targets, 100% offline-first synchronization,
               and zero background battery drain.
             </p>
           </div>
@@ -592,7 +592,7 @@ export const ProductHomePage: React.FC = () => {
             >
               <div>
                 <div className="relative rounded-2xl overflow-hidden border border-ink-800 mb-4 bg-ink-950 shadow-inner group-hover:scale-[1.02] transition-transform">
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-attendance-geofence.webp"
                     alt="GPS Attendance"
                     className="w-full h-auto object-cover"
@@ -623,7 +623,7 @@ export const ProductHomePage: React.FC = () => {
             >
               <div>
                 <div className="relative rounded-2xl overflow-hidden border border-ink-800 mb-4 bg-ink-950 shadow-inner group-hover:scale-[1.02] transition-transform">
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-task-inspection.webp"
                     alt="Task Verification"
                     className="w-full h-auto object-cover"
@@ -654,7 +654,7 @@ export const ProductHomePage: React.FC = () => {
             >
               <div>
                 <div className="relative rounded-2xl overflow-hidden border border-ink-800 mb-4 bg-ink-950 shadow-inner group-hover:scale-[1.02] transition-transform">
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-site-diary.webp"
                     alt="Daily Site Diary"
                     className="w-full h-auto object-cover"
@@ -685,7 +685,7 @@ export const ProductHomePage: React.FC = () => {
             >
               <div>
                 <div className="relative rounded-2xl overflow-hidden border border-ink-800 mb-4 bg-ink-950 shadow-inner group-hover:scale-[1.02] transition-transform">
-                  <img width={780} height={1688}
+                  <ProductScreenshot width={780} height={1688}
                     src="/images/screenshots/mobile-app-blueprints.webp"
                     alt="Drawing Viewer"
                     className="w-full h-auto object-cover"
@@ -761,7 +761,7 @@ export const ProductHomePage: React.FC = () => {
               Try the 3-step verification workflow right now
             </h2>
             <p className="mt-2 text-ink-200 text-sm">
-              See how Task Pilot stops premature task completion with mandatory manager sign-off.
+              See how SiteCommons stops premature task completion with mandatory manager sign-off.
             </p>
           </div>
 
@@ -869,7 +869,7 @@ export const ProductHomePage: React.FC = () => {
               Built for every phase of construction & field operations
             </h2>
             <p className="mt-3 text-ink-600">
-              Whether you manage high-rise towers, civil highways, or luxury fit-outs, Task Pilot adapts to your workflow.
+              Whether you manage high-rise towers, civil highways, or luxury fit-outs, SiteCommons adapts to your workflow.
             </p>
           </div>
 
@@ -922,7 +922,7 @@ export const ProductHomePage: React.FC = () => {
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900">
               Built for the problems that cost jobsites the most
             </h2>
-            <p className="mt-3 text-ink-600 text-sm">Three common scenarios and the Task Pilot workflow that handles each one.</p>
+            <p className="mt-3 text-ink-600 text-sm">Three common scenarios and the SiteCommons workflow that handles each one.</p>
           </div>
 
           <div className="m-carousel grid md:grid-cols-3 gap-6">
@@ -968,7 +968,7 @@ export const ProductHomePage: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="mt-2 text-ink-600 text-sm">
-            Everything you need to know about starting with Task Pilot.
+            Everything you need to know about starting with SiteCommons.
           </p>
         </div>
 

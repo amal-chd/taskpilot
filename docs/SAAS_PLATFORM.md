@@ -1,4 +1,4 @@
-# Task Pilot SaaS — Phase 1: audit, research, architecture and rollout
+# SiteCommons SaaS — Phase 1: audit, research, architecture and rollout
 
 _Last updated 2026-11-17._
 
@@ -18,11 +18,11 @@ _Last updated 2026-11-17._
 
 ## 2. Competitive research
 
-| Segment | Examples | Pricing model | Where Task Pilot wins |
+| Segment | Examples | Pricing model | Where SiteCommons wins |
 |---|---|---|---|
 | Global enterprise suites | Procore, Autodesk Build | Priced on annual construction volume, roughly $10k–$100k+/yr. No public price list. | Price, INR billing and setup time. |
 | Residential and builder suites | Buildertrend | Flat rate with unlimited users, about $99–$829/mo (sources conflict). Quote after a sales call. | Transparent self-serve pricing and a trial with no card. |
-| Field tools | Fieldwire | Per user: free for 5 users, then $39/$64/$89 per user per month. | Flat team pricing: 10 users on Fieldwire Pro is about $390/mo, Task Pilot Starter is ₹1,499/mo. |
+| Field tools | Fieldwire | Per user: free for 5 users, then $39/$64/$89 per user per month. | Flat team pricing: 10 users on Fieldwire Pro is about $390/mo, SiteCommons Starter is ₹1,499/mo. |
 | India SMB apps | Powerplay, Onsite | Mobile-first, labour and material focus. No public INR prices found. | Office-and-field depth: approvals, performance scoring, HR and expenses, documents. |
 | Construction ERPs (India) | Various | Licence around ₹0.5–12L plus AMC. | No implementation project; live in a day. |
 
@@ -157,7 +157,7 @@ pg_cron (hourly) ──► run_subscription_lifecycle(): trial reminders, trial 
 
 Competitor gap analysis that drove it:
 
-| Gap | Who has it | Task Pilot now |
+| Gap | Who has it | SiteCommons now |
 |---|---|---|
 | Material requests, receipts/issues, site stock | Powerplay, Onsite (core of their SMB pitch) | `/app/materials`: catalogue, signed movements, weighted-avg value, low-stock, request → approve → order → receive (auto stock-in) |
 | Daily labour attendance, wages, advances | Powerplay, Onsite | `/app/labour`: register by contractor and trade with OT, copy previous day, contractor balances, Excel report |

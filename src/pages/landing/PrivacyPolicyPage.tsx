@@ -5,8 +5,8 @@ import { useSeo } from '../../lib/seo';
 
 export default function PrivacyPolicyPage() {
   useSeo({
-    title: 'Privacy Policy — Task Pilot',
-    description: 'Privacy Policy for Task Pilot. Learn how we safeguard your organization’s construction data, blueprints, and GPS attendance information.',
+    title: 'Privacy Policy — SiteCommons',
+    description: 'Privacy Policy for SiteCommons. Learn how we safeguard your organization’s construction data, blueprints, and GPS attendance information.',
     path: '/policy',
   });
 
@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
               Our Core Privacy Commitment
             </h2>
             <p className="text-xs sm:text-sm leading-relaxed text-slate-700">
-              <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Thekada", "Company", "we", "us", or "our"), through its enterprise software product <strong>Task Pilot</strong> ("Task Pilot", the "Platform"), provides project management,
+              <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Thekada", "Company", "we", "us", or "our"), through its enterprise software product <strong>SiteCommons</strong> ("SiteCommons", the "Platform"), provides project management,
               field operations, attendance, and commercial control software for the construction and built-environment sectors.
               We believe your drawings, BOQs, contractor wage rates, and jobsite data are strictly confidential property of your organization.
               We do not sell, rent, or monetize your customer data.
@@ -87,14 +87,14 @@ export default function PrivacyPolicyPage() {
             </h2>
             <div className="space-y-3">
               <p>
-                Task Pilot offers location-verified GPS attendance verification for field personnel. Here is our strict location policy:
+                SiteCommons offers location-verified GPS attendance verification for field personnel. Here is our strict location policy:
               </p>
               <ul className="list-disc ml-6 space-y-2 text-xs sm:text-sm text-slate-600">
                 <li>
                   <strong className="text-slate-800">Point-in-Time Only:</strong> Location coordinates are captured <em>only at the precise moment</em> an employee initiates a "Check In" or "Check Out" action, or submits a Daily Progress Report.
                 </li>
                 <li>
-                  <strong className="text-slate-800">No Continuous Background Tracking:</strong> Task Pilot does NOT continuously poll, monitor, or track employee GPS movements throughout the workday or when the application is closed.
+                  <strong className="text-slate-800">No Continuous Background Tracking:</strong> SiteCommons does NOT continuously poll, monitor, or track employee GPS movements throughout the workday or when the application is closed.
                 </li>
                 <li>
                   <strong className="text-slate-800">Geofence Validation:</strong> Coordinates are compared against the site radius configured by your organization's administrators to verify on-site presence.
@@ -110,7 +110,7 @@ export default function PrivacyPolicyPage() {
               Workspace Multi-Tenancy & Data Isolation
             </h2>
             <p>
-              Every organization in Task Pilot is strictly partitioned in our database architecture.
+              Every organization in SiteCommons is strictly partitioned in our database architecture.
               Access controls and row-level tenant security prevent any user from one organization accessing, viewing, or querying data belonging to another organization.
               Access within your workspace is determined by your administrator via our 8 role-permission tiers.
             </p>
@@ -224,7 +224,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-1.5">
               <p><strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong></p>
-              <p className="text-slate-600 font-medium">Task Pilot Privacy & Data Protection Office</p>
+              <p className="text-slate-600 font-medium">SiteCommons Privacy & Data Protection Office</p>
               <p>Email:{' '}
                 <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
                   info@thekada.in

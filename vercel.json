@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/compare/taskpilot-vs-:competitor(procore|fieldwire|asana|monday|clickup|powerplay)",
+      "destination": "/compare/sitecommons-vs-:competitor",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

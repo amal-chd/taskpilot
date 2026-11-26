@@ -1,6 +1,6 @@
 # Notifications — how they work (no Blaze plan required)
 
-Task Pilot has **two** notification layers. The first works out of the box on
+SiteCommons has **two** notification layers. The first works out of the box on
 the **free Spark plan**; the second (OS push) is optional and also Spark-safe
 because it runs on Supabase, **not** Firebase Cloud Functions.
 

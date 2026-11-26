@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { SITE_URL } from './site';
+import { BRAND_NAME, SITE_URL } from './site';
 
-const SITE = 'Task Pilot';
+const SITE = BRAND_NAME;
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 const BASE_URL = SITE_URL;
 

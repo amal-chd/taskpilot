@@ -32,7 +32,7 @@ export const FEATURES: FeatureItem[] = [
     icon: MapPin,
     title: 'GPS Geofenced Attendance',
     desc: 'Tamper-proof mobile check-in and check-out validated against the exact site perimeter, eliminating proxy attendance and buddy punching.',
-    fullDesc: 'Field supervisors and engineers check in via the mobile app with location coordinates locked at the exact moment of punch-in. Unlike battery-draining continuous trackers, Task Pilot captures point-in-time coordinates and matches them to your configured site radius.',
+    fullDesc: 'Field supervisors and engineers check in via the mobile app with location coordinates locked at the exact moment of punch-in. Unlike battery-draining continuous trackers, SiteCommons captures point-in-time coordinates and matches them to your configured site radius.',
     category: 'field',
     keyBenefits: ['Perimeter radius validation with fake-GPS blocking on Android', 'Live dashboard showing who is on each site right now', '8-hour standard workday tracking with automatic overtime hours', 'One-click payroll Excel export'],
     userRoles: ['Site Engineer', 'Foreman', 'Labour', 'Admin'],
@@ -52,7 +52,7 @@ export const FEATURES: FeatureItem[] = [
     icon: Calculator,
     title: 'BOQ & Earned Value Cost Control',
     desc: 'Import Bill of Quantities from Excel, track physical progress against financial spend, and monitor real-time Cost Performance Index (CPI).',
-    fullDesc: 'Bridge the dangerous gap between site quantities and head office budgets. As work is completed, Task Pilot updates Planned Value (PV), Earned Value (EV), and Actual Cost (AC) computed from materials, labor, and site expenses to prevent budget overruns before they escalate.',
+    fullDesc: 'Bridge the dangerous gap between site quantities and head office budgets. As work is completed, SiteCommons updates Planned Value (PV), Earned Value (EV), and Actual Cost (AC) computed from materials, labor, and site expenses to prevent budget overruns before they escalate.',
     category: 'commercial',
     keyBenefits: ['Direct Excel BOQ import with unit rates and quantities', 'Automated Cost Performance Index (CPI) and Schedule Variance (SV)', 'Real-time financial forecast at completion (EAC)', 'Transparent subcontractor billing reconciliation'],
     userRoles: ['Director', 'Project Manager', 'Accounts'],
@@ -152,7 +152,7 @@ export const FEATURES: FeatureItem[] = [
     icon: Award,
     title: 'Performance & OPI Engine',
     desc: 'Objective employee performance index calculated from on-time task delivery, attendance reliability, and quality approvals.',
-    fullDesc: 'Eliminate bias in annual appraisals. Task Pilot automatically aggregates individual and crew metrics into a normalized Overall Performance Index (OPI), recognizing punctual staff and providing constructive visibility into delays.',
+    fullDesc: 'Eliminate bias in annual appraisals. SiteCommons automatically aggregates individual and crew metrics into a normalized Overall Performance Index (OPI), recognizing punctual staff and providing constructive visibility into delays.',
     category: 'admin',
     keyBenefits: ['Automated score calculation based on verified site execution', 'On-time streak recognition and milestone achievements', 'Crew velocity comparison across different site postings', 'Transparent merit-based metrics for incentives and bonuses'],
     userRoles: ['Director', 'Admin', 'Project Manager'],
@@ -202,7 +202,7 @@ export const FEATURES: FeatureItem[] = [
     icon: Smartphone,
     title: 'Mobile-First Field Apps',
     desc: 'Responsive web and native mobile apps designed specifically for site conditions: large tap targets, offline sync, and fast photo capture.',
-    fullDesc: 'Software is useless if site engineers refuse to use it. Task Pilot was designed directly with site personnel: intuitive navigation, offline resilience when basement cell service drops, and rapid 1-tap actions.',
+    fullDesc: 'Software is useless if site engineers refuse to use it. SiteCommons was designed directly with site personnel: intuitive navigation, offline resilience when basement cell service drops, and rapid 1-tap actions.',
     category: 'field',
     keyBenefits: ['Available on Android, iOS, and modern mobile browsers', 'Optimized for high-glare outdoor jobsite conditions', 'Automatic image compression for 3G/4G site data networks', 'Local cache saves updates even during temporary signal loss'],
     userRoles: ['All Roles'],
@@ -222,7 +222,7 @@ export const FEATURES: FeatureItem[] = [
     icon: Users,
     title: 'Multi-Tenant Workspace Isolation',
     desc: 'Dedicated organization workspace with custom branding, secure database partitioning, and team member management.',
-    fullDesc: 'Every company operating on Task Pilot receives a private, isolated workspace. Your project data, client lists, vendor agreements, and custom rates are cryptographically walled off from all other organizations.',
+    fullDesc: 'Every company operating on SiteCommons receives a private, isolated workspace. Your project data, client lists, vendor agreements, and custom rates are cryptographically walled off from all other organizations.',
     category: 'admin',
     keyBenefits: ['Row-level multi-tenant database partitioning', 'Encrypted file storage for drawings and proprietary contracts', 'Seamless member onboarding via email invites', 'Single flat-rate organization billing'],
     userRoles: ['Admin', 'Director'],
@@ -248,7 +248,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: HardHat,
     name: 'General Contractors & Civil Builders',
     headline: 'Run every construction site from one unified screen',
-    summary: 'General contracting involves coordinating hundreds of skilled trades, managing tight pouring schedules, monitoring material drops, and maintaining rigorous safety records across multiple projects. Task Pilot connects your field supervisors with the head office in real time.',
+    summary: 'General contracting involves coordinating hundreds of skilled trades, managing tight pouring schedules, monitoring material drops, and maintaining rigorous safety records across multiple projects. SiteCommons connects your field supervisors with the head office in real time.',
     pains: [
       'Site progress updates buried in unsearchable WhatsApp group chats',
       'No location-verified record of contractor headcounts or daily attendance',
@@ -268,7 +268,7 @@ export const INDUSTRIES: IndustryData[] = [
       },
       {
         title: 'Daily Trade Muster & Subcontractor Overtime',
-        desc: 'Supervisors log trade-wise headcounts (masons, barbenders, helpers) each morning. Task Pilot validates hours and overtime automatically, eliminating end-of-month invoice disputes with labor subcontractors.',
+        desc: 'Supervisors log trade-wise headcounts (masons, barbenders, helpers) each morning. SiteCommons validates hours and overtime automatically, eliminating end-of-month invoice disputes with labor subcontractors.',
       },
       {
         title: 'Material Gate Passes & Requisitions',
@@ -292,7 +292,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: Building2,
     name: 'Real Estate Developers',
     headline: 'Executive-level portfolio visibility across every project development',
-    summary: 'Real estate developers must oversee multiple concurrent projects, manage diverse turnkey contractors, and ensure promised delivery milestones are achieved on time and within budget. Task Pilot provides the executive control center necessary for developer boards.',
+    summary: 'Real estate developers must oversee multiple concurrent projects, manage diverse turnkey contractors, and ensure promised delivery milestones are achieved on time and within budget. SiteCommons provides the executive control center necessary for developer boards.',
     pains: [
       'Reliance on subjective phone updates from contractors with no physical proof',
       'Uncontrolled change orders and material variations inflating total project cost',
@@ -336,7 +336,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: Paintbrush,
     name: 'Interior & Fit-Out Contractors',
     headline: 'Fast-moving commercial and residential fit-outs with zero dropped details',
-    summary: 'Interior fit-out projects move rapidly with dozens of small, highly specialized trades (carpentry, electrical, HVAC, tiling, painting) working concurrently in tight spaces. Task Pilot gives fit-out teams granular checklist management and instant defect rectification.',
+    summary: 'Interior fit-out projects move rapidly with dozens of small, highly specialized trades (carpentry, electrical, HVAC, tiling, painting) working concurrently in tight spaces. SiteCommons gives fit-out teams granular checklist management and instant defect rectification.',
     pains: [
       'Critical architectural design revisions lost between office designers and site carpenters',
       'Minor punch items and client snags lingering for weeks, delaying final payment release',
@@ -380,7 +380,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: Route,
     name: 'Infrastructure & EPC Contractors',
     headline: 'Discipline and compliance at scale for roads, bridges, and utilities',
-    summary: 'Linear and heavy infrastructure projects stretch across kilometers with dispersed crews, expensive plant machinery, and stringent government compliance requirements. Task Pilot provides location-aware coordination and heavy machinery tracking across remote zones.',
+    summary: 'Linear and heavy infrastructure projects stretch across kilometers with dispersed crews, expensive plant machinery, and stringent government compliance requirements. SiteCommons provides location-aware coordination and heavy machinery tracking across remote zones.',
     pains: [
       'Supervising dispersed teams spread across remote chainages or road packages',
       'Heavy machinery (excavators, rollers, transit mixers) sitting idle or untracked',
@@ -424,7 +424,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: Wrench,
     name: 'Facility Management & Operations',
     headline: 'Preventive maintenance, service ticketing, and asset longevity',
-    summary: 'Facility managers handle recurring preventive maintenance schedules, urgent corrective repair tickets, vendor contracts, and asset lifecycle tracking across commercial towers and campuses. Task Pilot provides the structured workflow needed to guarantee SLAs.',
+    summary: 'Facility managers handle recurring preventive maintenance schedules, urgent corrective repair tickets, vendor contracts, and asset lifecycle tracking across commercial towers and campuses. SiteCommons provides the structured workflow needed to guarantee SLAs.',
     pains: [
       'Technicians spread across buildings with no proof that preventive tasks were performed',
       'Tenant service complaints lost in verbal handovers or handwritten logbooks',
@@ -468,7 +468,7 @@ export const INDUSTRIES: IndustryData[] = [
     icon: Briefcase,
     name: 'PMC & Engineering Consultants',
     headline: 'Coordinate owners, contractors, and design consultants with total transparency',
-    summary: 'Project Management Consultancies (PMC) act as independent guardians of project schedule, cost, and quality. They need objective, dispute-free records of contractor progress, delay notifications, and design clarifications. Task Pilot is the PMC audit powerhouse.',
+    summary: 'Project Management Consultancies (PMC) act as independent guardians of project schedule, cost, and quality. They need objective, dispute-free records of contractor progress, delay notifications, and design clarifications. SiteCommons is the PMC audit powerhouse.',
     pains: [
       'Spending days compiling weekly client presentation decks from raw field data',
       'Ambiguity over contractor delays leading to disputes over time extensions',
@@ -527,7 +527,7 @@ export const COMPARISON: { row: string; tp: string | boolean; global: string | b
 export const FAQS = [
   {
     q: 'Do I need a credit card to start the 14-day free trial?',
-    a: 'No credit card or payment information is required. You get full access to all modules in your selected plan tier immediately upon signing up so you can test Task Pilot on your live project sites.',
+    a: 'No credit card or payment information is required. You get full access to all modules in your selected plan tier immediately upon signing up so you can test SiteCommons on your live project sites.',
   },
   {
     q: 'How does global billing, multi-currency, and invoicing work?',
@@ -535,15 +535,15 @@ export const FAQS = [
   },
   {
     q: 'Why do you charge flat team pricing instead of per-user seats?',
-    a: 'Per-seat pricing discourages construction firms from adding site engineers, foremen, and supervisors, resulting in communication gaps and offline data silos. With Task Pilot, your plan includes a generous bundle of team members for one predictable flat monthly fee.',
+    a: 'Per-seat pricing discourages construction firms from adding site engineers, foremen, and supervisors, resulting in communication gaps and offline data silos. With SiteCommons, your plan includes a generous bundle of team members for one predictable flat monthly fee.',
   },
   {
-    q: 'Can our site teams use Task Pilot on their existing smartphones?',
-    a: 'Yes. Task Pilot runs as a high-performance progressive web app and native mobile application on both Android and iOS devices. It is optimized for low-bandwidth 3G/4G connectivity, supports camera photo capture, and caches data locally.',
+    q: 'Can our site teams use SiteCommons on their existing smartphones?',
+    a: 'Yes. SiteCommons runs as a high-performance progressive web app and native mobile application on both Android and iOS devices. It is optimized for low-bandwidth 3G/4G connectivity, supports camera photo capture, and caches data locally.',
   },
   {
     q: 'How does GPS attendance prevent fake check-ins?',
-    a: 'When an employee taps Check In or Check Out, their device captures point-in-time GPS coordinates. Task Pilot verifies that these coordinates fall within the custom geofence perimeter configured for that project site. Location is never tracked continuously in the background, protecting employee battery and privacy.',
+    a: 'When an employee taps Check In or Check Out, their device captures point-in-time GPS coordinates. SiteCommons verifies that these coordinates fall within the custom geofence perimeter configured for that project site. Location is never tracked continuously in the background, protecting employee battery and privacy.',
   },
   {
     q: 'Can we import our existing project data, BOQs, and staff lists?',

@@ -1,17 +1,17 @@
-# TaskPilot: 52-Week Content Marketing & Organic Acquisition Roadmap
+# SiteCommons: 52-Week Content Marketing & Organic Acquisition Roadmap
 
 **Document Version:** 1.0.0  
 **Published:** November 2026  
 **Strategic Horizon:** Q1 2027 – Q4 2027 (52-Week Execution Plan)  
-**Author:** TaskPilot Content Marketing & Organic Growth Team  
+**Author:** SiteCommons Content Marketing & Organic Growth Team
 
 ---
 
 ## 1. Editorial Mission & Content Pillars
 
-TaskPilot's content engine is not designed to produce superficial, generic "top 10 productivity tips" articles. Its mission is to build the **internet's most authoritative, engineering-grade resource for construction project managers, civil engineers, quantity surveyors, and trade subcontractors**.
+SiteCommons's content engine is not designed to produce superficial, generic "top 10 productivity tips" articles. Its mission is to build the **internet's most authoritative, engineering-grade resource for construction project managers, civil engineers, quantity surveyors, and trade subcontractors**.
 
-Every piece of content must solve a high-stakes, expensive operational problem and showcase how TaskPilot delivers structural certainty.
+Every piece of content must solve a high-stakes, expensive operational problem and showcase how SiteCommons delivers structural certainty.
 
 ### The Six Content Pillars:
 
@@ -56,7 +56,7 @@ Every piece of content must solve a high-stakes, expensive operational problem a
 | **W07** | 7 Best Construction Management Software Platforms (2026 In-Depth Comparison) | 6 | Buyer's Guide | *best construction management software* | 4,500 | Interactive Construction SaaS Selection Matrix |
 | **W08** | Why Generic Work OS (Monday/Asana) Fails on Construction Jobsites | 6 | Comparison | *monday com for construction review* | 2,800 | Free Trial: Switch from Monday in 1 Click |
 | **W09** | Managing Material Indents and Reducing Site Wastage by 12% | 2 | Operations Guide | *construction material indent workflow* | 2,600 | Digital Site Material Requisition Sheet |
-| **W10** | Fieldwire vs TaskPilot: Flat-Team Pricing vs Per-User Seat Taxes | 6 | Comparison | *fieldwire alternative without per user fee* | 2,900 | ROI Switcher Savings Calculator |
+| **W10** | Fieldwire vs SiteCommons: Flat-Team Pricing vs Per-User Seat Taxes | 6 | Comparison | *fieldwire alternative without per user fee* | 2,900 | ROI Switcher Savings Calculator |
 | **W11** | Mastering Plant & Equipment Logbooks: Fuel, Utilization, and Maintenance | 1 | Field Guide | *construction equipment utilization tracking* | 2,400 | Heavy Equipment Daily Logbook Template |
 | **W12** | How General Contractors Prevent Late Subcontractor Handover Cascades | 1 | Case Study | *prevent construction schedule delays* | 3,000 | 4-Week Lookahead Schedule Template |
 | **W13** | Q1 Review & Comprehensive State of Construction Field Tech Report 2026 | 4 | Research Report | *construction technology trends 2026* | 5,000 | Full 40-Page State of Field Operations PDF |
@@ -78,7 +78,7 @@ Every piece of content must solve a high-stakes, expensive operational problem a
 | **W21** | The Subcontractor’s Defense Against Backcharges: A Legal and Photographic Playbook | 5 | Legal / Defense | *how to dispute construction backcharges* | 3,400 | Backcharge Dispute Notice Formal Letter Template |
 | **W22** | Managing Multi-Storey Commercial Handover: Zero-Defect Floor Closeouts | 3 | Commercial Guide | *commercial building closeout checklist* | 3,000 | Multi-Storey Floor Handover Protocol |
 | **W23** | Solving Material Delivery Bottlenecks: Just-in-Time Site Delivery Protocols | 1 | Logistics | *construction site logistics delivery schedule* | 2,600 | Site Delivery Gate Booking Calendar Template |
-| **W24** | Powerplay vs TaskPilot: Why Scaling Contractors Need True EVM Cost Control | 6 | Comparison | *powerplay app alternative* | 2,800 | Enterprise Contractor Feature Checklist |
+| **W24** | Powerplay vs SiteCommons: Why Scaling Contractors Need True EVM Cost Control | 6 | Comparison | *powerplay app alternative* | 2,800 | Enterprise Contractor Feature Checklist |
 | **W25** | How to Conduct Daily Tool-Box Talks and Record Digital Signatures | 3 | HSE / Safety | *toolbox talk safety attendance digital* | 2,400 | 50 Pre-Written Tool-Box Safety Talks Bundle |
 | **W26** | Q2 Mid-Year Review: The Mid-Market Contractor Tech Modernization Index | 4 | Industry Index | *construction tech adoption benchmarks* | 4,500 | Benchmark Your Construction Firm PDF Report |
 
@@ -92,15 +92,15 @@ Every piece of content must solve a high-stakes, expensive operational problem a
 | **W27** | How to Import and Manage Bill of Quantities (BOQ) in Real-Time Field Software | 2 | Technical Guide | *boq tracking software for contractors* | 3,200 | Standard Master BOQ CSV/Excel Schema |
 | **W28** | Managing Construction Labor Across Distributed Jobsites with Muster Rolls | 1 | HR & Payroll | *construction site muster roll software* | 2,700 | Bi-Weekly Site Muster Roll Template |
 | **W29** | Understanding the Cost Performance Index (CPI) and Schedule Performance Index (SPI) | 2 | Formula Breakdown | *cpi spi formulas construction evm* | 3,400 | Real-Time CPI/SPI Dynamic Calculator |
-| **W30** | Asana for Construction: 5 Fatal Gaps That Cost Contractors Thousands | 6 | Comparison | *asana construction management alternative* | 2,800 | Asana to TaskPilot Migration Guide |
+| **W30** | Asana for Construction: 5 Fatal Gaps That Cost Contractors Thousands | 6 | Comparison | *asana construction management alternative* | 2,800 | Asana to SiteCommons Migration Guide |
 | **W31** | Waterproofing and Membrane Inspection Protocols: Avoiding $100k Leak Rework | 3 | Technical Guide | *waterproofing inspection checklist construction* | 2,900 | Membrane Adhesion & Flood Test Protocol |
 | **W32** | Managing GST and Tax Compliance for Indian Construction Contracts | 2 | Regional Tax | *gst compliance for construction contractors india* | 3,100 | Indian Contractor GST Invoicing Checklist |
-| **W33** | How Middle East Contractors Use TaskPilot for High-Heat Shift Scheduling | 4 | Regional Case Study | *construction shift planning middle east aed* | 2,600 | Summer Shift Staggering Protocol |
+| **W33** | How Middle East Contractors Use SiteCommons for High-Heat Shift Scheduling | 4 | Regional Case Study | *construction shift planning middle east aed* | 2,600 | Summer Shift Staggering Protocol |
 | **W34** | The General Contractor’s Guide to Subcontractor Prequalification | 1 | Operations | *subcontractor prequalification checklist* | 3,000 | 30-Point Subcontractor Vetting Form |
 | **W35** | Why Excel Spreadsheets Are Corrupting Your Construction Project Data | 4 | Opinion / Analysis | *why excel fails for construction management* | 2,900 | Excel to Cloud Migration Roadmap |
 | **W36** | HVAC Duct Pressure Testing and Digital Leakage Sign-Offs | 3 | Trade Guide | *hvac duct pressure test sign off sheet* | 2,400 | SMACNA Air Leakage Test Report Form |
 | **W37** | Defending Against Liquidated Damages: Establishing Critical Path Delay Evidence | 5 | Legal / Delay Claims | *how to defend against liquidated damages construction* | 3,800 | Delay Event Notification Formal Template |
-| **W38** | How to Transition from WhatsApp Jobsite Chaos to Structured Task Feeds | 1 | Workflow Guide | *replace whatsapp for construction communication* | 2,700 | WhatsApp to TaskPilot Rollout Playbook |
+| **W38** | How to Transition from WhatsApp Jobsite Chaos to Structured Task Feeds | 1 | Workflow Guide | *replace whatsapp for construction communication* | 2,700 | WhatsApp to SiteCommons Rollout Playbook |
 | **W39** | Q3 Milestone: Building the Zero-Dispute Construction Firm | 5 | Leadership Guide | *zero dispute construction management* | 4,200 | The Construction Dispute Immunity Blueprint |
 
 ---
@@ -149,7 +149,7 @@ Every weekly pillar article acts as the anchor asset for a distributed syndicati
    - Convert core diagrams, formulas, and workflows into 8–12 slide visual PDF carousels.
    - Example: *"5 EVM formulas every Project Director must know"* generates an average 4.2% engagement rate on LinkedIn.
 2. **Product-Led Loom / YouTube Walkthroughs (Target: Field Engineers & Tech-Forward Foremen):**
-   - Record high-speed 2-minute walkthroughs solving the exact problem in TaskPilot (e.g. *"Generating a 4-trade daily progress report on an iPhone in 90 seconds"*).
+   - Record high-speed 2-minute walkthroughs solving the exact problem in SiteCommons (e.g. *"Generating a 4-trade daily progress report on an iPhone in 90 seconds"*).
 3. **Bi-Weekly Substack / Newsletter ("The Field Operations Dispatch"):**
    - Distribute the key tactical takeaway to our email subscriber list with direct links to the full article and product trial.
 4. **Sales Enablement Battle Cards:**

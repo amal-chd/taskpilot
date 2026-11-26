@@ -44,7 +44,7 @@ const origin = (process.env.VITE_SITE_URL || process.env.SITE_URL || SITE_URL).r
 const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 
 const esc = (s = '') => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const SITE = 'Task Pilot';
+const SITE = 'SiteCommons';
 
 function headFor(seo, route) {
   const title = seo?.title ? (seo.title.includes(SITE) ? seo.title : `${seo.title} | ${SITE}`) : `${SITE}`;

@@ -50,9 +50,9 @@ export const MODULES: { key: ModuleKey; label: string; description: string; core
   { key: 'salary', label: 'Salary slips', description: 'Payroll slips for staff.' },
   { key: 'audit_log', label: 'Audit trail', description: 'Complete activity log for compliance.' },
   { key: 'advanced_roles', label: 'Advanced roles', description: 'Unlimited custom roles with granular permissions.' },
-  { key: 'priority_support', label: 'Priority support', description: 'Faster response from the Task Pilot team.' },
+  { key: 'priority_support', label: 'Priority support', description: 'Faster response from the SiteCommons team.' },
   { key: 'sso', label: 'Single sign-on', description: 'SAML / Google Workspace SSO.' },
-  { key: 'api_access', label: 'API access', description: 'Integrate Task Pilot with your ERP.' },
+  { key: 'api_access', label: 'API access', description: 'Integrate SiteCommons with your ERP.' },
 ];
 
 /** Route prefix → module required to open it. Routes not listed are always available. */

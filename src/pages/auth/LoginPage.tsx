@@ -117,9 +117,9 @@ const LoginPage: React.FC = () => {
 
         <div className="relative">
           <div className="flex items-center gap-3 mb-14">
-            <img src="/logo.png" alt="Task Pilot" className="w-11 h-11 rounded-2xl object-cover shadow-lg" />
+            <img src="/logo.png" alt="SiteCommons" className="w-11 h-11 rounded-2xl object-cover shadow-lg" />
             <div>
-              <p className="text-white font-bold text-base">Task Pilot</p>
+              <p className="text-white font-bold text-base">SiteCommons</p>
               <p className="text-amber-400 text-xs font-medium">A product by Thekada Digital Ventures Pvt Ltd</p>
             </div>
           </div>
@@ -149,8 +149,8 @@ const LoginPage: React.FC = () => {
 
           {/* Mobile logo */}
           <div className="flex flex-col items-center mb-8 lg:hidden">
-            <img src="/logo.png" alt="Task Pilot" className="w-14 h-14 rounded-2xl object-cover shadow-xl mb-3" />
-            <h1 className="text-2xl font-bold text-slate-900">Task Pilot</h1>
+            <img src="/logo.png" alt="SiteCommons" className="w-14 h-14 rounded-2xl object-cover shadow-xl mb-3" />
+            <h1 className="text-2xl font-bold text-slate-900">SiteCommons</h1>
             <p className="text-amber-600 text-xs font-semibold">A product by Thekada Digital Ventures Pvt Ltd</p>
           </div>
 
@@ -207,12 +207,12 @@ const LoginPage: React.FC = () => {
               New company? <Link to="/register" className="font-semibold text-slate-900 underline underline-offset-2">Start a free trial</Link>
             </p>
             <p className="text-center text-xs text-slate-400 mt-3">
-              Task Pilot Administrator? <Link to="/platform" className="font-medium text-slate-600 hover:text-slate-900 underline underline-offset-2">Platform Console</Link>
+              SiteCommons Administrator? <Link to="/platform" className="font-medium text-slate-600 hover:text-slate-900 underline underline-offset-2">Platform Console</Link>
             </p>
           </div>
 
           <p className="text-center text-slate-400 text-xs mt-6">
-            © {new Date().getFullYear()} Task Pilot · A product by Thekada Digital Ventures Pvt. Ltd. All rights reserved.
+            © {new Date().getFullYear()} SiteCommons · A product by Thekada Digital Ventures Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </div>

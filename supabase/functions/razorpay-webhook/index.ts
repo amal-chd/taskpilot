@@ -97,11 +97,11 @@ serve(async (req) => {
             await sb.from("payments").insert({
               org_id: orgId, subscription_id: subRow.id, provider_payment_id: rzPay.id, provider_invoice_id: rzPay.invoice_id ?? null,
               amount: rzPay.amount, tax_amount: taxAmount, currency: rzPay.currency, status: "paid", plan_id: subRow.plan_id,
-              description: `Task Pilot ${subRow.plan_id} (${subRow.billing_cycle})`, period_start: toIso(rzSub?.current_start), period_end: toIso(rzSub?.current_end),
+              description: `SiteCommons ${subRow.plan_id} (${subRow.billing_cycle})`, period_start: toIso(rzSub?.current_start), period_end: toIso(rzSub?.current_end),
               paid_at: toIso(rzPay.created_at) ?? now, billing_details: { name: org?.name, address: org?.address, tax_id: org?.tax_id, email: org?.owner_email, method: rzPay.method },
             });
           }
-          await notifyOwner(orgId, "Payment received", `Thank you — your Task Pilot subscription has been renewed.`);
+          await notifyOwner(orgId, "Payment received", `Thank you — your SiteCommons subscription has been renewed.`);
         }
         break;
       case "subscription.pending":

@@ -1,16 +1,16 @@
-# TaskPilot: Technical SEO, Core Web Vitals & Accessibility QA Audit Report
+# SiteCommons: Technical SEO, Core Web Vitals & Accessibility QA Audit Report
 
 **Document Version:** 1.0.0  
 **Audit Date:** November 2026  
 **Target URL Scope:** Public Marketing Website (`/`, `/features/*`, `/solutions/*`, `/compare/*`, `/blog/*`, `/pricing`, `/how-it-works`, `/faq`)  
-**Lead Auditor:** TaskPilot Web Performance & Technical SEO Engineering Team  
+**Lead Auditor:** SiteCommons Web Performance & Technical SEO Engineering Team
 **Compliance Standard:** Google Core Web Vitals (2026 Thresholds) & W3C WCAG 2.2 Level AA  
 
 ---
 
 ## Executive Summary & Scorecard
 
-The transformed TaskPilot marketing platform has undergone a comprehensive engineering QA audit covering **Technical SEO, Core Web Vitals, Crawl Budget Efficiency, Mobile UX, and Accessibility**.
+The transformed SiteCommons marketing platform has undergone a comprehensive engineering QA audit covering **Technical SEO, Core Web Vitals, Crawl Budget Efficiency, Mobile UX, and Accessibility**.
 
 | Category | Target Benchmark | Pre-Transformation Baseline | Post-Transformation Achieved | Status |
 | :--- | :---: | :---: | :---: | :---: |
@@ -47,7 +47,7 @@ All metrics measured under simulated 4G mobile throttle and desktop broadband us
     `Disallow: /login`  
     `Disallow: /signup`  
     `Disallow: /api/`
-  - Direct reference to production sitemap: `Sitemap: https://taskpilot.app/sitemap.xml`
+  - Direct reference to production sitemap: `Sitemap: https://sitecommons.thekada.in/sitemap.xml`
 
 ### B. XML Sitemap Audit
 - **File Location:** `/sitemap.xml`
@@ -66,7 +66,7 @@ All metrics measured under simulated 4G mobile throttle and desktop broadband us
 Inspected via dynamic injector `src/lib/seo.ts`:
 - **Unique Title Tags:** Enforced on 100% of routes (Length: 48–62 characters; includes primary keyword and branding).
 - **Unique Meta Descriptions:** Enforced on 100% of routes (Length: 145–158 characters; includes actionable metric and CTA).
-- **Canonical Tags:** Self-referencing absolute canonical URLs (`<link rel="canonical" href="https://taskpilot.app/..." />`) generated dynamically on route change.
+- **Canonical Tags:** Self-referencing absolute canonical URLs (`<link rel="canonical" href="https://sitecommons.thekada.in/..." />`) generated dynamically on route change.
 - **Open Graph (OG) Tags:** `og:title`, `og:description`, `og:url`, `og:type`, `og:site_name`, and `og:image` (`/og-image.svg`, 1200x630 ratio) configured across all routes.
 - **Twitter Cards:** `twitter:card` set to `summary_large_image`, with dedicated titles, descriptions, and images.
 
@@ -88,7 +88,7 @@ All pages inject validated JSON-LD schema with automated DOM cleanup on page unm
 
 ## 4. Accessibility (a11y) & WCAG 2.2 Level AA Verification
 
-TaskPilot's design system adheres strictly to the highest accessibility standards:
+SiteCommons's design system adheres strictly to the highest accessibility standards:
 
 ### A. Semantic Landmarks
 - Every page is built with native semantic HTML5 landmark tags:
@@ -158,4 +158,4 @@ Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' h
 
 ## 7. QA Sign-Off
 
-The TaskPilot marketing website codebase is certified **production-ready**, achieving maximum ratings across technical search compliance, Core Web Vitals performance thresholds, and accessibility standards.
+The SiteCommons marketing website codebase is certified **production-ready**, achieving maximum ratings across technical search compliance, Core Web Vitals performance thresholds, and accessibility standards.

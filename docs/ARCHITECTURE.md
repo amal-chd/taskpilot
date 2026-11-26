@@ -1,8 +1,8 @@
-# Task Pilot — Architecture
+# SiteCommons — Architecture
 
 ## The hybrid backend, and its one rule
 
-Task Pilot deliberately splits its backend. **The rule that prevents bugs:** a
+SiteCommons deliberately splits its backend. **The rule that prevents bugs:** a
 given kind of data is written to and read from **exactly one** store. Violating
 it creates a "split-brain" where writes land in one place and reads come from
 another (this actually happened with audit logs and time logs and had to be

@@ -11,7 +11,8 @@ import { trackCtaClick, trackComparisonClick, trackFaqExpand } from '../../../..
 
 export const ComparisonDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const data = slug ? COMPETITORS[slug] : undefined;
+  const canonicalSlug = slug?.replace(/^taskpilot-vs-/, 'sitecommons-vs-');
+  const data = canonicalSlug ? COMPETITORS[canonicalSlug] : undefined;
 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -19,30 +20,30 @@ export const ComparisonDetailPage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: `Task Pilot vs ${data.competitorName}: Detailed 2026 Comparison`,
+      headline: `SiteCommons vs ${data.competitorName}: Detailed 2026 Comparison`,
       description: data.heroSummary,
       author: {
         '@type': 'Organization',
         name: 'Thekada Digital Ventures Pvt. Ltd.',
-        url: 'https://taskpilot.thekada.in',
+        url: 'https://sitecommons.thekada.in',
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Task Pilot',
+        name: 'SiteCommons',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://taskpilot.thekada.in/logo.png',
+          url: 'https://sitecommons.thekada.in/logo.png',
         },
       },
-      mainEntityOfPage: `https://taskpilot.thekada.in/compare/${data.slug}`,
+      mainEntityOfPage: `https://sitecommons.thekada.in/compare/${data.slug}`,
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taskpilot.thekada.in/' },
-        { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://taskpilot.thekada.in/compare' },
-        { '@type': 'ListItem', position: 3, name: `Task Pilot vs ${data.competitorName}`, item: `https://taskpilot.thekada.in/compare/${data.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sitecommons.thekada.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://sitecommons.thekada.in/compare' },
+        { '@type': 'ListItem', position: 3, name: `SiteCommons vs ${data.competitorName}`, item: `https://sitecommons.thekada.in/compare/${data.slug}` },
       ],
     },
     {
@@ -60,14 +61,18 @@ export const ComparisonDetailPage: React.FC = () => {
   ] : [];
 
   useSeo({
-    title: data ? `Task Pilot vs ${data.competitorName} (2026 Comparison & Review)` : 'Software Comparison — Task Pilot',
-    description: data ? `Compare Task Pilot and ${data.competitorName}. Discover differences in field features, GPS attendance, BOQ cost control, pricing models, and team adoption.` : 'Compare Task Pilot to alternative construction software.',
+    title: data ? `SiteCommons vs ${data.competitorName} (2026 Comparison & Review)` : 'Software Comparison — SiteCommons',
+    description: data ? `Compare SiteCommons and ${data.competitorName}. Discover differences in field features, GPS attendance, BOQ cost control, pricing models, and team adoption.` : 'Compare SiteCommons to alternative construction software.',
     path: data ? `/compare/${data.slug}` : '/compare',
     jsonLd,
   });
 
   if (!data) {
     return <Navigate to="/compare" replace />;
+  }
+
+  if (slug !== canonicalSlug) {
+    return <Navigate to={`/compare/${data.slug}`} replace />;
   }
 
   const otherComparisons = Object.values(COMPETITORS).filter((c) => c.slug !== data.slug);
@@ -81,7 +86,7 @@ export const ComparisonDetailPage: React.FC = () => {
           <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
           <Link to="/compare" className="hover:text-ink-900 transition-colors">Compare</Link>
           <ChevronRight className="w-3.5 h-3.5 text-ink-400" />
-          <span className="text-ink-900 font-semibold truncate">Task Pilot vs {data.competitorName}</span>
+          <span className="text-ink-900 font-semibold truncate">SiteCommons vs {data.competitorName}</span>
         </Section>
       </div>
 
@@ -94,7 +99,7 @@ export const ComparisonDetailPage: React.FC = () => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-[1.12]">
-            Task Pilot vs {data.competitorName}
+            SiteCommons vs {data.competitorName}
           </h1>
           <p className="mt-3 text-lg font-bold text-brand-700">
             {data.tagline}
@@ -110,7 +115,7 @@ export const ComparisonDetailPage: React.FC = () => {
               onClick={() => trackCtaClick('compare_hero', 'Start 14-day free trial', '/register')}
               className="w-full sm:w-auto h-13 px-8 inline-flex items-center justify-center gap-2 rounded-full bg-ink-900 text-white font-semibold text-base hover:bg-ink-800 shadow-xl shadow-ink-900/10 transition-all hover:-translate-y-0.5"
             >
-              Try Task Pilot Free (14 Days) <ArrowRight className="w-4 h-4" />
+              Try SiteCommons Free (14 Days) <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/contact-sales"
@@ -144,7 +149,7 @@ export const ComparisonDetailPage: React.FC = () => {
             </div>
 
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-brand-600">Task Pilot</p>
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-600">SiteCommons</p>
               <h3 className="text-xl font-bold text-ink-900 mt-1">{data.pricingComparison.taskPilotModel}</h3>
               <p className="text-sm text-ink-600 mt-2 leading-relaxed">{data.pricingComparison.taskPilotEstimatedCost}</p>
             </div>
@@ -175,7 +180,7 @@ export const ComparisonDetailPage: React.FC = () => {
               <thead>
                 <tr className="bg-ink-900 text-white font-bold text-xs uppercase tracking-wider">
                   <th className="py-4 px-6 w-1/3">Capability</th>
-                  <th className="py-4 px-6 text-center text-white bg-ink-850 font-extrabold">Task Pilot</th>
+                  <th className="py-4 px-6 text-center text-white bg-ink-850 font-extrabold">SiteCommons</th>
                   <th className="py-4 px-6 text-center">{data.competitorName}</th>
                   <th className="py-4 px-6">Operational Impact</th>
                 </tr>
@@ -256,13 +261,13 @@ export const ComparisonDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Task Pilot Advantage */}
+            {/* SiteCommons Advantage */}
             <div className="bg-white rounded-3xl border border-ink-900 p-8 shadow-sm relative overflow-hidden">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-500/10 rounded-bl-full pointer-events-none" />
-              <h3 className="text-xl font-bold text-ink-900 mb-4">The Task Pilot Advantage</h3>
+              <h3 className="text-xl font-bold text-ink-900 mb-4">The SiteCommons Advantage</h3>
               
               <div className="mb-6">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-700 mb-2">Why Builders Choose Task Pilot</p>
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-700 mb-2">Why Builders Choose SiteCommons</p>
                 <ul className="space-y-2.5 text-xs sm:text-sm text-ink-700">
                   {data.taskPilotStrengths.map((s, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -275,7 +280,7 @@ export const ComparisonDetailPage: React.FC = () => {
 
               <div className="pt-4 border-t border-ink-100">
                 <p className="text-xs text-ink-700 leading-relaxed">
-                  Every Task Pilot plan includes our complete suite with zero per-seat fees, flat predictable monthly rates, and instant 10-minute setup.
+                  Every SiteCommons plan includes our complete suite with zero per-seat fees, flat predictable monthly rates, and instant 10-minute setup.
                 </p>
               </div>
             </div>
@@ -306,7 +311,7 @@ export const ComparisonDetailPage: React.FC = () => {
           </div>
 
           <div className="rounded-2xl border border-brand-300 bg-brand-50/40 p-8 shadow-sm">
-            <h3 className="font-bold text-lg text-ink-900 mb-3">Choose Task Pilot if:</h3>
+            <h3 className="font-bold text-lg text-ink-900 mb-3">Choose SiteCommons if:</h3>
             <ul className="space-y-3 text-sm text-ink-700 font-medium">
               {data.bestForTaskPilot.map((item, i) => (
                 <li key={i} className="flex items-start gap-2">
@@ -333,7 +338,7 @@ export const ComparisonDetailPage: React.FC = () => {
       {/* ─── Other Competitor Comparisons ─── */}
       <div className="bg-ink-50 py-16 border-t border-ink-200">
         <Section>
-          <h3 className="text-xl font-bold text-ink-900 mb-6">Compare Task Pilot with other platforms</h3>
+          <h3 className="text-xl font-bold text-ink-900 mb-6">Compare SiteCommons with other platforms</h3>
           <div className="grid sm:grid-cols-3 gap-4">
             {otherComparisons.slice(0, 3).map((comp) => (
               <Link
@@ -342,7 +347,7 @@ export const ComparisonDetailPage: React.FC = () => {
                 onClick={() => trackComparisonClick(comp.competitorName)}
                 className="bg-white p-5 rounded-2xl border border-ink-200 hover:border-ink-900 hover:shadow-md transition-all group"
               >
-                <p className="font-bold text-ink-900 group-hover:text-brand-600 transition-colors">Task Pilot vs {comp.competitorName}</p>
+                <p className="font-bold text-ink-900 group-hover:text-brand-600 transition-colors">SiteCommons vs {comp.competitorName}</p>
                 <p className="text-xs text-ink-700 mt-1">{comp.tagline}</p>
               </Link>
             ))}
@@ -392,7 +397,7 @@ export const ComparisonDetailPage: React.FC = () => {
       <Section className="pb-20">
         <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight">Ready to see the Task Pilot difference?</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Ready to see the SiteCommons difference?</h2>
             <p className="mt-2 text-ink-200 text-sm">Experience modern construction management without the enterprise price tag. 14 days free.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">

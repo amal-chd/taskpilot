@@ -12,7 +12,7 @@ export const TicketThread: React.FC<{ messages: any[] }> = ({ messages }) => (
   <ol className="space-y-3">
     {messages.map((m) => (
       <li key={m.id} className={`rounded-xl p-4 text-sm ${m.author_type === 'staff' ? 'bg-indigo-50 border border-indigo-100' : 'bg-white border border-slate-200'}`}>
-        <p className="text-xs text-slate-500 mb-1.5"><span className="font-semibold text-slate-700">{m.author_name}</span>{m.author_type === 'staff' && ' · Task Pilot team'} · {new Date(m.created_at).toLocaleString()}</p>
+        <p className="text-xs text-slate-500 mb-1.5"><span className="font-semibold text-slate-700">{m.author_name}</span>{m.author_type === 'staff' && ' · SiteCommons team'} · {new Date(m.created_at).toLocaleString()}</p>
         <p className="whitespace-pre-wrap">{m.body}</p>
       </li>
     ))}

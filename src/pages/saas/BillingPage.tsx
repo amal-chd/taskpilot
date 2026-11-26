@@ -166,7 +166,7 @@ const BillingPage: React.FC = () => {
           order_id: orderRes.orderId,
           amount: orderRes.amount,
           currency: orderRes.currency,
-          name: 'Task Pilot',
+          name: 'SiteCommons',
           description: `${orderRes.planName} plan (${cycle})`,
           image: `${window.location.origin}/logo.png`,
           prefill: {
@@ -222,7 +222,7 @@ const BillingPage: React.FC = () => {
       const paymentRes = await openRazorpayCheckout({
         key: r.keyId,
         subscription_id: r.subscriptionId,
-        name: 'Task Pilot',
+        name: 'SiteCommons',
         description: `${r.planName} plan (${cycle})`,
         image: `${window.location.origin}/logo.png`,
         prefill: {
@@ -906,7 +906,7 @@ export const InvoicePage: React.FC = () => {
               <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-9 h-9 rounded-lg" />
               {data.seller.seller_name || 'Thekada Digital Ventures Pvt. Ltd.'}
             </div>
-            <p className="text-xs text-slate-500 mt-1">Task Pilot Enterprise Construction Cloud</p>
+            <p className="text-xs text-slate-500 mt-1">SiteCommons Enterprise Construction Cloud</p>
             {data.seller.seller_gstin && (
               <p className="text-xs text-slate-700 mt-0.5 font-medium">
                 GSTIN / Tax ID: <span className="font-mono font-bold">{data.seller.seller_gstin}</span>

@@ -1,3 +1,4 @@
+import { ProductScreenshot } from '../../../../components/common/ProductScreenshot';
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import {
@@ -22,7 +23,7 @@ export const FeatureDetailPage: React.FC = () => {
     {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
-      name: `Task Pilot — ${data.title}`,
+      name: `SiteCommons — ${data.title}`,
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web, iOS, Android',
       description: data.seoDescription,
@@ -38,9 +39,9 @@ export const FeatureDetailPage: React.FC = () => {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taskpilot.thekada.in/' },
-        { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://taskpilot.thekada.in/features' },
-        { '@type': 'ListItem', position: 3, name: data.title, item: `https://taskpilot.thekada.in/features/${data.slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sitecommons.thekada.in/' },
+        { '@type': 'ListItem', position: 2, name: 'Features', item: 'https://sitecommons.thekada.in/features' },
+        { '@type': 'ListItem', position: 3, name: data.title, item: `https://sitecommons.thekada.in/features/${data.slug}` },
       ],
     },
     {
@@ -58,8 +59,8 @@ export const FeatureDetailPage: React.FC = () => {
   ] : [];
 
   useSeo({
-    title: data ? data.seoTitle : 'Feature Details — Task Pilot',
-    description: data ? data.seoDescription : 'Explore construction features with Task Pilot.',
+    title: data ? data.seoTitle : 'Feature Details — SiteCommons',
+    description: data ? data.seoDescription : 'Explore construction features with SiteCommons.',
     path: data ? `/features/${data.slug}` : '/features',
     jsonLd,
   });
@@ -160,7 +161,7 @@ export const FeatureDetailPage: React.FC = () => {
                 <div className="py-8 px-4 flex justify-center w-full">
                   <div className="relative max-w-[320px] w-full rounded-[40px] p-2 bg-gradient-to-b from-ink-700 via-ink-800 to-ink-900 shadow-2xl ring-1 ring-white/10">
                     <div className="rounded-[32px] overflow-hidden bg-black relative">
-                      <img width={data.screenshotDevice === 'mobile' ? 780 : 1600} height={data.screenshotDevice === 'mobile' ? 1688 : 1000}
+                      <ProductScreenshot width={data.screenshotDevice === 'mobile' ? 780 : 1600} height={data.screenshotDevice === 'mobile' ? 1688 : 1000}
                         src={data.screenshot}
                         alt={data.title}
                         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
@@ -172,7 +173,7 @@ export const FeatureDetailPage: React.FC = () => {
                 </div>
               ) : (
                 <div className="w-full overflow-hidden relative">
-                  <img width={1600} height={1000}
+                  <ProductScreenshot width={1600} height={1000}
                     src={data.screenshot}
                     alt={data.title}
                     className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.005]"
@@ -225,7 +226,7 @@ export const FeatureDetailPage: React.FC = () => {
         </div>
       </Section>
 
-      {/* ─── The Task Pilot Solution ─── */}
+      {/* ─── The SiteCommons Solution ─── */}
       <div className="bg-ink-900 text-white py-20 border-y border-ink-800">
         <Section>
           <div className="text-center max-w-2xl mx-auto mb-14">

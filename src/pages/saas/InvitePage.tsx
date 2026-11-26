@@ -79,7 +79,7 @@ const InvitePage: React.FC = () => {
           <form onSubmit={submit} className="space-y-4">
             <div className="text-center">
               {info.orgLogo ? <img decoding="async" src={info.orgLogo} alt="" className="w-14 h-14 rounded-xl mx-auto object-cover" /> : <MailCheck className="w-10 h-10 mx-auto text-amber-600" />}
-              <h1 className="mt-3 text-xl font-bold">Join {info.orgName} on Task Pilot</h1>
+              <h1 className="mt-3 text-xl font-bold">Join {info.orgName} on SiteCommons</h1>
               <p className="text-sm text-slate-500 mt-1">Invited as <strong>{info.roleName ?? 'team member'}</strong> · {info.email}</p>
             </div>
             {signedInAsInvitee ? (
@@ -95,7 +95,7 @@ const InvitePage: React.FC = () => {
                   {busy && <Loader2 className="w-4 h-4 animate-spin" />}{mode === 'signup' ? 'Create account & join' : 'Sign in & join'}
                 </button>
                 <p className="text-sm text-center text-slate-500">
-                  {mode === 'signup' ? 'Already have a Task Pilot account? ' : 'New here? '}
+                  {mode === 'signup' ? 'Already have a SiteCommons account? ' : 'New here? '}
                   <button type="button" className="font-semibold text-slate-900 underline" onClick={() => setMode(mode === 'signup' ? 'signin' : 'signup')}>{mode === 'signup' ? 'Sign in' : 'Create account'}</button>
                 </p>
               </>

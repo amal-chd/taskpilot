@@ -36,18 +36,18 @@ const SECTOR_LINKS = [
 ];
 
 const COMPARE_LINKS = [
-  { to: '/compare/taskpilot-vs-procore', label: 'Task Pilot vs Procore', desc: 'Agile field OS vs enterprise megasuite' },
-  { to: '/compare/taskpilot-vs-fieldwire', label: 'Task Pilot vs Fieldwire', desc: 'Flat team pricing vs per-seat tax' },
-  { to: '/compare/taskpilot-vs-asana', label: 'Task Pilot vs Asana', desc: 'Field-tested ruggedness vs desk to-dos' },
-  { to: '/compare/taskpilot-vs-monday', label: 'Task Pilot vs Monday.com', desc: 'Pre-built construction OS vs spreadsheet setup' },
-  { to: '/compare/taskpilot-vs-clickup', label: 'Task Pilot vs ClickUp', desc: 'Fast jobsite simplicity vs feature bloat' },
-  { to: '/compare/taskpilot-vs-powerplay', label: 'Task Pilot vs Powerplay', desc: 'Enterprise office-and-field vs mobile chat app' },
+  { to: '/compare/sitecommons-vs-procore', label: 'SiteCommons vs Procore', desc: 'Agile field OS vs enterprise megasuite' },
+  { to: '/compare/sitecommons-vs-fieldwire', label: 'SiteCommons vs Fieldwire', desc: 'Flat team pricing vs per-seat tax' },
+  { to: '/compare/sitecommons-vs-asana', label: 'SiteCommons vs Asana', desc: 'Field-tested ruggedness vs desk to-dos' },
+  { to: '/compare/sitecommons-vs-monday', label: 'SiteCommons vs Monday.com', desc: 'Pre-built construction OS vs spreadsheet setup' },
+  { to: '/compare/sitecommons-vs-clickup', label: 'SiteCommons vs ClickUp', desc: 'Fast jobsite simplicity vs feature bloat' },
+  { to: '/compare/sitecommons-vs-powerplay', label: 'SiteCommons vs Powerplay', desc: 'Enterprise office-and-field vs mobile chat app' },
   { to: '/compare/best-construction-management-software', label: '2026 Construction Software Guide', desc: 'Comprehensive buyer evaluation framework' },
 ];
 
 const RESOURCE_LINKS = [
   { to: '/blog', label: 'Field Guides & Blog', desc: 'Practical engineering and site management articles' },
-  { to: '/how-it-works', label: 'How Task Pilot Works', desc: '4-step workflow connecting field to head office' },
+  { to: '/how-it-works', label: 'How SiteCommons Works', desc: '4-step workflow connecting field to head office' },
   { to: '/manual', label: 'Staff Field Manual', desc: 'Comprehensive documentation and training guide' },
   { to: '/faq', label: 'Frequently Asked Questions', desc: 'Pricing, GPS geofencing, security, and setup answers' },
   { to: '/security', label: 'Security & Data Protection', desc: 'How your company data is isolated and protected' },
@@ -99,10 +99,10 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-ink-200/80">
         <div ref={dropdownRef} className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo & Brand */}
-          <Link to={SAAS_HOME} className="flex items-center gap-2.5 group" aria-label="Task Pilot Home">
+          <Link to={SAAS_HOME} className="flex items-center gap-2.5 group" aria-label="SiteCommons Home">
             <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded-lg shadow-xs group-hover:scale-105 transition-transform" />
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-lg text-ink-900 leading-tight">Task Pilot</span>
+              <span className="font-extrabold tracking-tight text-lg text-ink-900 leading-tight">SiteCommons</span>
               <span className="text-[10px] text-ink-700 font-medium tracking-normal leading-none hidden sm:inline">
                 by Thekada Digital Ventures Pvt Ltd
               </span>
@@ -424,7 +424,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               Pricing & Plans
             </Link>
             <Link to="/about" className="block py-2 text-sm font-bold text-ink-900">
-              About Task Pilot
+              About SiteCommons
             </Link>
 
             <div className="pt-3 border-t border-ink-200 flex flex-col gap-2">
@@ -463,7 +463,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 text-white font-bold text-base">
               <img width={512} height={512} decoding="async" src="/logo.png" alt="" className="w-8 h-8 rounded" />
-              <span>Task Pilot</span>
+              <span>SiteCommons</span>
             </div>
             <p className="mt-1 text-xs text-brand-300 font-semibold tracking-wide">
               A product by Thekada Digital Ventures Pvt. Ltd.
@@ -514,12 +514,12 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
               <li><Link to="/industries/facility-management" className="hover:text-white transition-colors">Facility Management</Link></li>
               <li><Link to="/industries/project-management" className="hover:text-white transition-colors">PMC Consultancies</Link></li>
               <li className="pt-2 text-ink-300 font-semibold uppercase text-[10px]">Comparisons</li>
-              <li><Link to="/compare/taskpilot-vs-procore" className="hover:text-white transition-colors">vs Procore</Link></li>
-              <li><Link to="/compare/taskpilot-vs-fieldwire" className="hover:text-white transition-colors">vs Fieldwire</Link></li>
-              <li><Link to="/compare/taskpilot-vs-asana" className="hover:text-white transition-colors">vs Asana</Link></li>
-              <li><Link to="/compare/taskpilot-vs-monday" className="hover:text-white transition-colors">vs Monday.com</Link></li>
-              <li><Link to="/compare/taskpilot-vs-clickup" className="hover:text-white transition-colors">vs ClickUp</Link></li>
-              <li><Link to="/compare/taskpilot-vs-powerplay" className="hover:text-white transition-colors">vs Powerplay</Link></li>
+              <li><Link to="/compare/sitecommons-vs-procore" className="hover:text-white transition-colors">vs Procore</Link></li>
+              <li><Link to="/compare/sitecommons-vs-fieldwire" className="hover:text-white transition-colors">vs Fieldwire</Link></li>
+              <li><Link to="/compare/sitecommons-vs-asana" className="hover:text-white transition-colors">vs Asana</Link></li>
+              <li><Link to="/compare/sitecommons-vs-monday" className="hover:text-white transition-colors">vs Monday.com</Link></li>
+              <li><Link to="/compare/sitecommons-vs-clickup" className="hover:text-white transition-colors">vs ClickUp</Link></li>
+              <li><Link to="/compare/sitecommons-vs-powerplay" className="hover:text-white transition-colors">vs Powerplay</Link></li>
               <li><Link to="/compare/best-construction-management-software" className="hover:text-white transition-colors">2026 Buyer's Guide</Link></li>
             </ul>
           </div>
@@ -547,7 +547,7 @@ export const MarketingLayout: React.FC<{ children: React.ReactNode }> = ({ child
         <div className="border-t border-white/10 py-6 text-center text-xs text-ink-300">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p>© {new Date().getFullYear()} Thekada Digital Ventures Pvt. Ltd. All rights reserved.</p>
-            <p className="text-ink-300">Task Pilot · Construction management software</p>
+            <p className="text-ink-300">SiteCommons · Construction management software</p>
           </div>
         </div>
       </footer>

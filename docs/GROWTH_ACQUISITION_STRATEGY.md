@@ -1,15 +1,15 @@
-# TaskPilot: Post-Launch Organic Growth & Customer Acquisition Engine
+# SiteCommons: Post-Launch Organic Growth & Customer Acquisition Engine
 
 **Document Version:** 1.0.0  
 **Published:** November 2026  
 **Strategic Horizon:** 2027 – 2028 Scale Phase  
-**Author:** TaskPilot Growth Engineering & Product-Led Growth (PLG) Strategy Team  
+**Author:** SiteCommons Growth Engineering & Product-Led Growth (PLG) Strategy Team
 
 ---
 
 ## Executive Overview
 
-TaskPilot's commercial acquisition model rejects the high-burn, high-overhead enterprise sales motion that makes legacy construction software so expensive. Instead, TaskPilot executes a **Product-Led Growth (PLG) and Network-Effect Engine** engineered specifically for the decentralized, multi-stakeholder realities of construction jobsites.
+SiteCommons's commercial acquisition model rejects the high-burn, high-overhead enterprise sales motion that makes legacy construction software so expensive. Instead, SiteCommons executes a **Product-Led Growth (PLG) and Network-Effect Engine** engineered specifically for the decentralized, multi-stakeholder realities of construction jobsites.
 
 In construction, software does not live in an isolated corporate office. It operates in an open ecosystem where **General Contractors (GCs), Subcontractors, Project Management Consultants (PMCs), Architects, Quality Inspectors, and Property Owners** interact daily. Every jobsite represents an organic viral distribution channel.
 
@@ -31,28 +31,28 @@ In construction, software does not live in an isolated corporate office. It oper
 └───────────┬───────────┘       └───────────┬───────────┘       └───────────┬───────────┘
             │                               │                               │
             ▼                               ▼                               ▼
-Owner / Client sees                 Subcontractor experiences       PMC specifies TaskPilot
-TaskPilot Verification Badge        3-step verification on site;    as mandatory QA platform
+Owner / Client sees                 Subcontractor experiences       PMC specifies SiteCommons
+SiteCommons Verification Badge        3-step verification on site;    as mandatory QA platform
 & QR Code ──► Signs up              adopts for own 5 other sites    across entire portfolio
 ```
 
 ### Loop A: The "Client Report Trojan Horse" (Downstream Virality)
-- **Mechanism:** General contractors generate daily progress reports (DPRs), weekly executive summaries, and inspection hold-point certificates in TaskPilot to send to project owners, banks, and clients.
+- **Mechanism:** General contractors generate daily progress reports (DPRs), weekly executive summaries, and inspection hold-point certificates in SiteCommons to send to project owners, banks, and clients.
 - **Viral Trigger:** Every generated PDF report includes a clean, professional verification footer:  
-  *“Verified Jobsite Record • Powered by TaskPilot Field OS • Scan QR code to verify raw photographic telemetry and GPS timestamps.”*
-- **Conversion Flow:** Property developers, financial lenders, and client project managers scan the QR code to review the interactive web record. A sticky header reads: *“Want this level of transparency on all your developments? Start a free trial of TaskPilot.”*
-- **Viral Coefficient ($K$-factor):** 0.28 (1 in every 3.5 project owners requests TaskPilot on subsequent developments).
+  *“Verified Jobsite Record • Powered by SiteCommons Field OS • Scan QR code to verify raw photographic telemetry and GPS timestamps.”*
+- **Conversion Flow:** Property developers, financial lenders, and client project managers scan the QR code to review the interactive web record. A sticky header reads: *“Want this level of transparency on all your developments? Start a free trial of SiteCommons.”*
+- **Viral Coefficient ($K$-factor):** 0.28 (1 in every 3.5 project owners requests SiteCommons on subsequent developments).
 
 ### Loop B: The Subcontractor Multi-Site Propagation Loop (Horizontal Virality)
 - **Mechanism:** A General Contractor invites 15 specialized trade subcontractors (electrical, plumbing, drywall, HVAC) to collaborate on a $12M commercial project.
 - **Experience:** Subcontractors receive free guest/collaborator access. They experience friction-free task execution: receiving mobile punch items with clear photo pins, uploading their completion photos, and receiving immediate sign-offs without waiting days for paperwork.
-- **Expansion Trigger:** Subcontractors manage 4 to 8 other concurrent jobsites with *other* general contractors who still use chaotic WhatsApp chats and paper forms. The subcontractor discovers TaskPilot's flat $49/mo Pro tier and adopts it internally to run their own crews.
+- **Expansion Trigger:** Subcontractors manage 4 to 8 other concurrent jobsites with *other* general contractors who still use chaotic WhatsApp chats and paper forms. The subcontractor discovers SiteCommons's flat $49/mo Pro tier and adopts it internally to run their own crews.
 - **Viral Coefficient ($K$-factor):** 0.42 (For every 10 subcontractors invited to a GC workspace, 4 initiate a trial within 90 days).
 
 ### Loop C: The PMC & Structural Engineer Referral Engine (Upstream Virality)
 - **Mechanism:** Project Management Consultants (PMCs) and third-party QA/QC inspection agencies are tasked with ensuring quality compliance across multiple developer clients.
-- **Incentive:** TaskPilot Partner Program provides certified PMCs with free portfolio oversight dashboards, co-branded inspection certificates, and 20% recurring lifetime revenue share on referred contractor accounts.
-- **Impact:** Once a PMC mandates TaskPilot as the approved Quality & Daily Reporting tool in their project tender specifications, every winning bidder is required to adopt TaskPilot.
+- **Incentive:** SiteCommons Partner Program provides certified PMCs with free portfolio oversight dashboards, co-branded inspection certificates, and 20% recurring lifetime revenue share on referred contractor accounts.
+- **Impact:** Once a PMC mandates SiteCommons as the approved Quality & Daily Reporting tool in their project tender specifications, every winning bidder is required to adopt SiteCommons.
 
 ---
 
@@ -96,13 +96,13 @@ Contractors are notoriously impatient with complicated software setup. If a site
 
 | Day | Email Subject Line | Primary Objective | Key Value / Social Proof | Call to Action (CTA) |
 | :---: | :--- | :--- | :--- | :--- |
-| **Day 0 (Min 10)** | Welcome to TaskPilot + Your 3-Minute Jobsite Setup Guide | Remove setup anxiety | Video GIF showing 3-click project creation | Open Your Workspace |
+| **Day 0 (Min 10)** | Welcome to SiteCommons + Your 3-Minute Jobsite Setup Guide | Remove setup anxiety | Video GIF showing 3-click project creation | Open Your Workspace |
 | **Day 1** | How to stop chasing daily site updates via WhatsApp | Introduce Daily Progress Reports | Case study: How Apex Civil saved 90 mins/day | Create Your First Daily Report |
 | **Day 3** | Why checkboxes don't pour concrete (Enforcing Photo Proof) | Introduce 3-step hold points | Rework cost data: $4,200 avg cost of missed conduit | Enable Mandatory Sign-Offs |
 | **Day 5** | Phantom labor is costing your jobsites 5% (Here's the cure) | Introduce GPS geofenced attendance | Explanation of battery-friendly point-in-time GPS | Set Up Site GPS Geofence |
 | **Day 7** | How are your project margins? Track BOQ & EVM live | Introduce financial cost controls | Explains Planned Value vs Earned Value | Connect Bill of Quantities |
 | **Day 10** | What happens when your subcontractors share software logins? | Emphasize flat pricing value | Teardown of Fieldwire/Procore per-user seat penalties | Invite Your Entire Field Crew |
-| **Day 12** | 48 hours left: Lock in your flat-team rate for 12 months | Urgency & commercial incentive | Annual discount offer (20% off annual prepay) | Upgrade to TaskPilot Pro |
+| **Day 12** | 48 hours left: Lock in your flat-team rate for 12 months | Urgency & commercial incentive | Annual discount offer (20% off annual prepay) | Upgrade to SiteCommons Pro |
 | **Day 14** | Your trial has expired — Keep your jobsite data safe | Grace period & frictionless renewal | Preserves all uploaded photo evidence and historical logs | Choose Your Plan |
 
 ---
@@ -152,8 +152,8 @@ Customer retention in construction SaaS is directly tied to **historical audit d
 
 ### Core Retention Mechanisms:
 1. **The Immutable As-Built Photo Vault:**  
-   Once a project is completed, TaskPilot stores the entire photographic history of every covered conduit, rebar cage, and waterproofed slab indexed by milestone date and GPS coordinates. If a leak or defect claim arises 18 months later, the contractor relies on TaskPilot to retrieve proof of correct installation.
+   Once a project is completed, SiteCommons stores the entire photographic history of every covered conduit, rebar cage, and waterproofed slab indexed by milestone date and GPS coordinates. If a leak or defect claim arises 18 months later, the contractor relies on SiteCommons to retrieve proof of correct installation.
 2. **Historical BOQ Unit Cost Intelligence:**  
-   Contractors use past EVM cost performance data in TaskPilot to bid more accurately on future competitive tenders.
+   Contractors use past EVM cost performance data in SiteCommons to bid more accurately on future competitive tenders.
 3. **Flat Rate Price Lock:**  
    Contractors are guaranteed that their flat monthly rate will never be increased with arbitrary per-user penalties as their company grows.

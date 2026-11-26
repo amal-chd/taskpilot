@@ -1,6 +1,6 @@
 # Supabase Storage Setup (file uploads only)
 
-Task Pilot uses **Supabase Storage** for **document storage** and **chat file
+SiteCommons uses **Supabase Storage** for **document storage** and **chat file
 uploads**. Authentication and the database stay on **Firebase** — Supabase is
 *only* the file store.
 

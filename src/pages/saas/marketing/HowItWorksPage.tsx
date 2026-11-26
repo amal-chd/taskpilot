@@ -1,3 +1,4 @@
+import { ProductScreenshot } from '../../../components/common/ProductScreenshot';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -13,12 +14,12 @@ import { ScreenshotLightbox } from '../../../components/common/ScreenshotLightbo
 export const HowItWorksPage: React.FC = () => {
   useSeo({
     title: 'How It Works — Set Up Construction Management in 4 Steps',
-    description: 'See how Task Pilot connects the head office to every active site: workspace setup, mobile GPS attendance, daily DPR reporting, and real-time BOQ cost control.',
+    description: 'See how SiteCommons connects the head office to every active site: workspace setup, mobile GPS attendance, daily DPR reporting, and real-time BOQ cost control.',
     path: '/how-it-works',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'HowTo',
-      name: 'How Task Pilot Works in Construction Operations',
+      name: 'How SiteCommons Works in Construction Operations',
       description: 'End-to-end 4-step workflow connecting site execution to head office commercials.',
       step: [
         { '@type': 'HowToStep', position: 1, name: 'Setup Workspace & Geofence', text: 'Configure site geofence perimeter coordinates and import tender BOQ from Excel.' },
@@ -98,10 +99,10 @@ export const HowItWorksPage: React.FC = () => {
         <Section className="text-center max-w-4xl mx-auto">
           <Eyebrow>End-To-End Architecture</Eyebrow>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
-            How Task Pilot Coordinates Every Site
+            How SiteCommons Coordinates Every Site
           </h1>
           <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-2xl mx-auto">
-            From the morning gate muster to real-time BOQ cost control, see how Task Pilot replaces WhatsApp groups
+            From the morning gate muster to real-time BOQ cost control, see how SiteCommons replaces WhatsApp groups
             with verified operational discipline.
           </p>
 
@@ -158,7 +159,7 @@ export const HowItWorksPage: React.FC = () => {
             {
               step: '04',
               title: 'Real-Time EVM & Cost Control',
-              desc: 'As tasks are signed off, Task Pilot updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) dynamically. Material requisitions and contractor advances feed into Actual Cost, alerting leadership to budget drift.',
+              desc: 'As tasks are signed off, SiteCommons updates Planned Value (PV), Earned Value (EV), and Cost Performance Index (CPI) dynamically. Material requisitions and contractor advances feed into Actual Cost, alerting leadership to budget drift.',
               icon: Calculator,
               image: '/images/screenshots/web-boq-cost-control.webp',
               badge: 'BOQ & Earned Value Ledger',
@@ -205,7 +206,7 @@ export const HowItWorksPage: React.FC = () => {
                     </div>
                   </div>
                   <div className="relative overflow-hidden bg-ink-950">
-                    <img width={s.image.includes('mobile-app') ? 780 : 1600} height={s.image.includes('mobile-app') ? 1688 : 1000}
+                    <ProductScreenshot width={s.image.includes('mobile-app') ? 780 : 1600} height={s.image.includes('mobile-app') ? 1688 : 1000}
                       src={s.image}
                       alt={s.title}
                       className="w-full h-auto object-cover max-h-[380px] transition-transform duration-300 group-hover:scale-[1.02]"
@@ -231,7 +232,7 @@ export const HowItWorksPage: React.FC = () => {
           <div className="text-center mb-10">
             <Eyebrow>Role Experiences</Eyebrow>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-ink-900">
-              How Task Pilot works for your specific role
+              How SiteCommons works for your specific role
             </h2>
           </div>
 

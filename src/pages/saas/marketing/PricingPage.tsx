@@ -332,7 +332,7 @@ const MODULE_MATRIX = [
   { name: 'Dedicated Account Manager & SLA', starter: false, pro: false, biz: false, ent: true },
 ];
 
-/** Compares Task Pilot's flat team price with a typical per-seat field app (USD list prices). */
+/** Compares SiteCommons's flat team price with a typical per-seat field app (USD list prices). */
 const PER_SEAT_USD = 39; // Fieldwire Business list price per user / month (vendor pricing page, 2026)
 export const SavingsCalculator: React.FC = () => {
   const [team, setTeam] = useState(25);
@@ -366,7 +366,7 @@ export const SavingsCalculator: React.FC = () => {
           <p className="text-xl font-bold text-ink-900 tabular-nums">{fmt(theirs)}/mo</p>
         </div>
         <div className="rounded-xl bg-brand-50 p-4">
-          <p className="text-xs text-ink-700">Task Pilot {tier?.name ?? 'Enterprise'}</p>
+          <p className="text-xs text-ink-700">SiteCommons {tier?.name ?? 'Enterprise'}</p>
           <p className="text-xl font-bold text-ink-900 tabular-nums">{ours !== null ? `${fmt(ours)}/mo` : 'Custom'}</p>
         </div>
         <div className="rounded-xl bg-emerald-50 p-4">
@@ -375,7 +375,7 @@ export const SavingsCalculator: React.FC = () => {
         </div>
       </div>
       <p className="mt-4 text-[11px] text-ink-600">
-        Task Pilot prices assume yearly billing. The competitor figure is a public list price and may change, so compare current quotes before deciding.
+        SiteCommons prices assume yearly billing. The competitor figure is a public list price and may change, so compare current quotes before deciding.
       </p>
       <Link to="/register" className="mt-5 inline-flex h-11 px-6 items-center rounded-full bg-ink-900 text-white font-semibold hover:bg-ink-800">
         Start free trial
@@ -505,7 +505,7 @@ const PricingPage: React.FC = () => {
           <div className="text-center max-w-2xl mx-auto mb-10">
             <Eyebrow>Market Comparison</Eyebrow>
             <h2 className="text-2xl font-bold tracking-tight text-center text-ink-900 mt-2">
-              How Task Pilot compares to alternatives
+              How SiteCommons compares to alternatives
             </h2>
           </div>
 
@@ -514,7 +514,7 @@ const PricingPage: React.FC = () => {
               <thead>
                 <tr className="bg-ink-50 text-ink-800 border-b border-ink-200">
                   <th scope="col" className="text-left font-semibold p-4">Capability</th>
-                  <th scope="col" className="p-4 font-bold text-ink-900 text-center bg-brand-500/10">Task Pilot</th>
+                  <th scope="col" className="p-4 font-bold text-ink-900 text-center bg-brand-500/10">SiteCommons</th>
                   <th scope="col" className="p-4 font-semibold text-center">Global enterprise suites</th>
                   <th scope="col" className="p-4 font-semibold text-center">Generic task apps</th>
                   <th scope="col" className="p-4 font-semibold text-center">WhatsApp + Excel</th>

@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
   const platformRole = useTenantStore((st) => st.platformRole);
   // Platform access is decided server-side (verified email in platform_admins).
   const isPlatformAdmin = Boolean(platformRole);
-  const displayOrgName = tenant?.org?.name || 'Task Pilot';
+  const displayOrgName = tenant?.org?.name || 'SiteCommons';
 
   const totalUnread = channels.reduce((sum, ch) => {
     if (!appUser) return sum;
@@ -162,9 +162,9 @@ const Sidebar: React.FC<SidebarProps> = ({ open, onClose }) => {
         {/* Logo */}
         <div className="px-4 py-5 flex items-center justify-between flex-shrink-0 border-b border-slate-200/60">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="Task Pilot" className="w-9 h-9 rounded-lg object-cover shadow-sm border border-slate-200/50" />
+            <img src="/logo.png" alt="SiteCommons" className="w-9 h-9 rounded-lg object-cover shadow-sm border border-slate-200/50" />
             <div>
-              <p className="text-slate-900 font-bold text-sm leading-tight tracking-tight">Task Pilot</p>
+              <p className="text-slate-900 font-bold text-sm leading-tight tracking-tight">SiteCommons</p>
               <p className="text-slate-500 text-xs font-medium truncate max-w-[130px]" title={displayOrgName}>{displayOrgName}</p>
             </div>
           </div>

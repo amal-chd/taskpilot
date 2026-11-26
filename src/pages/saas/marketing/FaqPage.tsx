@@ -17,28 +17,28 @@ interface FaqItem {
 const ALL_FAQS: FaqItem[] = [
   {
     category: 'General',
-    q: 'What exactly is Task Pilot?',
-    a: 'Task Pilot is a unified construction management and field operations operating system built by Thekada Digital Ventures Pvt. Ltd. It connects the jobsite to the head office by combining task sign-offs, location-verified GPS geofenced attendance, Daily Progress Reports (DPR), BOQ cost control, materials inventory, and site drawings into one cross-platform system.',
+    q: 'What exactly is SiteCommons?',
+    a: 'SiteCommons is a unified construction management and field operations operating system built by Thekada Digital Ventures Pvt. Ltd. It connects the jobsite to the head office by combining task sign-offs, location-verified GPS geofenced attendance, Daily Progress Reports (DPR), BOQ cost control, materials inventory, and site drawings into one cross-platform system.',
   },
   {
     category: 'General',
-    q: 'How does Task Pilot differ from generic tools like Asana, Trello, or Monday.com?',
+    q: 'How does SiteCommons differ from generic tools like Asana, Trello, or Monday.com?',
     a: 'Generic tools are designed for laptop desks and marketing agencies. They lack essential construction workflows such as location-verified GPS attendance, daily trade musters, pre-pour structural checklists, and BOQ earned value management. Furthermore, generic tools charge steep per-seat fees that penalize you for adding site foremen and engineers.',
   },
   {
     category: 'General',
-    q: 'Does Task Pilot have native mobile apps for field staff?',
-    a: 'Yes. Task Pilot runs as a high-performance progressive web app (PWA) and native mobile applications on Android and iOS devices. The mobile interface was designed specifically with high contrast, large tap targets, and offline caching for dusty, high-glare jobsite conditions.',
+    q: 'Does SiteCommons have native mobile apps for field staff?',
+    a: 'Yes. SiteCommons runs as a high-performance progressive web app (PWA) and native mobile applications on Android and iOS devices. The mobile interface was designed specifically with high contrast, large tap targets, and offline caching for dusty, high-glare jobsite conditions.',
   },
   {
     category: 'Pricing',
     q: 'Do I need a credit card to start the 14-day free trial?',
-    a: 'No credit card or payment information is required. You get full access to all features in your chosen plan tier immediately upon signing up so you can test Task Pilot on your live project sites with your crew.',
+    a: 'No credit card or payment information is required. You get full access to all features in your chosen plan tier immediately upon signing up so you can test SiteCommons on your live project sites with your crew.',
   },
   {
     category: 'Pricing',
     q: 'Why do you charge flat team pricing instead of per-user seats?',
-    a: 'Per-seat pricing discourages construction firms from adding site engineers, foremen, and supervisors, resulting in communication gaps and offline data silos. With Task Pilot, your plan includes a generous bundle of team members for one predictable flat monthly fee.',
+    a: 'Per-seat pricing discourages construction firms from adding site engineers, foremen, and supervisors, resulting in communication gaps and offline data silos. With SiteCommons, your plan includes a generous bundle of team members for one predictable flat monthly fee.',
   },
   {
     category: 'Pricing',
@@ -53,17 +53,17 @@ const ALL_FAQS: FaqItem[] = [
   {
     category: 'Field & GPS',
     q: 'How does GPS attendance prevent fake check-ins and buddy punching?',
-    a: 'When an employee taps Check In or Check Out, their device captures point-in-time GPS coordinates. Task Pilot verifies that these coordinates fall within the custom geofence perimeter configured for that project site and, on Android, blocks check-ins when a mock-location (fake GPS) app is active.',
+    a: 'When an employee taps Check In or Check Out, their device captures point-in-time GPS coordinates. SiteCommons verifies that these coordinates fall within the custom geofence perimeter configured for that project site and, on Android, blocks check-ins when a mock-location (fake GPS) app is active.',
   },
   {
     category: 'Field & GPS',
-    q: 'Does Task Pilot track employee locations all day in the background?',
-    a: 'No. Task Pilot strictly uses point-in-time geofencing. Location coordinates are accessed only for a split second when the employee taps Check In or Check Out. We never track employees throughout the day, ensuring complete privacy compliance and zero battery drain.',
+    q: 'Does SiteCommons track employee locations all day in the background?',
+    a: 'No. SiteCommons strictly uses point-in-time geofencing. Location coordinates are accessed only for a split second when the employee taps Check In or Check Out. We never track employees throughout the day, ensuring complete privacy compliance and zero battery drain.',
   },
   {
     category: 'Field & GPS',
     q: 'What happens when a jobsite has spotty or zero 4G connectivity?',
-    a: 'Task Pilot is engineered with offline cache resilience. Site teams can record attendance, take DPR progress photos, and fill out checklists even in basements or remote work fronts. Data syncs automatically once connectivity is restored.',
+    a: 'SiteCommons is engineered with offline cache resilience. Site teams can record attendance, take DPR progress photos, and fill out checklists even in basements or remote work fronts. Data syncs automatically once connectivity is restored.',
   },
   {
     category: 'Field & GPS',
@@ -78,7 +78,7 @@ const ALL_FAQS: FaqItem[] = [
   {
     category: 'Security',
     q: 'Can site workers see our tender rates or commercial profit margins?',
-    a: 'No. Task Pilot enforces strict 8-tier role gating (Director, Admin, PM, Site Engineer, Foreman, Labour, Accounts, Client View-Only). Commercial rates, BOQ tender values, and staff salaries are visible strictly to Directors and Accounts.',
+    a: 'No. SiteCommons enforces strict 8-tier role gating (Director, Admin, PM, Site Engineer, Foreman, Labour, Accounts, Client View-Only). Commercial rates, BOQ tender values, and staff salaries are visible strictly to Directors and Accounts.',
   },
   {
     category: 'Security',
@@ -97,8 +97,8 @@ const ALL_FAQS: FaqItem[] = [
   },
   {
     category: 'Onboarding',
-    q: 'Can we test Task Pilot on a single pilot project first?',
-    a: 'Yes. We encourage contractors to test Task Pilot on a single active jobsite during the 14-day free trial to experience the difference in daily DPR submission and GPS attendance before rolling out across their entire portfolio.',
+    q: 'Can we test SiteCommons on a single pilot project first?',
+    a: 'Yes. We encourage contractors to test SiteCommons on a single active jobsite during the 14-day free trial to experience the difference in daily DPR submission and GPS attendance before rolling out across their entire portfolio.',
   },
 ];
 
@@ -118,8 +118,8 @@ export const FaqPage: React.FC = () => {
   });
 
   useSeo({
-    title: 'Frequently Asked Questions (FAQ) | Task Pilot Construction Software',
-    description: 'Find answers to common questions about Task Pilot: GPS attendance, daily DPR reporting, BOQ cost control, flat team pricing, security, and mobile apps.',
+    title: 'Frequently Asked Questions (FAQ) | SiteCommons Construction Software',
+    description: 'Find answers to common questions about SiteCommons: GPS attendance, daily DPR reporting, BOQ cost control, flat team pricing, security, and mobile apps.',
     path: '/faq',
     jsonLd: {
       '@context': 'https://schema.org',
@@ -145,7 +145,7 @@ export const FaqPage: React.FC = () => {
             Frequently Asked Questions
           </h1>
           <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-2xl mx-auto">
-            Everything you need to know about Task Pilot's features, pricing, GPS geofencing, security, and jobsite deployment.
+            Everything you need to know about SiteCommons's features, pricing, GPS geofencing, security, and jobsite deployment.
           </p>
 
           {/* Search */}

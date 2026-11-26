@@ -1,7 +1,7 @@
-# Task Pilot — Operations Runbook
+# SiteCommons — Operations Runbook
 
 Deploy, secure, back up, and respond to incidents. Keep this current; it is the
-single source of truth for running Task Pilot in production.
+single source of truth for running SiteCommons in production.
 
 ---
 
@@ -32,7 +32,7 @@ flutter build ipa --release            # iOS -> Transporter -> TestFlight
 
 - **Android:** upload `build/app/outputs/bundle/release/app-release.aab` to the
   Play Console (internal testing → production).
-- **iOS:** open Apple **Transporter**, drag in `build/ios/ipa/Task Pilot.ipa`,
+- **iOS:** open Apple **Transporter**, drag in `build/ios/ipa/SiteCommons.ipa`,
   Deliver → appears in TestFlight. The build number must always increase.
 
 ---

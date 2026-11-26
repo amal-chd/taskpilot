@@ -1,3 +1,4 @@
+import { ProductScreenshot } from './ProductScreenshot';
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
 
@@ -18,7 +19,7 @@ export const ScreenshotLightbox: React.FC<ScreenshotLightboxProps> = ({
   src,
   title,
   caption,
-  badge = 'Task Pilot Real App UI',
+  badge = 'SiteCommons product preview',
 }) => {
   const actualSrc = imageSrc || src || '';
   useEffect(() => {
@@ -67,7 +68,7 @@ export const ScreenshotLightbox: React.FC<ScreenshotLightboxProps> = ({
 
         {/* Scrollable / Zoomable Image view */}
         <div className="p-3 sm:p-5 overflow-auto flex-1 flex items-center justify-center bg-slate-950/50">
-          <img
+          <ProductScreenshot
             src={actualSrc}
             alt={title}
             className="rounded-lg shadow-2xl max-w-full max-h-[75vh] object-contain border border-slate-800"

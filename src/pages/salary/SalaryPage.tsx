@@ -35,7 +35,7 @@ function printSlip(slip: SalarySlip) {
     list.filter((c) => c.label || c.amount)
       .map((c) => `<tr><td>${c.label || '—'}</td><td style="text-align:right">${money(c.amount)}</td></tr>`)
       .join('');
-  const orgName = useTenantStore.getState().context?.org?.name || 'Task Pilot';
+  const orgName = useTenantStore.getState().context?.org?.name || 'SiteCommons';
   const html = `<!doctype html><html><head><meta charset="utf-8"><title>Payslip - ${slip.userName} - ${monthLabel(slip.month)}</title>
   <style>
     *{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;box-sizing:border-box}

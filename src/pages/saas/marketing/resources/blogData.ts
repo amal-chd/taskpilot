@@ -75,10 +75,10 @@ export const BLOG_POSTS: BlogPost[] = [
           },
         },
         {
-          heading: '3. The 3-Minute Digital DPR Workflow in Task Pilot',
+          heading: '3. The 3-Minute Digital DPR Workflow in SiteCommons',
           paragraphs: [
-            'Task Pilot turns daily progress reporting from an exhausting evening chore into a rapid mobile routine that site engineers complete directly on their phones before leaving the jobsite.',
-            'The mobile interface pre-populates date, weather, and active project metadata. The engineer logs trade headcounts with simple numeric steppers, selects executed tasks, attaches timestamped camera photos, and taps Submit. Task Pilot instantly formats the entry into a branded, client-ready PDF that leadership can view across all projects in real time.',
+            'SiteCommons turns daily progress reporting from an exhausting evening chore into a rapid mobile routine that site engineers complete directly on their phones before leaving the jobsite.',
+            'The mobile interface pre-populates date, weather, and active project metadata. The engineer logs trade headcounts with simple numeric steppers, selects executed tasks, attaches timestamped camera photos, and taps Submit. SiteCommons instantly formats the entry into a branded, client-ready PDF that leadership can view across all projects in real time.',
           ],
           checklist: [
             'Step 1: Check-in confirmation via GPS to verify supervisor site presence',
@@ -89,7 +89,7 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
         },
       ],
-      conclusion: 'Standardizing your daily site diary is the highest-leverage operational improvement any contractor or developer can make. By moving to structured mobile DPRs with Task Pilot, field teams save hours of manual transcription while executive leadership gains complete, audit-proof transparency across every active work front.',
+      conclusion: 'Standardizing your daily site diary is the highest-leverage operational improvement any contractor or developer can make. By moving to structured mobile DPRs with SiteCommons, field teams save hours of manual transcription while executive leadership gains complete, audit-proof transparency across every active work front.',
     },
   },
   {
@@ -133,9 +133,9 @@ export const BLOG_POSTS: BlogPost[] = [
           },
         },
         {
-          heading: '3. How Task Pilot Enforces Location-Verified Geofencing',
+          heading: '3. How SiteCommons Enforces Location-Verified Geofencing',
           paragraphs: [
-            'Task Pilot allows administrators to define an exact geofence radius (e.g., 100 meters) around each project site’s physical coordinates. When staff tap Check In on the mobile app, Task Pilot cross-references their GPS coordinate against the geofence perimeter, and on Android it refuses check-ins while a mock-location (fake GPS) app is active.',
+            'SiteCommons allows administrators to define an exact geofence radius (e.g., 100 meters) around each project site’s physical coordinates. When staff tap Check In on the mobile app, SiteCommons cross-references their GPS coordinate against the geofence perimeter, and on Android it refuses check-ins while a mock-location (fake GPS) app is active.',
             'If the check-in is verified, the worker enters the active site muster. Head office sees a live counter showing exactly who is on each site right now. At shift end, checkout time is recorded and any hours beyond the standard 8-hour shift are automatically calculated into an overtime log.',
           ],
           keyTakeaways: [
@@ -146,7 +146,7 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
         },
       ],
-      conclusion: 'Accountability does not require invasive surveillance or fragile hardware. With Task Pilot’s point-in-time GPS geofencing, contractors gain verified attendance accuracy, eliminate ghost labor disputes, and ensure every dollar billed reflects real boots on the ground.',
+      conclusion: 'Accountability does not require invasive surveillance or fragile hardware. With SiteCommons’s point-in-time GPS geofencing, contractors gain verified attendance accuracy, eliminate ghost labor disputes, and ensure every dollar billed reflects real boots on the ground.',
     },
   },
   {
@@ -188,7 +188,7 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: '2. The Failure of Disconnected Excel BOQ Tracking',
           paragraphs: [
             'Most contracting firms maintain their Bill of Quantities (BOQ) in complex desktop Excel workbooks. Site engineers rarely update these files because they are too cumbersome for mobile use. Instead, quantities are tallied at month-end under high pressure, meaning cost overruns are discovered 30 to 45 days after the money was committed.',
-            'Task Pilot solves this by embedding the BOQ directly into daily site execution. Site engineers mark quantities completed against BOQ line items as tasks are signed off, updating EV and CPI in real time.',
+            'SiteCommons solves this by embedding the BOQ directly into daily site execution. Site engineers mark quantities completed against BOQ line items as tasks are signed off, updating EV and CPI in real time.',
           ],
           callout: {
             title: 'Early Warning with CPI',
@@ -198,12 +198,12 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: '3. Practical Example: From Excel Import to Real-Time Margin Protection',
           paragraphs: [
-            'When setting up a project in Task Pilot, upload your tender BOQ spreadsheet with unit rates, quantities, and milestone groupings. As work progresses, materials issued from site inventory and labor musters logged in DPRs automatically feed into the Actual Cost (AC).',
+            'When setting up a project in SiteCommons, upload your tender BOQ spreadsheet with unit rates, quantities, and milestone groupings. As work progresses, materials issued from site inventory and labor musters logged in DPRs automatically feed into the Actual Cost (AC).',
             'The executive dashboard displays the Cost Performance Index (CPI) and Schedule Variance (SV) dynamically, giving managing directors a single forward-looking scorecard across all active sites.',
           ],
         },
       ],
-      conclusion: 'Construction margins are won or lost in daily increments. Implementing automated Earned Value BOQ tracking with Task Pilot eliminates financial blind spots, ensures subcontractor claims match verified quantities, and protects contractor profitability.',
+      conclusion: 'Construction margins are won or lost in daily increments. Implementing automated Earned Value BOQ tracking with SiteCommons eliminates financial blind spots, ensures subcontractor claims match verified quantities, and protects contractor profitability.',
     },
   },
   {
@@ -232,14 +232,14 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: '1. The Lost Drawing Dilemma: Building Off Obsolete Revisions',
           paragraphs: [
             'Consider a typical scenario: an architect sends Revision 3 of a reflected ceiling plan (RCP) via a PDF attachment in a WhatsApp group containing 25 people. Three days and 400 messages later, the site carpenter scrolls back, accidentally downloads Revision 2 from last week, and installs framing in the wrong locations.',
-            'In Task Pilot, drawings live in a dedicated revision-controlled document vault. When an engineer or carpenter opens the mobile app on site, they only see the currently approved revision with clear status badges, completely eliminating obsolete paper build errors.',
+            'In SiteCommons, drawings live in a dedicated revision-controlled document vault. When an engineer or carpenter opens the mobile app on site, they only see the currently approved revision with clear status badges, completely eliminating obsolete paper build errors.',
           ],
         },
         {
           heading: '2. Verbal Directives and the "I Never Saw That" Excuse',
           paragraphs: [
             'When a project manager messages "Please double check the cover blocks on Tower B before 3 PM", who is officially responsible? If three engineers are in the group, everyone assumes someone else handled it. When concrete cracks and honeycomb forms, there is no verified signature or time-stamped proof.',
-            'Task Pilot enforces single or role-based ownership with explicit 3-step verification: In Progress → Under Review → Done. A task cannot close until the designated engineer conducts the inspection, uploads photographic evidence, and the manager digitally signs off.',
+            'SiteCommons enforces single or role-based ownership with explicit 3-step verification: In Progress → Under Review → Done. A task cannot close until the designated engineer conducts the inspection, uploads photographic evidence, and the manager digitally signs off.',
           ],
           keyTakeaways: [
             'WhatsApp messages lack task state, due dates, ownership, and approval gates',
@@ -250,12 +250,12 @@ export const BLOG_POSTS: BlogPost[] = [
         {
           heading: '3. Purpose-Built Site Channels vs Personal Group Chats',
           paragraphs: [
-            'Task Pilot provides structured site-specific communication channels that maintain professional boundaries. Channels are automatically synchronized with project membership. Staff can tag roles like @SiteEngineer or @Accounts to notify all relevant personnel without disturbing everyone else.',
+            'SiteCommons provides structured site-specific communication channels that maintain professional boundaries. Channels are automatically synchronized with project membership. Staff can tag roles like @SiteEngineer or @Accounts to notify all relevant personnel without disturbing everyone else.',
             'Most importantly, task links, inspection records, and drawing references can be embedded directly into chat conversations, keeping operational discussions linked to real project data.',
           ],
         },
       ],
-      conclusion: 'WhatsApp is a brilliant consumer chat app, but it is not a project operating system. Transitioning your field team to Task Pilot restores organizational discipline, protects your legal standing, and ensures every directive is tracked to verified completion.',
+      conclusion: 'WhatsApp is a brilliant consumer chat app, but it is not a project operating system. Transitioning your field team to SiteCommons restores organizational discipline, protects your legal standing, and ensures every directive is tracked to verified completion.',
     },
   },
   {
@@ -311,14 +311,14 @@ export const BLOG_POSTS: BlogPost[] = [
           ],
         },
         {
-          heading: '3. MEP Embedments and Digital Sign-Off in Task Pilot',
+          heading: '3. MEP Embedments and Digital Sign-Off in SiteCommons',
           paragraphs: [
-            'Electrical conduits, plumbing sleeve sleeves, inserts, and lightning arresters must be secured before steel closure. In Task Pilot, the Pre-Pour Hold Point checklist requires joint sign-offs: the MEP supervisor checks conduit paths, the QA engineer verifies steel, and the Project Manager clears the digital hold point.',
+            'Electrical conduits, plumbing sleeve sleeves, inserts, and lightning arresters must be secured before steel closure. In SiteCommons, the Pre-Pour Hold Point checklist requires joint sign-offs: the MEP supervisor checks conduit paths, the QA engineer verifies steel, and the Project Manager clears the digital hold point.',
             'Photos of the prepared slab are uploaded with geo-timestamps, creating an immutable pre-pour record that remains permanently attached to the project history.',
           ],
         },
       ],
-      conclusion: 'A rigorous pre-pour inspection separates master builders from sloppy contractors. With Task Pilot’s digital inspection checklists, engineering hold points become mandatory, visible, and transparent across the entire construction team.',
+      conclusion: 'A rigorous pre-pour inspection separates master builders from sloppy contractors. With SiteCommons’s digital inspection checklists, engineering hold points become mandatory, visible, and transparent across the entire construction team.',
     },
   },
   {
@@ -354,7 +354,7 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: '2. The Digital Snagging Protocol: Room, Trade, Photo, and Action',
           paragraphs: [
             'Modern defect management requires four data points for every single punch item: the precise zone/room, the trade responsible, a high-resolution photo with graphical markup, and a mandatory resolution deadline.',
-            'When inspectors walk a project with Task Pilot on a tablet or smartphone, tapping "Add Snag" takes under 15 seconds. The engineer pins the room, tags the responsible contractor (e.g., painting subcontractor), snaps the photo, and circles the scratch or defect. The subcontractor receives an instant notification with the exact photo.',
+            'When inspectors walk a project with SiteCommons on a tablet or smartphone, tapping "Add Snag" takes under 15 seconds. The engineer pins the room, tags the responsible contractor (e.g., painting subcontractor), snaps the photo, and circles the scratch or defect. The subcontractor receives an instant notification with the exact photo.',
           ],
           keyTakeaways: [
             'Every snag must have a visual photo with markup arrows pointing to the defect',
@@ -366,11 +366,11 @@ export const BLOG_POSTS: BlogPost[] = [
           heading: '3. Expediting Final Client Handover and Retention Payment Release',
           paragraphs: [
             'When the client or developer conducts their formal pre-handover audit, having a clean, transparent digital snag log changes the dynamic from contentious dispute to professional collaboration.',
-            'Task Pilot lets you export a branded Handover Certificate demonstrating that 100% of recorded items were inspected, rectified, and approved. This transparency accelerates client sign-off and enables rapid release of contract retention bank guarantees.',
+            'SiteCommons lets you export a branded Handover Certificate demonstrating that 100% of recorded items were inspected, rectified, and approved. This transparency accelerates client sign-off and enables rapid release of contract retention bank guarantees.',
           ],
         },
       ],
-      conclusion: 'Don’t let minor defect rectifications delay your project completion. Implementing structured mobile snagging with Task Pilot shortens the handover cycle, delights property owners, and ensures your team gets paid in full on time.',
+      conclusion: 'Don’t let minor defect rectifications delay your project completion. Implementing structured mobile snagging with SiteCommons shortens the handover cycle, delights property owners, and ensures your team gets paid in full on time.',
     },
   },
 ];

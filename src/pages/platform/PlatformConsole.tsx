@@ -556,7 +556,7 @@ const PlatformConsole: React.FC = () => {
         <div className="max-w-md text-center bg-white rounded-2xl border p-8">
           <ShieldAlert className="w-10 h-10 text-slate-400 mx-auto" />
           <h1 className="mt-4 text-xl font-bold">Platform access required</h1>
-          <p className="text-sm text-slate-600 mt-2">{needsVerify ? `Verify ${firebaseUser.email} to unlock the platform console, then sign in again.` : 'This area is limited to Task Pilot platform administrators.'}</p>
+          <p className="text-sm text-slate-600 mt-2">{needsVerify ? `Verify ${firebaseUser.email} to unlock the platform console, then sign in again.` : 'This area is limited to SiteCommons platform administrators.'}</p>
           {needsVerify && (
             <button disabled={verifySent} onClick={() => sendEmailVerification(firebaseUser).then(() => { setVerifySent(true); toast.success('Verification email sent'); }).catch((e) => toast.error(e.message))}
               className="mt-5 h-10 px-5 rounded-lg bg-slate-900 text-white text-sm font-semibold disabled:opacity-60">{verifySent ? 'Email sent — check your inbox' : 'Send verification email'}</button>

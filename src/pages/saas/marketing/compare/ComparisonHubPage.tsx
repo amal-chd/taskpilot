@@ -10,15 +10,15 @@ import { trackComparisonClick } from '../../../../lib/analytics';
 
 export const ComparisonHubPage: React.FC = () => {
   useSeo({
-    title: 'Compare Task Pilot to Other Construction Management Software | 2026 Reviews',
-    description: 'See how Task Pilot stacks up against Procore, Fieldwire, Asana, Monday.com, ClickUp, and Powerplay. Compare field features, pricing models, and time to value.',
+    title: 'Compare SiteCommons to Other Construction Management Software | 2026 Reviews',
+    description: 'See how SiteCommons stacks up against Procore, Fieldwire, Asana, Monday.com, ClickUp, and Powerplay. Compare field features, pricing models, and time to value.',
     path: '/compare',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Task Pilot Software Comparison & Alternatives Hub',
-      description: 'Independent evaluation comparing Task Pilot to leading construction and task management platforms.',
-      url: 'https://taskpilot.thekada.in/compare',
+      name: 'SiteCommons Software Comparison & Alternatives Hub',
+      description: 'Independent evaluation comparing SiteCommons to leading construction and task management platforms.',
+      url: 'https://sitecommons.thekada.in/compare',
     },
   });
 
@@ -31,11 +31,11 @@ export const ComparisonHubPage: React.FC = () => {
         <Section className="text-center max-w-4xl mx-auto">
           <Eyebrow>Software Evaluation Guide</Eyebrow>
           <h1 className="mt-3 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink-900 leading-tight">
-            How Task Pilot Compares to the Market
+            How SiteCommons Compares to the Market
           </h1>
           <p className="mt-4 text-base sm:text-lg text-ink-600 leading-relaxed max-w-2xl mx-auto">
             Choosing software for your active project sites is a critical decision. Here are honest, fact-based evaluations
-            comparing Task Pilot to both generic task tools and legacy construction megasuites.
+            comparing SiteCommons to both generic task tools and legacy construction megasuites.
           </p>
         </Section>
       </div>
@@ -52,13 +52,13 @@ export const ComparisonHubPage: React.FC = () => {
                 <span className="text-[11px] font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2.5 py-1 rounded-full border border-brand-200/60 inline-block mb-4">
                   {c.category}
                 </span>
-                <h2 className="text-2xl font-bold text-ink-900">Task Pilot vs {c.competitorName}</h2>
+                <h2 className="text-2xl font-bold text-ink-900">SiteCommons vs {c.competitorName}</h2>
                 <p className="text-xs font-semibold text-brand-600 mt-1">{c.tagline}</p>
                 <p className="mt-3 text-sm text-ink-600 leading-relaxed line-clamp-3">{c.heroSummary}</p>
 
                 <div className="mt-5 pt-4 border-t border-ink-100 text-xs space-y-1.5 text-ink-700">
                   <p><strong className="text-ink-800">{c.competitorName} Model:</strong> {c.pricingComparison.competitorModel}</p>
-                  <p><strong className="text-ink-800">Task Pilot Model:</strong> Flat team pricing (No per-seat tax)</p>
+                  <p><strong className="text-ink-800">SiteCommons Model:</strong> Flat team pricing (No per-seat tax)</p>
                 </div>
               </div>
 
@@ -99,13 +99,13 @@ export const ComparisonHubPage: React.FC = () => {
         </div>
       </Section>
 
-      {/* ─── Why Task Pilot Wins ─── */}
+      {/* ─── Why SiteCommons Wins ─── */}
       <div className="bg-ink-900 text-white py-20 border-t border-ink-800">
         <Section>
           <div className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-300">The Strategic Difference</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white">
-              Why builders switch to Task Pilot
+              Why builders switch to SiteCommons
             </h2>
             <p className="mt-2 text-ink-200 text-sm">
               We eliminated the compromises that hold back existing construction tools.
@@ -150,7 +150,7 @@ export const ComparisonHubPage: React.FC = () => {
       <Section className="py-20">
         <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight">Ready to see why contractors choose Task Pilot?</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Ready to see why contractors choose SiteCommons?</h2>
             <p className="mt-2 text-ink-200 text-sm">Start your 14-day full free trial now. No credit card required.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">

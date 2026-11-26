@@ -29,12 +29,12 @@ export interface CompetitorComparison {
 }
 
 export const COMPETITORS: Record<string, CompetitorComparison> = {
-  'taskpilot-vs-procore': {
-    slug: 'taskpilot-vs-procore',
+  'sitecommons-vs-procore': {
+    slug: 'sitecommons-vs-procore',
     competitorName: 'Procore',
     tagline: 'Enterprise suite vs focused construction platform',
     category: 'Construction Management Software',
-    heroSummary: 'Procore is the undisputed heavyweight for billion-dollar global general contractors with massive annual construction volume. Task Pilot is engineered for small and mid-market builders who need fast jobsite control without six-figure annual contracts or 6-month IT deployments.',
+    heroSummary: 'Procore is the undisputed heavyweight for billion-dollar global general contractors with massive annual construction volume. SiteCommons is engineered for small and mid-market builders who need fast jobsite control without six-figure annual contracts or 6-month IT deployments.',
     competitorAudience: 'Tier-1 enterprise EPCs, ENR 400 global general contractors with annual construction volume exceeding $50M–$500M.',
     taskPilotAudience: 'SMB and mid-market general contractors, residential developers, and trade contractors running 1 to 25 active project sites.',
     pricingComparison: {
@@ -42,17 +42,17 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorEstimatedCost: 'Typically $10,000 to $100,000+ per year locked into multi-year contracts with implementation consulting fees.',
       taskPilotModel: 'Transparent flat monthly or annual team tiers in your local currency.',
       taskPilotEstimatedCost: 'Starts at $19/mo (₹1,499/mo) up to $99/mo (₹7,999/mo) flat for up to 100 users with zero per-seat penalty.',
-      pricingVerdict: 'Task Pilot costs 85% to 95% less than Procore with 100% self-serve transparency and a 14-day free trial without a sales rep.',
+      pricingVerdict: 'SiteCommons costs 85% to 95% less than Procore with 100% self-serve transparency and a 14-day free trial without a sales rep.',
     },
     matrix: [
-      { feature: 'Location-Verified GPS Geofenced Attendance', taskPilot: true, competitor: 'Add-on ($$$)', note: 'Task Pilot includes native point-in-time perimeter check-ins with zero battery drain.' },
-      { feature: 'Daily Site Diary / DPR with Weather & Trade Mustering', taskPilot: true, competitor: true, note: 'Both capture daily logs; Task Pilot enables 3-minute completion on mobile.' },
-      { feature: 'BOQ Import & Earned Value (EV / CPI) Cost Control', taskPilot: true, competitor: 'Custom / High Tier', note: 'Task Pilot tracks Planned Value vs Earned Value dynamically.' },
+      { feature: 'Location-Verified GPS Geofenced Attendance', taskPilot: true, competitor: 'Add-on ($$$)', note: 'SiteCommons includes native point-in-time perimeter check-ins with zero battery drain.' },
+      { feature: 'Daily Site Diary / DPR with Weather & Trade Mustering', taskPilot: true, competitor: true, note: 'Both capture daily logs; SiteCommons enables 3-minute completion on mobile.' },
+      { feature: 'BOQ Import & Earned Value (EV / CPI) Cost Control', taskPilot: true, competitor: 'Custom / High Tier', note: 'SiteCommons tracks Planned Value vs Earned Value dynamically.' },
       { feature: 'Pre-Pour Inspection Hold Points & Snag Lists', taskPilot: true, competitor: true, note: 'Both enforce rigorous quality checklists and defect photo annotations.' },
-      { feature: 'Petty Cash Site Expenses & Payroll Salary Slips', taskPilot: true, competitor: false, note: 'Task Pilot includes integrated site expenses, leave, and staff payslips.' },
+      { feature: 'Petty Cash Site Expenses & Payroll Salary Slips', taskPilot: true, competitor: false, note: 'SiteCommons includes integrated site expenses, leave, and staff payslips.' },
       { feature: 'Self-Serve Onboarding (Live in under 10 minutes)', taskPilot: true, competitor: false, note: 'Procore requires dedicated implementation consultants and months of setup.' },
-      { feature: 'Public Flat Team Pricing (No Per-Seat or Volume Tax)', taskPilot: true, competitor: false, note: 'Task Pilot never penalizes you for adding field supervisors and site engineers.' },
-      { feature: 'Multi-Currency & Regional Tax (USD, INR with GST, AED, EUR)', taskPilot: true, competitor: 'USD Only (custom)', note: 'Task Pilot generates compliant GST/VAT corporate invoices in local currencies.' },
+      { feature: 'Public Flat Team Pricing (No Per-Seat or Volume Tax)', taskPilot: true, competitor: false, note: 'SiteCommons never penalizes you for adding field supervisors and site engineers.' },
+      { feature: 'Multi-Currency & Regional Tax (USD, INR with GST, AED, EUR)', taskPilot: true, competitor: 'USD Only (custom)', note: 'SiteCommons generates compliant GST/VAT corporate invoices in local currencies.' },
     ],
     competitorStrengths: [
       'Extensive integration marketplace with 400+ enterprise ERPs and accounting systems (SAP, Oracle, Sage 300)',
@@ -80,14 +80,14 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       'Teams that want to eliminate WhatsApp chaos and paper muster without six-figure software budgets',
       'Contractors in India, the Middle East, and emerging markets needing INR/AED/USD billing with local tax compliance',
     ],
-    verdict: 'If you are building a $200M airport and have a dedicated IT department, Procore is the industry standard. But if you are a growing contractor or builder who wants clean task verification, GPS attendance, daily DPRs, and BOQ cost control without spending a fortune, Task Pilot delivers 90% of the field value at a fraction of the cost.',
+    verdict: 'If you are building a $200M airport and have a dedicated IT department, Procore is the industry standard. But if you are a growing contractor or builder who wants clean task verification, GPS attendance, daily DPRs, and BOQ cost control without spending a fortune, SiteCommons delivers 90% of the field value at a fraction of the cost.',
     faqs: [
-      { q: 'Can we migrate from Procore or Excel to Task Pilot?', a: 'Yes. You can import projects, staff rosters, and Bill of Quantities (BOQ) line items via standard Excel templates. Our onboarding team can assist in migrating active sites within 48 hours.' },
-      { q: 'Why is Task Pilot so much more affordable than Procore?', a: 'Procore prices its software as a percentage of your total construction volume and maintains thousands of enterprise sales staff. Task Pilot operates on a lean, product-led model with flat team pricing designed for high adoption.' },
+      { q: 'Can we migrate from Procore or Excel to SiteCommons?', a: 'Yes. You can import projects, staff rosters, and Bill of Quantities (BOQ) line items via standard Excel templates. Our onboarding team can assist in migrating active sites within 48 hours.' },
+      { q: 'Why is SiteCommons so much more affordable than Procore?', a: 'Procore prices its software as a percentage of your total construction volume and maintains thousands of enterprise sales staff. SiteCommons operates on a lean, product-led model with flat team pricing designed for high adoption.' },
     ],
   },
-  'taskpilot-vs-fieldwire': {
-    slug: 'taskpilot-vs-fieldwire',
+  'sitecommons-vs-fieldwire': {
+    slug: 'sitecommons-vs-fieldwire',
     competitorName: 'Fieldwire',
     tagline: 'Flat Team Pricing vs Per-Seat Penalty',
     category: 'Field Management Software',
@@ -98,17 +98,17 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorModel: 'Strict per-user monthly seat licensing ($39 to $89 per user per month on Pro/Business tiers).',
       competitorEstimatedCost: 'A team of 25 field engineers and supervisors costs $975 to $2,225 every single month.',
       taskPilotModel: 'Flat team pricing with generous user bundles (no per-seat penalties).',
-      taskPilotEstimatedCost: 'Task Pilot Professional costs only $49/mo (or ₹3,999/mo) flat for up to 30 users with all modules included.',
-      pricingVerdict: 'For a 25-person team, Task Pilot saves you over $900 per month ($10,800+ annually) while providing deeper commercial and attendance features.',
+      taskPilotEstimatedCost: 'SiteCommons Professional costs only $49/mo (or ₹3,999/mo) flat for up to 30 users with all modules included.',
+      pricingVerdict: 'For a 25-person team, SiteCommons saves you over $900 per month ($10,800+ annually) while providing deeper commercial and attendance features.',
     },
     matrix: [
       { feature: 'Location-Verified GPS Geofenced Attendance', taskPilot: true, competitor: false, note: 'Fieldwire does not include geofenced check-in or muster tracking.' },
-      { feature: 'Daily Site Diary (DPR) with Manpower Headcounts', taskPilot: true, competitor: 'Form Builder ($$$)', note: 'Fieldwire requires higher-tier custom forms; Task Pilot includes native DPRs.' },
+      { feature: 'Daily Site Diary (DPR) with Manpower Headcounts', taskPilot: true, competitor: 'Form Builder ($$$)', note: 'Fieldwire requires higher-tier custom forms; SiteCommons includes native DPRs.' },
       { feature: 'BOQ Import & Earned Value (EV / CPI) Tracking', taskPilot: true, competitor: false, note: 'Fieldwire has no native Bill of Quantities or Earned Value cost module.' },
       { feature: 'Blueprint & Drawing Revision Control', taskPilot: true, competitor: true, note: 'Both offer drawing management; Fieldwire has strong vector markup.' },
-      { feature: 'Petty Cash Expenses & Monthly Salary Slips', taskPilot: true, competitor: false, note: 'Task Pilot unifies field expenses, leave requests, and staff payslips.' },
+      { feature: 'Petty Cash Expenses & Monthly Salary Slips', taskPilot: true, competitor: false, note: 'SiteCommons unifies field expenses, leave requests, and staff payslips.' },
       { feature: 'Predictable Flat Team Pricing (No Per-Seat Tax)', taskPilot: true, competitor: false, note: 'Fieldwire charges $39–$89 for every single user invited.' },
-      { feature: '8-Tier Pre-Configured Construction Hierarchy', taskPilot: true, competitor: false, note: 'Task Pilot features custom roles from Director down to Site Labour.' },
+      { feature: '8-Tier Pre-Configured Construction Hierarchy', taskPilot: true, competitor: false, note: 'SiteCommons features custom roles from Director down to Site Labour.' },
     ],
     competitorStrengths: [
       'Very polished blueprint drawing viewer with offline plan comparison tools',
@@ -134,14 +134,14 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       'General contractors and builders who want full operational visibility from attendance to BOQ spend',
       'Firms that refuse to pay $50/month per seat just to let a site supervisor view tasks',
     ],
-    verdict: 'Fieldwire is a good blueprint viewer, but its per-seat pricing model punishes construction companies for growing their field crews. Task Pilot delivers a complete office-and-field operating system with GPS attendance, DPRs, and BOQ cost control at a predictable flat team rate.',
+    verdict: 'Fieldwire is a good blueprint viewer, but its per-seat pricing model punishes construction companies for growing their field crews. SiteCommons delivers a complete office-and-field operating system with GPS attendance, DPRs, and BOQ cost control at a predictable flat team rate.',
     faqs: [
-      { q: 'Can field workers view drawings offline in Task Pilot like in Fieldwire?', a: 'Yes. Task Pilot caches drawings and project documents locally on Android and iOS devices so engineers can inspect blueprints even in deep basements or remote work fronts.' },
-      { q: 'Why does Task Pilot include attendance and payroll tools while Fieldwire does not?', a: 'We believe construction management should connect the physical jobsite directly to head office commercials. Tracking attendance, expenses, and DPRs in the same system eliminates double data entry.' },
+      { q: 'Can field workers view drawings offline in SiteCommons like in Fieldwire?', a: 'Yes. SiteCommons caches drawings and project documents locally on Android and iOS devices so engineers can inspect blueprints even in deep basements or remote work fronts.' },
+      { q: 'Why does SiteCommons include attendance and payroll tools while Fieldwire does not?', a: 'We believe construction management should connect the physical jobsite directly to head office commercials. Tracking attendance, expenses, and DPRs in the same system eliminates double data entry.' },
     ],
   },
-  'taskpilot-vs-asana': {
-    slug: 'taskpilot-vs-asana',
+  'sitecommons-vs-asana': {
+    slug: 'sitecommons-vs-asana',
     competitorName: 'Asana',
     tagline: 'Purpose-Built Construction OS vs Generic Desk Productivity',
     category: 'Work Management Software',
@@ -153,16 +153,16 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorEstimatedCost: 'A team of 30 costs $330 to $750 per month, penalizing firms for adding field workers.',
       taskPilotModel: 'Flat predictable team tiers.',
       taskPilotEstimatedCost: '$19/mo (₹1,499) for 10 users, $49/mo (₹3,999) for 30 users, $99/mo (₹7,999) for 100 users.',
-      pricingVerdict: 'Task Pilot is purpose-built for jobsites, includes field-specific features Asana will never build, and costs substantially less.',
+      pricingVerdict: 'SiteCommons is purpose-built for jobsites, includes field-specific features Asana will never build, and costs substantially less.',
     },
     matrix: [
       { feature: 'Location-Verified GPS Geofenced Attendance', taskPilot: true, competitor: false, note: 'Asana has no mobile GPS geofencing or site radius verification.' },
       { feature: 'Daily Site Diary / DPR (Weather, Trade Muster, Photos)', taskPilot: true, competitor: false, note: 'Asana has no structured construction daily reporting format.' },
       { feature: 'BOQ Import & Earned Value (EV / CPI) Cost Tracking', taskPilot: true, competitor: false, note: 'Asana cannot link physical tasks to Bill of Quantities financial line items.' },
-      { feature: '3-Step Inspection Sign-Offs (In Progress → Review → Done)', taskPilot: true, competitor: 'Partial', note: 'Asana tasks close with 1 click; Task Pilot enforces manager digital approvals.' },
-      { feature: 'Pre-Pour Concrete Hold Points & Snag Checklists', taskPilot: true, competitor: false, note: 'Task Pilot includes standardized construction quality checklists.' },
-      { feature: 'Plant, Machinery & Heavy Equipment Allocation', taskPilot: true, competitor: false, note: 'Task Pilot registers cranes, excavators, and generators across sites.' },
-      { feature: 'Site Channels with @Role Mentioning (@SiteEngineer)', taskPilot: true, competitor: false, note: 'Task Pilot features built-in construction team chat and broadcasts.' },
+      { feature: '3-Step Inspection Sign-Offs (In Progress → Review → Done)', taskPilot: true, competitor: 'Partial', note: 'Asana tasks close with 1 click; SiteCommons enforces manager digital approvals.' },
+      { feature: 'Pre-Pour Concrete Hold Points & Snag Checklists', taskPilot: true, competitor: false, note: 'SiteCommons includes standardized construction quality checklists.' },
+      { feature: 'Plant, Machinery & Heavy Equipment Allocation', taskPilot: true, competitor: false, note: 'SiteCommons registers cranes, excavators, and generators across sites.' },
+      { feature: 'Site Channels with @Role Mentioning (@SiteEngineer)', taskPilot: true, competitor: false, note: 'SiteCommons features built-in construction team chat and broadcasts.' },
     ],
     competitorStrengths: [
       'Extremely polished UI and workflow automation builder for corporate desk environments',
@@ -188,13 +188,13 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       'Any company that builds physical infrastructure, buildings, interiors, or installations',
       'Builders tired of forcing a generic to-do app onto site engineers who refuse to use it',
     ],
-    verdict: 'Asana is built for laptops and office chairs. Task Pilot is built for hard hats and jobsite boots. If your business executes physical work on real properties, using a generic tool like Asana creates communication gaps that Task Pilot completely eliminates.',
+    verdict: 'Asana is built for laptops and office chairs. SiteCommons is built for hard hats and jobsite boots. If your business executes physical work on real properties, using a generic tool like Asana creates communication gaps that SiteCommons completely eliminates.',
     faqs: [
-      { q: 'Can we use Asana for office tasks and Task Pilot for field sites?', a: 'Many contractors initially try this, but quickly consolidate onto Task Pilot because Task Pilot handles both executive planning (Gantt, milestones, documents, leave) and jobsite execution in one unified system.' },
+      { q: 'Can we use Asana for office tasks and SiteCommons for field sites?', a: 'Many contractors initially try this, but quickly consolidate onto SiteCommons because SiteCommons handles both executive planning (Gantt, milestones, documents, leave) and jobsite execution in one unified system.' },
     ],
   },
-  'taskpilot-vs-monday': {
-    slug: 'taskpilot-vs-monday',
+  'sitecommons-vs-monday': {
+    slug: 'sitecommons-vs-monday',
     competitorName: 'Monday.com',
     tagline: 'Configured Construction OS vs Complex Spreadsheet Builder',
     category: 'Work Operating System',
@@ -206,15 +206,15 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorEstimatedCost: 'A 25-person team costs $350 to $650 per month on Monday.com.',
       taskPilotModel: 'Flat team pricing with full module access.',
       taskPilotEstimatedCost: '$19 to $99 per month flat (₹1,499 to ₹7,999/mo) with zero per-user penalties.',
-      pricingVerdict: 'Task Pilot eliminates the per-seat tax and delivers pre-built construction logic without weeks of setup consulting.',
+      pricingVerdict: 'SiteCommons eliminates the per-seat tax and delivers pre-built construction logic without weeks of setup consulting.',
     },
     matrix: [
-      { feature: 'Ready to Run on Day 1 (Zero Custom Configuration)', taskPilot: true, competitor: false, note: 'Monday requires custom column and board building; Task Pilot is pre-configured.' },
+      { feature: 'Ready to Run on Day 1 (Zero Custom Configuration)', taskPilot: true, competitor: false, note: 'Monday requires custom column and board building; SiteCommons is pre-configured.' },
       { feature: 'Location-Verified GPS Geofenced Attendance', taskPilot: true, competitor: false, note: 'Monday has no point-in-time perimeter check-in engine.' },
-      { feature: 'Daily Site Diary / DPR with Trade Muster', taskPilot: true, competitor: 'Custom Form', note: 'Task Pilot includes native weather, trade headcounts, and PDF export.' },
+      { feature: 'Daily Site Diary / DPR with Trade Muster', taskPilot: true, competitor: 'Custom Form', note: 'SiteCommons includes native weather, trade headcounts, and PDF export.' },
       { feature: 'BOQ Earned Value Management (PV, EV, AC, CPI)', taskPilot: true, competitor: false, note: 'Monday cannot calculate construction earned value indexes natively.' },
-      { feature: 'Mandatory Engineer Approval Gates', taskPilot: true, competitor: 'Complex Rule', note: 'Task Pilot enforces 3-step sign-offs natively.' },
-      { feature: 'Heavy Plant & Machinery Asset Register', taskPilot: true, competitor: 'Custom Board', note: 'Task Pilot registers equipment, maintenance logs, and site allocations.' },
+      { feature: 'Mandatory Engineer Approval Gates', taskPilot: true, competitor: 'Complex Rule', note: 'SiteCommons enforces 3-step sign-offs natively.' },
+      { feature: 'Heavy Plant & Machinery Asset Register', taskPilot: true, competitor: 'Custom Board', note: 'SiteCommons registers equipment, maintenance logs, and site allocations.' },
     ],
     competitorStrengths: [
       'Highly flexible visual table views with colorful status labels and automations',
@@ -239,13 +239,13 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
     bestForTaskPilot: [
       'Construction contractors who need verified field execution without spending weeks building custom databases',
     ],
-    verdict: 'Monday.com is a blank canvas that requires you to build your own construction tool from scratch. Task Pilot is a purpose-built operating system engineered by construction veterans, ready to coordinate your jobsites ten minutes after sign-up.',
+    verdict: 'Monday.com is a blank canvas that requires you to build your own construction tool from scratch. SiteCommons is a purpose-built operating system engineered by construction veterans, ready to coordinate your jobsites ten minutes after sign-up.',
     faqs: [
       { q: 'Why shouldn’t we just customize Monday.com for our construction company?', a: 'Customizing Monday requires dozens of custom columns, automations, and third-party integrations, and you will still lack GPS geofenced attendance, native daily DPRs, and BOQ earned value tracking.' },
     ],
   },
-  'taskpilot-vs-clickup': {
-    slug: 'taskpilot-vs-clickup',
+  'sitecommons-vs-clickup': {
+    slug: 'sitecommons-vs-clickup',
     competitorName: 'ClickUp',
     tagline: 'High-Performance Field Simplicity vs Feature-Bloated Overkill',
     category: 'Productivity Platform',
@@ -257,15 +257,15 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorEstimatedCost: 'A 30-person crew costs $210 to $360 per month on ClickUp.',
       taskPilotModel: 'Flat predictable team tiers.',
       taskPilotEstimatedCost: '$19/mo (₹1,499) to $49/mo (₹3,999) flat with all construction modules.',
-      pricingVerdict: 'Task Pilot provides a clean, fast field experience with flat pricing and native construction tools.',
+      pricingVerdict: 'SiteCommons provides a clean, fast field experience with flat pricing and native construction tools.',
     },
     matrix: [
-      { feature: 'High-Speed Mobile App for Low-Bandwidth 3G/4G Sites', taskPilot: true, competitor: false, note: 'ClickUp mobile is notoriously sluggish; Task Pilot is lightweight and fast.' },
+      { feature: 'High-Speed Mobile App for Low-Bandwidth 3G/4G Sites', taskPilot: true, competitor: false, note: 'ClickUp mobile is notoriously sluggish; SiteCommons is lightweight and fast.' },
       { feature: 'GPS Geofenced Attendance Engine', taskPilot: true, competitor: false, note: 'ClickUp has no geolocation perimeter verification.' },
-      { feature: 'Daily Site Diary (DPR) with Weather & Photos', taskPilot: true, competitor: false, note: 'Task Pilot standardizes DPRs with client-ready PDF exports.' },
-      { feature: 'Pre-Pour Structural Hold Points & Snag Lists', taskPilot: true, competitor: 'Basic Checklist', note: 'Task Pilot requires photographic evidence and engineer sign-offs.' },
+      { feature: 'Daily Site Diary (DPR) with Weather & Photos', taskPilot: true, competitor: false, note: 'SiteCommons standardizes DPRs with client-ready PDF exports.' },
+      { feature: 'Pre-Pour Structural Hold Points & Snag Lists', taskPilot: true, competitor: 'Basic Checklist', note: 'SiteCommons requires photographic evidence and engineer sign-offs.' },
       { feature: 'BOQ Earned Value Management (EVM)', taskPilot: true, competitor: false, note: 'ClickUp has no civil engineering BOQ or earned value engine.' },
-      { feature: '8-Tier Pre-Configured Construction Hierarchy', taskPilot: true, competitor: false, note: 'Task Pilot includes Director down to Site Labour roles.' },
+      { feature: '8-Tier Pre-Configured Construction Hierarchy', taskPilot: true, competitor: false, note: 'SiteCommons includes Director down to Site Labour roles.' },
     ],
     competitorStrengths: [
       'Huge variety of digital views: Mind maps, whiteboards, Gantt, and docs in one tool',
@@ -290,13 +290,13 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
     bestForTaskPilot: [
       'Contractors, builders, and field operations teams who need software that site crews will actually use',
     ],
-    verdict: 'ClickUp tries to do everything for every industry, making it bloated and slow for construction sites. Task Pilot does exactly what builders need: fast task sign-offs, GPS attendance, daily progress reports, and BOQ cost control.',
+    verdict: 'ClickUp tries to do everything for every industry, making it bloated and slow for construction sites. SiteCommons does exactly what builders need: fast task sign-offs, GPS attendance, daily progress reports, and BOQ cost control.',
     faqs: [
-      { q: 'Will our site engineers actually use Task Pilot?', a: 'Yes. We designed Task Pilot directly with site personnel. Large tap targets, high contrast, fast camera capture, and offline support make it as easy to use as consumer apps.' },
+      { q: 'Will our site engineers actually use SiteCommons?', a: 'Yes. We designed SiteCommons directly with site personnel. Large tap targets, high contrast, fast camera capture, and offline support make it as easy to use as consumer apps.' },
     ],
   },
-  'taskpilot-vs-powerplay': {
-    slug: 'taskpilot-vs-powerplay',
+  'sitecommons-vs-powerplay': {
+    slug: 'sitecommons-vs-powerplay',
     competitorName: 'Powerplay',
     tagline: 'Complete Office-and-Field Operating System vs Simple Mobile App',
     category: 'Construction Mobile Apps',
@@ -308,15 +308,15 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
       competitorEstimatedCost: 'Opaque pricing varying by sales representative.',
       taskPilotModel: '100% transparent flat team tiers in INR and international currencies.',
       taskPilotEstimatedCost: 'Starts at ₹1,499/mo ($19/mo) with full self-serve trial and instant activation.',
-      pricingVerdict: 'Task Pilot offers public pricing, self-serve sign-up, and much deeper desktop and commercial depth.',
+      pricingVerdict: 'SiteCommons offers public pricing, self-serve sign-up, and much deeper desktop and commercial depth.',
     },
     matrix: [
-      { feature: 'Enterprise Desktop Web Management Console', taskPilot: true, competitor: 'Limited', note: 'Task Pilot provides a full-featured desktop command center for head office.' },
-      { feature: 'Earned Value Management (EVM) & Real-Time CPI Tracking', taskPilot: true, competitor: false, note: 'Task Pilot tracks Planned Value vs Earned Value against tender BOQs.' },
-      { feature: 'Objective Performance & OPI Engine (Merit Scoring)', taskPilot: true, competitor: false, note: 'Task Pilot measures on-time task delivery, streaks, and attendance reliability.' },
-      { feature: 'Formal Monthly Salary Slips & Payroll Records', taskPilot: true, competitor: false, note: 'Task Pilot generates printable payslips with earnings and deductions.' },
-      { feature: 'Multi-Currency Global Billing (USD, INR, AED, EUR, GBP)', taskPilot: true, competitor: 'INR Only', note: 'Task Pilot serves international contractors and overseas projects.' },
-      { feature: '8-Tier Granular Construction Role Permission Model', taskPilot: true, competitor: 'Basic', note: 'Task Pilot protects commercial rates and profits from field view.' },
+      { feature: 'Enterprise Desktop Web Management Console', taskPilot: true, competitor: 'Limited', note: 'SiteCommons provides a full-featured desktop command center for head office.' },
+      { feature: 'Earned Value Management (EVM) & Real-Time CPI Tracking', taskPilot: true, competitor: false, note: 'SiteCommons tracks Planned Value vs Earned Value against tender BOQs.' },
+      { feature: 'Objective Performance & OPI Engine (Merit Scoring)', taskPilot: true, competitor: false, note: 'SiteCommons measures on-time task delivery, streaks, and attendance reliability.' },
+      { feature: 'Formal Monthly Salary Slips & Payroll Records', taskPilot: true, competitor: false, note: 'SiteCommons generates printable payslips with earnings and deductions.' },
+      { feature: 'Multi-Currency Global Billing (USD, INR, AED, EUR, GBP)', taskPilot: true, competitor: 'INR Only', note: 'SiteCommons serves international contractors and overseas projects.' },
+      { feature: '8-Tier Granular Construction Role Permission Model', taskPilot: true, competitor: 'Basic', note: 'SiteCommons protects commercial rates and profits from field view.' },
     ],
     competitorStrengths: [
       'Simple mobile app with Hindi and regional Indian language support',
@@ -340,9 +340,9 @@ export const COMPETITORS: Record<string, CompetitorComparison> = {
     bestForTaskPilot: [
       'Growing contractors, builders, and developers who need real-time multi-site control from the office desk to the jobsite trench',
     ],
-    verdict: 'Powerplay is an entry-level mobile app. Task Pilot is a complete, enterprise-grade construction operating system connecting your site supervisors on mobile to executive leadership on desktop.',
+    verdict: 'Powerplay is an entry-level mobile app. SiteCommons is a complete, enterprise-grade construction operating system connecting your site supervisors on mobile to executive leadership on desktop.',
     faqs: [
-      { q: 'Can Task Pilot handle GST invoicing in India?', a: 'Yes. Task Pilot provides GST-compliant tax invoices with CGST/SGST/IGST breakdowns for all Indian plans, as well as international tax invoicing in USD, EUR, GBP, and AED.' },
+      { q: 'Can SiteCommons handle GST invoicing in India?', a: 'Yes. SiteCommons provides GST-compliant tax invoices with CGST/SGST/IGST breakdowns for all Indian plans, as well as international tax invoicing in USD, EUR, GBP, and AED.' },
     ],
   },
 };

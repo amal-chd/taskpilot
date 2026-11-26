@@ -19,19 +19,19 @@ const CATEGORIES = [
 
 export const BlogHubPage: React.FC = () => {
   useSeo({
-    title: 'Construction & Field Operations Resources, Guides & Best Practices | Task Pilot',
+    title: 'Construction & Field Operations Resources, Guides & Best Practices | SiteCommons',
     description: 'Expert guides on daily progress reporting (DPR), GPS geofenced attendance, BOQ cost control, pre-pour checklists, and construction project management.',
     path: '/blog',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Blog',
-      name: 'Task Pilot Construction Knowledge & Field Operations Hub',
+      name: 'SiteCommons Construction Knowledge & Field Operations Hub',
       description: 'Practical guides and engineering best practices for general contractors, builders, and project managers.',
-      url: 'https://taskpilot.thekada.in/resources',
+      url: 'https://sitecommons.thekada.in/resources',
       publisher: {
         '@type': 'Organization',
         name: 'Thekada Digital Ventures Pvt. Ltd.',
-        url: 'https://taskpilot.thekada.in',
+        url: 'https://sitecommons.thekada.in',
       },
     },
   });
@@ -189,7 +189,7 @@ export const BlogHubPage: React.FC = () => {
         <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Put these best practices to work on your sites</h2>
-            <p className="mt-2 text-ink-200 text-sm">Experience Task Pilot on your live projects. 14 days full trial, no credit card required.</p>
+            <p className="mt-2 text-ink-200 text-sm">Experience SiteCommons on your live projects. 14 days full trial, no credit card required.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link

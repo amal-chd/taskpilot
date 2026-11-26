@@ -1,3 +1,4 @@
+import { SITE_URL } from '../../lib/site';
 import React, { useState, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
@@ -38,7 +39,7 @@ const TOPICS: ManualTopic[] = [
     blocks: [
       {
         type: 'paragraph',
-        text: 'Task Pilot is the unified project management and field operations platform for construction and field teams. Your account can be provisioned by your company administrator, or teams can start a self-serve workspace at taskpilot.thekada.in.'
+        text: `SiteCommons is the unified project management and field operations platform for construction and field teams. Your account can be provisioned by your company administrator, or teams can start a self-serve workspace at ${SITE_URL}.`
       },
       {
         type: 'steps',
@@ -46,7 +47,7 @@ const TOPICS: ManualTopic[] = [
           '**Sign In**: Log in using your assigned corporate email and initial password provided by the administrator.',
           '**Grant Permissions**: On mobile, approve **Location** (necessary for site geofenced attendance) and **Notifications** (for task assignments and chat alerts).',
           '**Biometric Unlock**: On personal smartphones, enable Face ID or Fingerprint unlock in your Profile page for seamless 1-tap access without retyping passwords.',
-          '**Web Dashboard**: Access the full desktop management portal anytime at **https://taskpilot.thekada.in**.'
+          `**Web Dashboard**: Access the full desktop management portal anytime at **${SITE_URL}**.`
         ]
       },
       {
@@ -88,7 +89,7 @@ const TOPICS: ManualTopic[] = [
     blocks: [
       {
         type: 'paragraph',
-        text: 'Every task in Task Pilot follows a strict quality assurance workflow: **In Progress → Under Review → Done**.'
+        text: 'Every task in SiteCommons follows a strict quality assurance workflow: **In Progress → Under Review → Done**.'
       },
       {
         type: 'steps',
@@ -158,7 +159,7 @@ const TOPICS: ManualTopic[] = [
     blocks: [
       {
         type: 'paragraph',
-        text: 'Task Pilot features real-time messaging tailored specifically for distributed construction site teams.'
+        text: 'SiteCommons features real-time messaging tailored specifically for distributed construction site teams.'
       },
       {
         type: 'bullets',
@@ -431,7 +432,7 @@ export default function FieldManualPage() {
                 <img src="/logo.png" alt="" className="w-8 h-8 rounded-lg group-hover:scale-105 transition-transform" />
                 <div>
                   <span className="font-bold text-lg sm:text-xl tracking-wide text-white uppercase block leading-none">
-                    Task Pilot
+                    SiteCommons
                   </span>
                   <span className="text-[10px] text-amber-400 uppercase tracking-wider font-semibold">
                     Standard Operating Procedures
@@ -475,7 +476,7 @@ export default function FieldManualPage() {
                 Official Staff Operations Guide
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Task Pilot Field Manual
+                SiteCommons Field Manual
               </h1>
               <p className="text-blue-100/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
                 Complete operational guide for site engineers, project managers, foremen, and contractors. Master your daily attendance, tasks, chat, and field reports.
@@ -740,7 +741,7 @@ export default function FieldManualPage() {
           <HardHat className="w-8 h-8 text-amber-500 mx-auto" />
           <h3 className="text-base font-bold text-slate-800">Have questions not covered in the manual?</h3>
           <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
-            Reach out to your assigned Project Manager or Director directly on the Task Pilot portal.
+            Reach out to your assigned Project Manager or Director directly on the SiteCommons portal.
           </p>
           <div className="pt-2">
             <button
@@ -759,7 +760,7 @@ export default function FieldManualPage() {
         <footer className="bg-[#0f2143] py-10 border-t border-white/10 text-white/70 text-xs">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
             <div>
-              <p className="font-semibold text-white">Task Pilot</p>
+              <p className="font-semibold text-white">SiteCommons</p>
               <p className="text-blue-100/70 text-[11px] font-medium">A product by Thekada Digital Ventures Pvt. Ltd.</p>
               <p className="text-blue-100/50 text-[11px] mt-0.5">Field Operations Guide & Standard Operating Procedures</p>
             </div>

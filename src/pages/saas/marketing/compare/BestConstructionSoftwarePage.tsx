@@ -11,7 +11,7 @@ import { trackCtaClick } from '../../../../lib/analytics';
 export const BestConstructionSoftwarePage: React.FC = () => {
   useSeo({
     title: 'Best Construction Management Software in 2026: Definitive Buyer’s Guide',
-    description: 'Comprehensive 2026 guide evaluating the best construction software: Procore, Fieldwire, Task Pilot, Buildertrend, and Monday. Features, pricing models, and recommendations.',
+    description: 'Comprehensive 2026 guide evaluating the best construction software: Procore, Fieldwire, SiteCommons, Buildertrend, and Monday. Features, pricing models, and recommendations.',
     path: '/compare/best-construction-management-software',
     jsonLd: [
       {
@@ -28,9 +28,9 @@ export const BestConstructionSoftwarePage: React.FC = () => {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://taskpilot.thekada.in/' },
-          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://taskpilot.thekada.in/compare' },
-          { '@type': 'ListItem', position: 3, name: 'Best Construction Management Software', item: 'https://taskpilot.thekada.in/compare/best-construction-management-software' },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://sitecommons.thekada.in/' },
+          { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://sitecommons.thekada.in/compare' },
+          { '@type': 'ListItem', position: 3, name: 'Best Construction Management Software', item: 'https://sitecommons.thekada.in/compare/best-construction-management-software' },
         ],
       },
     ],
@@ -38,7 +38,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
 
   const tools = [
     {
-      name: 'Task Pilot',
+      name: 'SiteCommons',
       category: 'Best for SMB & Mid-Market Contractors',
       summary: 'A complete office-to-field operating system with location-verified GPS attendance, daily DPRs, BOQ cost control, and flat team pricing.',
       pricing: 'Starts at $19/mo (₹1,499/mo) flat for up to 10 users; $49/mo (₹3,999/mo) for 30 users. No per-seat fee.',
@@ -59,7 +59,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
       limitations: ['Extremely expensive for SMB builders', 'Requires 3 to 6 months of IT consulting to deploy', 'No public pricing list'],
       idealFor: 'Enterprise general contractors with >$50M in annual construction volume.',
       highlight: false,
-      link: '/compare/taskpilot-vs-procore',
+      link: '/compare/sitecommons-vs-procore',
     },
     {
       name: 'Fieldwire',
@@ -71,7 +71,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
       limitations: ['Steep per-user pricing model', 'No GPS attendance or time tracking', 'No BOQ or financial management'],
       idealFor: 'Electrical and mechanical subcontractors looking strictly for plan viewing.',
       highlight: false,
-      link: '/compare/taskpilot-vs-fieldwire',
+      link: '/compare/sitecommons-vs-fieldwire',
     },
     {
       name: 'Monday.com',
@@ -83,7 +83,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
       limitations: ['Requires weeks of manual setup', 'No native construction features (GPS, DPR, BOQ)', 'Awkward on mobile in sunlight'],
       idealFor: 'Office operations and marketing teams who want generic customizable boards.',
       highlight: false,
-      link: '/compare/taskpilot-vs-monday',
+      link: '/compare/sitecommons-vs-monday',
     },
   ];
 
@@ -183,7 +183,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
                       : 'border border-ink-200 text-ink-800 hover:bg-ink-50'
                   }`}
                 >
-                  {t.highlight ? 'Try Task Pilot Free (14 Days)' : `Read Task Pilot vs ${t.name}`} <ArrowRight className="w-4 h-4" />
+                  {t.highlight ? 'Try SiteCommons Free (14 Days)' : `Read SiteCommons vs ${t.name}`} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -223,7 +223,7 @@ export const BestConstructionSoftwarePage: React.FC = () => {
         <div className="rounded-3xl bg-ink-900 text-white p-7 sm:p-10 lg:p-14 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xl">
           <div>
             <h2 className="text-3xl font-bold tracking-tight">Test the #1 rated value platform today</h2>
-            <p className="mt-2 text-ink-200 text-sm">Experience Task Pilot on your live job sites. 14 days free, no credit card required.</p>
+            <p className="mt-2 text-ink-200 text-sm">Experience SiteCommons on your live job sites. 14 days free, no credit card required.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link

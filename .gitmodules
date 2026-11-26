@@ -1,0 +1,4 @@
+[submodule "mobile_app"]
+	path = mobile_app
+	url = https://github.com/amal-chd/taskpilot.git
+	branch = sitecommons-mobile

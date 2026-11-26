@@ -5,8 +5,8 @@ import { useSeo } from '../../lib/seo';
 
 export default function TermsOfUsePage() {
   useSeo({
-    title: 'Terms of Use — Task Pilot',
-    description: 'Terms of Use and Subscription Agreement for Task Pilot construction management platform.',
+    title: 'Terms of Use — SiteCommons',
+    description: 'Terms of Use and Subscription Agreement for SiteCommons construction management platform.',
     path: '/terms',
   });
 
@@ -35,7 +35,7 @@ export default function TermsOfUsePage() {
           {/* Intro Notice */}
           <section className="p-6 rounded-2xl bg-slate-50 border border-slate-200 text-slate-800">
             <p className="text-xs sm:text-sm leading-relaxed">
-              Welcome to <strong>Task Pilot</strong>, a software product developed, owned, and operated by <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Company," "we," "us," or "our").
+              Welcome to <strong>SiteCommons</strong>, a software product developed, owned, and operated by <strong>Thekada Digital Ventures Pvt. Ltd.</strong> ("Company," "we," "us," or "our").
               These Terms of Use ("Terms") govern your access to and use of our web portal, mobile applications (Android and iOS),
               and related cloud services (collectively, the "Services"). By registering a workspace, starting a trial, or using the Services,
               you agree to be bound by these Terms on behalf of your organization.
@@ -72,7 +72,7 @@ export default function TermsOfUsePage() {
                 <strong>Your Data Remains Yours:</strong> Your organization retains 100% ownership, title, and all intellectual property rights to all drawings, Bill of Quantities (BOQ), rate cards, photos, task histories, and personal records entered into your workspace.
               </p>
               <p>
-                <strong>Platform IP:</strong> Thekada Digital Ventures Pvt. Ltd. retains all rights, title, and interest in the Task Pilot software, application code, mobile apps, user interfaces, documentation, logos, and trademarks.
+                <strong>Platform IP:</strong> Thekada Digital Ventures Pvt. Ltd. retains all rights, title, and interest in the SiteCommons software, application code, mobile apps, user interfaces, documentation, logos, and trademarks.
               </p>
             </div>
           </section>
@@ -89,7 +89,7 @@ export default function TermsOfUsePage() {
             <ul className="list-disc ml-6 space-y-1.5 text-xs sm:text-sm text-slate-600">
               <li>You are responsible for maintaining the confidentiality of user login credentials.</li>
               <li>You agree to promptly revoke access for any departed employee or contractor.</li>
-              <li>Task Pilot assigns permissions based strictly on the role configured by your workspace administrators.</li>
+              <li>SiteCommons assigns permissions based strictly on the role configured by your workspace administrators.</li>
             </ul>
           </section>
 
@@ -130,11 +130,11 @@ export default function TermsOfUsePage() {
               Limitation of Liability
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              TO THE MAXIMUM EXTENT PERMITTED BY LAW, THEKADA DIGITAL VENTURES PVT. LTD. (DEVELOPER AND OPERATOR OF TASK PILOT) SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, THEKADA DIGITAL VENTURES PVT. LTD. (DEVELOPER AND OPERATOR OF SITECOMMONS) SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
               CONSEQUENTIAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, PROJECT DELAYS,
               WORK STOPPAGES, OR LOSS OF BUSINESS DATA ARISING OUT OF OR IN CONNECTION WITH THE USE OF OUR SERVICES.
               OUR TOTAL AGGREGATE LIABILITY UNDER THESE TERMS SHALL NOT EXCEED THE TOTAL FEES PAID BY YOUR ORGANIZATION
-              FOR TASK PILOT SERVICES DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
+              FOR SITECOMMONS SERVICES DURING THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
             </p>
           </section>
 
@@ -171,7 +171,7 @@ export default function TermsOfUsePage() {
             </p>
             <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 text-xs sm:text-sm space-y-1.5">
               <p><strong className="text-slate-900">Thekada Digital Ventures Pvt. Ltd.</strong></p>
-              <p className="text-slate-600 font-medium">Task Pilot Legal & Corporate Compliance</p>
+              <p className="text-slate-600 font-medium">SiteCommons Legal & Corporate Compliance</p>
               <p>Email:{' '}
                 <a href="mailto:info@thekada.in" className="text-amber-700 font-semibold hover:underline">
                   info@thekada.in
